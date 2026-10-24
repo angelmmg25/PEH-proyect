@@ -1,0 +1,1262 @@
+<!doctype html>
+
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        >
+        <meta
+            name="description"
+            content="Participa en la comunidad de PEH, comparte información, consejos, preguntas y ayuda a difundir animales que buscan un hogar."
+        >
+        <title>
+            Comunidad | PEH
+        </title>
+
+        <!-- =====================================================
+        GOOGLE FONTS
+        ====================================================== -->
+
+        <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+        >
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin
+        >
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+            rel="stylesheet"
+        >
+
+        <!-- =====================================================
+        ESTILOS
+        ====================================================== -->
+
+        <link
+            rel="stylesheet"
+            href="../css/style.css"
+        >
+        <link
+            rel="stylesheet"
+            href="../css/comunidad.css"
+        >
+        <link
+            rel="stylesheet"
+            href="../css/navegacion.css"
+        >
+    </head>
+    <body class="pagina-comunidad">
+
+        <!-- =====================================================
+        CABECERA
+        ====================================================== -->
+
+        <header class="cabecera-global">
+
+            <div class="contenedor cabecera-contenido">
+                <a
+                    class="marca marca-principal"
+                    href="principal.html"
+                    aria-label="Ir al inicio de PEH"
+                >
+                    <span class="simbolo-marca">
+                        PEH
+                    </span>
+                    <span class="nombre-marca">
+                        Patitas Esperando
+                        <span>
+                            un Hogar
+                        </span>
+                    </span>
+                </a>
+                <nav
+                    id="navegacionGlobal"
+                    class="navegacion-principal"
+                    aria-label="Navegación principal"
+                >
+
+                    <a
+                        class="enlace-navegacion"
+                        href="principal.html"
+                    >
+                        Inicio
+                    </a>
+                    <a
+                        class="enlace-navegacion"
+                        href="principal.html#animales"
+                    >
+                        Animales
+                    </a>
+                    <a
+                        class="enlace-navegacion activo"
+                        href="comunidad.html"
+                        aria-current="page"
+                    >
+                        Comunidad
+                    </a>
+                    <a
+                        class="enlace-navegacion"
+                        href="veterinaria.html"
+                    >
+                        Veterinaria
+                    </a>
+                    <a
+                        class="enlace-navegacion"
+                        href="perfil.html"
+                    >
+                        Perfil
+                    </a>
+                    <a
+                        class="enlace-navegacion"
+                        href="contacto.html"
+                    >
+                        Contacto
+                    </a>
+                </nav>
+
+                <button
+                    class="boton-menu"
+                    id="botonMenu"
+                    type="button"
+                    aria-label="Abrir menú"
+                    aria-controls="navegacionGlobal"
+                    aria-expanded="false"
+                >
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                </button>
+            </div>
+
+        </header>
+
+        <main>
+
+
+            <!-- =================================================
+            HERO
+            ================================================== -->
+
+            <section class="hero-comunidad">
+
+                <div class="contenedor">
+                    <div class="hero-comunidad-contenido">
+                        <div class="hero-comunidad-texto">
+                            <span class="sobre-titulo">
+                                Comunidad
+                            </span>
+                            <h1>
+                                Un espacio
+                                <span>
+                                    para las patitas
+                                </span>
+                            </h1>
+                            <h2>
+                                Historias, consejos y personas con el mismo propósito.
+                            </h2>
+                            <p>
+                                Comparte experiencias, resuelve dudas o ayuda difundiendo a patitas que aún esperan encontrar un hogar.
+                            </p>
+                            <p class="hero-frase">
+                                Juntos podemos hacer la diferencia. 🐾
+                            </p>
+                        </div>
+
+                        <div
+                            class="hero-comunidad-visual"
+                            aria-hidden="true"
+                        >
+                            <div class="mascotas-comunidad">
+                                <span class="mascota-perro">
+                                    🐶
+                                </span>
+                                <span class="mascota-gato">
+                                    🐱
+                                </span>
+                            </div>
+
+                            <p>
+                                Una comunidad
+                                <span>
+                                    que también cuida.
+                                </span>
+                                🧡
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+            FILTROS
+            ================================================== -->
+
+            <section class="seccion-filtros-comunidad">
+
+                <div class="contenedor">
+                    <div class="barra-comunidad">
+                        <div
+                            class="filtros-publicaciones"
+                            id="filtrosPublicaciones"
+                        >
+                            <button
+                                class="filtro-publicacion activo"
+                                type="button"
+                                data-filtro="todas"
+                            >
+                                <span aria-hidden="true">
+                                    ⌂
+                                </span>
+                                <span>
+                                    Todas
+                                    <small>
+                                        las publicaciones
+                                    </small>
+                                </span>
+                            </button>
+                            <button
+                                class="filtro-publicacion"
+                                type="button"
+                                data-filtro="adopcion"
+                            >
+                                <span aria-hidden="true">
+                                    ♥
+                                </span>
+                                <span>
+                                    Historias
+                                    <small>
+                                        de adopción
+                                    </small>
+                                </span>
+                            </button>
+                            <button
+                                class="filtro-publicacion"
+                                type="button"
+                                data-filtro="consejos"
+                            >
+                                <span aria-hidden="true">
+                                    💡
+                                </span>
+                                <span>
+                                    Consejos
+                                    <small>
+                                        y cuidados
+                                    </small>
+                                </span>
+                            </button>
+                            <button
+                                class="filtro-publicacion"
+                                type="button"
+                                data-filtro="preguntas"
+                            >
+                                <span aria-hidden="true">
+                                    ●●●
+                                </span>
+                                <span>
+                                    Preguntas
+                                    <small>
+                                        de la comunidad
+                                    </small>
+                                </span>
+                            </button>
+                            <button
+                                class="filtro-publicacion"
+                                type="button"
+                                data-filtro="difusion"
+                            >
+                                <span aria-hidden="true">
+                                    📣
+                                </span>
+                                <span>
+                                    Ayuda
+                                    <small>
+                                        y difusión
+                                    </small>
+                                </span>
+                            </button>
+                            <button
+                                class="filtro-publicacion"
+                                type="button"
+                                data-filtro="perdidos"
+                            >
+                                <span aria-hidden="true">
+                                    ⌕
+                                </span>
+                                <span>
+                                    Animales perdidos
+                                </span>
+                            </button>
+                            <button
+                                class="filtro-publicacion"
+                                type="button"
+                                data-filtro="encontrados"
+                            >
+                                <span aria-hidden="true">
+                                    🐾
+                                </span>
+                                <span>
+                                    Animales encontrados
+                                </span>
+                            </button>
+                            <button
+                                class="filtro-publicacion"
+                                type="button"
+                                data-filtro="jornadas"
+                            >
+                                <span aria-hidden="true">
+                                    📅
+                                </span>
+                                <span>
+                                    Jornadas y actividades
+                                </span>
+                            </button>
+                        </div>
+
+
+                        <!-- Buscador -->
+
+                        <div class="buscador-comunidad">
+                            <span aria-hidden="true">
+                                ⌕
+                            </span>
+                            <input
+                                id="buscarPublicaciones"
+                                type="search"
+                                placeholder="Buscar publicaciones..."
+                                aria-label="Buscar publicaciones"
+                                autocomplete="off"
+                            >
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+            CONTENIDO PRINCIPAL
+            ================================================== -->
+
+            <section class="seccion-comunidad">
+
+                <div class="contenedor">
+                    <div class="comunidad-grid">
+
+                        <!-- =====================================
+                        COLUMNA DE PUBLICACIONES
+                        ====================================== -->
+
+                        <div class="columna-publicaciones">
+
+                            <!-- =================================
+                            CREAR PUBLICACIÓN
+                            ================================== -->
+
+                            <article
+                                class="crear-publicacion"
+                                id="crearPublicacion"
+                            >
+                                <div class="crear-publicacion-cabecera">
+                                    <div
+                                        class="avatar-usuario"
+                                        aria-hidden="true"
+                                    >
+                                        👤
+                                    </div>
+
+                                    <div>
+                                        <h2>
+                                            Crear una publicación
+                                        </h2>
+                                        <p>
+                                            Comparte información que pueda ayudar a la comunidad.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <form
+                                    id="formularioPublicacion"
+                                    class="formulario-publicacion"
+                                >
+                                    <textarea
+                                        id="contenidoPublicacion"
+                                        name="contenido"
+                                        rows="3"
+                                        maxlength="500"
+                                        placeholder="Comparte una historia, haz una pregunta o ayuda a difundir una patita..."
+                                        required
+                                    >
+                                    </textarea>
+
+                                    <!-- Vista previa -->
+
+                                    <div
+                                        class="vista-previa-publicacion"
+                                        id="vistaPreviaPublicacion"
+                                        hidden
+                                    >
+                                        <img
+                                            id="imagenPreviaPublicacion"
+                                            src=""
+                                            alt="Vista previa de la imagen seleccionada"
+                                        >
+                                        <button
+                                            id="quitarImagenPublicacion"
+                                            type="button"
+                                            aria-label="Quitar imagen"
+                                        >
+                                            ×
+                                        </button>
+                                    </div>
+
+                                    <div class="crear-publicacion-opciones">
+
+                                        <!-- Foto -->
+
+                                        <label
+                                            class="opcion-publicacion"
+                                            for="imagenPublicacion"
+                                        >
+                                            <span aria-hidden="true">
+                                                ▣
+                                            </span>
+                                            Foto
+                                        </label>
+                                        <input
+                                            id="imagenPublicacion"
+                                            type="file"
+                                            accept="image/*"
+                                            hidden
+                                        >
+
+                                        <!-- Categoría -->
+
+                                        <label class="opcion-publicacion">
+                                            <span aria-hidden="true">
+                                                ◇
+                                            </span>
+                                            <select
+                                                id="categoriaPublicacion"
+                                                name="categoria"
+                                                aria-label="Categoría de la publicación"
+                                                required
+                                            >
+                                                <option value="">
+                                                    Etiquetar categoría
+                                                </option>
+                                                <option value="adopcion">
+                                                    Historia de adopción
+                                                </option>
+                                                <option value="consejos">
+                                                    Consejos y cuidados
+                                                </option>
+                                                <option value="preguntas">
+                                                    Pregunta a la comunidad
+                                                </option>
+                                                <option value="perdidos">
+                                                    Animales perdidos
+                                                </option>
+                                                <option value="encontrados">
+                                                    Animales encontrados
+                                                </option>
+                                                <option value="jornadas">
+                                                    Jornadas y actividades
+                                                </option>
+                                                <option value="difusion">
+                                                    Ayuda y difusión
+                                                </option>
+                                            </select>
+                                        </label>
+
+                                        <!-- Ubicación -->
+
+                                        <label class="opcion-publicacion">
+                                            <span aria-hidden="true">
+                                                ●
+                                            </span>
+                                            <input
+                                                id="ubicacionPublicacion"
+                                                type="text"
+                                                maxlength="50"
+                                                placeholder="Ubicación (opcional)"
+                                            >
+                                        </label>
+
+                                        <!-- Publicar -->
+
+                                        <button
+                                            class="boton-publicar"
+                                            type="submit"
+                                        >
+                                            <span aria-hidden="true">
+                                                ➤
+                                            </span>
+                                            Publicar
+                                        </button>
+                                    </div>
+
+                                    <div
+                                        class="mensaje-publicacion"
+                                        id="mensajePublicacion"
+                                        role="status"
+                                        aria-live="polite"
+                                        hidden
+                                    >
+                                    </div>
+
+                                </form>
+                            </article>
+
+
+                            <!-- =================================
+                            PUBLICACIONES
+                            ================================== -->
+
+                            <div
+                                class="lista-publicaciones"
+                                id="listaPublicaciones"
+                            >
+
+                                <!-- =============================
+                                PUBLICACIÓN 1
+                                ============================== -->
+
+                                <article
+                                    class="publicacion"
+                                    data-categoria="adopcion"
+                                    data-texto="luna adopcion gata historia familia"
+                                >
+                                    <header class="publicacion-cabecera">
+
+                                        <div
+                                            class="avatar-publicacion"
+                                            aria-hidden="true"
+                                        >
+                                            👩
+                                        </div>
+
+                                        <div class="datos-publicacion">
+                                            <strong>
+                                                Sofía Ramírez
+                                            </strong>
+                                            <div class="publicacion-meta">
+                                                <span>
+                                                    hace 2 horas
+                                                </span>
+                                                <span>
+                                                    •
+                                                </span>
+                                                <span class="etiqueta-publicacion etiqueta-adopcion">
+                                                    Historia de adopción
+                                                </span>
+                                            </div>
+
+                                        </div>
+
+                                        <button
+                                            class="boton-opciones-publicacion"
+                                            type="button"
+                                            aria-label="Opciones de publicación"
+                                        >
+                                            •••
+                                        </button>
+                                    </header>
+
+                                    <div class="publicacion-contenido">
+                                        <p>
+                                            Hoy quiero compartirles que Luna ya lleva 2 meses con nosotros. 🧡 Cuando la adoptamos era muy tímida, pero ahora no se despega de nosotros. ¡Gracias PEH por ayudarnos a encontrarla! 🐾
+                                        </p>
+                                        <div class="imagenes-publicacion">
+                                            <div class="imagen-placeholder">
+                                                🐱
+                                            </div>
+
+                                            <div class="imagen-placeholder">
+                                                😺
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- Acciones -->
+
+                                    <footer class="publicacion-acciones">
+
+                                        <button
+                                            class="accion-publicacion boton-compartir"
+                                            type="button"
+                                        >
+                                            <span aria-hidden="true">
+                                                ↗
+                                            </span>
+                                            <span>
+                                                Compartir
+                                            </span>
+                                        </button>
+                                        <button
+                                            class="accion-publicacion boton-comentarios"
+                                            type="button"
+                                            aria-expanded="false"
+                                        >
+                                            <span aria-hidden="true">
+                                                ◯
+                                            </span>
+                                            <span>
+                                                Comentar
+                                            </span>
+                                        </button>
+                                    </footer>
+
+
+                                    <!-- Comentarios -->
+
+                                    <div
+                                        class="seccion-comentarios"
+                                        hidden
+                                    >
+                                        <div class="comentarios-lista">
+                                            <p>
+                                                <strong>
+                                                    Valentina:
+                                                </strong>
+                                                ¡Qué hermosa Luna! Me alegra mucho que haya encontrado familia. 🧡
+                                            </p>
+                                        </div>
+
+                                        <form class="formulario-comentario">
+                                            <input
+                                                type="text"
+                                                maxlength="200"
+                                                placeholder="Escribe un comentario..."
+                                                required
+                                            >
+                                            <button
+                                                type="submit"
+                                                aria-label="Enviar comentario"
+                                            >
+                                                ➤
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                </article>
+
+
+                                <!-- =============================
+                                PUBLICACIÓN 2
+                                ============================== -->
+
+                                <article
+                                    class="publicacion"
+                                    data-categoria="consejos"
+                                    data-texto="gato nuevo hogar consejos preparar adaptacion"
+                                >
+                                    <header class="publicacion-cabecera">
+
+                                        <div
+                                            class="avatar-publicacion"
+                                            aria-hidden="true"
+                                        >
+                                            👨
+                                        </div>
+
+                                        <div class="datos-publicacion">
+                                            <strong>
+                                                Matías León
+                                            </strong>
+                                            <div class="publicacion-meta">
+                                                <span>
+                                                    hace 5 horas
+                                                </span>
+                                                <span>
+                                                    •
+                                                </span>
+                                                <span class="etiqueta-publicacion etiqueta-consejos">
+                                                    Consejos y cuidados
+                                                </span>
+                                            </div>
+
+                                        </div>
+
+                                        <button
+                                            class="boton-opciones-publicacion"
+                                            type="button"
+                                            aria-label="Opciones de publicación"
+                                        >
+                                            •••
+                                        </button>
+                                    </header>
+
+                                    <div class="publicacion-contenido">
+                                        <h3>
+                                            ¿Cómo preparar el hogar para un nuevo gato?
+                                        </h3>
+                                        <p>
+                                            Hola a todos. Estoy pensando en adoptar un gatito y me gustaría saber qué cosas son esenciales para que se sienta cómodo desde el primer día.
+                                        </p>
+                                        <p>
+                                            ¡Cualquier consejo es bienvenido! 🐱
+                                        </p>
+                                    </div>
+
+                                    <footer class="publicacion-acciones">
+
+                                        <button
+                                            class="accion-publicacion boton-compartir"
+                                            type="button"
+                                        >
+                                            <span aria-hidden="true">
+                                                ↗
+                                            </span>
+                                            <span>
+                                                Compartir
+                                            </span>
+                                        </button>
+                                        <button
+                                            class="accion-publicacion boton-comentarios"
+                                            type="button"
+                                            aria-expanded="false"
+                                        >
+                                            <span aria-hidden="true">
+                                                ◯
+                                            </span>
+                                            <span>
+                                                Comentar
+                                            </span>
+                                        </button>
+                                    </footer>
+
+                                    <div
+                                        class="seccion-comentarios"
+                                        hidden
+                                    >
+                                        <div class="comentarios-lista">
+                                            <p>
+                                                <strong>
+                                                    Daniela:
+                                                </strong>
+                                                Dale un espacio tranquilo durante los primeros días y deja que explore a su ritmo.
+                                            </p>
+                                        </div>
+
+                                        <form class="formulario-comentario">
+                                            <input
+                                                type="text"
+                                                maxlength="200"
+                                                placeholder="Escribe un comentario..."
+                                                required
+                                            >
+                                            <button
+                                                type="submit"
+                                                aria-label="Enviar comentario"
+                                            >
+                                                ➤
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                </article>
+
+
+                                <!-- =============================
+                                PUBLICACIÓN 3
+                                ============================== -->
+
+                                <article
+                                    class="publicacion"
+                                    data-categoria="difusion"
+                                    data-texto="max perro busca hogar adopcion difusion familia"
+                                >
+                                    <header class="publicacion-cabecera">
+
+                                        <div
+                                            class="avatar-publicacion"
+                                            aria-hidden="true"
+                                        >
+                                            👩
+                                        </div>
+
+                                        <div class="datos-publicacion">
+                                            <strong>
+                                                Camila Torres
+                                            </strong>
+                                            <div class="publicacion-meta">
+                                                <span>
+                                                    hace 1 día
+                                                </span>
+                                                <span>
+                                                    •
+                                                </span>
+                                                <span class="etiqueta-publicacion etiqueta-difusion">
+                                                    Ayuda y difusión
+                                                </span>
+                                            </div>
+
+                                        </div>
+
+                                        <button
+                                            class="boton-opciones-publicacion"
+                                            type="button"
+                                            aria-label="Opciones de publicación"
+                                        >
+                                            •••
+                                        </button>
+                                    </header>
+
+                                    <div class="publicacion-contenido">
+                                        <h3>
+                                            Max busca un hogar
+                                        </h3>
+                                        <p>
+                                            Este perrito fue encontrado cerca de mi casa. Es muy cariñoso y está en busca de una familia responsable. Si alguien está interesado o puede compartir esta publicación, ¡se los agradecería mucho! 🧡
+                                        </p>
+                                        <div class="imagenes-publicacion">
+                                            <div class="imagen-placeholder">
+                                                🐶
+                                            </div>
+
+                                            <div class="imagen-placeholder">
+                                                🐕
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <footer class="publicacion-acciones">
+
+                                        <button
+                                            class="accion-publicacion boton-compartir"
+                                            type="button"
+                                        >
+                                            <span aria-hidden="true">
+                                                ↗
+                                            </span>
+                                            <span>
+                                                Compartir
+                                            </span>
+                                        </button>
+                                        <button
+                                            class="accion-publicacion boton-comentarios"
+                                            type="button"
+                                            aria-expanded="false"
+                                        >
+                                            <span aria-hidden="true">
+                                                ◯
+                                            </span>
+                                            <span>
+                                                Comentar
+                                            </span>
+                                        </button>
+                                    </footer>
+
+                                    <div
+                                        class="seccion-comentarios"
+                                        hidden
+                                    >
+                                        <div class="comentarios-lista">
+                                            <p>
+                                                <strong>
+                                                    Francisca:
+                                                </strong>
+                                                Compartido. Ojalá Max encuentre una familia pronto. 🐾
+                                            </p>
+                                        </div>
+
+                                        <form class="formulario-comentario">
+                                            <input
+                                                type="text"
+                                                maxlength="200"
+                                                placeholder="Escribe un comentario..."
+                                                required
+                                            >
+                                            <button
+                                                type="submit"
+                                                aria-label="Enviar comentario"
+                                            >
+                                                ➤
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                </article>
+
+
+                                <!-- =============================
+                                PUBLICACIÓN 4
+                                ============================== -->
+
+                                <article
+                                    class="publicacion"
+                                    data-categoria="preguntas"
+                                    data-texto="perro rescatado desconfiado miedo adaptacion pregunta"
+                                >
+                                    <header class="publicacion-cabecera">
+
+                                        <div
+                                            class="avatar-publicacion"
+                                            aria-hidden="true"
+                                        >
+                                            👨
+                                        </div>
+
+                                        <div class="datos-publicacion">
+                                            <strong>
+                                                Javier Morales
+                                            </strong>
+                                            <div class="publicacion-meta">
+                                                <span>
+                                                    hace 2 días
+                                                </span>
+                                                <span>
+                                                    •
+                                                </span>
+                                                <span class="etiqueta-publicacion etiqueta-preguntas">
+                                                    Preguntas de la comunidad
+                                                </span>
+                                            </div>
+
+                                        </div>
+
+                                        <button
+                                            class="boton-opciones-publicacion"
+                                            type="button"
+                                            aria-label="Opciones de publicación"
+                                        >
+                                            •••
+                                        </button>
+                                    </header>
+
+                                    <div class="publicacion-contenido">
+                                        <h3>
+                                            ¿Es normal que un perro rescatado sea desconfiado al inicio?
+                                        </h3>
+                                        <p>
+                                            Adoptamos hace poco y aún le cuesta acercarse a nosotros. Queremos darle su tiempo, pero nos gustaría saber si este comportamiento es habitual y qué podemos hacer para ayudarlo. ¡Gracias! 😊
+                                        </p>
+                                    </div>
+
+                                    <footer class="publicacion-acciones">
+
+                                        <button
+                                            class="accion-publicacion boton-compartir"
+                                            type="button"
+                                        >
+                                            <span aria-hidden="true">
+                                                ↗
+                                            </span>
+                                            <span>
+                                                Compartir
+                                            </span>
+                                        </button>
+                                        <button
+                                            class="accion-publicacion boton-comentarios"
+                                            type="button"
+                                            aria-expanded="false"
+                                        >
+                                            <span aria-hidden="true">
+                                                ◯
+                                            </span>
+                                            <span>
+                                                Comentar
+                                            </span>
+                                        </button>
+                                    </footer>
+
+                                    <div
+                                        class="seccion-comentarios"
+                                        hidden
+                                    >
+                                        <div class="comentarios-lista">
+                                            <p>
+                                                <strong>
+                                                    Paula:
+                                                </strong>
+                                                Sí, algunos necesitan bastante tiempo para sentirse seguros. Mucha paciencia. 🧡
+                                            </p>
+                                        </div>
+
+                                        <form class="formulario-comentario">
+                                            <input
+                                                type="text"
+                                                maxlength="200"
+                                                placeholder="Escribe un comentario..."
+                                                required
+                                            >
+                                            <button
+                                                type="submit"
+                                                aria-label="Enviar comentario"
+                                            >
+                                                ➤
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                </article>
+
+                            </div>
+
+
+                            <!-- =================================
+                            SIN RESULTADOS
+                            ================================== -->
+
+                            <div
+                                class="sin-publicaciones"
+                                id="sinPublicaciones"
+                                hidden
+                            >
+                                <span aria-hidden="true">
+                                    🐾
+                                </span>
+                                <h3>
+                                    No encontramos publicaciones
+                                </h3>
+                                <p>
+                                    Prueba con otra búsqueda o categoría.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- =====================================
+                        BARRA LATERAL
+                        ====================================== -->
+
+                        <aside class="barra-lateral-comunidad">
+
+
+                            <!-- =================================
+                            PARTICIPA
+                            ================================== -->
+
+
+                            <!-- =================================
+                            TEMAS DE LA COMUNIDAD
+                            ================================== -->
+
+                            <section class="tarjeta-comunidad">
+
+                                <div class="titulo-tarjeta-lateral">
+                                    <h2>
+                                        💬 Temas de la comunidad
+                                    </h2>
+                                </div>
+
+                                <div class="lista-temas">
+                                    <button
+                                        class="tema-comunidad"
+                                        type="button"
+                                        data-busqueda="primeros días en casa"
+                                    >
+                                        <span class="icono-tema">
+                                            🏠
+                                        </span>
+                                        <span>
+                                            <strong>
+                                                Primeros días en casa
+                                            </strong>
+                                            <small>
+                                                Adaptación y bienvenida
+                                            </small>
+                                        </span>
+                                    </button>
+                                    <button
+                                        class="tema-comunidad"
+                                        type="button"
+                                        data-busqueda="alimentación"
+                                    >
+                                        <span class="icono-tema">
+                                            🍽
+                                        </span>
+                                        <span>
+                                            <strong>
+                                                Consejos de alimentación
+                                            </strong>
+                                            <small>
+                                                Cuidados cotidianos
+                                            </small>
+                                        </span>
+                                    </button>
+                                    <button
+                                        class="tema-comunidad"
+                                        type="button"
+                                        data-categoria="adopcion"
+                                    >
+                                        <span class="icono-tema">
+                                            🧡
+                                        </span>
+                                        <span>
+                                            <strong>
+                                                Historias de adopción
+                                            </strong>
+                                            <small>
+                                                Experiencias de familias
+                                            </small>
+                                        </span>
+                                    </button>
+                                    <button
+                                        class="tema-comunidad"
+                                        type="button"
+                                        data-busqueda="gato"
+                                    >
+                                        <span class="icono-tema">
+                                            🐱
+                                        </span>
+                                        <span>
+                                            <strong>
+                                                Adaptación de gatos
+                                            </strong>
+                                            <small>
+                                                Experiencias y consejos
+                                            </small>
+                                        </span>
+                                    </button>
+                                    <button
+                                        class="tema-comunidad"
+                                        type="button"
+                                        data-categoria="difusion"
+                                    >
+                                        <span class="icono-tema">
+                                            📣
+                                        </span>
+                                        <span>
+                                            <strong>
+                                                Difusión de patitas
+                                            </strong>
+                                            <small>
+                                                Ayuda a encontrar hogares
+                                            </small>
+                                        </span>
+                                    </button>
+                                </div>
+
+                            </section>
+
+
+                            <!-- =================================
+                            PATITAS QUE NECESITAN VISIBILIDAD
+                            ================================== -->
+
+                            <section class="tarjeta-comunidad">
+
+                                <div class="titulo-tarjeta-lateral">
+                                    <h2>
+                                        🐾 Buscan un hogar
+                                    </h2>
+                                    <a
+                                        href="principal.html#animales"
+                                        class="boton-texto"
+                                    >
+                                        Ver todos
+                                    </a>
+                                </div>
+
+                                <p class="descripcion-patitas">
+                                    Algunas patitas que actualmente esperan encontrar una familia.
+                                </p>
+                                <div
+                                    class="patitas-destacadas"
+                                    id="patitasDestacadas"
+                                    aria-label="Animales que llevan más tiempo esperando"
+                                >
+                                </div>
+
+                            </section>
+
+
+                            <!-- =================================
+                            MENSAJE
+                            ================================== -->
+
+                            <section class="tarjeta-comunidad tarjeta-orientacion">
+
+                                <h2>
+                                    ¿Necesitas orientación?
+                                </h2>
+                                <p>
+                                    Comparte, participa y ayuda a construir una comunidad consciente y comprometida con los animales.
+                                </p>
+                                <a
+                                    class="enlace-orientacion"
+                                    href="contacto.html"
+                                >
+                                    Contáctanos →
+                                </a>
+                            </section>
+
+                        </aside>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- =====================================================
+        FOOTER
+        ====================================================== -->
+
+        <footer class="pie-pagina">
+
+            <div class="contenedor pie-contenido">
+                <div class="marca-pie">
+                    <strong>
+                        🐾 PEH
+                    </strong>
+                    <span>
+                        Patitas Esperando un Hogar
+                    </span>
+                </div>
+
+                <p class="frase-pie">
+                    Más que una plataforma,
+                    <span>
+                        una comunidad. 🧡
+                    </span>
+                </p>
+                <div
+                    class="mascotas-pie"
+                    aria-hidden="true"
+                >
+                    ♡ 🐕 🐈
+                </div>
+
+            </div>
+
+        </footer>
+
+
+        <!-- =====================================================
+        JAVASCRIPT
+        ====================================================== -->
+
+        <script src="../js/app.js">
+        </script>
+        <script src="../js/animales.js">
+        </script>
+        <script src="../js/comunidad.js">
+        </script>
+    </body>
+</html>

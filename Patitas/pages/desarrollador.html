@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panel administrativo de PEH: animales, cuentas, comentarios, solicitudes de adopción, reservas veterinarias y consultas.">
+    <title>Administración | PEH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/navegacion.css">
+    <!-- El diseño específico del panel se entrega en el siguiente paso. -->
+    <link rel="stylesheet" href="../css/desarrollador.css">
+</head>
+<body class="pagina-desarrollador">
+    <a class="saltar-contenido" href="#contenidoAdministracion">Ir al contenido</a>
+
+    <header class="cabecera-global">
+        <div class="contenedor cabecera-contenido">
+            <a class="marca marca-principal" href="principal.html" aria-label="Ir al inicio de PEH">
+                <span class="simbolo-marca">PEH</span>
+                <span class="nombre-marca">Patitas Esperando<span>un Hogar</span></span>
+            </a>
+            <nav class="navegacion-principal" aria-label="Accesos de administración">
+                <a class="enlace-navegacion" href="principal.html">Ver sitio</a>
+                <a class="enlace-navegacion" href="perfil.html">Mi perfil</a>
+                <span class="enlace-navegacion activo" aria-current="page">Administración</span>
+            </nav>
+        </div>
+    </header>
+
+    <noscript>
+        <div class="contenedor aviso-administracion" role="note">
+            Este panel necesita JavaScript para comprobar el acceso y gestionar los datos.
+        </div>
+    </noscript>
+
+    <!-- El JS comprobará el rol antes de cargar cualquier registro. -->
+    <section class="contenedor acceso-restringido" id="accesoRestringido" hidden aria-labelledby="tituloAccesoRestringido">
+        <span aria-hidden="true">🔒</span>
+        <h1 id="tituloAccesoRestringido">Acceso de administración</h1>
+        <p id="mensajeAccesoRestringido">Inicia sesión con una cuenta administradora para continuar.</p>
+        <a class="boton boton-primario" href="index.html">Ir al acceso</a>
+        <a class="boton boton-secundario" href="principal.html">Volver a PEH</a>
+    </section>
+
+    <div class="contenedor administracion-layout" id="panelAdministracion">
+        <aside class="menu-administracion" aria-label="Secciones del panel">
+            <div class="identidad-administracion">
+                <span class="icono-administracion" aria-hidden="true">🐾</span>
+                <strong>Administración PEH</strong>
+                <p id="nombreAdministrador">Cuenta administradora</p>
+            </div>
+            <nav class="navegacion-administracion" aria-label="Gestión de PEH">
+                <button type="button" class="opcion-administracion activo" data-seccion="resumen" aria-controls="seccionResumen" aria-current="page"><span aria-hidden="true">⌂</span> Resumen</button>
+                <button type="button" class="opcion-administracion" data-seccion="animales" aria-controls="seccionAnimales"><span aria-hidden="true">🐾</span> Animales</button>
+                <button type="button" class="opcion-administracion" data-seccion="usuarios" aria-controls="seccionUsuarios"><span aria-hidden="true">♙</span> Usuarios</button>
+                <button type="button" class="opcion-administracion" data-seccion="comentarios" aria-controls="seccionComentarios"><span aria-hidden="true">☏</span> Comentarios</button>
+                <button type="button" class="opcion-administracion" data-seccion="adopciones" aria-controls="seccionAdopciones"><span aria-hidden="true">♡</span> Adopciones</button>
+                <button type="button" class="opcion-administracion" data-seccion="reservas" aria-controls="seccionReservas"><span aria-hidden="true">▣</span> Reservas veterinarias</button>
+                <button type="button" class="opcion-administracion" data-seccion="consultas" aria-controls="seccionConsultas"><span aria-hidden="true">✉</span> Consultas de contacto</button>
+            </nav>
+            <a class="volver-sitio" href="principal.html">← Volver al sitio</a>
+            <button class="boton-cerrar-administracion" type="button" id="botonCerrarSesionAdmin">Cerrar sesión</button>
+        </aside>
+
+        <main class="contenido-administracion" id="contenidoAdministracion" tabindex="-1">
+            <div class="encabezado-administracion">
+                <div><span class="sobre-titulo">Cuidar también es gestionar</span><h1>Panel de administración</h1><p>Revisa los procesos de PEH y mantén su información al día.</p></div>
+                <button class="boton boton-secundario" type="button" id="botonActualizarAdmin">Actualizar datos</button>
+            </div>
+            <div class="mensaje-administracion" id="mensajeAdministracion" role="status" aria-live="polite" hidden></div>
+            <div class="error-administracion" id="errorAdministracion" role="alert" hidden></div>
+
+            <!-- RESUMEN -->
+            <section class="seccion-administracion" id="seccionResumen" data-panel="resumen" aria-labelledby="tituloResumen">
+                <div class="titulo-seccion-administracion"><h2 id="tituloResumen">Un vistazo a PEH</h2><p>Los pendientes que necesitan tu atención.</p></div>
+                <div class="resumen-administracion">
+                    <button type="button" class="tarjeta-estadistica" data-ir-seccion="animales"><span aria-hidden="true">🐾</span><strong data-contador="animales">—</strong><span>Animales visibles</span></button>
+                    <button type="button" class="tarjeta-estadistica" data-ir-seccion="usuarios"><span aria-hidden="true">♙</span><strong data-contador="usuarios">—</strong><span>Cuentas de usuarios</span></button>
+                    <button type="button" class="tarjeta-estadistica" data-ir-seccion="comentarios"><span aria-hidden="true">☏</span><strong data-contador="comentarios">—</strong><span>Comentarios</span></button>
+                    <button type="button" class="tarjeta-estadistica" data-ir-seccion="adopciones"><span aria-hidden="true">♡</span><strong data-contador="adopciones">—</strong><span>Adopciones por revisar</span></button>
+                    <button type="button" class="tarjeta-estadistica" data-ir-seccion="reservas"><span aria-hidden="true">▣</span><strong data-contador="reservas">—</strong><span>Reservas pendientes</span></button>
+                    <button type="button" class="tarjeta-estadistica" data-ir-seccion="consultas"><span aria-hidden="true">✉</span><strong data-contador="consultas">—</strong><span>Consultas sin responder</span></button>
+                </div>
+                <article class="tarjeta-orientacion">
+                    <h3>¿Por dónde empezar?</h3>
+                    <p>Revisa primero las solicitudes de adopción y las reservas pendientes. Después puedes actualizar el catálogo y responder las consultas de la comunidad.</p>
+                    <div class="acciones-administracion"><button class="boton boton-primario" type="button" data-ir-seccion="adopciones">Revisar adopciones</button><button class="boton boton-secundario" type="button" data-ir-seccion="consultas">Ver consultas</button></div>
+                </article>
+            </section>
+
+            <!-- ANIMALES -->
+            <section class="seccion-administracion" id="seccionAnimales" data-panel="animales" aria-labelledby="tituloAnimales" hidden>
+                <div class="titulo-seccion-administracion"><div><h2 id="tituloAnimales">Perfiles de animales</h2><p>Agrega y actualiza la información que aparece en el catálogo.</p></div><button class="boton boton-primario" type="button" id="botonNuevoAnimal">Agregar animal</button></div>
+                <div class="filtros-administracion">
+                    <div class="grupo-admin"><label for="buscarAnimalesAdmin">Buscar por nombre o comuna</label><input id="buscarAnimalesAdmin" type="search" placeholder="Ej.: Copito, Macul…" data-busqueda="animales"></div>
+                    <div class="grupo-admin"><label for="especieAnimalesAdmin">Especie</label><select id="especieAnimalesAdmin" data-filtro="animales-especie"><option value="todos">Todas</option><option value="perro">Perros</option><option value="gato">Gatos</option></select></div>
+                    <div class="grupo-admin"><label for="estadoAnimalesAdmin">Estado del perfil</label><select id="estadoAnimalesAdmin" data-filtro="animales-estado"><option value="todos">Todos</option><option value="disponible">Disponible</option><option value="en-proceso">En proceso de adopción</option><option value="adoptado">Adoptado</option><option value="no-visible">No visible</option></select></div>
+                </div>
+                <p class="resultado-administracion" id="resultadoAnimalesAdmin" aria-live="polite"></p>
+                <div class="tabla-administracion-contenedor" role="region" aria-labelledby="tituloAnimales" tabindex="0">
+                    <table class="tabla-administracion"><caption>Catálogo de animales de PEH</caption><thead><tr><th scope="col">Animal</th><th scope="col">Especie y edad</th><th scope="col">Comuna</th><th scope="col">Estado</th><th scope="col">Acciones</th></tr></thead><tbody id="tablaAnimalesAdmin"><tr><td colspan="5">El catálogo se cargará al conectar JavaScript.</td></tr></tbody></table>
+                </div>
+            </section>
+
+            <!-- USUARIOS -->
+            <section class="seccion-administracion" id="seccionUsuarios" data-panel="usuarios" aria-labelledby="tituloUsuarios" hidden>
+                <div class="titulo-seccion-administracion"><h2 id="tituloUsuarios">Cuentas de usuarios</h2><p>Consulta sus datos básicos, edita su perfil o elimina una cuenta de usuario.</p></div>
+                <div class="filtros-administracion"><div class="grupo-admin"><label for="buscarUsuariosAdmin">Buscar por nombre, usuario o correo</label><input id="buscarUsuariosAdmin" type="search" placeholder="Buscar una cuenta…" data-busqueda="usuarios"></div></div>
+                <p class="resultado-administracion" id="resultadoUsuariosAdmin" aria-live="polite"></p>
+                <div class="tabla-administracion-contenedor" role="region" aria-labelledby="tituloUsuarios" tabindex="0"><table class="tabla-administracion"><caption>Cuentas registradas en PEH</caption><thead><tr><th scope="col">Nombre</th><th scope="col">Usuario</th><th scope="col">Correo</th><th scope="col">Registro</th><th scope="col">Acciones</th></tr></thead><tbody id="tablaUsuariosAdmin"><tr><td colspan="5">Las cuentas se cargarán al conectar JavaScript.</td></tr></tbody></table></div>
+            </section>
+
+            <!-- COMENTARIOS -->
+            <section class="seccion-administracion" id="seccionComentarios" data-panel="comentarios" aria-labelledby="tituloComentarios" hidden>
+                <div class="titulo-seccion-administracion"><h2 id="tituloComentarios">Comentarios de la comunidad</h2><p>Revisa los comentarios y sus respuestas, y elimina contenido cuando sea necesario.</p></div>
+                <div class="filtros-administracion"><div class="grupo-admin"><label for="buscarComentariosAdmin">Buscar por texto o autor</label><input id="buscarComentariosAdmin" type="search" placeholder="Buscar un comentario…" data-busqueda="comentarios"></div></div>
+                <p class="resultado-administracion" id="resultadoComentariosAdmin" aria-live="polite"></p>
+                <div class="tabla-administracion-contenedor" role="region" aria-labelledby="tituloComentarios" tabindex="0"><table class="tabla-administracion"><caption>Comentarios y respuestas publicados en PEH</caption><thead><tr><th scope="col">Autor</th><th scope="col">Comentario</th><th scope="col">Publicación</th><th scope="col">Fecha</th><th scope="col">Acciones</th></tr></thead><tbody id="tablaComentariosAdmin"><tr><td colspan="5">Los comentarios se cargarán al conectar JavaScript.</td></tr></tbody></table></div>
+            </section>
+
+            <!-- ADOPCIONES -->
+            <section class="seccion-administracion" id="seccionAdopciones" data-panel="adopciones" aria-labelledby="tituloAdopciones" hidden>
+                <div class="titulo-seccion-administracion"><h2 id="tituloAdopciones">Solicitudes de adopción</h2><p>Revisa cada solicitud, registra observaciones y actualiza su estado.</p></div>
+                <div class="filtros-administracion"><div class="grupo-admin"><label for="buscarAdopcionesAdmin">Buscar por animal o solicitante</label><input id="buscarAdopcionesAdmin" type="search" placeholder="Buscar una solicitud…" data-busqueda="adopciones"></div><div class="grupo-admin"><label for="estadoAdopcionesAdmin">Estado</label><select id="estadoAdopcionesAdmin" data-filtro="adopciones-estado"><option value="todos">Todos</option><option>Pendiente</option><option>En revisión</option><option>Aprobada</option><option>Rechazada</option><option>Completada</option><option>Cancelada</option></select></div></div>
+                <p class="resultado-administracion" id="resultadoAdopcionesAdmin" aria-live="polite"></p>
+                <div class="tabla-administracion-contenedor" role="region" aria-labelledby="tituloAdopciones" tabindex="0"><table class="tabla-administracion"><caption>Solicitudes de adopción de todas las cuentas</caption><thead><tr><th scope="col">Animal</th><th scope="col">Solicitante</th><th scope="col">Fecha</th><th scope="col">Estado</th><th scope="col">Acciones</th></tr></thead><tbody id="tablaAdopcionesAdmin"><tr><td colspan="5">Las solicitudes se cargarán al conectar JavaScript.</td></tr></tbody></table></div>
+            </section>
+
+            <!-- RESERVAS -->
+            <section class="seccion-administracion" id="seccionReservas" data-panel="reservas" aria-labelledby="tituloReservas" hidden>
+                <div class="titulo-seccion-administracion"><h2 id="tituloReservas">Reservas veterinarias</h2><p>Confirma atenciones, reprograma su fecha y hora o registra su finalización.</p></div>
+                <div class="filtros-administracion"><div class="grupo-admin"><label for="buscarReservasAdmin">Buscar por mascota o responsable</label><input id="buscarReservasAdmin" type="search" placeholder="Buscar una reserva…" data-busqueda="reservas"></div><div class="grupo-admin"><label for="estadoReservasAdmin">Estado</label><select id="estadoReservasAdmin" data-filtro="reservas-estado"><option value="todos">Todos</option><option>Pendiente</option><option>Confirmada</option><option>Completada</option><option>Cancelada</option><option>Rechazada</option></select></div></div>
+                <p class="resultado-administracion" id="resultadoReservasAdmin" aria-live="polite"></p>
+                <div class="tabla-administracion-contenedor" role="region" aria-labelledby="tituloReservas" tabindex="0"><table class="tabla-administracion"><caption>Reservas veterinarias de todas las cuentas</caption><thead><tr><th scope="col">Mascota</th><th scope="col">Responsable</th><th scope="col">Servicio</th><th scope="col">Fecha y hora</th><th scope="col">Estado</th><th scope="col">Acciones</th></tr></thead><tbody id="tablaReservasAdmin"><tr><td colspan="6">Las reservas se cargarán al conectar JavaScript.</td></tr></tbody></table></div>
+            </section>
+
+            <!-- CONTACTO -->
+            <section class="seccion-administracion" id="seccionConsultas" data-panel="consultas" aria-labelledby="tituloConsultas" hidden>
+                <div class="titulo-seccion-administracion"><h2 id="tituloConsultas">Consultas de contacto</h2><p>Lee las consultas registradas y guarda tus respuestas como administrador.</p></div>
+                <div class="filtros-administracion"><div class="grupo-admin"><label for="buscarConsultasAdmin">Buscar por nombre, correo o asunto</label><input id="buscarConsultasAdmin" type="search" placeholder="Buscar una consulta…" data-busqueda="consultas"></div><div class="grupo-admin"><label for="estadoConsultasAdmin">Estado</label><select id="estadoConsultasAdmin" data-filtro="consultas-estado"><option value="todos">Todos</option><option>Pendiente</option><option>En revisión</option><option>Respondida</option><option>Cerrada</option></select></div></div>
+                <p class="resultado-administracion" id="resultadoConsultasAdmin" aria-live="polite"></p>
+                <div class="tabla-administracion-contenedor" role="region" aria-labelledby="tituloConsultas" tabindex="0"><table class="tabla-administracion"><caption>Consultas registradas mediante Contacto</caption><thead><tr><th scope="col">Remitente</th><th scope="col">Asunto y motivo</th><th scope="col">Fecha</th><th scope="col">Estado</th><th scope="col">Acciones</th></tr></thead><tbody id="tablaConsultasAdmin"><tr><td colspan="5">Las consultas se cargarán al conectar JavaScript.</td></tr></tbody></table></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- EDITOR DE ANIMALES: sirve para crear y editar. -->
+    <dialog class="dialogo-administracion dialogo-amplio" id="dialogoAnimal" aria-labelledby="tituloDialogoAnimal">
+        <form id="formularioAnimalAdmin" method="dialog">
+            <div class="cabecera-dialogo"><div><span class="sobre-titulo">Catálogo PEH</span><h2 id="tituloDialogoAnimal">Perfil del animal</h2></div><button type="button" data-cerrar-dialogo class="cerrar-dialogo" aria-label="Cerrar editor de animal">×</button></div>
+            <input type="hidden" id="idAnimalAdmin" name="id">
+            <input type="hidden" id="imagenActualAnimalAdmin" name="imagenActual">
+            <div class="campos-admin">
+                <div class="grupo-admin"><label for="nombreAnimalAdmin">Nombre</label><input id="nombreAnimalAdmin" name="nombre" type="text" required minlength="2" maxlength="60" autocomplete="off"></div>
+                <div class="grupo-admin"><label for="especieAnimalAdmin">Especie</label><select id="especieAnimalAdmin" name="especie" required><option value="">Selecciona</option><option value="perro">Perro</option><option value="gato">Gato</option></select></div>
+                <div class="grupo-admin"><label for="sexoAnimalAdmin">Sexo</label><select id="sexoAnimalAdmin" name="sexo" required><option value="">Selecciona</option><option value="macho">Macho</option><option value="hembra">Hembra</option></select></div>
+                <div class="grupo-admin"><label for="edadAnimalAdmin">Edad aproximada en años</label><input id="edadAnimalAdmin" name="edad" type="number" required min="0" max="40" step="0.1"></div>
+                <div class="grupo-admin"><label for="tamanoAnimalAdmin">Tamaño</label><select id="tamanoAnimalAdmin" name="tamano" required><option value="">Selecciona</option><option value="pequeno">Pequeño</option><option value="mediano">Mediano</option><option value="grande">Grande</option></select></div>
+                <div class="grupo-admin"><label for="comunaAnimalAdmin">Comuna</label><input id="comunaAnimalAdmin" name="comuna" type="text" required minlength="2" maxlength="60"></div>
+                <div class="grupo-admin"><label for="esperaAnimalAdmin">Días esperando un hogar</label><input id="esperaAnimalAdmin" name="diasEsperando" type="number" required min="0" step="1" value="0"></div>
+                <div class="grupo-admin"><label for="estadoAnimalAdmin">Estado del perfil</label><select id="estadoAnimalAdmin" name="estadoPerfil" required><option value="disponible">Disponible</option><option value="en-proceso">En proceso de adopción</option><option value="adoptado">Adoptado</option><option value="no-visible">No visible</option></select></div>
+                <div class="grupo-admin campo-completo"><label for="personalidadAnimalAdmin">Personalidad</label><input id="personalidadAnimalAdmin" name="personalidad" type="text" maxlength="180" placeholder="Ej.: Cariñoso, tranquilo, sociable" aria-describedby="ayudaPersonalidadAdmin"><small id="ayudaPersonalidadAdmin">Separa las características con comas.</small></div>
+                <fieldset class="grupo-admin"><legend>Hogar adecuado</legend><label class="opcion-admin"><input type="checkbox" name="hogar" value="casa"> Casa</label><label class="opcion-admin"><input type="checkbox" name="hogar" value="departamento"> Departamento</label><label class="opcion-admin"><input type="checkbox" name="hogar" value="espacio-amplio"> Espacio amplio</label></fieldset>
+                <fieldset class="grupo-admin"><legend>Puede convivir con</legend><label class="opcion-admin"><input type="checkbox" name="convivencia" value="ninos"> Niños</label><label class="opcion-admin"><input type="checkbox" name="convivencia" value="perros"> Perros</label><label class="opcion-admin"><input type="checkbox" name="convivencia" value="gatos"> Gatos</label></fieldset>
+                <div class="grupo-admin campo-completo"><label for="historiaAnimalAdmin">Historia</label><textarea id="historiaAnimalAdmin" name="historia" rows="5" required minlength="20" maxlength="3000" aria-describedby="ayudaHistoriaAdmin"></textarea><small id="ayudaHistoriaAdmin">Puedes separar los párrafos con una línea en blanco.</small></div>
+                <div class="grupo-admin campo-completo"><label for="cuidadosAnimalAdmin">Cuidados y necesidades</label><textarea id="cuidadosAnimalAdmin" name="cuidados" rows="3" required minlength="10" maxlength="1500"></textarea></div>
+                <div class="grupo-admin campo-completo"><label for="fotoAnimalAdmin">Fotografía</label><input id="fotoAnimalAdmin" name="foto" type="file" accept="image/jpeg,image/png,image/webp,image/avif" aria-describedby="ayudaFotoAnimalAdmin"><small id="ayudaFotoAnimalAdmin">Al editar, la fotografía actual se conserva si no eliges otra.</small><img class="vista-previa-animal" id="vistaPreviaAnimalAdmin" width="240" height="180" alt="Vista previa de la fotografía del animal" hidden></div>
+            </div>
+            <p class="error-formulario-admin" id="errorAnimalAdmin" role="alert" hidden></p>
+            <div class="acciones-dialogo"><button class="boton boton-secundario" type="button" data-cerrar-dialogo>Cancelar</button><button class="boton boton-primario" type="submit" value="guardar" id="guardarAnimalAdmin">Guardar perfil</button></div>
+        </form>
+    </dialog>
+
+    <!-- EDITOR DE USUARIO -->
+    <dialog class="dialogo-administracion" id="dialogoUsuario" aria-labelledby="tituloDialogoUsuario">
+        <form id="formularioUsuarioAdmin" method="dialog">
+            <div class="cabecera-dialogo"><h2 id="tituloDialogoUsuario">Editar perfil de usuario</h2><button class="cerrar-dialogo" type="button" data-cerrar-dialogo aria-label="Cerrar editor de usuario">×</button></div>
+            <input id="idUsuarioAdmin" name="id" type="hidden">
+            <div class="campos-admin"><div class="grupo-admin"><label for="nombreUsuarioAdmin">Nombre</label><input id="nombreUsuarioAdmin" name="nombre" required minlength="2" maxlength="30" autocomplete="off"></div><div class="grupo-admin"><label for="apellidoUsuarioAdmin">Apellido</label><input id="apellidoUsuarioAdmin" name="apellido" required minlength="2" maxlength="30" autocomplete="off"></div><div class="grupo-admin"><label for="aliasUsuarioAdmin">Nombre de usuario</label><input id="aliasUsuarioAdmin" name="usuario" required minlength="4" maxlength="16" pattern="[A-Za-z0-9_]{4,16}" aria-describedby="ayudaAliasUsuarioAdmin" autocomplete="off"><small id="ayudaAliasUsuarioAdmin">Entre 4 y 16 caracteres: letras, números o guion bajo.</small></div><div class="grupo-admin"><label for="correoUsuarioAdmin">Correo electrónico</label><input id="correoUsuarioAdmin" name="correo" type="email" required maxlength="100" autocomplete="off"></div></div>
+            <p class="error-formulario-admin" id="errorUsuarioAdmin" role="alert" hidden></p>
+            <div class="acciones-dialogo"><button class="boton boton-secundario" type="button" data-cerrar-dialogo>Cancelar</button><button class="boton boton-primario" type="submit" value="guardar">Guardar cambios</button></div>
+        </form>
+    </dialog>
+
+    <!-- REVISION DE ADOPCION -->
+    <dialog class="dialogo-administracion dialogo-amplio" id="dialogoAdopcion" aria-labelledby="tituloDialogoAdopcion">
+        <form id="formularioAdopcionAdmin" method="dialog">
+            <div class="cabecera-dialogo"><h2 id="tituloDialogoAdopcion">Revisar solicitud de adopción</h2><button class="cerrar-dialogo" type="button" data-cerrar-dialogo aria-label="Cerrar solicitud">×</button></div>
+            <input id="idAdopcionAdmin" name="id" type="hidden">
+            <section aria-labelledby="tituloDetalleAdopcion"><h3 id="tituloDetalleAdopcion">Información de la solicitud</h3><dl class="detalle-registro-admin" id="detalleAdopcionAdmin"></dl></section>
+            <div class="grupo-admin"><label for="nuevoEstadoAdopcionAdmin">Estado de la solicitud</label><select id="nuevoEstadoAdopcionAdmin" name="estado" required><option>Pendiente</option><option>En revisión</option><option>Aprobada</option><option>Rechazada</option><option>Completada</option><option>Cancelada</option></select></div>
+            <p class="ayuda-admin">Aprobada indica que la solicitud fue aceptada. Completada indica que la adopción ya se concretó.</p>
+            <div class="grupo-admin"><label for="observacionAdopcionAdmin">Observaciones para la persona solicitante</label><textarea id="observacionAdopcionAdmin" name="observacionAdmin" rows="4" maxlength="1500" placeholder="Explica la decisión o indica los próximos pasos."></textarea></div>
+            <p class="error-formulario-admin" id="errorAdopcionAdmin" role="alert" hidden></p>
+            <div class="acciones-dialogo"><button class="boton boton-secundario" type="button" data-cerrar-dialogo>Cancelar</button><button class="boton boton-primario" type="submit" value="guardar">Guardar estado</button></div>
+        </form>
+    </dialog>
+
+    <!-- REVISION Y REPROGRAMACION VETERINARIA -->
+    <dialog class="dialogo-administracion" id="dialogoReserva" aria-labelledby="tituloDialogoReserva">
+        <form id="formularioReservaAdmin" method="dialog">
+            <div class="cabecera-dialogo"><h2 id="tituloDialogoReserva">Gestionar reserva veterinaria</h2><button class="cerrar-dialogo" type="button" data-cerrar-dialogo aria-label="Cerrar reserva">×</button></div>
+            <input id="idReservaAdmin" name="id" type="hidden">
+            <dl class="detalle-registro-admin" id="detalleReservaAdmin"></dl>
+            <div class="campos-admin"><div class="grupo-admin campo-completo"><label for="nuevoEstadoReservaAdmin">Estado de la reserva</label><select id="nuevoEstadoReservaAdmin" name="estado" required><option>Pendiente</option><option>Confirmada</option><option>Completada</option><option>Cancelada</option><option>Rechazada</option></select></div><div class="grupo-admin"><label for="fechaReservaAdmin">Fecha de atención</label><input id="fechaReservaAdmin" name="fecha" type="date" required></div><div class="grupo-admin"><label for="horaReservaAdmin">Hora de atención</label><select id="horaReservaAdmin" name="hora" required><option value="">Selecciona</option><option>09:00</option><option>10:30</option><option>12:00</option><option>15:00</option><option>16:30</option><option>18:00</option></select></div><div class="grupo-admin campo-completo"><label for="observacionReservaAdmin">Observaciones para la persona responsable</label><textarea id="observacionReservaAdmin" name="observacionAdmin" rows="4" maxlength="1500" placeholder="Por ejemplo, el motivo de una reprogramación."></textarea></div></div>
+            <p class="error-formulario-admin" id="errorReservaAdmin" role="alert" hidden></p>
+            <div class="acciones-dialogo"><button class="boton boton-secundario" type="button" data-cerrar-dialogo>Cancelar</button><button class="boton boton-primario" type="submit" value="guardar">Guardar reserva</button></div>
+        </form>
+    </dialog>
+
+    <!-- RESPUESTAS DE CONTACTO -->
+    <dialog class="dialogo-administracion dialogo-amplio" id="dialogoConsulta" aria-labelledby="tituloDialogoConsulta">
+        <form id="formularioConsultaAdmin" method="dialog">
+            <div class="cabecera-dialogo"><h2 id="tituloDialogoConsulta">Consulta de contacto</h2><button class="cerrar-dialogo" type="button" data-cerrar-dialogo aria-label="Cerrar consulta">×</button></div>
+            <input id="idConsultaAdmin" name="id" type="hidden">
+            <dl class="detalle-registro-admin" id="detalleConsultaAdmin"></dl>
+            <section class="mensaje-original-admin" aria-labelledby="tituloMensajeConsulta"><h3 id="tituloMensajeConsulta">Mensaje recibido</h3><p id="mensajeConsultaAdmin"></p></section>
+            <section aria-labelledby="tituloRespuestasConsulta"><h3 id="tituloRespuestasConsulta">Respuestas de administración</h3><ol class="respuestas-consulta-admin" id="respuestasConsultaAdmin"></ol><p id="sinRespuestasConsultaAdmin">Esta consulta todavía no tiene respuestas.</p></section>
+            <div class="grupo-admin"><label for="nuevoEstadoConsultaAdmin">Estado de la consulta</label><select id="nuevoEstadoConsultaAdmin" name="estado" required><option>Pendiente</option><option>En revisión</option><option>Respondida</option><option>Cerrada</option></select></div>
+            <button class="boton boton-secundario" type="button" id="guardarEstadoConsultaAdmin">Guardar solo el estado</button>
+            <div class="grupo-admin"><label for="respuestaConsultaAdmin">Tu respuesta</label><textarea id="respuestaConsultaAdmin" name="respuesta" rows="5" required minlength="10" maxlength="2000" placeholder="Escribe una respuesta para la persona que realizó la consulta." aria-describedby="ayudaRespuestaConsultaAdmin"></textarea><small id="ayudaRespuestaConsultaAdmin">La respuesta se registrará dentro de PEH. Este panel no envía correos electrónicos.</small></div>
+            <p class="error-formulario-admin" id="errorConsultaAdmin" role="alert" hidden></p>
+            <div class="acciones-dialogo"><button class="boton boton-secundario" type="button" data-cerrar-dialogo>Cerrar</button><button class="boton boton-primario" type="submit" value="responder">Guardar respuesta</button></div>
+        </form>
+    </dialog>
+
+    <!-- CONFIRMACION COMPARTIDA PARA ELIMINACIONES Y CIERRE DE SESION -->
+    <dialog class="dialogo-administracion dialogo-confirmacion" id="dialogoConfirmacionAdmin" aria-labelledby="tituloConfirmacionAdmin" aria-describedby="textoConfirmacionAdmin">
+        <form id="formularioConfirmacionAdmin" method="dialog">
+            <span class="icono-confirmacion-admin" aria-hidden="true">!</span>
+            <h2 id="tituloConfirmacionAdmin">Confirmar acción</h2>
+            <p id="textoConfirmacionAdmin"></p>
+            <p class="error-formulario-admin" id="errorConfirmacionAdmin" role="alert" hidden></p>
+            <div class="acciones-dialogo"><button class="boton boton-secundario" type="button" data-cerrar-dialogo>Cancelar</button><button class="boton boton-peligro" type="submit" value="confirmar" id="confirmarAccionAdmin">Confirmar</button></div>
+        </form>
+    </dialog>
+
+    <!-- PLANTILLAS DE FILAS: el JS completará los datos y las acciones. -->
+    <template id="plantillaAnimalAdmin"><tr><td><div class="animal-celda-admin"><img data-campo="imagen" alt="" loading="lazy" width="64" height="64"><div><strong data-campo="nombre"></strong><small data-campo="identificador"></small></div></div></td><td data-campo="especieEdad"></td><td data-campo="comuna"></td><td><span class="estado-admin" data-campo="estado"></span></td><td><div class="acciones-fila-admin"><button type="button" data-accion="ver-animal">Ver perfil</button><button type="button" data-accion="editar-animal">Editar</button><button type="button" class="accion-peligro" data-accion="eliminar-animal">Eliminar perfil</button></div></td></tr></template>
+    <template id="plantillaUsuarioAdmin"><tr><td data-campo="nombre"></td><td data-campo="usuario"></td><td data-campo="correo"></td><td data-campo="fecha"></td><td><div class="acciones-fila-admin"><button type="button" data-accion="editar-usuario">Editar perfil</button><button type="button" class="accion-peligro" data-accion="eliminar-usuario">Eliminar cuenta</button></div></td></tr></template>
+    <template id="plantillaComentarioAdmin"><tr><td data-campo="autor"></td><td><p class="texto-comentario-admin" data-campo="texto"></p><small data-campo="tipo"></small></td><td data-campo="publicacion"></td><td data-campo="fecha"></td><td><div class="acciones-fila-admin"><button type="button" data-accion="ver-comentario">Ver contexto</button><button type="button" class="accion-peligro" data-accion="eliminar-comentario">Eliminar</button></div></td></tr></template>
+    <template id="plantillaAdopcionAdmin"><tr><td data-campo="animal"></td><td><strong data-campo="solicitante"></strong><small data-campo="correo"></small></td><td data-campo="fecha"></td><td><span class="estado-admin" data-campo="estado"></span></td><td><button type="button" data-accion="gestionar-adopcion">Revisar solicitud</button></td></tr></template>
+    <template id="plantillaReservaAdmin"><tr><td data-campo="mascota"></td><td data-campo="responsable"></td><td data-campo="servicio"></td><td data-campo="fechaHora"></td><td><span class="estado-admin" data-campo="estado"></span></td><td><button type="button" data-accion="gestionar-reserva">Gestionar reserva</button></td></tr></template>
+    <template id="plantillaConsultaAdmin"><tr><td><strong data-campo="nombre"></strong><small data-campo="correo"></small></td><td><strong data-campo="asunto"></strong><small data-campo="motivo"></small></td><td data-campo="fecha"></td><td><span class="estado-admin" data-campo="estado"></span></td><td><button type="button" data-accion="gestionar-consulta">Ver y responder</button></td></tr></template>
+
+    <footer class="pie-administracion"><div class="contenedor"><p>© 2026 PEH · Patitas Esperando un Hogar</p><p>Gestión al servicio de cada nueva oportunidad. ♡</p></div></footer>
+
+    <!-- Núcleo compartido, catálogo y lógica del panel. -->
+    <script src="../js/app.js" defer></script>
+    <script src="../js/animales.js" defer></script>
+    <script src="../js/desarrollador.js" defer></script>
+</body>
+</html>

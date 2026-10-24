@@ -1,0 +1,879 @@
+<!doctype html>
+
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        >
+        <meta
+            name="description"
+            content="Cuida la salud y bienestar de tu compañero con los servicios veterinarios de PEH."
+        >
+        <title>
+            Veterinaria | PEH
+        </title>
+
+        <!-- GOOGLE FONTS -->
+
+        <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+        >
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin
+        >
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+            rel="stylesheet"
+        >
+
+        <!-- ESTILOS -->
+
+        <link
+            rel="stylesheet"
+            href="../css/style.css"
+        >
+        <link
+            rel="stylesheet"
+            href="../css/veterinaria.css"
+        >
+        <link
+            rel="stylesheet"
+            href="../css/navegacion.css"
+        >
+    </head>
+    <body class="pagina-veterinaria">
+
+        <!-- ============================================
+        CABECERA
+        ============================================= -->
+
+        <header class="cabecera-global">
+
+            <div class="contenedor cabecera-contenido">
+                <a
+                    class="marca marca-principal"
+                    href="principal.html"
+                    aria-label="Ir al inicio de PEH"
+                >
+                    <span class="simbolo-marca">
+                        PEH
+                    </span>
+                    <span class="nombre-marca">
+                        Patitas Esperando
+                        <span>
+                            un Hogar
+                        </span>
+                    </span>
+                </a>
+                <nav
+                    id="navegacionGlobal"
+                    class="navegacion-principal"
+                    aria-label="Navegación principal"
+                >
+
+                    <a
+                        class="enlace-navegacion"
+                        href="principal.html"
+                    >
+                        Inicio
+                    </a>
+                    <a
+                        class="enlace-navegacion"
+                        href="principal.html#animales"
+                    >
+                        Animales
+                    </a>
+                    <a
+                        class="enlace-navegacion"
+                        href="comunidad.html"
+                    >
+                        Comunidad
+                    </a>
+                    <a
+                        class="enlace-navegacion activo"
+                        href="veterinaria.html"
+                        aria-current="page"
+                    >
+                        Veterinaria
+                    </a>
+                    <a
+                        class="enlace-navegacion"
+                        href="perfil.html"
+                    >
+                        Perfil
+                    </a>
+                    <a
+                        class="enlace-navegacion"
+                        href="contacto.html"
+                    >
+                        Contacto
+                    </a>
+                </nav>
+
+                <button
+                    class="boton-menu"
+                    id="botonMenu"
+                    type="button"
+                    aria-label="Abrir menú"
+                    aria-controls="navegacionGlobal"
+                    aria-expanded="false"
+                >
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                </button>
+            </div>
+
+        </header>
+
+        <main>
+
+
+            <!-- ========================================
+            HERO VETERINARIA
+            ========================================= -->
+
+            <section class="hero-veterinaria">
+
+                <div class="contenedor">
+                    <div class="hero-veterinaria-contenido">
+                        <div
+                            class="hero-veterinaria-imagen"
+                            aria-hidden="true"
+                        >
+                        </div>
+
+                        <div class="hero-veterinaria-texto">
+                            <span class="hero-veterinaria-etiqueta">
+                                Bienestar animal
+                            </span>
+                            <h1>
+                                Veterinaria
+                            </h1>
+                            <h2>
+                                Cuidar también es una forma de adoptar.
+                            </h2>
+                            <p>
+                                En PEH creemos que el bienestar de cada animal es parte de una segunda oportunidad. Aquí encontrarás servicios veterinarios pensados para apoyar su salud y calidad de vida.
+                            </p>
+                            <a
+                                class="boton boton-claro"
+                                href="#reservar"
+                            >
+                                Reservar una atención
+                                <span aria-hidden="true">
+                                    ↓
+                                </span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ========================================
+            SERVICIOS VETERINARIOS
+            ========================================= -->
+
+            <section
+                class="seccion-servicios"
+                id="servicios"
+            >
+
+                <div class="contenedor">
+                    <div class="encabezado-seccion">
+                        <div class="icono-seccion">
+                            🐾
+                        </div>
+
+                        <div>
+                            <span class="sobre-titulo">
+                                Cuidado y prevención
+                            </span>
+                            <h2>
+                                Nuestros servicios
+                            </h2>
+                            <p>
+                                Atenciones enfocadas en la prevención, el cuidado y el bienestar animal.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="lista-servicios">
+
+                        <!-- CONSULTA GENERAL -->
+
+                        <button
+                            class="tarjeta-servicio"
+                            type="button"
+                            data-servicio="consulta"
+                            aria-pressed="false"
+                        >
+                            <span
+                                class="servicio-icono"
+                                aria-hidden="true"
+                            >
+                                🩺
+                            </span>
+                            <strong>
+                                Consulta general
+                            </strong>
+                            <p>
+                                Revisión del estado de salud y orientación veterinaria.
+                            </p>
+                        </button>
+
+                        <!-- VACUNACIÓN -->
+
+                        <button
+                            class="tarjeta-servicio"
+                            type="button"
+                            data-servicio="vacunacion"
+                            aria-pressed="false"
+                        >
+                            <span
+                                class="servicio-icono"
+                                aria-hidden="true"
+                            >
+                                💉
+                            </span>
+                            <strong>
+                                Vacunación
+                            </strong>
+                            <p>
+                                Aplicación de vacunas según edad y condición.
+                            </p>
+                        </button>
+
+                        <!-- DESPARASITACIÓN -->
+
+                        <button
+                            class="tarjeta-servicio"
+                            type="button"
+                            data-servicio="desparasitacion"
+                            aria-pressed="false"
+                        >
+                            <span
+                                class="servicio-icono"
+                                aria-hidden="true"
+                            >
+                                💊
+                            </span>
+                            <strong>
+                                Desparasitación
+                            </strong>
+                            <p>
+                                Control interno y externo para una mejor calidad de vida.
+                            </p>
+                        </button>
+
+                        <!-- ESTERILIZACIÓN -->
+
+                        <button
+                            class="tarjeta-servicio"
+                            type="button"
+                            data-servicio="esterilizacion"
+                            aria-pressed="false"
+                        >
+                            <span
+                                class="servicio-icono"
+                                aria-hidden="true"
+                            >
+                                🐾
+                            </span>
+                            <strong>
+                                Esterilización
+                            </strong>
+                            <p>
+                                Procedimiento seguro para ayudar a prevenir camadas no deseadas.
+                            </p>
+                        </button>
+
+                        <!-- CONTROL POST-ADOPCIÓN -->
+
+                        <button
+                            class="tarjeta-servicio"
+                            type="button"
+                            data-servicio="control"
+                            aria-pressed="false"
+                        >
+                            <span
+                                class="servicio-icono"
+                                aria-hidden="true"
+                            >
+                                ♡
+                            </span>
+                            <strong>
+                                Control post-adopción
+                            </strong>
+                            <p>
+                                Seguimiento de salud para animales adoptados.
+                            </p>
+                        </button>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ========================================
+            RESERVA VETERINARIA
+            ========================================= -->
+
+            <section
+                class="seccion-reserva"
+                id="reservar"
+            >
+
+                <div class="contenedor">
+                    <div class="reserva-contenido">
+                        <div class="reserva-formulario">
+                            <div class="encabezado-reserva">
+                                <span
+                                    class="reserva-icono"
+                                    aria-hidden="true"
+                                >
+                                    ▣
+                                </span>
+                                <div>
+                                    <span class="sobre-titulo">
+                                        Agenda veterinaria
+                                    </span>
+                                    <h2>
+                                        Reserva una atención
+                                    </h2>
+                                    <p>
+                                        Completa el formulario para solicitar una cita veterinaria para tu compañero.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <form
+                                id="formularioReserva"
+                                novalidate
+                            >
+                                <div class="campos-reserva">
+
+                                    <!-- SERVICIO -->
+
+                                    <div class="grupo-campo">
+                                        <label for="servicioReserva">
+                                            Tipo de servicio
+                                        </label>
+                                        <select
+                                            id="servicioReserva"
+                                            name="servicio"
+                                            required
+                                        >
+                                            <option value="">
+                                                Selecciona un servicio
+                                            </option>
+                                            <option value="consulta">
+                                                Consulta general
+                                            </option>
+                                            <option value="vacunacion">
+                                                Vacunación
+                                            </option>
+                                            <option value="desparasitacion">
+                                                Desparasitación
+                                            </option>
+                                            <option value="esterilizacion">
+                                                Esterilización
+                                            </option>
+                                            <option value="control">
+                                                Control post-adopción
+                                            </option>
+                                        </select>
+                                        <small
+                                            class="mensaje-error"
+                                            aria-live="polite"
+                                        >
+                                        </small>
+                                    </div>
+
+
+                                    <!-- TIPO DE MASCOTA -->
+
+                                    <div class="grupo-campo">
+                                        <label for="mascotaReserva">
+                                            Tipo de mascota
+                                        </label>
+                                        <select
+                                            id="mascotaReserva"
+                                            name="mascota"
+                                            required
+                                        >
+                                            <option value="">
+                                                Selecciona el tipo de mascota
+                                            </option>
+                                            <option value="perro">
+                                                Perro
+                                            </option>
+                                            <option value="gato">
+                                                Gato
+                                            </option>
+                                        </select>
+                                        <small
+                                            class="mensaje-error"
+                                            aria-live="polite"
+                                        >
+                                        </small>
+                                    </div>
+
+
+                                    <!-- NOMBRE DE MASCOTA -->
+
+                                    <div class="grupo-campo campo-ancho">
+                                        <label for="nombreMascotaReserva">
+                                            Nombre de tu mascota
+                                        </label>
+                                        <input
+                                            id="nombreMascotaReserva"
+                                            name="nombreMascota"
+                                            type="text"
+                                            minlength="2"
+                                            maxlength="50"
+                                            placeholder="Ejemplo: Pelusa"
+                                            autocomplete="off"
+                                            required
+                                        >
+                                        <small
+                                            class="mensaje-error"
+                                            aria-live="polite"
+                                        >
+                                        </small>
+                                    </div>
+
+
+                                    <!-- FECHA -->
+
+                                    <div class="grupo-campo">
+                                        <label for="fechaReserva">
+                                            Fecha
+                                        </label>
+                                        <input
+                                            id="fechaReserva"
+                                            name="fecha"
+                                            type="date"
+                                            required
+                                        >
+                                        <small
+                                            class="mensaje-error"
+                                            aria-live="polite"
+                                        >
+                                        </small>
+                                    </div>
+
+
+                                    <!-- HORA -->
+
+                                    <div class="grupo-campo">
+                                        <label for="horaReserva">
+                                            Hora
+                                        </label>
+                                        <select
+                                            id="horaReserva"
+                                            name="hora"
+                                            required
+                                        >
+                                            <option value="">
+                                                Selecciona una hora
+                                            </option>
+                                            <option value="09:00">
+                                                09:00
+                                            </option>
+                                            <option value="10:30">
+                                                10:30
+                                            </option>
+                                            <option value="12:00">
+                                                12:00
+                                            </option>
+                                            <option value="15:00">
+                                                15:00
+                                            </option>
+                                            <option value="16:30">
+                                                16:30
+                                            </option>
+                                            <option value="18:00">
+                                                18:00
+                                            </option>
+                                        </select>
+                                        <small
+                                            class="mensaje-error"
+                                            aria-live="polite"
+                                        >
+                                        </small>
+                                    </div>
+
+                                </div>
+
+
+                                <!-- OBSERVACIONES -->
+
+                                <div class="grupo-campo campo-observaciones">
+                                    <label for="observacionesReserva">
+                                        ¿Hay algo que debamos saber?
+                                        <span>
+                                            Opcional
+                                        </span>
+                                    </label>
+                                    <textarea
+                                        id="observacionesReserva"
+                                        name="observaciones"
+                                        rows="3"
+                                        minlength="10"
+                                        maxlength="250"
+                                        placeholder="Cuéntanos brevemente el motivo de la consulta o alguna consideración importante."
+                                    >
+                                    </textarea>
+                                    <small class="ayuda-observaciones">
+                                        Si escribes una observación, utiliza al menos 10 caracteres. Máximo 250.
+                                    </small>
+                                    <small
+                                        class="mensaje-error"
+                                        aria-live="polite"
+                                    >
+                                    </small>
+                                </div>
+
+
+                                <!-- BOTÓN RESERVAR -->
+
+                                <button
+                                    class="boton boton-primario boton-reservar"
+                                    type="submit"
+                                >
+                                    <span aria-hidden="true">
+                                        ▣
+                                    </span>
+                                    Agendar cita
+                                </button>
+
+                                <!-- RESPUESTA DEL FORMULARIO -->
+
+                                <div
+                                    class="mensaje-reserva"
+                                    id="mensajeReserva"
+                                    role="status"
+                                    aria-live="polite"
+                                >
+                                </div>
+
+                            </form>
+                        </div>
+
+
+                        <!-- ZONA DECORATIVA -->
+
+                        <aside class="reserva-visual">
+
+                            <h3>
+                                Antes de reservar
+                            </h3>
+                            <p>
+                                Revisa el servicio, la fecha y la hora antes de confirmar.
+                            </p>
+                            <p>
+                                Podrás consultar tus reservas desde tu perfil.
+                            </p>
+                            <a
+                                href="perfil.html"
+                                class="enlace-reservas-perfil"
+                            >
+                                Ir a mi perfil →
+                            </a>
+                        </aside>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ========================================
+            CONSEJOS Y CUIDADOS
+            ========================================= -->
+
+            <section class="seccion-consejos">
+
+                <div class="contenedor">
+                    <div class="encabezado-seccion">
+                        <div class="icono-seccion">
+                            ♡
+                        </div>
+
+                        <div>
+                            <span class="sobre-titulo">
+                                Bienestar diario
+                            </span>
+                            <h2>
+                                Consejos y cuidados
+                            </h2>
+                            <p>
+                                Pequeñas acciones que ayudan a mantener a tu compañero sano y feliz.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="lista-consejos">
+
+                        <!-- ALIMENTACIÓN -->
+
+                        <article
+                            class="tarjeta-consejo"
+                            data-consejo="alimentacion"
+                            role="button"
+                            tabindex="0"
+                            aria-label="Ver consejos de alimentación"
+                        >
+                            <span
+                                class="consejo-icono"
+                                aria-hidden="true"
+                            >
+                                ◉
+                            </span>
+                            <div>
+                                <h3>
+                                    Alimentación adecuada
+                                </h3>
+                                <p>
+                                    Una dieta equilibrada y acorde a su edad fortalece su salud y sistema inmune.
+                                </p>
+                                <span class="consejo-ver-mas">
+                                    Ver más →
+                                </span>
+                            </div>
+
+                        </article>
+
+
+                        <!-- EJERCICIO -->
+
+                        <article
+                            class="tarjeta-consejo"
+                            data-consejo="ejercicio"
+                            role="button"
+                            tabindex="0"
+                            aria-label="Ver consejos de ejercicio"
+                        >
+                            <span
+                                class="consejo-icono"
+                                aria-hidden="true"
+                            >
+                                ◌
+                            </span>
+                            <div>
+                                <h3>
+                                    Ejercicio regular
+                                </h3>
+                                <p>
+                                    La actividad diaria ayuda a mantener su salud física, emocional y mental.
+                                </p>
+                                <span class="consejo-ver-mas">
+                                    Ver más →
+                                </span>
+                            </div>
+
+                        </article>
+
+
+                        <!-- CONTROLES -->
+
+                        <article
+                            class="tarjeta-consejo"
+                            data-consejo="controles"
+                            role="button"
+                            tabindex="0"
+                            aria-label="Ver consejos de controles"
+                        >
+                            <span
+                                class="consejo-icono"
+                                aria-hidden="true"
+                            >
+                                ♥
+                            </span>
+                            <div>
+                                <h3>
+                                    Visitas periódicas
+                                </h3>
+                                <p>
+                                    La prevención permite detectar problemas a tiempo y entregar una mejor calidad de vida.
+                                </p>
+                                <span class="consejo-ver-mas">
+                                    Ver más →
+                                </span>
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ========================================
+            MODAL DE CONSEJOS
+            ========================================= -->
+
+            <div
+                class="modal-consejo"
+                id="modalConsejo"
+                hidden
+            >
+                <div
+                    class="modal-consejo-fondo"
+                    data-cerrar-modal
+                >
+                </div>
+
+                <div
+                    class="modal-consejo-contenido"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="tituloModalConsejo"
+                    tabindex="-1"
+                >
+                    <button
+                        class="modal-consejo-cerrar"
+                        id="cerrarModalConsejo"
+                        type="button"
+                        aria-label="Cerrar consejo"
+                    >
+                        ×
+                    </button>
+                    <span
+                        class="modal-consejo-icono"
+                        id="iconoModalConsejo"
+                        aria-hidden="true"
+                    >
+                        🐾
+                    </span>
+                    <h2 id="tituloModalConsejo">
+                        Consejo veterinario
+                    </h2>
+                    <div id="contenidoModalConsejo">
+                    </div>
+
+                    <p class="modal-consejo-aviso">
+                        Estos consejos son orientativos y no reemplazan la atención veterinaria.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- ========================================
+            AYUDA
+            ========================================= -->
+
+            <section class="seccion-ayuda-veterinaria">
+
+                <div class="contenedor">
+                    <div class="ayuda-veterinaria-contenido">
+                        <div class="ayuda-veterinaria-texto">
+                            <span
+                                class="ayuda-icono"
+                                aria-hidden="true"
+                            >
+                                ◯
+                            </span>
+                            <div>
+                                <h2>
+                                    ¿Dudas o necesitas más información?
+                                </h2>
+                                <p>
+                                    Puedes escribirnos si necesitas orientación antes de reservar una atención.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <a
+                            class="boton boton-secundario"
+                            href="contacto.html"
+                        >
+                            Contactar
+                            <span aria-hidden="true">
+                                →
+                            </span>
+                        </a>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- ============================================
+        PIE DE PÁGINA
+        ============================================= -->
+
+        <footer class="pie-pagina">
+
+            <div class="contenedor pie-contenido">
+                <div>
+                    <strong>
+                        PEH
+                    </strong>
+                    <p>
+                        Patitas Esperando un Hogar
+                    </p>
+                </div>
+
+                <nav
+                    class="enlaces-pie"
+                    aria-label="Enlaces del pie de página"
+                >
+
+                    <a href="principal.html">
+                        Inicio
+                    </a>
+                    <a href="comunidad.html">
+                        Comunidad
+                    </a>
+                    <a href="veterinaria.html">
+                        Veterinaria
+                    </a>
+                    <a href="contacto.html">
+                        Ayuda
+                    </a>
+                </nav>
+
+                <p class="copyright">
+                    © 2026 PEH
+                </p>
+            </div>
+
+        </footer>
+
+
+        <!-- ============================================
+        JAVASCRIPT
+        ============================================= -->
+
+        <script src="../js/app.js">
+        </script>
+        <script src="../js/veterinaria.js">
+        </script>
+    </body>
+</html>

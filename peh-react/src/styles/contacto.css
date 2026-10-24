@@ -1,0 +1,2815 @@
+/* Contacto del HTML original, aislada del resto de las páginas y Bootstrap. */
+body.pagina-contacto, body.pagina-contacto *, body.pagina-contacto *::before, body.pagina-contacto *::after { all: revert; }
+
+/* ==========================================================
+   PEH - ESTILOS GENERALES
+   Patitas Esperando un Hogar
+   ========================================================== */
+
+/* ==========================================================
+   VARIABLES / IDENTIDAD VISUAL
+   ========================================================== */
+
+body.pagina-contacto {
+    /* Fondos */
+    --peh-fondo: #f3efe9;
+    --peh-fondo-claro: #faf8f5;
+    --peh-blanco: #ffffff;
+
+    /* Azul grisáceo */
+    --peh-azul: #667784;
+    --peh-azul-oscuro: #4f606c;
+    --peh-azul-claro: #dce3e6;
+
+    /* Terracota */
+    --peh-terracota: #b97868;
+    --peh-terracota-oscuro: #9f6255;
+    --peh-terracota-claro: #ead0c9;
+
+    /* Coral */
+    --peh-coral: #d99a8f;
+    --peh-coral-claro: #efd0c9;
+
+    /* Texto */
+    --peh-texto: #343638;
+    --peh-texto-suave: #74777a;
+
+    /* Bordes */
+    --peh-borde: #ded8d1;
+
+    /* Estados */
+    --peh-error: #b85c5c;
+    --peh-exito: #66806a;
+    --peh-advertencia: #b38a56;
+
+    /* Sombras */
+    --peh-sombra-suave:
+        0 8px 25px rgba(71, 62, 55, 0.08);
+
+    --peh-sombra:
+        0 20px 50px rgba(71, 62, 55, 0.12);
+
+    /* Bordes redondeados */
+    --peh-radio-pequeno: 8px;
+    --peh-radio: 12px;
+    --peh-radio-grande: 22px;
+    --peh-radio-redondo: 999px;
+
+    /* Transiciones */
+    --peh-transicion:
+        0.2s ease;
+}
+
+/* ==========================================================
+   RESET BÁSICO
+   ========================================================== */
+
+body.pagina-contacto * {
+    box-sizing: border-box;
+}
+
+body.pagina-contacto {
+    scroll-behavior: smooth;
+}
+
+body.pagina-contacto {
+    margin: 0;
+
+    background:
+        var(--peh-fondo);
+
+    color:
+        var(--peh-texto);
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    line-height: 1.5;
+}
+
+body.pagina-contacto img {
+    display: block;
+
+    max-width: 100%;
+}
+
+body.pagina-contacto button,
+body.pagina-contacto input,
+body.pagina-contacto select,
+body.pagina-contacto textarea {
+    font: inherit;
+}
+
+body.pagina-contacto button {
+    color: inherit;
+}
+
+body.pagina-contacto a {
+    color: inherit;
+
+    text-decoration: none;
+}
+
+/* ==========================================================
+   SELECCIÓN DE TEXTO
+   ========================================================== */
+
+body.pagina-contacto ::selection {
+    background:
+        var(--peh-terracota-claro);
+
+    color:
+        var(--peh-texto);
+}
+
+/* ==========================================================
+   SCROLLBAR
+   ========================================================== */
+
+body.pagina-contacto ::-webkit-scrollbar {
+    width: 10px;
+}
+
+body.pagina-contacto ::-webkit-scrollbar-track {
+    background:
+        var(--peh-fondo);
+}
+
+body.pagina-contacto ::-webkit-scrollbar-thumb {
+    border:
+        2px solid
+        var(--peh-fondo);
+
+    border-radius:
+        var(--peh-radio-redondo);
+
+    background:
+        var(--peh-azul);
+}
+
+body.pagina-contacto ::-webkit-scrollbar-thumb:hover {
+    background:
+        var(--peh-azul-oscuro);
+}
+
+/* ==========================================================
+   TIPOGRAFÍA GENERAL
+   ========================================================== */
+
+body.pagina-contacto h1,
+body.pagina-contacto h2,
+body.pagina-contacto h3,
+body.pagina-contacto h4,
+body.pagina-contacto h5,
+body.pagina-contacto h6 {
+    margin-top: 0;
+
+    color:
+        var(--peh-texto);
+
+    font-weight: 700;
+
+    line-height: 1.15;
+
+    letter-spacing: -0.025em;
+}
+
+body.pagina-contacto p {
+    margin-top: 0;
+}
+
+body.pagina-contacto .texto-suave {
+    color:
+        var(--peh-texto-suave);
+}
+
+body.pagina-contacto .texto-centrado {
+    text-align: center;
+}
+
+/* ==========================================================
+   CONTENEDOR GENERAL
+   ========================================================== */
+
+body.pagina-contacto .contenedor {
+    width:
+        min(1180px, calc(100% - 40px));
+
+    margin-inline: auto;
+}
+
+/* ==========================================================
+   MARCA PEH
+   ========================================================== */
+
+body.pagina-contacto .marca {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    width: fit-content;
+
+    color:
+        inherit;
+
+    text-decoration: none;
+}
+
+body.pagina-contacto .simbolo-marca {
+    font-size: 1.8rem;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+}
+
+/* ==========================================================
+   BOTONES GENERALES
+   ========================================================== */
+
+body.pagina-contacto .boton {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding:
+        11px
+        18px;
+
+    border:
+        1px solid transparent;
+
+    border-radius:
+        var(--peh-radio);
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    transition:
+        background var(--peh-transicion),
+        border-color var(--peh-transicion),
+        color var(--peh-transicion),
+        transform var(--peh-transicion),
+        box-shadow var(--peh-transicion);
+}
+
+body.pagina-contacto .boton:hover {
+    transform:
+        translateY(-1px);
+}
+
+body.pagina-contacto .boton:active {
+    transform:
+        translateY(0);
+}
+
+body.pagina-contacto .boton:focus-visible {
+    outline:
+        3px solid
+        rgba(185, 120, 104, 0.25);
+
+    outline-offset: 3px;
+}
+
+/* Botón principal */
+
+body.pagina-contacto .boton-primario {
+    background:
+        var(--peh-terracota);
+
+    color:
+        var(--peh-blanco);
+
+    box-shadow:
+        0 8px 20px
+        rgba(185, 120, 104, 0.18);
+}
+
+body.pagina-contacto .boton-primario:hover {
+    background:
+        var(--peh-terracota-oscuro);
+
+    box-shadow:
+        0 11px 24px
+        rgba(159, 98, 85, 0.23);
+}
+
+/* Botón secundario */
+
+body.pagina-contacto .boton-secundario {
+    border-color:
+        var(--peh-borde);
+
+    background:
+        transparent;
+
+    color:
+        var(--peh-azul-oscuro);
+}
+
+body.pagina-contacto .boton-secundario:hover {
+    border-color:
+        rgba(102, 119, 132, 0.45);
+
+    background:
+        rgba(102, 119, 132, 0.07);
+}
+
+/* Botón claro */
+
+body.pagina-contacto .boton-claro {
+    background:
+        var(--peh-fondo-claro);
+
+    color:
+        var(--peh-azul-oscuro);
+}
+
+body.pagina-contacto .boton-claro:hover {
+    background:
+        var(--peh-blanco);
+}
+
+/* Botón ancho */
+
+body.pagina-contacto .boton-bloque {
+    width: 100%;
+}
+
+/* ==========================================================
+   CAMPOS DE FORMULARIO GENERALES
+   ========================================================== */
+
+body.pagina-contacto .grupo-campo {
+    margin-bottom: 20px;
+}
+
+body.pagina-contacto .grupo-campo label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color:
+        var(--peh-texto);
+
+    font-size: 0.87rem;
+    font-weight: 600;
+}
+
+body.pagina-contacto .grupo-campo input,
+body.pagina-contacto .grupo-campo select,
+body.pagina-contacto .grupo-campo textarea {
+    width: 100%;
+
+    padding:
+        12px
+        14px;
+
+    border:
+        1px solid
+        var(--peh-borde);
+
+    border-radius:
+        var(--peh-radio);
+
+    outline: none;
+
+    background:
+        rgba(255, 255, 255, 0.75);
+
+    color:
+        var(--peh-texto);
+
+    transition:
+        border-color var(--peh-transicion),
+        box-shadow var(--peh-transicion),
+        background var(--peh-transicion);
+}
+
+body.pagina-contacto .grupo-campo input::placeholder,
+body.pagina-contacto .grupo-campo textarea::placeholder {
+    color:
+        #a4a09b;
+}
+
+body.pagina-contacto .grupo-campo input:focus,
+body.pagina-contacto .grupo-campo select:focus,
+body.pagina-contacto .grupo-campo textarea:focus {
+    border-color:
+        var(--peh-terracota);
+
+    background:
+        var(--peh-blanco);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(185, 120, 104, 0.10);
+}
+
+body.pagina-contacto textarea {
+    resize: vertical;
+}
+
+/* ==========================================================
+   VALIDACIONES
+   ========================================================== */
+
+body.pagina-contacto .mensaje-error {
+    display: block;
+
+    margin-top: 6px;
+
+    color:
+        var(--peh-error);
+
+    font-size: 0.74rem;
+}
+
+body.pagina-contacto .grupo-campo.campo-error
+input:not([type="checkbox"]),
+body.pagina-contacto .grupo-campo.campo-error
+select,
+body.pagina-contacto .grupo-campo.campo-error
+textarea {
+    border-color:
+        var(--peh-error);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(184, 92, 92, 0.08);
+}
+
+body.pagina-contacto .grupo-campo.campo-valido
+input:not([type="checkbox"]),
+body.pagina-contacto .grupo-campo.campo-valido
+select,
+body.pagina-contacto .grupo-campo.campo-valido
+textarea {
+    border-color:
+        rgba(102, 128, 106, 0.65);
+}
+
+/* ==========================================================
+   TARJETAS GENERALES
+   ========================================================== */
+
+body.pagina-contacto .tarjeta {
+    border:
+        1px solid
+        rgba(222, 216, 209, 0.75);
+
+    border-radius:
+        var(--peh-radio-grande);
+
+    background:
+        var(--peh-fondo-claro);
+
+    box-shadow:
+        var(--peh-sombra-suave);
+}
+
+/* ==========================================================
+   ETIQUETAS / CHIPS
+   ========================================================== */
+
+body.pagina-contacto .etiqueta {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding:
+        6px
+        10px;
+
+    border-radius:
+        var(--peh-radio-redondo);
+
+    background:
+        var(--peh-azul-claro);
+
+    color:
+        var(--peh-azul-oscuro);
+
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+
+/* ==========================================================
+   ESTADOS
+   ========================================================== */
+
+body.pagina-contacto .estado-exito {
+    color:
+        var(--peh-exito);
+}
+
+body.pagina-contacto .estado-error {
+    color:
+        var(--peh-error);
+}
+
+body.pagina-contacto .estado-advertencia {
+    color:
+        var(--peh-advertencia);
+}
+
+/* ==========================================================
+   ACCESIBILIDAD
+   ========================================================== */
+
+body.pagina-contacto :focus-visible {
+    outline:
+        3px solid
+        rgba(185, 120, 104, 0.28);
+
+    outline-offset: 3px;
+}
+
+/* ==========================================================
+   RESPONSIVE GENERAL
+   ========================================================== */
+
+@media  (max-width: 768px) {
+
+    body.pagina-contacto .contenedor {
+        width:
+            min(100% - 28px, 1180px);
+    }
+
+}
+
+/* ==========================================================
+   PEH - CONTACTO
+   Patitas Esperando un Hogar
+   ========================================================== */
+
+/* ==========================================================
+   ESTILOS GENERALES
+   ========================================================== */
+
+body.pagina-contacto.pagina-contacto {
+
+    --contacto-cafe:
+        #4f606c;
+
+    --contacto-cafe-oscuro:
+        #343638;
+
+    --contacto-naranjo:
+        #b97868;
+
+    --contacto-naranjo-oscuro:
+        #9f6255;
+
+    --contacto-durazno:
+        #f6c89f;
+
+    --contacto-durazno-claro:
+        #fde8d5;
+
+    --contacto-crema:
+        #fff9f3;
+
+    --contacto-crema-oscuro:
+        #f7eee5;
+
+    --contacto-blanco:
+        #ffffff;
+
+    --contacto-texto:
+        #343638;
+
+    --contacto-texto-suave:
+        #74777a;
+
+    --contacto-borde:
+        #ded8d1;
+
+    --contacto-sombra:
+        0 12px 35px rgba(84, 49, 34, 0.09);
+
+    background:
+        #f3efe9;
+
+    color:
+        var(--contacto-texto);
+
+}
+
+/* ==========================================================
+   PRESENTACIÓN
+   ========================================================== */
+
+body.pagina-contacto .hero-contacto {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    padding:
+        28px 0 24px;
+
+    background:
+        transparent;
+
+}
+
+body.pagina-contacto .hero-contacto-contenido {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(0, 1.15fr) minmax(0, 1fr);
+
+    align-items:
+        center;
+
+    gap:
+        30px;
+
+    min-height:
+        260px;
+
+}
+
+body.pagina-contacto .hero-contacto-texto {
+
+    max-width:
+        680px;
+
+}
+
+body.pagina-contacto .hero-contacto-etiqueta,
+body.pagina-contacto .sobre-titulo {
+
+    display:
+        inline-block;
+
+    margin-bottom:
+        10px;
+
+    color:
+        var(--contacto-naranjo);
+
+    font-size:
+        13px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1.4px;
+
+    text-transform:
+        uppercase;
+
+}
+
+body.pagina-contacto .hero-contacto-texto h1 {
+
+    margin:
+        0;
+
+    color:
+        var(--contacto-cafe-oscuro);
+
+    font-size:
+        clamp(2.3rem, 4vw, 3.5rem);
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        -3px;
+
+    line-height:
+        0.95;
+
+}
+
+body.pagina-contacto .hero-contacto-texto h1 span {
+
+    display:
+        inline-block;
+
+    color:
+        var(--contacto-naranjo);
+
+    font-weight:
+        500;
+
+    transform:
+        rotate(-10deg);
+
+}
+
+body.pagina-contacto .hero-contacto-texto h2 {
+
+    margin:
+        22px 0 12px;
+
+    color:
+        var(--contacto-cafe);
+
+    font-size:
+        1.25rem;
+
+    line-height:
+        1.5;
+
+}
+
+body.pagina-contacto .hero-contacto-texto p {
+
+    max-width:
+        650px;
+
+    margin:
+        0;
+
+    color:
+        var(--contacto-texto-suave);
+
+    font-size:
+        .95rem;
+
+    line-height:
+        1.65;
+
+}
+
+body.pagina-contacto .hero-contacto-visual {
+
+    position:
+        relative;
+
+    min-height:
+        260px;
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    justify-content:
+        center;
+
+    height:
+        100%;
+
+    background:
+        #eaded5 url("/img/Loign.jpg") center / cover no-repeat;
+
+    border-radius:
+        20px;
+
+}
+
+body.pagina-contacto .hero-contacto-visual > p {
+
+    position:
+        absolute;
+
+    top:
+        32px;
+
+    right:
+        -5px;
+
+    max-width:
+        145px;
+
+    margin:
+        0;
+
+    color:
+        #956b57;
+
+    font-size:
+        17px;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.45;
+
+    transform:
+        rotate(-7deg);
+
+}
+
+body.pagina-contacto .hero-contacto-visual > p span {
+
+    display:
+        block;
+
+    color:
+        var(--contacto-naranjo);
+
+}
+
+body.pagina-contacto .tipos-contacto {
+
+    display:
+        flex;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        8px;
+
+    flex-wrap:
+        wrap;
+
+    margin-bottom:
+        20px;
+
+}
+
+body.pagina-contacto .tarjeta-tipo-contacto {
+
+    width:
+        100%;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        auto minmax(0, 1fr) auto;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    padding:
+        9px 12px;
+
+    border:
+        1px solid
+        var(--contacto-borde);
+
+    border-radius:
+        10px;
+
+    background:
+        #fff;
+
+    color:
+        inherit;
+
+    text-align:
+        left;
+
+    box-shadow:
+        none;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+
+    min-height:
+        42px;
+
+    flex:
+        1 1 140px;
+
+}
+
+body.pagina-contacto .tarjeta-tipo-contacto:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(211, 101, 48, 0.28);
+
+    box-shadow:
+        0 17px 38px
+        rgba(84, 49, 34, 0.13);
+
+}
+
+body.pagina-contacto .tarjeta-tipo-contacto.seleccionada {
+
+    border-color:
+        rgba(211, 101, 48, 0.45);
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff9f3,
+            #fde7d5
+        );
+
+}
+
+body.pagina-contacto .tipo-contacto-icono {
+
+    width:
+        25px;
+
+    height:
+        25px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    flex-shrink:
+        0;
+
+    border-radius:
+        50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fde7d6,
+            #f7c6a1
+        );
+
+    color:
+        var(--contacto-naranjo);
+
+    font-size:
+        1rem;
+
+}
+
+body.pagina-contacto .tipo-contacto-contenido {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        6px;
+
+}
+
+body.pagina-contacto .tipo-contacto-contenido strong {
+
+    color:
+        var(--contacto-cafe);
+
+    font-size:
+        .8rem;
+
+}
+
+body.pagina-contacto .tipo-contacto-contenido small {
+
+    color:
+        var(--contacto-texto-suave);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.45;
+
+    display:
+        none;
+
+}
+
+body.pagina-contacto .tarjeta-tipo-contacto:hover .tipo-contacto-flecha {
+
+    transform:
+        translateX(4px);
+
+}
+
+body.pagina-contacto .seccion-contacto {
+
+    padding:
+        0 0 34px;
+
+    background:
+        transparent;
+
+}
+
+/* ==========================================================
+   FORMULARIO Y AYUDA
+   ========================================================== */
+
+body.pagina-contacto .contacto-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(0, 1.6fr) minmax(280px, 1fr);
+
+    align-items:
+        start;
+
+    gap:
+        24px;
+
+}
+
+body.pagina-contacto .contacto-formulario {
+
+    padding:
+        28px;
+
+    border:
+        1px solid
+        var(--contacto-borde);
+
+    border-radius:
+        18px;
+
+    background:
+        #faf8f5;
+
+    box-shadow:
+        var(--contacto-sombra);
+
+}
+
+body.pagina-contacto .encabezado-formulario-contacto {
+
+    margin-bottom:
+        28px;
+
+}
+
+body.pagina-contacto .encabezado-formulario-contacto h2 {
+
+    margin:
+        0 0 8px;
+
+    color:
+        var(--contacto-cafe);
+
+    font-size:
+        1.7rem;
+
+}
+
+body.pagina-contacto .encabezado-formulario-contacto p {
+
+    margin:
+        0;
+
+    color:
+        var(--contacto-texto-suave);
+
+    line-height:
+        1.65;
+
+    font-size:
+        .9rem;
+
+}
+
+body.pagina-contacto .campos-contacto {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        21px 18px;
+
+}
+
+body.pagina-contacto .grupo-campo {
+
+    min-width:
+        0;
+
+}
+
+body.pagina-contacto .grupo-campo label {
+
+    display:
+        block;
+
+    margin-bottom:
+        8px;
+
+    color:
+        var(--contacto-cafe);
+
+    font-size:
+        .87rem;
+
+    font-weight:
+        700;
+
+}
+
+body.pagina-contacto .grupo-campo label::after {
+
+    content:
+        " *";
+
+    color:
+        var(--contacto-naranjo);
+
+}
+
+body.pagina-contacto .grupo-campo input,
+body.pagina-contacto .grupo-campo select,
+body.pagina-contacto .grupo-campo textarea {
+
+    width:
+        100%;
+
+    padding:
+        12px;
+
+    border:
+        1px solid
+        rgba(102, 76, 64, 0.2);
+
+    border-radius:
+        10px;
+
+    outline:
+        none;
+
+    background:
+        #fffdfa;
+
+    color:
+        var(--contacto-texto);
+
+    font:
+        inherit;
+
+    font-size:
+        .9rem;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+
+}
+
+body.pagina-contacto .grupo-campo input::placeholder,
+body.pagina-contacto .grupo-campo textarea::placeholder {
+
+    color:
+        #aaa09a;
+
+}
+
+body.pagina-contacto .grupo-campo input:hover,
+body.pagina-contacto .grupo-campo select:hover,
+body.pagina-contacto .grupo-campo textarea:hover {
+
+    border-color:
+        rgba(205, 101, 50, 0.35);
+
+}
+
+body.pagina-contacto .grupo-campo input:focus,
+body.pagina-contacto .grupo-campo select:focus,
+body.pagina-contacto .grupo-campo textarea:focus {
+
+    border-color:
+        var(--contacto-naranjo);
+
+    background:
+        #fff;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(214, 103, 50, 0.1);
+
+}
+
+body.pagina-contacto .grupo-campo select {
+
+    cursor:
+        pointer;
+
+}
+
+body.pagina-contacto .grupo-campo textarea {
+
+    min-height:
+        170px;
+
+    resize:
+        vertical;
+
+    line-height:
+        1.6;
+
+}
+
+body.pagina-contacto .campo-mensaje {
+
+    grid-column:
+        1 / -1;
+
+}
+
+body.pagina-contacto .grupo-campo .campo-error {
+
+    border-color:
+        #c94b3c;
+
+    background:
+        #fffafa;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(201, 75, 60, 0.08);
+
+}
+
+body.pagina-contacto .mensaje-error {
+
+    min-height:
+        17px;
+
+    display:
+        block;
+
+    margin-top:
+        5px;
+
+    color:
+        #b93f34;
+
+    font-size:
+        11px;
+
+    font-weight:
+        600;
+
+}
+
+body.pagina-contacto .mensaje-informacion {
+
+    min-height:
+        22px;
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    justify-content:
+        space-between;
+
+    gap:
+        15px;
+
+}
+
+body.pagina-contacto #contadorMensaje {
+
+    flex-shrink:
+        0;
+
+    margin-top:
+        5px;
+
+    color:
+        #968983;
+
+    font-size:
+        11px;
+
+    transition:
+        color 0.2s ease;
+
+}
+
+body.pagina-contacto #contadorMensaje.cerca-limite {
+
+    color:
+        var(--contacto-naranjo);
+
+    font-weight:
+        700;
+
+}
+
+body.pagina-contacto .boton-enviar-contacto {
+
+    width:
+        100%;
+
+    min-height:
+        52px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        9px;
+
+    margin-top:
+        20px;
+
+    border:
+        none;
+
+    border-radius:
+        10px;
+
+    background:
+        #b97868;
+
+    color:
+        #fff;
+
+    font-size:
+        .9rem;
+
+    font-weight:
+        700;
+
+    box-shadow:
+        0 9px 22px
+        rgba(195, 81, 35, 0.2);
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+
+    padding:
+        12px 22px;
+
+}
+
+body.pagina-contacto .boton-enviar-contacto:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 13px 26px
+        rgba(195, 81, 35, 0.27);
+
+    filter:
+        brightness(1.03);
+
+}
+
+body.pagina-contacto .boton-enviar-contacto:active {
+
+    transform:
+        translateY(0);
+
+}
+
+body.pagina-contacto .boton-enviar-contacto:disabled {
+
+    cursor:
+        wait;
+
+    opacity:
+        0.8;
+
+    transform:
+        none;
+
+}
+
+body.pagina-contacto .indicador-carga {
+
+    width:
+        17px;
+
+    height:
+        17px;
+
+    display:
+        inline-block;
+
+    border:
+        2px solid
+        rgba(255, 255, 255, 0.4);
+
+    border-top-color:
+        #fff;
+
+    border-radius:
+        50%;
+
+    animation:
+        girar-contacto 0.7s linear infinite;
+
+}
+
+/* ==========================================================
+   ANIMACIÓN · girar-contacto
+   ========================================================== */
+
+@keyframes girar-contacto {
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+body.pagina-contacto .estado-envio {
+
+    margin-top:
+        20px;
+
+    padding:
+        17px 18px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        13px;
+
+    border:
+        1px solid
+        rgba(74, 137, 85, 0.2);
+
+    border-radius:
+        14px;
+
+    background:
+        #f2faf3;
+
+    color:
+        #416a48;
+
+}
+
+body.pagina-contacto .estado-envio[hidden] {
+
+    display:
+        none;
+
+}
+
+body.pagina-contacto .estado-envio > span {
+
+    width:
+        36px;
+
+    height:
+        36px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    flex-shrink:
+        0;
+
+    border-radius:
+        50%;
+
+    background:
+        #dcefe0;
+
+    font-weight:
+        800;
+
+}
+
+body.pagina-contacto .estado-envio strong {
+
+    display:
+        block;
+
+    margin-bottom:
+        3px;
+
+}
+
+body.pagina-contacto .estado-envio p {
+
+    margin:
+        0;
+
+    font-size:
+        13px;
+
+}
+
+body.pagina-contacto .contacto-ayuda {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        20px;
+
+}
+
+body.pagina-contacto .tarjeta-ayuda-contacto,
+body.pagina-contacto .tarjeta-compromiso {
+
+    padding:
+        24px;
+
+    border:
+        1px solid
+        var(--contacto-borde);
+
+    border-radius:
+        18px;
+
+    background:
+        #faf8f5;
+
+    box-shadow:
+        var(--contacto-sombra);
+
+}
+
+body.pagina-contacto .encabezado-ayuda-contacto {
+
+    display:
+        flex;
+
+    gap:
+        12px;
+
+    margin-bottom:
+        20px;
+
+}
+
+body.pagina-contacto .ayuda-contacto-icono {
+
+    font-size:
+        28px;
+
+}
+
+body.pagina-contacto .encabezado-ayuda-contacto h2 {
+
+    margin:
+        0 0 5px;
+
+    color:
+        var(--contacto-cafe);
+
+    font-size:
+        1.25rem;
+
+}
+
+body.pagina-contacto .encabezado-ayuda-contacto p {
+
+    margin:
+        0;
+
+    color:
+        var(--contacto-texto-suave);
+
+    font-size:
+        .88rem;
+
+    line-height:
+        1.5;
+
+}
+
+body.pagina-contacto .accesos-ayuda {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        10px;
+
+}
+
+body.pagina-contacto .acceso-ayuda {
+
+    width:
+        100%;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        auto 1fr auto;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    padding:
+        15px;
+
+    border:
+        1px solid
+        rgba(110, 76, 59, 0.09);
+
+    border-radius:
+        14px;
+
+    background:
+        #fffaf6;
+
+    color:
+        inherit;
+
+    text-align:
+        left;
+
+    text-decoration:
+        none;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        border-color 0.2s ease;
+
+}
+
+body.pagina-contacto button.acceso-ayuda {
+
+    font:
+        inherit;
+
+}
+
+body.pagina-contacto .acceso-ayuda:hover {
+
+    transform:
+        translateX(3px);
+
+    border-color:
+        rgba(210, 102, 49, 0.25);
+
+    background:
+        #fff4eb;
+
+}
+
+body.pagina-contacto .acceso-ayuda-icono {
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--contacto-durazno-claro);
+
+    color:
+        var(--contacto-naranjo);
+
+    font-size:
+        19px;
+
+    font-weight:
+        800;
+
+}
+
+body.pagina-contacto .acceso-ayuda > span:nth-child(2) {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        3px;
+
+}
+
+body.pagina-contacto .acceso-ayuda strong {
+
+    color:
+        var(--contacto-cafe);
+
+    font-size:
+        .88rem;
+
+}
+
+body.pagina-contacto .acceso-ayuda small {
+
+    color:
+        var(--contacto-texto-suave);
+
+    font-size:
+        .8rem;
+
+    line-height:
+        1.6;
+
+}
+
+body.pagina-contacto .acceso-ayuda-flecha {
+
+    color:
+        var(--contacto-naranjo);
+
+    font-size:
+        20px;
+
+}
+
+body.pagina-contacto .tarjeta-compromiso {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    min-height:
+        205px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffaf5,
+            #fde7d5
+        );
+
+}
+
+body.pagina-contacto .tarjeta-compromiso::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        150px;
+
+    height:
+        150px;
+
+    right:
+        -55px;
+
+    bottom:
+        -60px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(218, 105, 52, 0.1);
+
+}
+
+body.pagina-contacto .compromiso-corazon {
+
+    display:
+        block;
+
+    margin-bottom:
+        8px;
+
+    color:
+        var(--contacto-naranjo);
+
+    font-size:
+        25px;
+
+}
+
+body.pagina-contacto .tarjeta-compromiso h2 {
+
+    margin:
+        0 0 10px;
+
+    color:
+        var(--contacto-cafe);
+
+    font-size:
+        1.25rem;
+
+}
+
+body.pagina-contacto .tarjeta-compromiso p {
+
+    max-width:
+        85%;
+
+    margin:
+        0 0 8px;
+
+    color:
+        var(--contacto-texto-suave);
+
+    font-size:
+        .9rem;
+
+    line-height:
+        1.65;
+
+}
+
+body.pagina-contacto .compromiso-mascotas {
+
+    position:
+        absolute;
+
+    right:
+        18px;
+
+    bottom:
+        12px;
+
+    z-index:
+        2;
+
+    font-size:
+        38px;
+
+    transform:
+        rotate(-3deg);
+
+}
+
+/* ==========================================================
+   PREGUNTAS FRECUENTES
+   ========================================================== */
+
+body.pagina-contacto .seccion-preguntas {
+
+    padding:
+        20px 0 35px;
+
+    background:
+        transparent;
+
+}
+
+body.pagina-contacto .encabezado-seccion-preguntas {
+
+    max-width:
+        650px;
+
+    margin:
+        0 auto 38px;
+
+    text-align:
+        center;
+
+}
+
+body.pagina-contacto .encabezado-seccion-preguntas h2 {
+
+    margin:
+        0 0 10px;
+
+    color:
+        var(--contacto-cafe);
+
+    font-size:
+        1.8rem;
+
+}
+
+body.pagina-contacto .encabezado-seccion-preguntas p {
+
+    margin:
+        0;
+
+    color:
+        var(--contacto-texto-suave);
+
+}
+
+body.pagina-contacto .lista-preguntas {
+
+    max-width:
+        850px;
+
+    margin:
+        0 auto;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        12px;
+
+    grid-template-columns:
+        1fr;
+
+}
+
+body.pagina-contacto .pregunta-frecuente {
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        var(--contacto-borde);
+
+    border-radius:
+        16px;
+
+    background:
+        #fff;
+
+    box-shadow:
+        0 8px 24px
+        rgba(80, 49, 35, 0.05);
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+body.pagina-contacto .pregunta-frecuente.abierta {
+
+    border-color:
+        rgba(211, 101, 48, 0.28);
+
+    box-shadow:
+        0 11px 30px
+        rgba(80, 49, 35, 0.08);
+
+}
+
+body.pagina-contacto .pregunta-boton {
+
+    width:
+        100%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    padding:
+        18px 20px;
+
+    border:
+        none;
+
+    background:
+        transparent;
+
+    color:
+        var(--contacto-cafe);
+
+    text-align:
+        left;
+
+    font:
+        inherit;
+
+    font-size:
+        .95rem;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+}
+
+body.pagina-contacto .pregunta-boton:hover {
+
+    background:
+        #fffaf6;
+
+}
+
+body.pagina-contacto .pregunta-icono {
+
+    width:
+        32px;
+
+    height:
+        32px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    flex-shrink:
+        0;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--contacto-durazno-claro);
+
+    color:
+        var(--contacto-naranjo);
+
+    font-size:
+        20px;
+
+}
+
+body.pagina-contacto .pregunta-respuesta {
+
+    padding:
+        0 22px 21px;
+
+    color:
+        var(--contacto-texto-suave);
+
+    font-size:
+        .88rem;
+
+    line-height:
+        1.7;
+
+}
+
+body.pagina-contacto .pregunta-respuesta[hidden] {
+
+    display:
+        none;
+
+}
+
+body.pagina-contacto .pregunta-respuesta p {
+
+    margin:
+        0;
+
+    padding-top:
+        2px;
+
+    line-height:
+        1.7;
+
+    font-size:
+        14px;
+
+}
+
+body.pagina-contacto .seccion-cierre-contacto {
+
+    padding:
+        25px 0;
+
+    background:
+        transparent;
+
+}
+
+body.pagina-contacto .cierre-contacto-contenido {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        auto 1fr auto;
+
+    align-items:
+        center;
+
+    gap:
+        22px;
+
+    padding:
+        32px 38px;
+
+    border-radius:
+        24px;
+
+    background:
+        #faf8f5;
+
+    color:
+        #343638;
+
+    box-shadow:
+        0 18px 40px
+        rgba(65, 35, 25, 0.18);
+
+    border:
+        1px solid #ded8d1;
+
+}
+
+body.pagina-contacto .cierre-patita {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    font-size:
+        46px;
+
+}
+
+body.pagina-contacto .cierre-contacto-contenido h2 {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    margin:
+        0 0 7px;
+
+    font-size:
+        24px;
+
+    color:
+        #343638;
+
+}
+
+body.pagina-contacto .cierre-contacto-contenido p {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    max-width:
+        650px;
+
+    margin:
+        0;
+
+    color:
+        #74777a;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.55;
+
+}
+
+body.pagina-contacto .cierre-contacto-contenido .boton-secundario {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    padding:
+        13px 18px;
+
+    border-radius:
+        12px;
+
+    background:
+        #fff;
+
+    color:
+        var(--contacto-cafe);
+
+    text-decoration:
+        none;
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+    white-space:
+        nowrap;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+
+}
+
+body.pagina-contacto .cierre-contacto-contenido .boton-secundario:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        #fff5eb;
+
+}
+
+body.pagina-contacto .pie-pagina {
+
+    position:
+        relative;
+
+    padding:
+        24px 0;
+
+    overflow:
+        hidden;
+
+    background:
+        #faf8f5;
+
+    color:
+        #4f606c;
+
+    border:
+        0;
+
+    border-top:
+        1px solid #ded8d1;
+
+}
+
+body.pagina-contacto .pie-pagina::before,
+body.pagina-contacto .pie-pagina::after {
+
+    position:
+        absolute;
+
+    color:
+        rgba(255, 255, 255, 0.08);
+
+    font-size:
+        70px;
+
+}
+
+body.pagina-contacto .pie-contenido {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr auto auto;
+
+    align-items:
+        center;
+
+    gap:
+        35px;
+
+}
+
+body.pagina-contacto .pie-contenido strong {
+
+    display:
+        block;
+
+    margin-bottom:
+        3px;
+
+    font-size:
+        24px;
+
+}
+
+body.pagina-contacto .pie-contenido p {
+
+    margin:
+        0;
+
+    color:
+        rgba(255, 255, 255, 0.68);
+
+    font-size:
+        12px;
+
+}
+
+body.pagina-contacto .enlaces-pie {
+
+    display:
+        flex;
+
+    gap:
+        18px;
+
+}
+
+body.pagina-contacto .enlaces-pie a {
+
+    color:
+        #74777a;
+
+    text-decoration:
+        none;
+
+    font-size:
+        13px;
+
+    transition:
+        color 0.2s ease;
+
+}
+
+body.pagina-contacto .enlaces-pie a:hover {
+
+    color:
+        #fff;
+
+}
+
+body.pagina-contacto .copyright {
+
+    white-space:
+        nowrap;
+
+    color:
+        #74777a;
+
+}
+
+body.pagina-contacto {
+
+    scroll-behavior:
+        smooth;
+
+}
+
+body.pagina-contacto #escribir,
+body.pagina-contacto #preguntasFrecuentes {
+
+    scroll-margin-top:
+        100px;
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 900px)
+   ========================================================== */
+
+@media  (max-width: 900px) {
+
+    body.pagina-contacto .hero-contacto-texto {
+
+        max-width:
+            720px;
+
+        margin:
+            0 auto;
+
+    }
+
+    body.pagina-contacto .hero-contacto-visual > p {
+
+        right:
+            7%;
+
+    }
+
+    body.pagina-contacto .contacto-ayuda {
+
+        display:
+            grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+    body.pagina-contacto .cierre-contacto-contenido {
+
+        grid-template-columns:
+            auto 1fr;
+
+        text-align:
+            left;
+
+    }
+
+    body.pagina-contacto .cierre-contacto-contenido .boton-secundario {
+
+        grid-column:
+            1 / -1;
+
+        justify-self:
+            start;
+
+        margin-left:
+            68px;
+
+    }
+
+    body.pagina-contacto .pie-contenido {
+
+        grid-template-columns:
+            1fr;
+
+        justify-items:
+            center;
+
+        text-align:
+            center;
+
+    }
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 650px)
+   ========================================================== */
+
+@media  (max-width: 650px) {
+
+    body.pagina-contacto .hero-contacto-visual > p {
+
+        display:
+            none;
+
+    }
+
+    body.pagina-contacto .campos-contacto {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            16px;
+
+    }
+
+    body.pagina-contacto .campo-mensaje {
+
+        grid-column:
+            auto;
+
+    }
+
+    body.pagina-contacto .contacto-ayuda {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    body.pagina-contacto .compromiso-mascotas {
+
+        font-size:
+            30px;
+
+    }
+
+    body.pagina-contacto .cierre-contacto-contenido {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            15px;
+
+        padding:
+            27px 22px;
+
+        text-align:
+            center;
+
+    }
+
+    body.pagina-contacto .cierre-patita {
+
+        font-size:
+            40px;
+
+    }
+
+    body.pagina-contacto .cierre-contacto-contenido h2 {
+
+        font-size:
+            21px;
+
+    }
+
+    body.pagina-contacto .cierre-contacto-contenido .boton-secundario {
+
+        grid-column:
+            auto;
+
+        justify-self:
+            center;
+
+        margin-left:
+            0;
+
+    }
+
+    body.pagina-contacto .enlaces-pie {
+
+        flex-wrap:
+            wrap;
+
+        justify-content:
+            center;
+
+    }
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 400px)
+   ========================================================== */
+
+@media  (max-width: 400px) {
+
+    body.pagina-contacto .acceso-ayuda-icono {
+
+        width:
+            38px;
+
+        height:
+            38px;
+
+    }
+
+}
+
+body.pagina-contacto .tarjeta-tipo-contacto:focus-visible,
+body.pagina-contacto .acceso-ayuda:focus-visible,
+body.pagina-contacto .pregunta-boton:focus-visible,
+body.pagina-contacto .boton-enviar-contacto:focus-visible {
+
+    outline:
+        3px solid
+        rgba(214, 103, 50, 0.35);
+
+    outline-offset:
+        3px;
+
+}
+
+/* ==========================================================
+   MOVIMIENTO REDUCIDO
+   ========================================================== */
+
+@media  (prefers-reduced-motion: reduce) {
+
+    body.pagina-contacto *,
+body.pagina-contacto *::before,
+body.pagina-contacto *::after {
+
+        scroll-behavior:
+            auto !important;
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+    }
+
+}
+
+body.pagina-contacto.pagina-contacto .contenedor {
+
+    width:
+        min(1200px, calc(100% - 80px));
+
+}
+
+body.pagina-contacto .tipo-contacto-flecha {
+
+    color:
+        var(--contacto-naranjo);
+
+    font-size:
+        24px;
+
+    transition:
+        transform 0.25s ease;
+
+    display:
+        none;
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 1000px)
+   ========================================================== */
+
+@media  (max-width: 1000px) {
+
+    body.pagina-contacto.pagina-contacto .contenedor {
+
+        width:
+            calc(100% - 40px);
+
+    }
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 800px)
+   ========================================================== */
+
+@media  (max-width: 800px) {
+
+    body.pagina-contacto .contacto-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    body.pagina-contacto .hero-contacto-contenido {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    body.pagina-contacto .hero-contacto-visual {
+
+        min-height:
+            230px;
+
+    }
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 600px)
+   ========================================================== */
+
+@media  (max-width: 600px) {
+
+    body.pagina-contacto.pagina-contacto .contenedor {
+
+        width:
+            calc(100% - 28px);
+
+    }
+
+    body.pagina-contacto .campos-contacto {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    body.pagina-contacto .contacto-formulario,
+body.pagina-contacto .tarjeta-ayuda-contacto,
+body.pagina-contacto .tarjeta-compromiso {
+
+        padding:
+            20px;
+
+    }
+
+    body.pagina-contacto .tarjeta-tipo-contacto {
+
+        flex-basis:
+            100%;
+
+    }
+
+}
+
+body.pagina-contacto .mensaje-error:empty {
+
+    display:
+        none;
+
+}
+
+body.pagina-contacto .marca-pie span {
+
+    color:
+        #74777a;
+
+}
+
+body.pagina-contacto .campo-ancho {
+
+    grid-column:
+        1 / -1;
+
+}
+
+/* Restaura el espacio nativo de la fecha que Bootstrap modifica. */
+body.pagina-contacto input::-webkit-datetime-edit-fields-wrapper,
+body.pagina-contacto input::-webkit-datetime-edit-text,
+body.pagina-contacto input::-webkit-datetime-edit-minute,
+body.pagina-contacto input::-webkit-datetime-edit-hour-field,
+body.pagina-contacto input::-webkit-datetime-edit-day-field,
+body.pagina-contacto input::-webkit-datetime-edit-month-field,
+body.pagina-contacto input::-webkit-datetime-edit-year-field { padding: revert; }

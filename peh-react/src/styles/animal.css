@@ -1,0 +1,2612 @@
+/* Perfil y adopción del HTML original, aislados del resto de vistas. */
+body.pagina-animal, body.pagina-animal *, body.pagina-animal *::before, body.pagina-animal *::after { all: revert; }
+
+/* ==========================================================
+   PEH - ESTILOS GENERALES
+   Patitas Esperando un Hogar
+   ========================================================== */
+
+/* ==========================================================
+   VARIABLES / IDENTIDAD VISUAL
+   ========================================================== */
+
+body.pagina-animal {
+    /* Fondos */
+    --peh-fondo: #f3efe9;
+    --peh-fondo-claro: #faf8f5;
+    --peh-blanco: #ffffff;
+
+    /* Azul grisáceo */
+    --peh-azul: #667784;
+    --peh-azul-oscuro: #4f606c;
+    --peh-azul-claro: #dce3e6;
+
+    /* Terracota */
+    --peh-terracota: #b97868;
+    --peh-terracota-oscuro: #9f6255;
+    --peh-terracota-claro: #ead0c9;
+
+    /* Coral */
+    --peh-coral: #d99a8f;
+    --peh-coral-claro: #efd0c9;
+
+    /* Texto */
+    --peh-texto: #343638;
+    --peh-texto-suave: #74777a;
+
+    /* Bordes */
+    --peh-borde: #ded8d1;
+
+    /* Estados */
+    --peh-error: #b85c5c;
+    --peh-exito: #66806a;
+    --peh-advertencia: #b38a56;
+
+    /* Sombras */
+    --peh-sombra-suave:
+        0 8px 25px rgba(71, 62, 55, 0.08);
+
+    --peh-sombra:
+        0 20px 50px rgba(71, 62, 55, 0.12);
+
+    /* Bordes redondeados */
+    --peh-radio-pequeno: 8px;
+    --peh-radio: 12px;
+    --peh-radio-grande: 22px;
+    --peh-radio-redondo: 999px;
+
+    /* Transiciones */
+    --peh-transicion:
+        0.2s ease;
+}
+
+/* ==========================================================
+   RESET BÁSICO
+   ========================================================== */
+
+body.pagina-animal * {
+    box-sizing: border-box;
+}
+
+body.pagina-animal {
+    scroll-behavior: smooth;
+}
+
+body.pagina-animal {
+    margin: 0;
+
+    background:
+        var(--peh-fondo);
+
+    color:
+        var(--peh-texto);
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    line-height: 1.5;
+}
+
+body.pagina-animal img {
+    display: block;
+
+    max-width: 100%;
+}
+
+body.pagina-animal button,
+body.pagina-animal input,
+body.pagina-animal select,
+body.pagina-animal textarea {
+    font: inherit;
+}
+
+body.pagina-animal button {
+    color: inherit;
+}
+
+body.pagina-animal a {
+    color: inherit;
+
+    text-decoration: none;
+}
+
+/* ==========================================================
+   SELECCIÓN DE TEXTO
+   ========================================================== */
+
+body.pagina-animal ::selection {
+    background:
+        var(--peh-terracota-claro);
+
+    color:
+        var(--peh-texto);
+}
+
+/* ==========================================================
+   SCROLLBAR
+   ========================================================== */
+
+body.pagina-animal ::-webkit-scrollbar {
+    width: 10px;
+}
+
+body.pagina-animal ::-webkit-scrollbar-track {
+    background:
+        var(--peh-fondo);
+}
+
+body.pagina-animal ::-webkit-scrollbar-thumb {
+    border:
+        2px solid
+        var(--peh-fondo);
+
+    border-radius:
+        var(--peh-radio-redondo);
+
+    background:
+        var(--peh-azul);
+}
+
+body.pagina-animal ::-webkit-scrollbar-thumb:hover {
+    background:
+        var(--peh-azul-oscuro);
+}
+
+/* ==========================================================
+   TIPOGRAFÍA GENERAL
+   ========================================================== */
+
+body.pagina-animal h1,
+body.pagina-animal h2,
+body.pagina-animal h3,
+body.pagina-animal h4,
+body.pagina-animal h5,
+body.pagina-animal h6 {
+    margin-top: 0;
+
+    color:
+        var(--peh-texto);
+
+    font-weight: 700;
+
+    line-height: 1.15;
+
+    letter-spacing: -0.025em;
+}
+
+body.pagina-animal p {
+    margin-top: 0;
+}
+
+body.pagina-animal .texto-suave {
+    color:
+        var(--peh-texto-suave);
+}
+
+body.pagina-animal .texto-centrado {
+    text-align: center;
+}
+
+/* ==========================================================
+   CONTENEDOR GENERAL
+   ========================================================== */
+
+body.pagina-animal .contenedor {
+    width:
+        min(1180px, calc(100% - 40px));
+
+    margin-inline: auto;
+}
+
+/* ==========================================================
+   MARCA PEH
+   ========================================================== */
+
+body.pagina-animal .marca {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    width: fit-content;
+
+    color:
+        inherit;
+
+    text-decoration: none;
+}
+
+body.pagina-animal .simbolo-marca {
+    font-size: 1.8rem;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+}
+
+/* ==========================================================
+   BOTONES GENERALES
+   ========================================================== */
+
+body.pagina-animal .boton {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding:
+        11px
+        18px;
+
+    border:
+        1px solid transparent;
+
+    border-radius:
+        var(--peh-radio);
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    transition:
+        background var(--peh-transicion),
+        border-color var(--peh-transicion),
+        color var(--peh-transicion),
+        transform var(--peh-transicion),
+        box-shadow var(--peh-transicion);
+}
+
+body.pagina-animal .boton:hover {
+    transform:
+        translateY(-1px);
+}
+
+body.pagina-animal .boton:active {
+    transform:
+        translateY(0);
+}
+
+body.pagina-animal .boton:focus-visible {
+    outline:
+        3px solid
+        rgba(185, 120, 104, 0.25);
+
+    outline-offset: 3px;
+}
+
+/* Botón principal */
+
+body.pagina-animal .boton-primario {
+    background:
+        var(--peh-terracota);
+
+    color:
+        var(--peh-blanco);
+
+    box-shadow:
+        0 8px 20px
+        rgba(185, 120, 104, 0.18);
+}
+
+body.pagina-animal .boton-primario:hover {
+    background:
+        var(--peh-terracota-oscuro);
+
+    box-shadow:
+        0 11px 24px
+        rgba(159, 98, 85, 0.23);
+}
+
+/* Botón secundario */
+
+body.pagina-animal .boton-secundario {
+    border-color:
+        var(--peh-borde);
+
+    background:
+        transparent;
+
+    color:
+        var(--peh-azul-oscuro);
+}
+
+body.pagina-animal .boton-secundario:hover {
+    border-color:
+        rgba(102, 119, 132, 0.45);
+
+    background:
+        rgba(102, 119, 132, 0.07);
+}
+
+/* Botón claro */
+
+body.pagina-animal .boton-claro {
+    background:
+        var(--peh-fondo-claro);
+
+    color:
+        var(--peh-azul-oscuro);
+}
+
+body.pagina-animal .boton-claro:hover {
+    background:
+        var(--peh-blanco);
+}
+
+/* Botón ancho */
+
+body.pagina-animal .boton-bloque {
+    width: 100%;
+}
+
+/* ==========================================================
+   CAMPOS DE FORMULARIO GENERALES
+   ========================================================== */
+
+body.pagina-animal .grupo-campo {
+    margin-bottom: 20px;
+}
+
+body.pagina-animal .grupo-campo label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color:
+        var(--peh-texto);
+
+    font-size: 0.87rem;
+    font-weight: 600;
+}
+
+body.pagina-animal .grupo-campo input,
+body.pagina-animal .grupo-campo select,
+body.pagina-animal .grupo-campo textarea {
+    width: 100%;
+
+    padding:
+        12px
+        14px;
+
+    border:
+        1px solid
+        var(--peh-borde);
+
+    border-radius:
+        var(--peh-radio);
+
+    outline: none;
+
+    background:
+        rgba(255, 255, 255, 0.75);
+
+    color:
+        var(--peh-texto);
+
+    transition:
+        border-color var(--peh-transicion),
+        box-shadow var(--peh-transicion),
+        background var(--peh-transicion);
+}
+
+body.pagina-animal .grupo-campo input::placeholder,
+body.pagina-animal .grupo-campo textarea::placeholder {
+    color:
+        #a4a09b;
+}
+
+body.pagina-animal .grupo-campo input:focus,
+body.pagina-animal .grupo-campo select:focus,
+body.pagina-animal .grupo-campo textarea:focus {
+    border-color:
+        var(--peh-terracota);
+
+    background:
+        var(--peh-blanco);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(185, 120, 104, 0.10);
+}
+
+body.pagina-animal textarea {
+    resize: vertical;
+}
+
+/* ==========================================================
+   VALIDACIONES
+   ========================================================== */
+
+body.pagina-animal .mensaje-error {
+    display: block;
+
+    margin-top: 6px;
+
+    color:
+        var(--peh-error);
+
+    font-size: 0.74rem;
+}
+
+body.pagina-animal .grupo-campo.campo-error
+input:not([type="checkbox"]),
+body.pagina-animal .grupo-campo.campo-error
+select,
+body.pagina-animal .grupo-campo.campo-error
+textarea {
+    border-color:
+        var(--peh-error);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(184, 92, 92, 0.08);
+}
+
+body.pagina-animal .grupo-campo.campo-valido
+input:not([type="checkbox"]),
+body.pagina-animal .grupo-campo.campo-valido
+select,
+body.pagina-animal .grupo-campo.campo-valido
+textarea {
+    border-color:
+        rgba(102, 128, 106, 0.65);
+}
+
+/* ==========================================================
+   TARJETAS GENERALES
+   ========================================================== */
+
+body.pagina-animal .tarjeta {
+    border:
+        1px solid
+        rgba(222, 216, 209, 0.75);
+
+    border-radius:
+        var(--peh-radio-grande);
+
+    background:
+        var(--peh-fondo-claro);
+
+    box-shadow:
+        var(--peh-sombra-suave);
+}
+
+/* ==========================================================
+   ETIQUETAS / CHIPS
+   ========================================================== */
+
+body.pagina-animal .etiqueta {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding:
+        6px
+        10px;
+
+    border-radius:
+        var(--peh-radio-redondo);
+
+    background:
+        var(--peh-azul-claro);
+
+    color:
+        var(--peh-azul-oscuro);
+
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+
+/* ==========================================================
+   ESTADOS
+   ========================================================== */
+
+body.pagina-animal .estado-exito {
+    color:
+        var(--peh-exito);
+}
+
+body.pagina-animal .estado-error {
+    color:
+        var(--peh-error);
+}
+
+body.pagina-animal .estado-advertencia {
+    color:
+        var(--peh-advertencia);
+}
+
+/* ==========================================================
+   ACCESIBILIDAD
+   ========================================================== */
+
+body.pagina-animal :focus-visible {
+    outline:
+        3px solid
+        rgba(185, 120, 104, 0.28);
+
+    outline-offset: 3px;
+}
+
+/* ==========================================================
+   RESPONSIVE GENERAL
+   ========================================================== */
+
+@media  (max-width: 768px) {
+
+    body.pagina-animal .contenedor {
+        width:
+            min(100% - 28px, 1180px);
+    }
+
+}
+
+/* ==========================================================
+   PEH - ANIMAL
+   Patitas Esperando un Hogar
+   ========================================================== */
+
+/* ==========================================================
+   ESTILOS GENERALES
+   ========================================================== */
+
+body.pagina-animal {
+
+    --verde-oscuro:
+        #4f606c;
+
+    --verde:
+        #68745b;
+
+    --verde-medio:
+        #89967b;
+
+    --verde-claro:
+        #e8ede2;
+
+    --verde-muy-claro:
+        #f3f5ef;
+
+    --cafe-oscuro:
+        #343638;
+
+    --cafe:
+        #9f6255;
+
+    --caramelo:
+        #b97868;
+
+    --caramelo-claro:
+        #d9b38f;
+
+    --durazno:
+        #e9b39d;
+
+    --durazno-claro:
+        #f7e2d8;
+
+    --rosa:
+        #c96f73;
+
+    --rosa-claro:
+        #f7e4e2;
+
+    --crema:
+        #f3efe9;
+
+    --crema-claro:
+        #faf8f5;
+
+    --texto:
+        #343638;
+
+    --texto-suave:
+        #74777a;
+
+    --blanco:
+        #ffffff;
+
+    --borde:
+        #eadfd4;
+
+    --sombra-suave:
+        0 8px 24px rgba(87, 53, 34, 0.08);
+
+    --sombra-media:
+        0 14px 35px rgba(87, 53, 34, 0.13);
+
+    margin:
+        0;
+
+    min-height:
+        100vh;
+
+    background-color:
+        var(--crema-claro);
+
+    color:
+        var(--texto);
+
+    background:
+        #f3efe9;
+
+}
+
+body.pagina-animal .estructura-animal.perfil-oculto {
+
+    display:
+        none;
+
+}
+
+body.pagina-animal .contenido-animal {
+
+    min-width:
+        0;
+
+    padding:
+        28px 0 35px;
+
+    background:
+        transparent;
+
+}
+
+body.pagina-animal .contenedor-animal {
+
+    width:
+        min(1200px, calc(100% - 80px));
+
+    max-width:
+        none;
+
+    margin:
+        0 auto;
+
+}
+
+body.pagina-animal .presentacion-animal {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(0, 1.35fr) minmax(0, 1fr);
+
+    gap:
+        24px;
+
+    align-items:
+        stretch;
+
+    margin-bottom:
+        24px;
+
+}
+
+body.pagina-animal .columna-fotografias {
+
+    min-width:
+        0;
+
+}
+
+body.pagina-animal .contenedor-imagen-animal {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    height:
+        auto;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        18px;
+
+    background-color:
+        var(--crema);
+
+    box-shadow:
+        var(--sombra-media);
+
+    aspect-ratio:
+        4 / 3;
+
+    background:
+        #faf8f5;
+
+}
+
+body.pagina-animal .contenedor-imagen-animal img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    display:
+        block;
+
+    object-fit:
+        contain;
+
+    transition:
+        transform 0.35s ease;
+
+}
+
+body.pagina-animal .contenedor-imagen-animal:hover img {
+
+    transform:
+        none;
+
+}
+
+body.pagina-animal .boton-carrusel {
+
+    position:
+        absolute;
+
+    top:
+        50%;
+
+    transform:
+        translateY(-50%);
+
+    width:
+        44px;
+
+    height:
+        44px;
+
+    border:
+        none;
+
+    border-radius:
+        50%;
+
+    background-color:
+        rgba(255, 250, 244, 0.92);
+
+    color:
+        var(--cafe-oscuro);
+
+    font-size:
+        31px;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 5px 16px rgba(87, 53, 34, 0.16);
+
+}
+
+body.pagina-animal .boton-carrusel.anterior {
+
+    left:
+        18px;
+
+}
+
+body.pagina-animal .boton-carrusel.siguiente {
+
+    right:
+        18px;
+
+}
+
+body.pagina-animal .boton-carrusel[hidden],
+body.pagina-animal .indicadores-carrusel[hidden] {
+
+    display:
+        none !important;
+
+}
+
+body.pagina-animal .indicadores-carrusel {
+
+    min-height:
+        28px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        8px;
+
+    padding-top:
+        13px;
+
+}
+
+body.pagina-animal .indicador-carrusel {
+
+    width:
+        8px;
+
+    height:
+        8px;
+
+    padding:
+        0;
+
+    border:
+        none;
+
+    border-radius:
+        50%;
+
+    background-color:
+        #d8c8bb;
+
+    cursor:
+        pointer;
+
+}
+
+body.pagina-animal .indicador-carrusel.activo {
+
+    width:
+        25px;
+
+    border-radius:
+        20px;
+
+    background-color:
+        var(--caramelo);
+
+}
+
+body.pagina-animal .boton-adoptar {
+
+    width:
+        100%;
+
+    min-height:
+        48px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        11px;
+
+    margin-top:
+        16px;
+
+    padding:
+        14px 20px;
+
+    border:
+        none;
+
+    border-radius:
+        12px;
+
+    background:
+        #b97868;
+
+    color:
+        #fff;
+
+    font-family:
+        inherit;
+
+    font-size:
+        1rem;
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 8px 20px rgba(149, 103, 71, 0.24);
+
+    transition:
+        0.25s ease;
+
+    margin:
+        20px 0 12px;
+
+}
+
+body.pagina-animal .boton-adoptar:hover {
+
+    transform:
+        translateY(-2px);
+
+    filter:
+        brightness(0.95);
+
+}
+
+body.pagina-animal .encabezado-animal {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    justify-content:
+        space-between;
+
+    gap:
+        14px;
+
+    padding-bottom:
+        24px;
+
+    border-bottom:
+        1px solid var(--borde);
+
+    flex-direction:
+        column-reverse;
+
+    margin-bottom:
+        20px;
+
+}
+
+body.pagina-animal .encabezado-animal h1 {
+
+    margin:
+        0 0 12px;
+
+    color:
+        var(--cafe-oscuro);
+
+    font-size:
+        clamp(2rem, 4vw, 3.3rem);
+
+    font-weight:
+        800;
+
+    line-height:
+        1;
+
+    margin-bottom:
+        16px;
+
+}
+
+body.pagina-animal .datos-resumen-animal {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        10px;
+
+    color:
+        var(--texto-suave);
+
+    font-size:
+        .88rem;
+
+    font-weight:
+        600;
+
+}
+
+body.pagina-animal .estado-adopcion {
+
+    flex-shrink:
+        0;
+
+    padding:
+        6px 12px;
+
+    border-radius:
+        999px;
+
+    background-color:
+        var(--verde-claro);
+
+    color:
+        #9f6255;
+
+    font-size:
+        .8rem;
+
+    font-weight:
+        800;
+
+    background:
+        #f5e5dc;
+
+}
+
+/* ==========================================================
+   HISTORIA Y DETALLES
+   ========================================================== */
+
+body.pagina-animal .historia-animal {
+
+    padding-top:
+        25px;
+
+    padding:
+        26px;
+
+    background:
+        #faf8f5;
+
+    border:
+        1px solid #ded8d1;
+
+    border-radius:
+        18px;
+
+    margin-bottom:
+        24px;
+
+    scroll-margin-top:
+        100px;
+
+}
+
+body.pagina-animal .historia-animal h2 {
+
+    margin:
+        0 0 17px;
+
+    color:
+        var(--cafe-oscuro);
+
+    font-size:
+        1.5rem;
+
+}
+
+body.pagina-animal .historia-animal h2 span {
+
+    color:
+        var(--rosa);
+
+}
+
+body.pagina-animal .historia-animal p {
+
+    margin:
+        0 0 15px;
+
+    color:
+        var(--texto-suave);
+
+    font-size:
+        .95rem;
+
+    line-height:
+        1.8;
+
+}
+
+body.pagina-animal .historia-animal blockquote {
+
+    margin:
+        25px 0 0;
+
+    padding:
+        14px 18px;
+
+    border-left:
+        4px solid var(--caramelo);
+
+    border-radius:
+        10px;
+
+    background-color:
+        #fff0df;
+
+    color:
+        var(--cafe);
+
+    font-size:
+        .9rem;
+
+    font-style:
+        italic;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.6;
+
+    background:
+        #f3efe9;
+
+}
+
+body.pagina-animal .detalles-animal {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        20px;
+
+}
+
+body.pagina-animal .tarjeta-detalle {
+
+    padding:
+        24px;
+
+    border:
+        1px solid #ded8d1;
+
+    border-radius:
+        18px;
+
+    box-shadow:
+        var(--sombra-suave);
+
+    background:
+        #faf8f5;
+
+}
+
+body.pagina-animal .informacion-basica {
+
+    background:
+        #faf8f5;
+
+}
+
+body.pagina-animal .salud-cuidados {
+
+    background:
+        #faf8f5;
+
+}
+
+body.pagina-animal .convivencia-animal {
+
+    background:
+        #faf8f5;
+
+}
+
+body.pagina-animal .tarjeta-detalle h2 {
+
+    margin:
+        0 0 20px;
+
+    color:
+        var(--cafe-oscuro);
+
+    font-size:
+        1.25rem;
+
+    margin-bottom:
+        18px;
+
+}
+
+body.pagina-animal .lista-datos-animal,
+body.pagina-animal .lista-convivencia {
+
+    margin:
+        0;
+
+}
+
+body.pagina-animal .lista-datos-animal > div,
+body.pagina-animal .lista-convivencia > div {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(100px, .8fr) minmax(0, 1fr);
+
+    gap:
+        16px;
+
+    padding:
+        12px 0;
+
+    border-bottom:
+        1px solid rgba(87, 53, 34, 0.08);
+
+}
+
+body.pagina-animal .lista-datos-animal > div:last-child,
+body.pagina-animal .lista-convivencia > div:last-child {
+
+    border-bottom:
+        none;
+
+}
+
+body.pagina-animal .lista-datos-animal dt,
+body.pagina-animal .lista-convivencia dt {
+
+    font-size:
+        .88rem;
+
+    font-weight:
+        700;
+
+}
+
+body.pagina-animal .lista-datos-animal dd,
+body.pagina-animal .lista-convivencia dd {
+
+    margin:
+        0;
+
+    color:
+        var(--texto-suave);
+
+    font-size:
+        .88rem;
+
+    line-height:
+        1.6;
+
+}
+
+body.pagina-animal .dato-cuidados-especiales {
+
+    margin-top:
+        5px;
+
+    padding:
+        13px !important;
+
+    border:
+        none !important;
+
+    border-radius:
+        12px;
+
+    background-color:
+        rgba(255, 255, 255, 0.55);
+
+}
+
+body.pagina-animal .etiquetas-personalidad {
+
+    margin:
+        0 0 20px;
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        9px;
+
+}
+
+body.pagina-animal .etiquetas-personalidad span {
+
+    padding:
+        8px 12px;
+
+    border-radius:
+        999px;
+
+    background-color:
+        #f3d5ce;
+
+    color:
+        #8c4f4f;
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+}
+
+body.pagina-animal .mensaje-oportunidad {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        12px;
+
+    margin-top:
+        24px;
+
+    padding:
+        22px;
+
+    border-radius:
+        18px;
+
+    background:
+        #faf8f5;
+
+    color:
+        var(--cafe-oscuro);
+
+    text-align:
+        center;
+
+    box-shadow:
+        var(--sombra-suave);
+
+    border:
+        1px solid #ded8d1;
+
+}
+
+body.pagina-animal .mensaje-oportunidad p {
+
+    margin:
+        0;
+
+    font-size:
+        14px;
+
+    font-weight:
+        800;
+
+}
+
+/* ==========================================================
+   SOLICITUD DE ADOPCIÓN
+   ========================================================== */
+
+body.pagina-animal .modo-adopcion {
+
+    display:
+        none;
+
+    min-height:
+        calc(100vh - 82px);
+
+    background-color:
+        var(--crema-claro);
+
+}
+
+body.pagina-animal .modo-adopcion.activo {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(520px, 1.05fr)
+        minmax(380px, 0.95fr);
+
+    animation:
+        aparecerAdopcion 0.35s ease;
+
+}
+
+/* ==========================================================
+   ANIMACIÓN · aparecerAdopcion
+   ========================================================== */
+
+@keyframes aparecerAdopcion {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateX(-25px);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateX(0);
+
+    }
+
+}
+
+body.pagina-animal .panel-formulario-adopcion {
+
+    padding:
+        42px 55px 60px;
+
+    background-color:
+        var(--crema-claro);
+
+}
+
+body.pagina-animal .encabezado-formulario {
+
+    max-width:
+        720px;
+
+    margin:
+        0 auto 32px;
+
+}
+
+body.pagina-animal .boton-volver-perfil {
+
+    margin-bottom:
+        30px;
+
+    padding:
+        0;
+
+    border:
+        none;
+
+    background:
+        none;
+
+    color:
+        var(--cafe);
+
+    font-family:
+        inherit;
+
+    font-size:
+        14px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+}
+
+body.pagina-animal .boton-volver-perfil:hover {
+
+    color:
+        var(--cafe-oscuro);
+
+}
+
+body.pagina-animal .titulo-formulario {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        15px;
+
+}
+
+body.pagina-animal .icono-formulario {
+
+    width:
+        54px;
+
+    height:
+        54px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        16px;
+
+    background-color:
+        var(--durazno-claro);
+
+    font-size:
+        25px;
+
+}
+
+body.pagina-animal .etiqueta-formulario {
+
+    margin:
+        0 0 4px;
+
+    color:
+        var(--caramelo);
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        1px;
+
+}
+
+body.pagina-animal .titulo-formulario h2 {
+
+    margin:
+        0;
+
+    color:
+        var(--cafe-oscuro);
+
+    font-size:
+        31px;
+
+}
+
+body.pagina-animal .introduccion-formulario {
+
+    margin:
+        20px 0 0;
+
+    color:
+        var(--texto-suave);
+
+    line-height:
+        1.7;
+
+}
+
+body.pagina-animal .formulario-adopcion {
+
+    max-width:
+        720px;
+
+    margin:
+        0 auto;
+
+}
+
+body.pagina-animal .grupo-formulario {
+
+    margin:
+        0 0 22px;
+
+    padding:
+        25px;
+
+    border:
+        1px solid var(--borde);
+
+    border-radius:
+        18px;
+
+    background-color:
+        var(--blanco);
+
+    box-shadow:
+        var(--sombra-suave);
+
+}
+
+body.pagina-animal .grupo-formulario legend {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    padding:
+        0 8px;
+
+    color:
+        var(--cafe-oscuro);
+
+    font-size:
+        16px;
+
+    font-weight:
+        800;
+
+}
+
+body.pagina-animal .grupo-formulario legend span {
+
+    width:
+        28px;
+
+    height:
+        28px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background-color:
+        var(--durazno-claro);
+
+    color:
+        var(--cafe);
+
+    font-size:
+        12px;
+
+}
+
+body.pagina-animal .fila-formulario {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        16px;
+
+}
+
+body.pagina-animal .campo-formulario {
+
+    margin-bottom:
+        18px;
+
+}
+
+body.pagina-animal .campo-formulario:last-child {
+
+    margin-bottom:
+        0;
+
+}
+
+body.pagina-animal .campo-formulario > label {
+
+    display:
+        block;
+
+    margin-bottom:
+        8px;
+
+    color:
+        var(--texto);
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+}
+
+body.pagina-animal .campo-formulario input,
+body.pagina-animal .campo-formulario select,
+body.pagina-animal .campo-formulario textarea {
+
+    width:
+        100%;
+
+    box-sizing:
+        border-box;
+
+    padding:
+        12px 14px;
+
+    border:
+        1px solid #ded5cc;
+
+    border-radius:
+        10px;
+
+    background-color:
+        #fffdf9;
+
+    color:
+        var(--texto);
+
+    font:
+        inherit;
+
+    font-size:
+        14px;
+
+    outline:
+        none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+body.pagina-animal .campo-formulario textarea {
+
+    resize:
+        vertical;
+
+    min-height:
+        90px;
+
+}
+
+body.pagina-animal .campo-formulario input:focus,
+body.pagina-animal .campo-formulario select:focus,
+body.pagina-animal .campo-formulario textarea:focus {
+
+    border-color:
+        var(--caramelo);
+
+    box-shadow:
+        0 0 0 3px rgba(184, 135, 96, 0.13);
+
+}
+
+body.pagina-animal .opciones-formulario {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        10px;
+
+}
+
+body.pagina-animal .opcion-radio {
+
+    cursor:
+        pointer;
+
+    position:
+        relative;
+
+    display:
+        inline-flex;
+
+}
+
+body.pagina-animal .opcion-radio input {
+
+    position:
+        absolute;
+
+    opacity:
+        0;
+
+    pointer-events:
+        none;
+
+    width:
+        1px;
+
+    height:
+        1px;
+
+    min-width:
+        0;
+
+    margin:
+        0;
+
+    left:
+        0;
+
+    top:
+        0;
+
+}
+
+body.pagina-animal .opcion-radio span {
+
+    display:
+        inline-flex;
+
+    padding:
+        9px 15px;
+
+    border:
+        1px solid var(--borde);
+
+    border-radius:
+        999px;
+
+    background-color:
+        #fffdf9;
+
+    color:
+        var(--texto-suave);
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+    transition:
+        0.2s ease;
+
+}
+
+body.pagina-animal .opcion-radio input:checked + span {
+
+    border-color:
+        var(--caramelo);
+
+    background-color:
+        var(--durazno-claro);
+
+    color:
+        var(--cafe-oscuro);
+
+}
+
+body.pagina-animal .compromiso-adopcion {
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8f3,
+            #f9eee5
+        );
+
+}
+
+body.pagina-animal .compromiso-adopcion > p {
+
+    color:
+        var(--texto-suave);
+
+    font-size:
+        14px;
+
+    line-height:
+        1.6;
+
+}
+
+body.pagina-animal .opcion-compromiso {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        12px;
+
+    margin-top:
+        18px;
+
+    cursor:
+        pointer;
+
+}
+
+body.pagina-animal .opcion-compromiso input {
+
+    margin-top:
+        4px;
+
+    accent-color:
+        var(--cafe);
+
+}
+
+body.pagina-animal .opcion-compromiso span {
+
+    color:
+        var(--texto);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.6;
+
+}
+
+body.pagina-animal .acciones-formulario {
+
+    display:
+        flex;
+
+    justify-content:
+        flex-end;
+
+    gap:
+        12px;
+
+    padding-top:
+        8px;
+
+}
+
+body.pagina-animal .boton-cancelar-adopcion,
+body.pagina-animal .boton-enviar-solicitud {
+
+    min-height:
+        48px;
+
+    padding:
+        12px 22px;
+
+    border-radius:
+        12px;
+
+    font-family:
+        inherit;
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+
+}
+
+body.pagina-animal .boton-cancelar-adopcion {
+
+    border:
+        1px solid var(--borde);
+
+    background-color:
+        var(--blanco);
+
+    color:
+        var(--texto-suave);
+
+}
+
+body.pagina-animal .boton-enviar-solicitud {
+
+    border:
+        none;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--caramelo),
+            var(--cafe)
+        );
+
+    color:
+        var(--blanco);
+
+    box-shadow:
+        0 8px 20px rgba(149, 103, 71, 0.20);
+
+}
+
+body.pagina-animal .panel-animal-adopcion {
+
+    position:
+        relative;
+
+    padding:
+        42px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f0dfd0,
+            #e5c8b2
+        );
+
+}
+
+body.pagina-animal .animal-adopcion-sticky {
+
+    position:
+        sticky;
+
+    top:
+        124px;
+
+    max-width:
+        560px;
+
+    margin:
+        0 auto;
+
+}
+
+body.pagina-animal .imagen-adopcion {
+
+    position:
+        relative;
+
+    height:
+        520px;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        28px;
+
+    box-shadow:
+        0 18px 45px rgba(87, 53, 34, 0.20);
+
+}
+
+body.pagina-animal .imagen-adopcion img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    display:
+        block;
+
+    object-fit:
+        cover;
+
+}
+
+body.pagina-animal .estado-adopcion-formulario {
+
+    position:
+        absolute;
+
+    top:
+        20px;
+
+    right:
+        20px;
+
+    padding:
+        9px 14px;
+
+    border-radius:
+        999px;
+
+    background-color:
+        rgba(255, 255, 255, 0.90);
+
+    color:
+        var(--verde-oscuro);
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+}
+
+body.pagina-animal .resumen-animal-adopcion {
+
+    padding:
+        25px 8px 0;
+
+}
+
+body.pagina-animal .peh-presenta {
+
+    margin:
+        0;
+
+    color:
+        var(--cafe);
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+}
+
+body.pagina-animal .resumen-animal-adopcion h2 {
+
+    margin:
+        4px 0 14px;
+
+    color:
+        var(--cafe-oscuro);
+
+    font-size:
+        42px;
+
+}
+
+body.pagina-animal .datos-adopcion {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        9px;
+
+}
+
+body.pagina-animal .datos-adopcion span {
+
+    padding:
+        7px 10px;
+
+    border-radius:
+        999px;
+
+    background-color:
+        rgba(255, 255, 255, 0.55);
+
+    color:
+        var(--texto);
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+}
+
+body.pagina-animal .recordatorio-adopcion {
+
+    display:
+        flex;
+
+    gap:
+        12px;
+
+    margin-top:
+        22px;
+
+    padding:
+        17px;
+
+    border-radius:
+        14px;
+
+    background-color:
+        rgba(255, 255, 255, 0.52);
+
+}
+
+body.pagina-animal .recordatorio-adopcion > span {
+
+    color:
+        var(--rosa);
+
+    font-size:
+        21px;
+
+}
+
+body.pagina-animal .recordatorio-adopcion p {
+
+    margin:
+        0;
+
+    color:
+        var(--cafe-oscuro);
+
+    font-size:
+        13px;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.55;
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 1050px)
+   ========================================================== */
+
+@media  (max-width: 1050px) {
+
+    body.pagina-animal .modo-adopcion.activo {
+
+        grid-template-columns:
+            minmax(480px, 1fr)
+            minmax(320px, 0.75fr);
+
+    }
+
+    body.pagina-animal .panel-formulario-adopcion {
+
+        padding:
+            35px 35px
+            50px;
+
+    }
+
+    body.pagina-animal .panel-animal-adopcion {
+
+        padding:
+            35px 25px;
+
+    }
+
+    body.pagina-animal .imagen-adopcion {
+
+        height:
+            450px;
+
+    }
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 850px)
+   ========================================================== */
+
+@media  (max-width: 850px) {
+
+    body.pagina-animal .modo-adopcion.activo {
+
+        display:
+            flex;
+
+        flex-direction:
+            column-reverse;
+
+    }
+
+    body.pagina-animal .panel-animal-adopcion {
+
+        padding:
+            25px;
+
+    }
+
+    body.pagina-animal .animal-adopcion-sticky {
+
+        position:
+            static;
+
+        max-width:
+            620px;
+
+    }
+
+    body.pagina-animal .imagen-adopcion {
+
+        height:
+            390px;
+
+    }
+
+    body.pagina-animal .panel-formulario-adopcion {
+
+        padding:
+            30px 22px 50px;
+
+    }
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 600px)
+   ========================================================== */
+
+@media  (max-width: 600px) {
+
+    body.pagina-animal .fila-formulario {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            0;
+
+    }
+
+    body.pagina-animal .grupo-formulario {
+
+        padding:
+            20px 17px;
+
+    }
+
+    body.pagina-animal .acciones-formulario {
+
+        flex-direction:
+            column-reverse;
+
+    }
+
+    body.pagina-animal .boton-cancelar-adopcion,
+body.pagina-animal .boton-enviar-solicitud {
+
+        width:
+            100%;
+
+    }
+
+    body.pagina-animal .imagen-adopcion {
+
+        height:
+            300px;
+
+        border-radius:
+            20px;
+
+    }
+
+    body.pagina-animal .resumen-animal-adopcion h2 {
+
+        font-size:
+            34px;
+
+    }
+
+}
+
+/* ==========================================================
+   PERFIL DEL ANIMAL
+   ========================================================== */
+
+body.pagina-animal .estructura-animal {
+
+    display:
+        block;
+
+    min-height:
+        0;
+
+}
+
+body.pagina-animal .volver-catalogo {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    margin-bottom:
+        24px;
+
+    color:
+        var(--terracota, #b97868);
+
+    text-decoration:
+        none;
+
+    font-weight:
+        600;
+
+}
+
+body.pagina-animal .volver-catalogo:hover {
+
+    text-decoration:
+        underline;
+
+}
+
+body.pagina-animal .volver-catalogo:focus-visible {
+
+    outline:
+        3px solid #b97868;
+
+    outline-offset:
+        5px;
+
+    border-radius:
+        4px;
+
+}
+
+body.pagina-animal .informacion-principal-animal {
+
+    min-width:
+        0;
+
+    padding:
+        28px;
+
+    border:
+        1px solid #ded8d1;
+
+    border-radius:
+        18px;
+
+    background:
+        #faf8f5;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+}
+
+body.pagina-animal .introduccion-adopcion {
+
+    font-size:
+        .95rem;
+
+    line-height:
+        1.7;
+
+    color:
+        #74777a;
+
+    margin:
+        0;
+
+}
+
+body.pagina-animal .enlace-historia-animal {
+
+    color:
+        #9f6255;
+
+    font-size:
+        .9rem;
+
+    line-height:
+        1.6;
+
+    text-decoration:
+        none;
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 1000px)
+   ========================================================== */
+
+@media  (max-width: 1000px) {
+
+    body.pagina-animal .contenedor,
+body.pagina-animal .contenedor-animal {
+
+        width:
+            calc(100% - 40px);
+
+    }
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 800px)
+   ========================================================== */
+
+@media  (max-width: 800px) {
+
+    body.pagina-animal .presentacion-animal {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    body.pagina-animal .detalles-animal {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 600px)
+   ========================================================== */
+
+@media  (max-width: 600px) {
+
+    body.pagina-animal .contenedor-animal {
+
+        width:
+            calc(100% - 28px);
+
+    }
+
+    body.pagina-animal .informacion-principal-animal,
+body.pagina-animal .historia-animal,
+body.pagina-animal .tarjeta-detalle {
+
+        padding:
+            20px;
+
+    }
+
+    body.pagina-animal .lista-datos-animal > div,
+body.pagina-animal .lista-convivencia > div {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            6px;
+
+    }
+
+}
+
+body.pagina-animal .opcion-radio input:focus-visible + span {
+
+    outline:
+        3px solid #b97868;
+
+    outline-offset:
+        3px;
+
+}
+
+body.pagina-animal .panel-formulario-adopcion,
+body.pagina-animal .panel-animal-adopcion {
+
+    min-width:
+        0;
+
+    max-width:
+        100%;
+
+}

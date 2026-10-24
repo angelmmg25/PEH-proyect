@@ -1,0 +1,15 @@
+import PEH from "./peh";
+export const configuraciones={
+ notificaciones:{tipo:"notificaciones",icono:"🔔",titulo:"Notificaciones",descripcion:"Elige qué información importante quieres recibir."},
+ seguridad:{tipo:"seguridad",icono:"🔒",titulo:"Seguridad y privacidad",descripcion:"Administra la seguridad básica de tu cuenta."},
+ adopcion:{tipo:"adopcion",icono:"🐾",titulo:"Preferencias de adopción",descripcion:"Cuéntanos qué tipo de compañero podría adaptarse mejor a tu estilo de vida."}
+};
+export function obtenerPerfil(){const usuario=PEH.sesion.obtener();return {nombre:usuario?.nombre||"Usuario PEH",correo:usuario?.correo||"usuario@correo.com",foto:null,...PEH.perfil.obtener()};}
+export function estadoAdopcion(estado){const valor=String(estado||"Pendiente").trim().toLowerCase();const estados={pendiente:["Pendiente","pendiente"],"en revisión":["En revisión","revision"],"en revision":["En revisión","revision"],aprobada:["Aprobada","aprobada"],rechazada:["Rechazada","rechazada"],completada:["Completada","completada"],cancelada:["Cancelada","cancelada"]};const [texto,clase]=estados[valor]||[estado||"Pendiente","pendiente"];return {texto,clase};}
+export function estadoReserva(estado){const valor=String(estado||"Pendiente").trim().toLowerCase();const estados={pendiente:["Pendiente","pendiente"],confirmada:["Confirmada","confirmada"],"en revisión":["En revisión","revision"],"en revision":["En revisión","revision"],completada:["Completada","completada"],cancelada:["Cancelada","cancelada"],rechazada:["Rechazada","rechazada"]};const [texto,clase]=estados[valor]||[estado||"Pendiente","desconocido"];return {texto,clase};}
+export function fechaSolicitud(fecha){if(!fecha)return "Fecha no disponible";const d=new Date(fecha);return Number.isNaN(d.getTime())?"Fecha no disponible":d.toLocaleDateString("es-CL",{day:"2-digit",month:"long",year:"numeric"});}
+export function fechaReserva(fecha){return fecha?fechaSolicitud(`${fecha}T12:00:00`):"Fecha no disponible";}
+export function fechaHora(reserva){if(!reserva?.fecha||!reserva?.hora)return null;const d=new Date(`${reserva.fecha}T${reserva.hora}`);return Number.isNaN(d.getTime())?null:d;}
+export function finalizada(reserva){return ["completada","cancelada","rechazada"].includes(estadoReserva(reserva.estado).clase);}
+export function agruparReservas(reservas,ahora=new Date()){const futuras=[],anteriores=[];reservas.forEach(r=>{const f=fechaHora(r);(f&&f>=ahora&&!finalizada(r)?futuras:anteriores).push(r);});futuras.sort((a,b)=>fechaHora(a)-fechaHora(b));anteriores.sort((a,b)=>(fechaHora(b)?.getTime()||0)-(fechaHora(a)?.getTime()||0));return {futuras,anteriores};}
+export function contarAdopciones(solicitudes){const contar=(...estados)=>solicitudes.filter(s=>estados.includes(estadoAdopcion(s.estado).clase)).length;return {pendientes:contar("pendiente","revision"),aprobadas:contar("aprobada"),rechazadas:contar("rechazada")};}

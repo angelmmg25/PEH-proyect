@@ -1,0 +1,596 @@
+/* ==========================================================
+   PEH - ESTILOS GENERALES
+   Patitas Esperando un Hogar
+   ========================================================== */
+
+
+/* ==========================================================
+   VARIABLES / IDENTIDAD VISUAL
+   ========================================================== */
+
+:root {
+    /* Fondos */
+    --peh-fondo: #f3efe9;
+    --peh-fondo-claro: #faf8f5;
+    --peh-blanco: #ffffff;
+
+    /* Azul grisáceo */
+    --peh-azul: #667784;
+    --peh-azul-oscuro: #4f606c;
+    --peh-azul-claro: #dce3e6;
+
+    /* Terracota */
+    --peh-terracota: #b97868;
+    --peh-terracota-oscuro: #9f6255;
+    --peh-terracota-claro: #ead0c9;
+
+    /* Coral */
+    --peh-coral: #d99a8f;
+    --peh-coral-claro: #efd0c9;
+
+    /* Texto */
+    --peh-texto: #343638;
+    --peh-texto-suave: #74777a;
+
+    /* Bordes */
+    --peh-borde: #ded8d1;
+
+    /* Estados */
+    --peh-error: #b85c5c;
+    --peh-exito: #66806a;
+    --peh-advertencia: #b38a56;
+
+    /* Sombras */
+    --peh-sombra-suave:
+        0 8px 25px rgba(71, 62, 55, 0.08);
+
+    --peh-sombra:
+        0 20px 50px rgba(71, 62, 55, 0.12);
+
+    /* Bordes redondeados */
+    --peh-radio-pequeno: 8px;
+    --peh-radio: 12px;
+    --peh-radio-grande: 22px;
+    --peh-radio-redondo: 999px;
+
+    /* Transiciones */
+    --peh-transicion:
+        0.2s ease;
+}
+
+
+/* ==========================================================
+   RESET BÁSICO
+   ========================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    margin: 0;
+
+    background:
+        var(--peh-fondo);
+
+    color:
+        var(--peh-texto);
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    line-height: 1.5;
+}
+
+
+img {
+    display: block;
+
+    max-width: 100%;
+}
+
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+
+button {
+    color: inherit;
+}
+
+
+a {
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+/* ==========================================================
+   SELECCIÓN DE TEXTO
+   ========================================================== */
+
+::selection {
+    background:
+        var(--peh-terracota-claro);
+
+    color:
+        var(--peh-texto);
+}
+
+
+/* ==========================================================
+   SCROLLBAR
+   ========================================================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+::-webkit-scrollbar-track {
+    background:
+        var(--peh-fondo);
+}
+
+
+::-webkit-scrollbar-thumb {
+    border:
+        2px solid
+        var(--peh-fondo);
+
+    border-radius:
+        var(--peh-radio-redondo);
+
+    background:
+        var(--peh-azul);
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background:
+        var(--peh-azul-oscuro);
+}
+
+
+/* ==========================================================
+   TIPOGRAFÍA GENERAL
+   ========================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+
+    color:
+        var(--peh-texto);
+
+    font-weight: 700;
+
+    line-height: 1.15;
+
+    letter-spacing: -0.025em;
+}
+
+
+p {
+    margin-top: 0;
+}
+
+
+.texto-suave {
+    color:
+        var(--peh-texto-suave);
+}
+
+
+.texto-centrado {
+    text-align: center;
+}
+
+
+/* ==========================================================
+   CONTENEDOR GENERAL
+   ========================================================== */
+
+.contenedor {
+    width:
+        min(1180px, calc(100% - 40px));
+
+    margin-inline: auto;
+}
+
+
+/* ==========================================================
+   MARCA PEH
+   ========================================================== */
+
+.marca {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    width: fit-content;
+
+    color:
+        inherit;
+
+    text-decoration: none;
+}
+
+
+.simbolo-marca {
+    font-size: 1.8rem;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* ==========================================================
+   BOTONES GENERALES
+   ========================================================== */
+
+.boton {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding:
+        11px
+        18px;
+
+    border:
+        1px solid transparent;
+
+    border-radius:
+        var(--peh-radio);
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    transition:
+        background var(--peh-transicion),
+        border-color var(--peh-transicion),
+        color var(--peh-transicion),
+        transform var(--peh-transicion),
+        box-shadow var(--peh-transicion);
+}
+
+
+.boton:hover {
+    transform:
+        translateY(-1px);
+}
+
+
+.boton:active {
+    transform:
+        translateY(0);
+}
+
+
+.boton:focus-visible {
+    outline:
+        3px solid
+        rgba(185, 120, 104, 0.25);
+
+    outline-offset: 3px;
+}
+
+
+/* Botón principal */
+
+.boton-primario {
+    background:
+        var(--peh-terracota);
+
+    color:
+        var(--peh-blanco);
+
+    box-shadow:
+        0 8px 20px
+        rgba(185, 120, 104, 0.18);
+}
+
+
+.boton-primario:hover {
+    background:
+        var(--peh-terracota-oscuro);
+
+    box-shadow:
+        0 11px 24px
+        rgba(159, 98, 85, 0.23);
+}
+
+
+/* Botón secundario */
+
+.boton-secundario {
+    border-color:
+        var(--peh-borde);
+
+    background:
+        transparent;
+
+    color:
+        var(--peh-azul-oscuro);
+}
+
+
+.boton-secundario:hover {
+    border-color:
+        rgba(102, 119, 132, 0.45);
+
+    background:
+        rgba(102, 119, 132, 0.07);
+}
+
+
+/* Botón claro */
+
+.boton-claro {
+    background:
+        var(--peh-fondo-claro);
+
+    color:
+        var(--peh-azul-oscuro);
+}
+
+
+.boton-claro:hover {
+    background:
+        var(--peh-blanco);
+}
+
+
+/* Botón ancho */
+
+.boton-bloque {
+    width: 100%;
+}
+
+
+/* ==========================================================
+   CAMPOS DE FORMULARIO GENERALES
+   ========================================================== */
+
+.grupo-campo {
+    margin-bottom: 20px;
+}
+
+
+.grupo-campo label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color:
+        var(--peh-texto);
+
+    font-size: 0.87rem;
+    font-weight: 600;
+}
+
+
+.grupo-campo input,
+.grupo-campo select,
+.grupo-campo textarea {
+    width: 100%;
+
+    padding:
+        12px
+        14px;
+
+    border:
+        1px solid
+        var(--peh-borde);
+
+    border-radius:
+        var(--peh-radio);
+
+    outline: none;
+
+    background:
+        rgba(255, 255, 255, 0.75);
+
+    color:
+        var(--peh-texto);
+
+    transition:
+        border-color var(--peh-transicion),
+        box-shadow var(--peh-transicion),
+        background var(--peh-transicion);
+}
+
+
+.grupo-campo input::placeholder,
+.grupo-campo textarea::placeholder {
+    color:
+        #a4a09b;
+}
+
+
+.grupo-campo input:focus,
+.grupo-campo select:focus,
+.grupo-campo textarea:focus {
+    border-color:
+        var(--peh-terracota);
+
+    background:
+        var(--peh-blanco);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(185, 120, 104, 0.10);
+}
+
+
+textarea {
+    resize: vertical;
+}
+
+
+/* ==========================================================
+   VALIDACIONES
+   ========================================================== */
+
+.mensaje-error {
+    display: block;
+
+    margin-top: 6px;
+
+    color:
+        var(--peh-error);
+
+    font-size: 0.74rem;
+}
+
+
+.grupo-campo.campo-error
+input:not([type="checkbox"]),
+
+.grupo-campo.campo-error
+select,
+
+.grupo-campo.campo-error
+textarea {
+    border-color:
+        var(--peh-error);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(184, 92, 92, 0.08);
+}
+
+
+.grupo-campo.campo-valido
+input:not([type="checkbox"]),
+
+.grupo-campo.campo-valido
+select,
+
+.grupo-campo.campo-valido
+textarea {
+    border-color:
+        rgba(102, 128, 106, 0.65);
+}
+
+
+/* ==========================================================
+   TARJETAS GENERALES
+   ========================================================== */
+
+.tarjeta {
+    border:
+        1px solid
+        rgba(222, 216, 209, 0.75);
+
+    border-radius:
+        var(--peh-radio-grande);
+
+    background:
+        var(--peh-fondo-claro);
+
+    box-shadow:
+        var(--peh-sombra-suave);
+}
+
+
+/* ==========================================================
+   ETIQUETAS / CHIPS
+   ========================================================== */
+
+.etiqueta {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding:
+        6px
+        10px;
+
+    border-radius:
+        var(--peh-radio-redondo);
+
+    background:
+        var(--peh-azul-claro);
+
+    color:
+        var(--peh-azul-oscuro);
+
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+
+
+/* ==========================================================
+   ESTADOS
+   ========================================================== */
+
+.estado-exito {
+    color:
+        var(--peh-exito);
+}
+
+
+.estado-error {
+    color:
+        var(--peh-error);
+}
+
+
+.estado-advertencia {
+    color:
+        var(--peh-advertencia);
+}
+
+
+/* ==========================================================
+   ACCESIBILIDAD
+   ========================================================== */
+
+:focus-visible {
+    outline:
+        3px solid
+        rgba(185, 120, 104, 0.28);
+
+    outline-offset: 3px;
+}
+
+
+/* ==========================================================
+   RESPONSIVE GENERAL
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+    .contenedor {
+        width:
+            min(100% - 28px, 1180px);
+    }
+
+}

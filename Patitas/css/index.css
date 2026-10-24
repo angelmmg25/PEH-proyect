@@ -1,0 +1,838 @@
+/* ==========================================================
+   PEH - INDEX
+   Inicio de sesión y registro
+   ========================================================== */
+
+
+/* ==========================================================
+   CUERPO DEL INDEX
+   ========================================================== */
+
+.cuerpo-inicio-sesion {
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eee6dc 0%,
+            var(--peh-fondo) 45%,
+            #f7f3ee 100%
+        );
+}
+
+
+/* ==========================================================
+   ESTRUCTURA PRINCIPAL
+   ========================================================== */
+
+.diseno-inicio-sesion {
+    display: grid;
+
+    grid-template-columns:
+        minmax(380px, 1fr)
+        minmax(500px, 1fr);
+
+    min-height: 100vh;
+}
+
+
+/* ==========================================================
+   PANEL IZQUIERDO
+   ========================================================== */
+
+.promocion-inicio-sesion {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    padding:
+        54px
+        64px
+        42px;
+
+    /*
+       La capa oscura permite leer el texto
+       sin ocultar demasiado la fotografía.
+    */
+    background:
+        linear-gradient(
+            90deg,
+            rgba(52, 54, 56, 0.45),
+            rgba(79, 96, 108, 0.25)
+        ),
+        url("../img/Loign.jpg");
+
+    background-size: cover;
+
+    /*
+       Si quieres mover el encuadre:
+       50% = centro
+       55%-65% = más hacia la derecha
+    */
+    background-position: 58% center;
+
+    background-repeat: no-repeat;
+
+    color:
+        var(--peh-fondo-claro);
+}
+
+
+/* ==========================================================
+   MARCA PEH
+   ========================================================== */
+
+.promocion-inicio-sesion .marca {
+    position: relative;
+
+    z-index: 1;
+}
+
+
+.promocion-inicio-sesion .simbolo-marca {
+    color:
+        var(--peh-fondo-claro);
+
+    font-size: 2.15rem;
+}
+
+
+/* Pequeño detalle bajo PEH */
+
+.promocion-inicio-sesion
+.simbolo-marca::after {
+    content: "";
+
+    display: block;
+
+    width: 34px;
+    height: 4px;
+
+    margin-top: 8px;
+
+    border-radius:
+        var(--peh-radio-redondo);
+
+    background:
+        var(--peh-coral);
+}
+
+
+/* ==========================================================
+   PRESENTACIÓN
+   ========================================================== */
+
+.texto-promocion {
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+    max-width: 590px;
+}
+
+
+.subtitulo {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    color:
+        rgba(250, 248, 245, 0.82);
+
+    font-size: 0.77rem;
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+
+    text-shadow:
+        0 1px 8px
+        rgba(0, 0, 0, 0.18);
+}
+
+
+.texto-promocion h1 {
+    max-width: 600px;
+
+    margin:
+        0
+        0
+        18px;
+
+    color:
+        var(--peh-fondo-claro);
+
+    font-size:
+        clamp(
+            3rem,
+            6vw,
+            5.5rem
+        );
+
+    line-height: 0.96;
+
+    letter-spacing: -0.055em;
+
+    text-shadow:
+        0 3px 18px
+        rgba(0, 0, 0, 0.22);
+}
+
+
+.texto-promocion p {
+    max-width: 520px;
+
+    margin:
+        0
+        0
+        32px;
+
+    color:
+        rgba(250, 248, 245, 0.92);
+
+    font-size: 1.15rem;
+
+    line-height: 1.75;
+
+    text-shadow:
+        0 2px 10px
+        rgba(0, 0, 0, 0.20);
+}
+
+
+/* ==========================================================
+   ETIQUETAS DEL PANEL IZQUIERDO
+   ========================================================== */
+
+.etiquetas-promocion {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+
+.etiquetas-promocion span {
+    padding:
+        8px
+        13px;
+
+    border:
+        1px solid
+        rgba(250, 248, 245, 0.30);
+
+    border-radius:
+        var(--peh-radio-redondo);
+
+    background:
+        rgba(52, 54, 56, 0.22);
+
+    color:
+        rgba(250, 248, 245, 0.95);
+
+    font-size: 0.8rem;
+    font-weight: 500;
+
+    backdrop-filter:
+        blur(5px);
+}
+
+
+/* ==========================================================
+   PIE DEL PANEL IZQUIERDO
+   ========================================================== */
+
+.pie-inicio-sesion {
+    position: relative;
+
+    z-index: 1;
+
+    margin: 0;
+
+    color:
+        rgba(250, 248, 245, 0.75);
+
+    font-size: 0.78rem;
+
+    text-shadow:
+        0 1px 7px
+        rgba(0, 0, 0, 0.20);
+}
+
+
+/* ==========================================================
+   PANEL DERECHO
+   ========================================================== */
+
+.panel-inicio-sesion {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 55px;
+
+    background:
+        var(--peh-fondo);
+}
+
+
+/* ==========================================================
+   CONTENEDOR DE LA TARJETA GIRATORIA
+   ========================================================== */
+
+.contenedor-tarjeta-giratoria {
+    width:
+        min(100%, 510px);
+
+    perspective: 1600px;
+
+    transition:
+        width 0.45s ease,
+        height 0.45s ease;
+}
+
+
+.tarjeta-giratoria {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 580px;
+
+    transform-style:
+        preserve-3d;
+
+    transition:
+        transform 0.65s
+        cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        );
+}
+
+
+.tarjeta-giratoria.girada {
+    transform:
+        rotateY(180deg);
+}
+
+
+/* ==========================================================
+   CARAS DE LA TARJETA
+   ========================================================== */
+
+.cara-tarjeta {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    backface-visibility: hidden;
+
+    -webkit-backface-visibility:
+        hidden;
+}
+
+
+.cara-trasera {
+    transform:
+        rotateY(180deg);
+}
+
+
+/* ==========================================================
+   TARJETA LOGIN / REGISTRO
+   ========================================================== */
+
+.tarjeta-inicio-sesion {
+    padding:
+        42px
+        44px;
+
+    border:
+        1px solid
+        rgba(185, 120, 104, 0.12);
+
+    border-radius: 26px;
+
+    background:
+        rgba(250, 248, 245, 0.94);
+
+    box-shadow:
+        var(--peh-sombra);
+
+    backdrop-filter:
+        blur(18px);
+}
+
+
+.tarjeta-inicio-sesion h2 {
+    margin:
+        18px
+        0
+        8px;
+
+    color:
+        var(--peh-texto);
+
+    font-size: 2rem;
+
+    line-height: 1.15;
+
+    letter-spacing: -0.035em;
+}
+
+
+.tarjeta-inicio-sesion > .atenuado {
+    margin:
+        0
+        0
+        30px;
+}
+
+
+/* ==========================================================
+   TEXTO ATENUADO
+   ========================================================== */
+
+.atenuado {
+    color:
+        var(--peh-texto-suave);
+}
+
+
+/* ==========================================================
+   INDICADOR SUPERIOR
+   ========================================================== */
+
+.indicador-estado {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding:
+        7px
+        11px;
+
+    border-radius:
+        var(--peh-radio-redondo);
+
+    background:
+        rgba(217, 154, 143, 0.14);
+
+    color:
+        var(--peh-terracota-oscuro);
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    letter-spacing: 0.02em;
+}
+
+
+/* ==========================================================
+   FILA CONTRASEÑA / RECUPERAR CONTRASEÑA
+   ========================================================== */
+
+.fila-etiqueta {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+}
+
+
+.fila-etiqueta a {
+    margin-bottom: 8px;
+
+    color:
+        var(--peh-azul);
+
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    transition:
+        color var(--peh-transicion);
+}
+
+
+.fila-etiqueta a:hover {
+    color:
+        var(--peh-terracota);
+}
+
+
+/* ==========================================================
+   FILAS DEL REGISTRO
+   ========================================================== */
+
+.fila-campos-registro {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+
+/* ==========================================================
+   BOTÓN SECUNDARIO DEL INDEX
+   ========================================================== */
+
+.tarjeta-inicio-sesion
+.boton-secundario {
+    margin-top: 11px;
+}
+
+
+/* ==========================================================
+   CAMBIO ENTRE LOGIN Y REGISTRO
+   ========================================================== */
+
+.texto-cambio-formulario {
+    margin:
+        24px
+        0
+        0;
+}
+
+
+.centrado {
+    text-align: center;
+}
+
+
+.pequeno {
+    font-size: 0.83rem;
+}
+
+
+.enlace-cambio {
+    padding: 0;
+
+    border: 0;
+
+    cursor: pointer;
+
+    background:
+        transparent;
+
+    color:
+        var(--peh-terracota-oscuro);
+
+    font: inherit;
+    font-weight: 700;
+
+    transition:
+        color var(--peh-transicion);
+}
+
+
+.enlace-cambio:hover {
+    color:
+        var(--peh-terracota);
+}
+
+
+/* ==========================================================
+   AYUDAS DE LOS CAMPOS
+   ========================================================== */
+
+.sugerencia-campo {
+    display: block;
+
+    margin-top: 6px;
+
+    color:
+        var(--peh-texto-suave);
+
+    font-size: 0.72rem;
+
+    line-height: 1.45;
+}
+
+
+/* ==========================================================
+   CHECKBOX DEL REGISTRO
+   ========================================================== */
+
+.grupo-terminos {
+    margin-top: 4px;
+}
+
+
+.etiqueta-checkbox {
+    display: flex !important;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    cursor: pointer;
+
+    color:
+        var(--peh-texto-suave) !important;
+
+    font-size: 0.77rem !important;
+    font-weight: 400 !important;
+
+    line-height: 1.5;
+}
+
+
+.etiqueta-checkbox input {
+    flex: 0 0 auto;
+
+    width: 17px;
+    height: 17px;
+
+    margin-top: 2px;
+
+    accent-color:
+        var(--peh-terracota);
+}
+
+
+/* ==========================================================
+   MENSAJE GENERAL DEL REGISTRO
+   ========================================================== */
+
+.mensaje-formulario {
+    margin-bottom: 15px;
+
+    font-size: 0.78rem;
+
+    line-height: 1.5;
+}
+
+
+.mensaje-formulario.error {
+    padding:
+        10px
+        12px;
+
+    border-radius:
+        var(--peh-radio-pequeno);
+
+    background:
+        rgba(184, 92, 92, 0.08);
+
+    color:
+        var(--peh-error);
+}
+
+
+.mensaje-formulario.exito {
+    padding:
+        10px
+        12px;
+
+    border-radius:
+        var(--peh-radio-pequeno);
+
+    background:
+        rgba(102, 128, 106, 0.10);
+
+    color:
+        var(--peh-exito);
+}
+
+
+/* ==========================================================
+   TAMAÑO DEL REGISTRO
+   ========================================================== */
+
+.contenedor-tarjeta-giratoria.modo-registro {
+    width:
+        min(100%, 590px);
+}
+
+
+.contenedor-tarjeta-giratoria.modo-registro
+.tarjeta-giratoria {
+    min-height: 860px;
+}
+
+
+/* ==========================================================
+   RESPONSIVE - TABLET
+   ========================================================== */
+
+@media (max-width: 1000px) {
+
+    .diseno-inicio-sesion {
+        grid-template-columns:
+            0.85fr
+            1.15fr;
+    }
+
+
+    .promocion-inicio-sesion {
+        padding:
+            45px
+            38px
+            36px;
+
+        background-position:
+            55% center;
+    }
+
+
+    .panel-inicio-sesion {
+        padding: 38px;
+    }
+
+
+    .texto-promocion h1 {
+        font-size:
+            clamp(
+                2.8rem,
+                7vw,
+                4.5rem
+            );
+    }
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE - MÓVIL / TABLET PEQUEÑA
+   ========================================================== */
+
+@media (max-width: 780px) {
+
+    .diseno-inicio-sesion {
+        display: block;
+    }
+
+
+    .promocion-inicio-sesion {
+        min-height: 620px;
+
+        padding:
+            32px
+            28px
+            38px;
+
+        /*
+           En móvil damos más protagonismo
+           a los animales.
+        */
+        background-position:
+            center;
+    }
+
+
+    .texto-promocion {
+        margin-top: 75px;
+    }
+
+
+    .texto-promocion h1 {
+        font-size: 3.4rem;
+    }
+
+
+    .pie-inicio-sesion {
+        margin-top: 65px;
+    }
+
+
+    .panel-inicio-sesion {
+        min-height: 720px;
+
+        padding:
+            45px
+            22px;
+    }
+
+
+    .contenedor-tarjeta-giratoria {
+        max-width: 520px;
+    }
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE - MÓVIL
+   ========================================================== */
+
+@media (max-width: 560px) {
+
+    .promocion-inicio-sesion {
+        min-height: 560px;
+
+        padding:
+            28px
+            22px
+            32px;
+    }
+
+
+    .texto-promocion {
+        margin-top: 55px;
+    }
+
+
+    .texto-promocion h1 {
+        font-size: 2.9rem;
+    }
+
+
+    .texto-promocion p {
+        font-size: 1rem;
+    }
+
+
+    .panel-inicio-sesion {
+        padding:
+            35px
+            16px;
+    }
+
+
+    .tarjeta-inicio-sesion {
+        padding:
+            32px
+            24px;
+
+        border-radius: 20px;
+    }
+
+
+    .fila-campos-registro {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+
+    .contenedor-tarjeta-giratoria.modo-registro
+    .tarjeta-giratoria {
+        min-height: 1120px;
+    }
+
+
+    .fila-etiqueta {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 0;
+    }
+
+}

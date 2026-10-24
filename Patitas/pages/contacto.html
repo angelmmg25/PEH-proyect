@@ -1,0 +1,869 @@
+<!doctype html>
+
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        >
+        <meta
+            name="description"
+            content="Contacta con el equipo de PEH para resolver dudas sobre adopciones, atención veterinaria o el funcionamiento de la plataforma."
+        >
+        <title>
+            Contacto | PEH
+        </title>
+
+        <!-- =====================================================
+        GOOGLE FONTS
+        ====================================================== -->
+
+        <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+        >
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin
+        >
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+            rel="stylesheet"
+        >
+
+        <!-- =====================================================
+        ESTILOS
+        ====================================================== -->
+
+        <link
+            rel="stylesheet"
+            href="../css/style.css"
+        >
+        <link
+            rel="stylesheet"
+            href="../css/contacto.css"
+        >
+        <link
+            rel="stylesheet"
+            href="../css/navegacion.css"
+        >
+    </head>
+    <body class="pagina-contacto">
+
+        <!-- =====================================================
+        CABECERA
+        ====================================================== -->
+
+        <header class="cabecera-global">
+
+            <div class="contenedor cabecera-contenido">
+                <a
+                    class="marca marca-principal"
+                    href="principal.html"
+                    aria-label="Ir al inicio de PEH"
+                >
+                    <span class="simbolo-marca">
+                        PEH
+                    </span>
+                    <span class="nombre-marca">
+                        Patitas Esperando
+                        <span>
+                            un Hogar
+                        </span>
+                    </span>
+                </a>
+                <nav
+                    id="navegacionGlobal"
+                    class="navegacion-principal"
+                    aria-label="Navegación principal"
+                >
+
+                    <a
+                        class="enlace-navegacion"
+                        href="principal.html"
+                    >
+                        Inicio
+                    </a>
+                    <a
+                        class="enlace-navegacion"
+                        href="principal.html#animales"
+                    >
+                        Animales
+                    </a>
+                    <a
+                        class="enlace-navegacion"
+                        href="comunidad.html"
+                    >
+                        Comunidad
+                    </a>
+                    <a
+                        class="enlace-navegacion"
+                        href="veterinaria.html"
+                    >
+                        Veterinaria
+                    </a>
+                    <a
+                        class="enlace-navegacion"
+                        href="perfil.html"
+                    >
+                        Perfil
+                    </a>
+                    <a
+                        class="enlace-navegacion activo"
+                        href="contacto.html"
+                        aria-current="page"
+                    >
+                        Contacto
+                    </a>
+                </nav>
+
+                <button
+                    class="boton-menu"
+                    id="botonMenu"
+                    type="button"
+                    aria-label="Abrir menú"
+                    aria-controls="navegacionGlobal"
+                    aria-expanded="false"
+                >
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                </button>
+            </div>
+
+        </header>
+
+        <main>
+
+
+            <!-- =================================================
+            HERO CONTACTO
+            ================================================== -->
+
+            <section class="hero-contacto">
+
+                <div class="contenedor">
+                    <div class="hero-contacto-contenido">
+
+                        <!-- Texto -->
+
+                        <div class="hero-contacto-texto">
+                            <span class="hero-contacto-etiqueta">
+                                Contacto
+                            </span>
+                            <h1>
+                                Hablemos
+                                <span aria-hidden="true">
+                                    ♡
+                                </span>
+                            </h1>
+                            <h2>
+                                ¿Necesitas ayuda? Estamos aquí para ti.
+                            </h2>
+                            <p>
+                                Ya sea que tengas dudas sobre una adopción, quieras reportar un problema o simplemente necesites orientación, puedes comunicarte con el equipo de PEH.
+                            </p>
+                        </div>
+
+
+                        <!-- Zona visual -->
+
+                        <div
+                            class="hero-contacto-visual"
+                            aria-hidden="true"
+                        >
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+            TIPOS DE AYUDA
+            ================================================== -->
+
+
+            <!-- =================================================
+            FORMULARIO Y AYUDA
+            ================================================== -->
+
+            <section
+                class="seccion-contacto"
+                id="escribir"
+            >
+
+                <div class="contenedor">
+                    <div class="contacto-grid">
+
+                        <!-- =====================================
+                        FORMULARIO
+                        ====================================== -->
+
+                        <div class="contacto-formulario">
+                            <div class="encabezado-formulario-contacto">
+                                <span class="sobre-titulo">
+                                    Estamos para ayudarte
+                                </span>
+                                <h2>
+                                    Envíanos un mensaje
+                                    <span aria-hidden="true">
+                                        🐾
+                                    </span>
+                                </h2>
+                                <p>
+                                    Completa el formulario y el equipo de PEH revisará tu consulta.
+                                </p>
+                            </div>
+
+                            <div class="tipos-contacto atajos-contacto">
+
+                                <!-- Adopciones -->
+
+                                <button
+                                    class="tarjeta-tipo-contacto"
+                                    type="button"
+                                    data-motivo="adopcion"
+                                >
+                                    <span
+                                        class="tipo-contacto-icono"
+                                        aria-hidden="true"
+                                    >
+                                        🐾
+                                    </span>
+                                    <span class="tipo-contacto-contenido">
+                                        <strong>
+                                            Adopciones
+                                        </strong>
+                                        <small>
+                                            Dudas sobre solicitudes, requisitos o el proceso de adopción.
+                                        </small>
+                                    </span>
+                                    <span
+                                        class="tipo-contacto-flecha"
+                                        aria-hidden="true"
+                                    >
+                                        →
+                                    </span>
+                                </button>
+
+                                <!-- Veterinaria -->
+
+                                <button
+                                    class="tarjeta-tipo-contacto"
+                                    type="button"
+                                    data-motivo="veterinaria"
+                                >
+                                    <span
+                                        class="tipo-contacto-icono"
+                                        aria-hidden="true"
+                                    >
+                                        ♡
+                                    </span>
+                                    <span class="tipo-contacto-contenido">
+                                        <strong>
+                                            Veterinaria
+                                        </strong>
+                                        <small>
+                                            Consultas relacionadas con reservas o atención veterinaria.
+                                        </small>
+                                    </span>
+                                    <span
+                                        class="tipo-contacto-flecha"
+                                        aria-hidden="true"
+                                    >
+                                        →
+                                    </span>
+                                </button>
+
+                                <!-- Soporte -->
+
+                                <button
+                                    class="tarjeta-tipo-contacto"
+                                    type="button"
+                                    data-motivo="soporte"
+                                >
+                                    <span
+                                        class="tipo-contacto-icono"
+                                        aria-hidden="true"
+                                    >
+                                        ◯
+                                    </span>
+                                    <span class="tipo-contacto-contenido">
+                                        <strong>
+                                            Soporte general
+                                        </strong>
+                                        <small>
+                                            Problemas con tu cuenta, publicaciones o funcionamiento de PEH.
+                                        </small>
+                                    </span>
+                                    <span
+                                        class="tipo-contacto-flecha"
+                                        aria-hidden="true"
+                                    >
+                                        →
+                                    </span>
+                                </button>
+                            </div>
+
+                            <form
+                                id="formularioContacto"
+                                novalidate
+                            >
+                                <div class="campos-contacto">
+
+                                    <!-- Nombre -->
+
+                                    <div class="grupo-campo">
+                                        <label for="nombreContacto">
+                                            Nombre completo
+                                        </label>
+                                        <input
+                                            id="nombreContacto"
+                                            name="nombre"
+                                            type="text"
+                                            placeholder="Tu nombre"
+                                            autocomplete="name"
+                                            maxlength="60"
+                                            required
+                                        >
+                                        <small class="mensaje-error">
+                                        </small>
+                                    </div>
+
+
+                                    <!-- Correo -->
+
+                                    <div class="grupo-campo">
+                                        <label for="correoContacto">
+                                            Correo electrónico
+                                        </label>
+                                        <input
+                                            id="correoContacto"
+                                            name="correo"
+                                            type="email"
+                                            placeholder="tu.correo@ejemplo.com"
+                                            autocomplete="email"
+                                            maxlength="100"
+                                            required
+                                        >
+                                        <small class="mensaje-error">
+                                        </small>
+                                    </div>
+
+
+                                    <!-- Motivo -->
+
+                                    <div class="grupo-campo campo-ancho">
+                                        <label for="motivoContacto">
+                                            Motivo de contacto
+                                        </label>
+                                        <select
+                                            id="motivoContacto"
+                                            name="motivo"
+                                            required
+                                        >
+                                            <option value="">
+                                                Selecciona una opción
+                                            </option>
+                                            <option value="adopcion">
+                                                Adopciones
+                                            </option>
+                                            <option value="veterinaria">
+                                                Veterinaria
+                                            </option>
+                                            <option value="soporte">
+                                                Soporte general
+                                            </option>
+                                            <option value="otro">
+                                                Otro
+                                            </option>
+                                        </select>
+                                        <small class="mensaje-error">
+                                        </small>
+                                    </div>
+
+
+                                    <!-- Asunto -->
+
+                                    <div class="grupo-campo campo-ancho">
+                                        <label for="asuntoContacto">
+                                            Asunto
+                                        </label>
+                                        <input
+                                            id="asuntoContacto"
+                                            name="asunto"
+                                            type="text"
+                                            placeholder="Ej. Consulta sobre adopción"
+                                            maxlength="80"
+                                            required
+                                        >
+                                        <small class="mensaje-error">
+                                        </small>
+                                    </div>
+
+
+                                    <!-- Mensaje -->
+
+                                    <div class="grupo-campo campo-mensaje">
+                                        <label for="mensajeContacto">
+                                            Mensaje
+                                        </label>
+                                        <textarea
+                                            id="mensajeContacto"
+                                            name="mensaje"
+                                            rows="7"
+                                            maxlength="500"
+                                            placeholder="Cuéntanos en qué podemos ayudarte..."
+                                            required
+                                        >
+                                        </textarea>
+                                        <div class="mensaje-informacion">
+                                            <small class="mensaje-error">
+                                            </small>
+                                            <span id="contadorMensaje">
+                                                0 / 500
+                                            </span>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <button
+                                    class="boton boton-principal boton-enviar-contacto"
+                                    type="submit"
+                                >
+                                    <span aria-hidden="true">
+                                        ➤
+                                    </span>
+                                    Enviar mensaje
+                                    <span aria-hidden="true">
+                                        🐾
+                                    </span>
+                                </button>
+
+                                <!-- Mensaje posterior al envío -->
+
+                                <div
+                                    class="estado-envio"
+                                    id="estadoEnvio"
+                                    role="status"
+                                    aria-live="polite"
+                                    hidden
+                                >
+                                    <span aria-hidden="true">
+                                        ✓
+                                    </span>
+                                    <div>
+                                        <strong>
+                                            ¡Mensaje enviado!
+                                        </strong>
+                                        <p>
+                                            Tu consulta fue registrada correctamente.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </form>
+                        </div>
+
+
+                        <!-- =====================================
+                        COLUMNA DE AYUDA
+                        ====================================== -->
+
+                        <aside class="contacto-ayuda">
+
+
+                            <!-- Antes de escribir -->
+
+                            <div class="tarjeta-ayuda-contacto">
+                                <div class="encabezado-ayuda-contacto">
+                                    <span
+                                        class="ayuda-contacto-icono"
+                                        aria-hidden="true"
+                                    >
+                                        💡
+                                    </span>
+                                    <div>
+                                        <h2>
+                                            Antes de escribirnos...
+                                        </h2>
+                                        <p>
+                                            Quizás encuentres la respuesta que buscas aquí.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <div class="accesos-ayuda">
+
+                                    <!-- Preguntas frecuentes -->
+
+                                    <button
+                                        class="acceso-ayuda"
+                                        id="botonPreguntas"
+                                        type="button"
+                                    >
+                                        <span
+                                            class="acceso-ayuda-icono"
+                                            aria-hidden="true"
+                                        >
+                                            ?
+                                        </span>
+                                        <span>
+                                            <strong>
+                                                Preguntas frecuentes
+                                            </strong>
+                                            <small>
+                                                Revisa las dudas más comunes.
+                                            </small>
+                                        </span>
+                                        <span
+                                            class="acceso-ayuda-flecha"
+                                            aria-hidden="true"
+                                        >
+                                            →
+                                        </span>
+                                    </button>
+
+                                    <!-- Animales -->
+
+                                    <a
+                                        class="acceso-ayuda"
+                                        href="principal.html#animales"
+                                    >
+                                        <span
+                                            class="acceso-ayuda-icono"
+                                            aria-hidden="true"
+                                        >
+                                            🐾
+                                        </span>
+                                        <span>
+                                            <strong>
+                                                Ver animales en adopción
+                                            </strong>
+                                            <small>
+                                                Conoce a nuestras patitas en busca de hogar.
+                                            </small>
+                                        </span>
+                                        <span
+                                            class="acceso-ayuda-flecha"
+                                            aria-hidden="true"
+                                        >
+                                            →
+                                        </span>
+                                    </a>
+
+                                    <!-- Veterinaria -->
+
+                                    <a
+                                        class="acceso-ayuda"
+                                        href="veterinaria.html#reservar"
+                                    >
+                                        <span
+                                            class="acceso-ayuda-icono"
+                                            aria-hidden="true"
+                                        >
+                                            ♡
+                                        </span>
+                                        <span>
+                                            <strong>
+                                                Reservar atención veterinaria
+                                            </strong>
+                                            <small>
+                                                Agenda una hora desde nuestra sección veterinaria.
+                                            </small>
+                                        </span>
+                                        <span
+                                            class="acceso-ayuda-flecha"
+                                            aria-hidden="true"
+                                        >
+                                            →
+                                        </span>
+                                    </a>
+                                </div>
+
+                            </div>
+
+
+                            <!-- Nuestro compromiso -->
+
+                            <div class="tarjeta-compromiso">
+                                <span
+                                    class="compromiso-corazon"
+                                    aria-hidden="true"
+                                >
+                                    ♥
+                                </span>
+                                <div>
+                                    <h2>
+                                        Nuestro compromiso
+                                    </h2>
+                                    <p>
+                                        En PEH trabajamos para crear una comunidad más consciente, responsable y comprometida con el bienestar de los animales.
+                                    </p>
+                                    <p>
+                                        Gracias por ser parte de este cambio. 🐾
+                                    </p>
+                                </div>
+
+                                <div
+                                    class="compromiso-mascotas"
+                                    aria-hidden="true"
+                                >
+                                    🐶 🐱
+                                </div>
+
+                            </div>
+
+                        </aside>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+            PREGUNTAS FRECUENTES
+            ================================================== -->
+
+            <section
+                class="seccion-preguntas"
+                id="preguntasFrecuentes"
+            >
+
+                <div class="contenedor">
+                    <div class="encabezado-seccion-preguntas">
+                        <span class="sobre-titulo">
+                            Preguntas frecuentes
+                        </span>
+                        <h2>
+                            Puede que tu respuesta esté aquí
+                        </h2>
+                        <p>
+                            Algunas de las consultas más comunes dentro de PEH.
+                        </p>
+                    </div>
+
+                    <div class="lista-preguntas">
+
+                        <!-- Pregunta 1 -->
+
+                        <article class="pregunta-frecuente">
+                            <button
+                                class="pregunta-boton"
+                                type="button"
+                                aria-expanded="false"
+                            >
+                                <span>
+                                    ¿Cómo inicio un proceso de adopción?
+                                </span>
+                                <span
+                                    class="pregunta-icono"
+                                    aria-hidden="true"
+                                >
+                                    +
+                                </span>
+                            </button>
+                            <div class="pregunta-respuesta">
+                                <p>
+                                    Puedes ingresar a la sección de animales, seleccionar la mascota que te interese y revisar su perfil para comenzar el proceso de adopción.
+                                </p>
+                            </div>
+
+                        </article>
+
+
+                        <!-- Pregunta 2 -->
+
+                        <article class="pregunta-frecuente">
+                            <button
+                                class="pregunta-boton"
+                                type="button"
+                                aria-expanded="false"
+                            >
+                                <span>
+                                    ¿Cómo puedo reservar una atención veterinaria?
+                                </span>
+                                <span
+                                    class="pregunta-icono"
+                                    aria-hidden="true"
+                                >
+                                    +
+                                </span>
+                            </button>
+                            <div class="pregunta-respuesta">
+                                <p>
+                                    Desde la sección Veterinaria puedes elegir el tipo de atención y completar el formulario de reserva disponible en la plataforma.
+                                </p>
+                            </div>
+
+                        </article>
+
+
+                        <!-- Pregunta 3 -->
+
+                        <article class="pregunta-frecuente">
+                            <button
+                                class="pregunta-boton"
+                                type="button"
+                                aria-expanded="false"
+                            >
+                                <span>
+                                    Tengo un problema con PEH, ¿qué hago?
+                                </span>
+                                <span
+                                    class="pregunta-icono"
+                                    aria-hidden="true"
+                                >
+                                    +
+                                </span>
+                            </button>
+                            <div class="pregunta-respuesta">
+                                <p>
+                                    Selecciona “Soporte general” en el formulario de contacto y descríbenos el problema con la mayor claridad posible.
+                                </p>
+                            </div>
+
+                        </article>
+
+
+                        <!-- Pregunta 4 -->
+
+                        <article class="pregunta-frecuente">
+                            <button
+                                class="pregunta-boton"
+                                type="button"
+                                aria-expanded="false"
+                            >
+                                <span>
+                                    ¿Puedo hacer una consulta que no aparezca aquí?
+                                </span>
+                                <span
+                                    class="pregunta-icono"
+                                    aria-hidden="true"
+                                >
+                                    +
+                                </span>
+                            </button>
+                            <div class="pregunta-respuesta">
+                                <p>
+                                    Claro. Selecciona “Otro” como motivo de contacto y cuéntanos tu consulta mediante el formulario.
+                                </p>
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+            CIERRE
+            ================================================== -->
+
+            <section class="seccion-cierre-contacto">
+
+                <div class="contenedor">
+                    <div class="cierre-contacto-contenido">
+                        <span
+                            class="cierre-patita"
+                            aria-hidden="true"
+                        >
+                            🐾
+                        </span>
+                        <div>
+                            <h2>
+                                Cada mensaje también puede ayudar a una patita.
+                            </h2>
+                            <p>
+                                Queremos que PEH sea un espacio donde adoptar, cuidar y participar sea cada vez más sencillo.
+                            </p>
+                        </div>
+
+                        <a
+                            class="boton boton-secundario"
+                            href="principal.html#animales"
+                        >
+                            Conocer animales
+                            <span aria-hidden="true">
+                                →
+                            </span>
+                        </a>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- =====================================================
+        PIE DE PÁGINA
+        ====================================================== -->
+
+        <footer class="pie-pagina">
+
+            <div class="contenedor pie-contenido">
+                <div>
+                    <strong>
+                        PEH
+                    </strong>
+                    <p>
+                        Patitas Esperando un Hogar
+                    </p>
+                </div>
+
+                <nav
+                    class="enlaces-pie"
+                    aria-label="Enlaces del pie de página"
+                >
+
+                    <a href="principal.html">
+                        Inicio
+                    </a>
+                    <a href="comunidad.html">
+                        Comunidad
+                    </a>
+                    <a href="veterinaria.html">
+                        Veterinaria
+                    </a>
+                    <a href="contacto.html">
+                        Ayuda
+                    </a>
+                </nav>
+
+                <p class="copyright">
+                    © 2026 PEH
+                </p>
+            </div>
+
+        </footer>
+
+
+        <!-- =====================================================
+        JAVASCRIPT
+        ====================================================== -->
+
+        <script src="../js/app.js">
+        </script>
+        <script src="../js/contacto.js">
+        </script>
+    </body>
+</html>

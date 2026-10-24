@@ -1,0 +1,92 @@
+import { useEffect, useRef, useState } from "react";
+import PEH from "../services/peh";
+import Navegacion from "../components/Navegacion";
+import ConfiguracionPerfil from "../components/ConfiguracionPerfil";
+import MisConsultas from "../components/MisConsultas";
+import { ResumenAdopciones, ResumenReservas, AvisosPerfil, EstadisticasAdopciones, ListaAdopciones, EstadisticasReservas, ListaReservas } from "../components/HistorialPerfil";
+import { obtenerPerfil, configuraciones } from "../services/perfil";
+import "../styles/perfil.css";
+export default function Perfil({ onCerrarSesion }) {
+ const [perfil,setPerfil]=useState(obtenerPerfil), [adopciones,setAdopciones]=useState(()=>PEH.adopciones.listar()), [reservas,setReservas]=useState(()=>PEH.reservas.listar());
+ const [preferencias,setPreferencias]=useState(()=>PEH.preferencias.notificaciones());
+ const [seccion,setSeccion]=useState("inicioPerfil"),[modal,setModal]=useState(""),[configuracion,setConfiguracion]=useState(configuraciones.notificaciones),[filtro,setFiltro]=useState("todas");
+ const [datos,setDatos]=useState({nombre:"",correo:""}),[mensaje,setMensaje]=useState({texto:"",tipo:""});
+ const anterior=useRef(null),temporizadores=useRef([]),vivo=useRef(true),fotoTurno=useRef(0);
+ function despues(fn,ms){temporizadores.current.push(setTimeout(()=>{if(vivo.current)fn();},ms));}
+ useEffect(()=>{
+  vivo.current=true;document.body.classList.add("pagina-perfil"); document.title="Mi perfil | PEH";
+  const sincronizar=()=>{setPerfil(obtenerPerfil());setAdopciones(PEH.adopciones.listar());setReservas(PEH.reservas.listar());setPreferencias(PEH.preferencias.notificaciones());};
+  window.addEventListener("peh:actualizado",sincronizar);window.addEventListener("storage",sincronizar);
+  return ()=>{vivo.current=false;++fotoTurno.current;temporizadores.current.forEach(clearTimeout);document.body.classList.remove("pagina-perfil","modal-abierto");window.removeEventListener("peh:actualizado",sincronizar);window.removeEventListener("storage",sincronizar);};
+ },[]);
+ useEffect(()=>{
+  document.body.classList.toggle("modal-abierto",Boolean(modal));
+  if(modal==="adopciones"||modal==="reservas")document.querySelector(modal==="adopciones"?".contenido-historial-adopciones":".contenido-historial-reservas")?.focus();
+  if(!modal)return;
+  const escape=e=>{if(e.key==="Escape")cerrar();};document.addEventListener("keydown",escape);
+  return ()=>document.removeEventListener("keydown",escape);
+ },[modal]);
+ useEffect(() => {
+  let frame;
+  const irConsultas = () => {
+   if (window.location.hash === "#perfil/consultas") frame = requestAnimationFrame(() => document.getElementById("consultasPerfil")?.scrollIntoView({ block: "start" }));
+  };
+  irConsultas(); window.addEventListener("hashchange", irConsultas);
+  return () => { cancelAnimationFrame(frame); window.removeEventListener("hashchange", irConsultas); };
+ }, []);
+ function abrir(tipo){anterior.current=document.activeElement;setModal(tipo);}
+ function cerrar(){setModal("");if(anterior.current?.isConnected && ["adopciones","reservas"].includes(modal))anterior.current.focus();}
+ function abrirEditor(){const p=obtenerPerfil();setDatos({nombre:p.nombre,correo:p.correo});setMensaje({texto:"",tipo:""});abrir("editar");despues(()=>document.getElementById("editarNombre")?.focus(),100);}
+ function abrirConfiguracion(tipo){setConfiguracion(c=>({...configuraciones[tipo],tipo,apertura:(c.apertura||0)+1}));abrir("configuracion");}
+ function irSeccion(id){setSeccion(id);document.getElementById(id)?.scrollIntoView({behavior:"smooth",block:"start"});}
+ function guardar(e){e.preventDefault();const nombre=datos.nombre.trim(),correo=datos.correo.trim().toLowerCase();
+  if(nombre.length<2){setMensaje({texto:"Ingresa un nombre válido.",tipo:"error"});document.getElementById("editarNombre")?.focus();return;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)){setMensaje({texto:"Ingresa un correo electrónico válido.",tipo:"error"});document.getElementById("editarCorreo")?.focus();return;}
+  if(!PEH.perfil.guardar({...obtenerPerfil(),nombre,correo})){setMensaje({texto:"No fue posible guardar los cambios.",tipo:"error"});return;}
+  setPerfil(obtenerPerfil());setMensaje({texto:"Perfil actualizado correctamente. 🐾",tipo:"exito"});despues(()=>setModal(m=>m==="editar"?"":m),900);
+ }
+ function cambiarFoto(e){const archivo=e.target.files[0];if(!archivo)return;
+  if(!archivo.type.startsWith("image/")){window.alert("Selecciona una imagen válida.");e.target.value="";return;}
+  if(archivo.size>2*1024*1024){window.alert("La imagen no puede superar los 2 MB.");e.target.value="";return;}
+  const turno=++fotoTurno.current,usuario=PEH.sesion.obtener()?.id,lector=new FileReader();lector.onload=()=>{
+   if(!vivo.current||turno!==fotoTurno.current||PEH.sesion.obtener()?.id!==usuario)return;
+   if(!PEH.perfil.guardar({...obtenerPerfil(),foto:lector.result})){window.alert("No fue posible guardar la imagen.");return;}setPerfil(obtenerPerfil());
+  };lector.readAsDataURL(archivo);
+ }
+ function salir(){if(!PEH.sesion.cerrar()){window.alert("No fue posible cerrar la sesión. Inténtalo nuevamente.");return;}setModal("");onCerrarSesion();}
+ return <>
+
+
+<Navegacion pagina="perfil" />
+
+<main className="perfil-limpio"><section className="hero-perfil"><div className="contenedor hero-perfil-contenido"><div className="hero-perfil-texto"><span className="miga-navegacion"> Inicio <span> › </span> Perfil </span><h1> Tu espacio dentro de <span> PEH </span></h1><p> Gestiona tus procesos, reservas y configuración desde un solo lugar. </p></div><span className="detalle-perfil" aria-hidden="true"> 🐾 </span></div></section><section className="seccion-perfil"><div className="contenedor perfil-layout"><aside className="menu-lateral-perfil" aria-label="Cuenta y secciones del perfil"><div className="identidad-lateral"><div className="foto-perfil-contenedor"><div id="fotoPerfil" aria-hidden="true" className={"foto-perfil" + (perfil.foto ? " con-imagen" : "")}>{perfil.foto ? <img src={perfil.foto} alt="Foto de perfil" /> : perfil.nombre.trim().charAt(0).toUpperCase()}</div><label className="boton-cambiar-foto" htmlFor="inputFotoPerfil" title="Cambiar foto de perfil"> 📷 </label><input id="inputFotoPerfil" type="file" accept="image/*" hidden={true} onChange={cambiarFoto} /></div><div className="datos-usuario-perfil"><h2 id="nombrePerfil">{perfil.nombre}</h2><p><span> ✉ </span><span id="correoPerfil">{perfil.correo}</span></p><p className="miembro-desde"><span> ▣ </span> Miembro de PEH </p></div></div><div className="separador-menu-perfil"></div><nav className="navegacion-perfil" aria-label="Secciones del perfil"><button type="button" data-seccion="inicioPerfil" className={"opcion-menu-perfil" + (seccion === "inicioPerfil" ? " activo" : "")} onClick={() => irSeccion("inicioPerfil") }><span> ⌂ </span> Inicio </button><button type="button" data-seccion="adopcionPerfil" className={"opcion-menu-perfil" + (seccion === "adopcionPerfil" ? " activo" : "")} onClick={() => irSeccion("adopcionPerfil") }><span> 🐾 </span> Mi adopción </button><button type="button" data-seccion="reservasPerfil" className={"opcion-menu-perfil" + (seccion === "reservasPerfil" ? " activo" : "")} onClick={() => irSeccion("reservasPerfil") }><span> ▣ </span> Mis reservas </button><button className="opcion-menu-perfil" type="button" id="botonDatosPersonales" onClick={abrirEditor}><span> ♙ </span> Mi cuenta </button><button type="button" data-seccion="notificacionesPerfil" className={"opcion-menu-perfil" + (seccion === "notificacionesPerfil" ? " activo" : "")} onClick={() => irSeccion("notificacionesPerfil") } onDoubleClick={() => abrirConfiguracion("notificaciones")}><span> ♧ </span> Notificaciones </button><div className="separador-menu-perfil"></div><button className="opcion-menu-perfil opcion-secundaria" id="botonPreferenciasAdopcion" type="button" onClick={() => abrirConfiguracion("adopcion")}><span aria-hidden="true"> ♡ </span> Preferencias de adopción </button><button className="opcion-menu-perfil opcion-secundaria" id="botonSeguridad" type="button" onClick={() => abrirConfiguracion("seguridad")}><span aria-hidden="true"> ⚙ </span> Seguridad y privacidad </button><button className="opcion-menu-perfil opcion-secundaria" id="botonNotificaciones" type="button" onClick={() => abrirConfiguracion("notificaciones")}><span aria-hidden="true"> ♧ </span> Preferencias de notificación </button><div className="separador-menu-perfil"></div><button type="button" className={"opcion-menu-perfil" + (seccion === "consultasPerfil" ? " activo" : "")} onClick={() => irSeccion("consultasPerfil")}><span aria-hidden="true">✉</span> Mis consultas </button><button className="opcion-menu-perfil cerrar-sesion-lateral" id="cerrarSesionLateral" type="button" onClick={() => abrir("salir")}><span> ↪ </span> Cerrar sesión </button></nav></aside><div className="contenido-perfil"><section className="bienvenida-perfil" id="inicioPerfil"><div><h2 id="saludoPerfil">{`¡Hola, ${perfil.nombre.trim().split(/\s+/)[0]}!`}</h2><p> Aquí puedes revisar tus procesos de adopción, tus reservas y los datos para acompañarte en ellos. </p><button className="boton-editar-perfil" id="botonEditarPerfil" type="button" onClick={abrirEditor}> ✎ Editar perfil </button></div><span className="detalle-perfil" aria-hidden="true"> 🐾 </span></section><section className="resumen-perfil"><div className="titulo-seccion-perfil"><span className="icono-titulo-perfil"> 🐾 </span><div><h2> Tu resumen </h2><p> Un vistazo a lo más importante en este momento. </p></div></div><div className="tarjetas-resumen d-flex flex-column flex-lg-row"><article className="tarjeta-resumen tarjeta-adopcion flex-fill w-100" id="adopcionPerfil" role="button" tabIndex="0" aria-label="Ver historial de solicitudes de adopción" aria-haspopup="dialog" aria-controls="modalHistorialAdopciones" onClick={() => abrir("adopciones")} onKeyDown={e => { if (e.target === e.currentTarget && ["Enter", " "].includes(e.key)) { e.preventDefault(); abrir("adopciones"); } }}><header className="cabecera-resumen"><span className="icono-resumen"> 🐾 </span><h3> Mis procesos de adopción </h3></header><div className="resumen-historial-adopcion" id="resumenHistorialAdopcion" aria-live="polite">{<ResumenAdopciones solicitudes={adopciones} />}</div><span className="enlace-historial-adopciones"> Ver historial completo → </span><div className="historial-adopciones" id="historialAdopciones" aria-label="Historial de solicitudes de adopción"></div></article><article className="tarjeta-resumen tarjeta-reserva flex-fill w-100" id="reservasPerfil" role="button" tabIndex="0" aria-label="Ver historial de reservas veterinarias" aria-haspopup="dialog" aria-controls="modalHistorialReservas" onClick={() => abrir("reservas")} onKeyDown={e => { if (e.target === e.currentTarget && ["Enter", " "].includes(e.key)) { e.preventDefault(); abrir("reservas"); } }}><header className="cabecera-resumen"><span className="icono-resumen" aria-hidden="true"> ♡ </span><h3> Próxima reserva veterinaria </h3></header><div className="contenido-resumen-reserva" id="resumenReservaVeterinaria" aria-live="polite">{<ResumenReservas reservas={reservas} />}</div><span className="enlace-historial-reservas"> Ver historial completo → </span></article></div></section><section className="panel-notificaciones-perfil" id="notificacionesPerfil"><div className="titulo-seccion-perfil"><span className="icono-titulo-perfil"> 🔔 </span><div><h2> Notificaciones </h2><p> Mantente al tanto de tus procesos importantes dentro de PEH. </p></div></div><div className="lista-notificaciones-perfil" id="listaNotificacionesPerfil" aria-live="polite">{<AvisosPerfil solicitudes={adopciones} reservas={reservas} preferencias={preferencias} />}</div></section><MisConsultas /><section className="ayuda-perfil"><div className="ayuda-perfil-contenido"><span className="huella-ayuda" aria-hidden="true"> 🐾 </span><div><h2> ¿Necesitas ayuda? </h2><p> Si tienes dudas sobre tu proceso de adopción, reservas o tu cuenta, estamos aquí para ayudarte. </p></div></div><a href="#contacto" className="boton-soporte-perfil"> ◯ Contactar soporte </a></section></div></div></section></main>
+
+<footer className="pie-perfil-limpio"><div className="contenedor"><p> © 2026 PEH · Patitas Esperando un Hogar </p><blockquote className="frase-perfil"> “Los animales no cambian el mundo, pero sí el mundo de un animal.” <span> ♥ </span></blockquote></div></footer>
+
+
+
+<div className="modal-perfil" id="modalEditarPerfil" hidden={modal !== "editar"}><div className="fondo-modal-perfil" data-cerrar-modal="" onClick={cerrar}></div><section className="contenido-modal-perfil" role="dialog" aria-modal="true" aria-labelledby="tituloModalPerfil"><button className="cerrar-modal-perfil" type="button" data-cerrar-modal="" aria-label="Cerrar" onClick={cerrar}> × </button><span className="icono-modal"> 🐾 </span><h2 id="tituloModalPerfil"> Editar perfil </h2><p> Actualiza la información básica de tu cuenta. </p><form id="formularioEditarPerfil" onSubmit={guardar}><label htmlFor="editarNombre"> Nombre </label><input id="editarNombre" type="text" maxLength="60" required={true} value={datos.nombre} onChange={e => setDatos(d => ({...d, nombre: e.target.value}))} /><label htmlFor="editarCorreo"> Correo electrónico </label><input id="editarCorreo" type="email" maxLength="100" required={true} value={datos.correo} onChange={e => setDatos(d => ({...d, correo: e.target.value}))} /><div id="mensajeEditarPerfil" role="status" aria-live="polite" hidden={!mensaje.texto} className={"mensaje-modal " + mensaje.tipo}>{mensaje.texto}</div><button className="boton-guardar-cambios" type="submit"> Guardar cambios </button></form></section></div>
+
+
+
+<div className="modal-perfil" id="modalConfiguracion" hidden={modal !== "configuracion"}><div className="fondo-modal-perfil" data-cerrar-configuracion="" onClick={cerrar}></div><section className="contenido-modal-perfil modal-configuracion" role="dialog" aria-modal="true" aria-labelledby="tituloModalConfiguracion"><button className="cerrar-modal-perfil" type="button" data-cerrar-configuracion="" aria-label="Cerrar" onClick={cerrar}> × </button><span className="icono-modal" id="iconoModalConfiguracion">{configuracion.icono}</span><h2 id="tituloModalConfiguracion">{configuracion.titulo}</h2><p id="descripcionModalConfiguracion">{configuracion.descripcion}</p><div className="contenido-configuracion-modal" id="contenidoConfiguracionModal">{<ConfiguracionPerfil key={configuracion.apertura || 0} tipo={configuracion.tipo} />}</div></section></div>
+
+
+
+<div className="modal-perfil" id="modalCerrarSesion" hidden={modal !== "salir"}><div className="fondo-modal-perfil" data-cancelar-sesion="" onClick={cerrar}></div><section className="contenido-modal-perfil modal-cerrar-sesion" role="dialog" aria-modal="true" aria-labelledby="tituloCerrarSesion"><span className="icono-modal"> 🐾 </span><h2 id="tituloCerrarSesion"> ¿Cerrar sesión? </h2><p> Tendrás que volver a iniciar sesión para acceder a tu cuenta de PEH. </p><div className="acciones-cerrar-sesion"><button className="boton-cancelar" type="button" data-cancelar-sesion="" onClick={cerrar}> Cancelar </button><button className="boton-confirmar-sesion" id="confirmarCerrarSesion" type="button" onClick={salir}> Cerrar sesión </button></div></section></div>
+
+
+
+
+
+<div className="modal-perfil modal-historial-adopciones" id="modalHistorialAdopciones" hidden={modal !== "adopciones"} aria-hidden={modal !== "adopciones"}><div className="fondo-modal-perfil" data-cerrar-historial-adopciones="" onClick={cerrar}></div><section className="contenido-modal-perfil contenido-historial-adopciones" role="dialog" aria-modal="true" aria-labelledby="tituloHistorialAdopciones" aria-describedby="descripcionHistorialAdopciones" tabIndex="-1"><button type="button" className="cerrar-modal-perfil" id="cerrarHistorialAdopciones" aria-label="Cerrar historial de adopciones" onClick={cerrar}> × </button><div className="encabezado-historial-adopciones"><span className="icono-modal" aria-hidden="true"> 🐾 </span><h2 id="tituloHistorialAdopciones"> Mis solicitudes de adopción </h2><p id="descripcionHistorialAdopciones"> Consulta el estado de tus solicitudes y revisa tus procesos anteriores. </p></div><div className="estadisticas-historial-adopciones" id="estadisticasHistorialAdopciones" aria-live="polite">{<EstadisticasAdopciones solicitudes={adopciones} />}</div><div className="lista-historial-adopciones" id="listaHistorialAdopciones" aria-live="polite">{<ListaAdopciones solicitudes={adopciones} filtro={filtro} onFiltro={setFiltro} />}</div><footer className="pie-historial-adopciones"><span aria-hidden="true"> ♡ </span><p> Tus solicitudes anteriores permanecerán disponibles, incluso cuando sus procesos hayan finalizado. </p></footer></section></div>
+
+
+
+<div className="modal-perfil modal-historial-reservas" id="modalHistorialReservas" hidden={modal !== "reservas"} aria-hidden={modal !== "reservas"}><div className="fondo-modal-perfil" data-cerrar-historial-reservas="" onClick={cerrar}></div><section className="contenido-modal-perfil contenido-historial-reservas" role="dialog" aria-modal="true" aria-labelledby="tituloHistorialReservas" aria-describedby="descripcionHistorialReservas" tabIndex="-1"><button type="button" className="cerrar-modal-perfil" id="cerrarHistorialReservas" aria-label="Cerrar historial de reservas" onClick={cerrar}> × </button><div className="encabezado-historial-reservas"><span className="icono-modal" aria-hidden="true"> 🩺 </span><h2 id="tituloHistorialReservas"> Mis reservas veterinarias </h2><p id="descripcionHistorialReservas"> Consulta tus próximas citas y revisa el historial de atenciones veterinarias. </p></div><div className="estadisticas-historial-reservas" id="estadisticasHistorialReservas" aria-live="polite">{<EstadisticasReservas reservas={reservas} />}</div><div className="lista-historial-reservas" id="listaHistorialReservas" aria-live="polite">{<ListaReservas reservas={reservas} />}</div><footer className="pie-historial-reservas"><span aria-hidden="true"> ♡ </span><p> Tus reservas anteriores permanecerán disponibles en este historial, incluso después de la fecha de atención o si fueron canceladas. </p></footer></section></div>
+
+
+
+
+</>;
+}

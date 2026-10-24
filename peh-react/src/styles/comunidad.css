@@ -1,0 +1,4194 @@
+/* Comunidad del HTML original, aislada de Bootstrap y las demás páginas. */
+body.pagina-comunidad, body.pagina-comunidad *, body.pagina-comunidad *::before, body.pagina-comunidad *::after { all: revert; }
+
+/* ==========================================================
+   PEH - ESTILOS GENERALES
+   Patitas Esperando un Hogar
+   ========================================================== */
+
+/* ==========================================================
+   VARIABLES / IDENTIDAD VISUAL
+   ========================================================== */
+
+body.pagina-comunidad {
+    /* Fondos */
+    --peh-fondo: #f3efe9;
+    --peh-fondo-claro: #faf8f5;
+    --peh-blanco: #ffffff;
+
+    /* Azul grisáceo */
+    --peh-azul: #667784;
+    --peh-azul-oscuro: #4f606c;
+    --peh-azul-claro: #dce3e6;
+
+    /* Terracota */
+    --peh-terracota: #b97868;
+    --peh-terracota-oscuro: #9f6255;
+    --peh-terracota-claro: #ead0c9;
+
+    /* Coral */
+    --peh-coral: #d99a8f;
+    --peh-coral-claro: #efd0c9;
+
+    /* Texto */
+    --peh-texto: #343638;
+    --peh-texto-suave: #74777a;
+
+    /* Bordes */
+    --peh-borde: #ded8d1;
+
+    /* Estados */
+    --peh-error: #b85c5c;
+    --peh-exito: #66806a;
+    --peh-advertencia: #b38a56;
+
+    /* Sombras */
+    --peh-sombra-suave:
+        0 8px 25px rgba(71, 62, 55, 0.08);
+
+    --peh-sombra:
+        0 20px 50px rgba(71, 62, 55, 0.12);
+
+    /* Bordes redondeados */
+    --peh-radio-pequeno: 8px;
+    --peh-radio: 12px;
+    --peh-radio-grande: 22px;
+    --peh-radio-redondo: 999px;
+
+    /* Transiciones */
+    --peh-transicion:
+        0.2s ease;
+}
+
+/* ==========================================================
+   RESET BÁSICO
+   ========================================================== */
+
+body.pagina-comunidad * {
+    box-sizing: border-box;
+}
+
+body.pagina-comunidad {
+    scroll-behavior: smooth;
+}
+
+body.pagina-comunidad {
+    margin: 0;
+
+    background:
+        var(--peh-fondo);
+
+    color:
+        var(--peh-texto);
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    line-height: 1.5;
+}
+
+body.pagina-comunidad img {
+    display: block;
+
+    max-width: 100%;
+}
+
+body.pagina-comunidad button,
+body.pagina-comunidad input,
+body.pagina-comunidad select,
+body.pagina-comunidad textarea {
+    font: inherit;
+}
+
+body.pagina-comunidad button {
+    color: inherit;
+}
+
+body.pagina-comunidad a {
+    color: inherit;
+
+    text-decoration: none;
+}
+
+/* ==========================================================
+   SELECCIÓN DE TEXTO
+   ========================================================== */
+
+body.pagina-comunidad ::selection {
+    background:
+        var(--peh-terracota-claro);
+
+    color:
+        var(--peh-texto);
+}
+
+/* ==========================================================
+   SCROLLBAR
+   ========================================================== */
+
+body.pagina-comunidad ::-webkit-scrollbar {
+    width: 10px;
+}
+
+body.pagina-comunidad ::-webkit-scrollbar-track {
+    background:
+        var(--peh-fondo);
+}
+
+body.pagina-comunidad ::-webkit-scrollbar-thumb {
+    border:
+        2px solid
+        var(--peh-fondo);
+
+    border-radius:
+        var(--peh-radio-redondo);
+
+    background:
+        var(--peh-azul);
+}
+
+body.pagina-comunidad ::-webkit-scrollbar-thumb:hover {
+    background:
+        var(--peh-azul-oscuro);
+}
+
+/* ==========================================================
+   TIPOGRAFÍA GENERAL
+   ========================================================== */
+
+body.pagina-comunidad h1,
+body.pagina-comunidad h2,
+body.pagina-comunidad h3,
+body.pagina-comunidad h4,
+body.pagina-comunidad h5,
+body.pagina-comunidad h6 {
+    margin-top: 0;
+
+    color:
+        var(--peh-texto);
+
+    font-weight: 700;
+
+    line-height: 1.15;
+
+    letter-spacing: -0.025em;
+}
+
+body.pagina-comunidad p {
+    margin-top: 0;
+}
+
+body.pagina-comunidad .texto-suave {
+    color:
+        var(--peh-texto-suave);
+}
+
+body.pagina-comunidad .texto-centrado {
+    text-align: center;
+}
+
+/* ==========================================================
+   CONTENEDOR GENERAL
+   ========================================================== */
+
+body.pagina-comunidad .contenedor {
+    width:
+        min(1180px, calc(100% - 40px));
+
+    margin-inline: auto;
+}
+
+/* ==========================================================
+   MARCA PEH
+   ========================================================== */
+
+body.pagina-comunidad .marca {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    width: fit-content;
+
+    color:
+        inherit;
+
+    text-decoration: none;
+}
+
+body.pagina-comunidad .simbolo-marca {
+    font-size: 1.8rem;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+}
+
+/* ==========================================================
+   BOTONES GENERALES
+   ========================================================== */
+
+body.pagina-comunidad .boton {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding:
+        11px
+        18px;
+
+    border:
+        1px solid transparent;
+
+    border-radius:
+        var(--peh-radio);
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    transition:
+        background var(--peh-transicion),
+        border-color var(--peh-transicion),
+        color var(--peh-transicion),
+        transform var(--peh-transicion),
+        box-shadow var(--peh-transicion);
+}
+
+body.pagina-comunidad .boton:hover {
+    transform:
+        translateY(-1px);
+}
+
+body.pagina-comunidad .boton:active {
+    transform:
+        translateY(0);
+}
+
+body.pagina-comunidad .boton:focus-visible {
+    outline:
+        3px solid
+        rgba(185, 120, 104, 0.25);
+
+    outline-offset: 3px;
+}
+
+/* Botón principal */
+
+body.pagina-comunidad .boton-primario {
+    background:
+        var(--peh-terracota);
+
+    color:
+        var(--peh-blanco);
+
+    box-shadow:
+        0 8px 20px
+        rgba(185, 120, 104, 0.18);
+}
+
+body.pagina-comunidad .boton-primario:hover {
+    background:
+        var(--peh-terracota-oscuro);
+
+    box-shadow:
+        0 11px 24px
+        rgba(159, 98, 85, 0.23);
+}
+
+/* Botón secundario */
+
+body.pagina-comunidad .boton-secundario {
+    border-color:
+        var(--peh-borde);
+
+    background:
+        transparent;
+
+    color:
+        var(--peh-azul-oscuro);
+}
+
+body.pagina-comunidad .boton-secundario:hover {
+    border-color:
+        rgba(102, 119, 132, 0.45);
+
+    background:
+        rgba(102, 119, 132, 0.07);
+}
+
+/* Botón claro */
+
+body.pagina-comunidad .boton-claro {
+    background:
+        var(--peh-fondo-claro);
+
+    color:
+        var(--peh-azul-oscuro);
+}
+
+body.pagina-comunidad .boton-claro:hover {
+    background:
+        var(--peh-blanco);
+}
+
+/* Botón ancho */
+
+body.pagina-comunidad .boton-bloque {
+    width: 100%;
+}
+
+/* ==========================================================
+   CAMPOS DE FORMULARIO GENERALES
+   ========================================================== */
+
+body.pagina-comunidad .grupo-campo {
+    margin-bottom: 20px;
+}
+
+body.pagina-comunidad .grupo-campo label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color:
+        var(--peh-texto);
+
+    font-size: 0.87rem;
+    font-weight: 600;
+}
+
+body.pagina-comunidad .grupo-campo input,
+body.pagina-comunidad .grupo-campo select,
+body.pagina-comunidad .grupo-campo textarea {
+    width: 100%;
+
+    padding:
+        12px
+        14px;
+
+    border:
+        1px solid
+        var(--peh-borde);
+
+    border-radius:
+        var(--peh-radio);
+
+    outline: none;
+
+    background:
+        rgba(255, 255, 255, 0.75);
+
+    color:
+        var(--peh-texto);
+
+    transition:
+        border-color var(--peh-transicion),
+        box-shadow var(--peh-transicion),
+        background var(--peh-transicion);
+}
+
+body.pagina-comunidad .grupo-campo input::placeholder,
+body.pagina-comunidad .grupo-campo textarea::placeholder {
+    color:
+        #a4a09b;
+}
+
+body.pagina-comunidad .grupo-campo input:focus,
+body.pagina-comunidad .grupo-campo select:focus,
+body.pagina-comunidad .grupo-campo textarea:focus {
+    border-color:
+        var(--peh-terracota);
+
+    background:
+        var(--peh-blanco);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(185, 120, 104, 0.10);
+}
+
+body.pagina-comunidad textarea {
+    resize: vertical;
+}
+
+/* ==========================================================
+   VALIDACIONES
+   ========================================================== */
+
+body.pagina-comunidad .mensaje-error {
+    display: block;
+
+    margin-top: 6px;
+
+    color:
+        var(--peh-error);
+
+    font-size: 0.74rem;
+}
+
+body.pagina-comunidad .grupo-campo.campo-error
+input:not([type="checkbox"]),
+body.pagina-comunidad .grupo-campo.campo-error
+select,
+body.pagina-comunidad .grupo-campo.campo-error
+textarea {
+    border-color:
+        var(--peh-error);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(184, 92, 92, 0.08);
+}
+
+body.pagina-comunidad .grupo-campo.campo-valido
+input:not([type="checkbox"]),
+body.pagina-comunidad .grupo-campo.campo-valido
+select,
+body.pagina-comunidad .grupo-campo.campo-valido
+textarea {
+    border-color:
+        rgba(102, 128, 106, 0.65);
+}
+
+/* ==========================================================
+   TARJETAS GENERALES
+   ========================================================== */
+
+body.pagina-comunidad .tarjeta {
+    border:
+        1px solid
+        rgba(222, 216, 209, 0.75);
+
+    border-radius:
+        var(--peh-radio-grande);
+
+    background:
+        var(--peh-fondo-claro);
+
+    box-shadow:
+        var(--peh-sombra-suave);
+}
+
+/* ==========================================================
+   ETIQUETAS / CHIPS
+   ========================================================== */
+
+body.pagina-comunidad .etiqueta {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding:
+        6px
+        10px;
+
+    border-radius:
+        var(--peh-radio-redondo);
+
+    background:
+        var(--peh-azul-claro);
+
+    color:
+        var(--peh-azul-oscuro);
+
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+
+/* ==========================================================
+   ESTADOS
+   ========================================================== */
+
+body.pagina-comunidad .estado-exito {
+    color:
+        var(--peh-exito);
+}
+
+body.pagina-comunidad .estado-error {
+    color:
+        var(--peh-error);
+}
+
+body.pagina-comunidad .estado-advertencia {
+    color:
+        var(--peh-advertencia);
+}
+
+/* ==========================================================
+   ACCESIBILIDAD
+   ========================================================== */
+
+body.pagina-comunidad :focus-visible {
+    outline:
+        3px solid
+        rgba(185, 120, 104, 0.28);
+
+    outline-offset: 3px;
+}
+
+/* ==========================================================
+   RESPONSIVE GENERAL
+   ========================================================== */
+
+@media  (max-width: 768px) {
+
+    body.pagina-comunidad .contenedor {
+        width:
+            min(100% - 28px, 1180px);
+    }
+
+}
+
+/* ==========================================================
+   PEH - COMUNIDAD
+   Patitas Esperando un Hogar
+   ========================================================== */
+
+/* ==========================================================
+   IDENTIDAD DE COMUNIDAD
+   ========================================================== */
+
+body.pagina-comunidad {
+
+    --comunidad-cafe:
+        #4f606c;
+
+    --comunidad-cafe-oscuro:
+        #343638;
+
+    --comunidad-naranjo:
+        #b97868;
+
+    --comunidad-naranjo-oscuro:
+        #9f6255;
+
+    --comunidad-durazno:
+        #ead0c9;
+
+    --comunidad-durazno-claro:
+        #f5e5dc;
+
+    --comunidad-crema:
+        #faf8f5;
+
+    --comunidad-crema-oscuro:
+        #f3efe9;
+
+    --comunidad-blanco:
+        #ffffff;
+
+    --comunidad-texto:
+        #343638;
+
+    --comunidad-texto-suave:
+        #74777a;
+
+    --comunidad-borde:
+        #ded8d1;
+
+    --comunidad-sombra:
+        0 6px 22px #473e370a;
+
+    --comunidad-sombra-hover:
+        0 17px 40px rgba(84, 49, 34, 0.12);
+
+    min-height:
+        100vh;
+
+    background:
+        #f3efe9;
+
+    color:
+        var(--comunidad-texto);
+
+}
+
+body.pagina-comunidad .cabecera-comunidad {
+
+    position:
+        sticky;
+
+    top:
+        0;
+
+    z-index:
+        1000;
+
+    width:
+        100%;
+
+    background:
+        rgba(255, 252, 248, 0.96);
+
+    border-bottom:
+        1px solid rgba(102, 65, 45, 0.08);
+
+    backdrop-filter:
+        blur(14px);
+
+}
+
+body.pagina-comunidad .cabecera-contenido {
+
+    min-height:
+        74px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        30px;
+
+}
+
+body.pagina-comunidad .marca-principal {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    color:
+        var(--comunidad-cafe);
+
+    text-decoration:
+        none;
+
+}
+
+body.pagina-comunidad .simbolo-marca {
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    flex-shrink:
+        0;
+
+    border-radius:
+        50% 50% 45% 45%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--comunidad-naranjo),
+            #e98c52
+        );
+
+    color:
+        #fff;
+
+    font-size:
+        15px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.5px;
+
+    box-shadow:
+        0 7px 18px rgba(208, 92, 42, 0.2);
+
+}
+
+body.pagina-comunidad .nombre-marca {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    color:
+        var(--comunidad-cafe);
+
+    font-size:
+        14px;
+
+    font-weight:
+        800;
+
+    line-height:
+        1.05;
+
+}
+
+body.pagina-comunidad .nombre-marca span {
+
+    margin-top:
+        3px;
+
+    color:
+        var(--comunidad-texto-suave);
+
+    font-size:
+        11px;
+
+    font-weight:
+        500;
+
+}
+
+body.pagina-comunidad .navegacion-principal {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+}
+
+body.pagina-comunidad .enlace-navegacion {
+
+    padding:
+        10px 14px;
+
+    border-radius:
+        999px;
+
+    color:
+        var(--comunidad-texto);
+
+    text-decoration:
+        none;
+
+    font-size:
+        14px;
+
+    font-weight:
+        600;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+
+}
+
+body.pagina-comunidad .enlace-navegacion:hover {
+
+    background:
+        var(--comunidad-durazno-claro);
+
+    color:
+        var(--comunidad-cafe);
+
+    transform:
+        translateY(-1px);
+
+}
+
+body.pagina-comunidad .enlace-navegacion.activo {
+
+    background:
+        linear-gradient(
+            135deg,
+            #f9d4b1,
+            #f7bc87
+        );
+
+    color:
+        var(--comunidad-cafe);
+
+    box-shadow:
+        0 5px 16px rgba(192, 101, 49, 0.14);
+
+}
+
+body.pagina-comunidad .boton-menu {
+
+    width:
+        44px;
+
+    height:
+        44px;
+
+    display:
+        none;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        5px;
+
+    padding:
+        0;
+
+    border:
+        none;
+
+    border-radius:
+        12px;
+
+    background:
+        var(--comunidad-durazno-claro);
+
+    cursor:
+        pointer;
+
+}
+
+body.pagina-comunidad .boton-menu span {
+
+    width:
+        20px;
+
+    height:
+        2px;
+
+    display:
+        block;
+
+    border-radius:
+        10px;
+
+    background:
+        var(--comunidad-cafe);
+
+    transition:
+        0.25s ease;
+
+}
+
+body.pagina-comunidad .boton-menu.activo span:nth-child(1) {
+
+    transform:
+        translateY(7px)
+        rotate(45deg);
+
+}
+
+body.pagina-comunidad .boton-menu.activo span:nth-child(2) {
+
+    opacity:
+        0;
+
+}
+
+body.pagina-comunidad .boton-menu.activo span:nth-child(3) {
+
+    transform:
+        translateY(-7px)
+        rotate(-45deg);
+
+}
+
+/* ==========================================================
+   PRESENTACIÓN
+   ========================================================== */
+
+body.pagina-comunidad .hero-comunidad {
+
+    position:
+        relative;
+
+    overflow:
+        visible;
+
+    padding:
+        28px 0 0;
+
+    background:
+        transparent;
+
+}
+
+body.pagina-comunidad .hero-comunidad-contenido {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(0, 1.7fr) minmax(200px, .8fr);
+
+    align-items:
+        center;
+
+    gap:
+        24px;
+
+    min-height:
+        0;
+
+    padding:
+        30px;
+
+    border-radius:
+        20px;
+
+    background:
+        #f7ede5;
+
+    border:
+        1px solid #ded8d1;
+
+}
+
+body.pagina-comunidad .hero-comunidad-texto {
+
+    max-width:
+        none;
+
+}
+
+body.pagina-comunidad .sobre-titulo {
+
+    display:
+        inline-block;
+
+    margin-bottom:
+        10px;
+
+    color:
+        var(--comunidad-naranjo);
+
+    font-size:
+        13px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1.4px;
+
+    text-transform:
+        uppercase;
+
+}
+
+body.pagina-comunidad .hero-comunidad-texto h1 {
+
+    margin:
+        0;
+
+    color:
+        var(--comunidad-cafe-oscuro);
+
+    font-size:
+        clamp(2rem, 3.5vw, 2.75rem);
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        -3px;
+
+    line-height:
+        0.98;
+
+    margin-bottom:
+        12px;
+
+}
+
+body.pagina-comunidad .hero-comunidad-texto h1 span {
+
+    display:
+        inline;
+
+    margin-top:
+        4px;
+
+    color:
+        var(--comunidad-naranjo);
+
+    font-weight:
+        500;
+
+}
+
+body.pagina-comunidad .hero-comunidad-texto h2 {
+
+    max-width:
+        600px;
+
+    margin:
+        22px 0 12px;
+
+    color:
+        var(--comunidad-cafe);
+
+    font-size:
+        1.05rem;
+
+    line-height:
+        1.5;
+
+    margin-bottom:
+        12px;
+
+}
+
+body.pagina-comunidad .hero-comunidad-texto > p {
+
+    max-width:
+        650px;
+
+    margin:
+        0;
+
+    color:
+        var(--comunidad-texto-suave);
+
+    font-size:
+        .95rem;
+
+    line-height:
+        1.65;
+
+}
+
+body.pagina-comunidad .hero-comunidad-texto .hero-frase {
+
+    margin-top:
+        12px;
+
+    color:
+        var(--comunidad-naranjo);
+
+    font-weight:
+        700;
+
+    font-size:
+        .83rem;
+
+}
+
+body.pagina-comunidad .hero-comunidad-visual {
+
+    position:
+        relative;
+
+    min-height:
+        150px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    flex-direction:
+        column;
+
+    gap:
+        12px;
+
+}
+
+body.pagina-comunidad .mascotas-comunidad {
+
+    position:
+        static;
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    justify-content:
+        center;
+
+    font-size:
+        4rem;
+
+    filter:
+        drop-shadow(
+            0 16px 12px rgba(83, 48, 32, 0.12)
+        );
+
+    gap:
+        12px;
+
+}
+
+body.pagina-comunidad .mascota-perro {
+
+    position:
+        static;
+
+    z-index:
+        2;
+
+    transform:
+        none;
+
+}
+
+body.pagina-comunidad .mascota-gato {
+
+    position:
+        static;
+
+    z-index:
+        1;
+
+    font-size:
+        0.82em;
+
+    transform:
+        none;
+
+}
+
+body.pagina-comunidad .hero-comunidad-visual > p {
+
+    position:
+        static;
+
+    top:
+        20px;
+
+    right:
+        -5px;
+
+    max-width:
+        150px;
+
+    margin:
+        0;
+
+    color:
+        #956b57;
+
+    font-size:
+        .85rem;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.45;
+
+    transform:
+        rotate(-6deg);
+
+    text-align:
+        center;
+
+}
+
+body.pagina-comunidad .hero-comunidad-visual > p span {
+
+    display:
+        block;
+
+    color:
+        var(--comunidad-naranjo);
+
+}
+
+/* ==========================================================
+   FILTROS Y BÚSQUEDA
+   ========================================================== */
+
+body.pagina-comunidad .seccion-filtros-comunidad {
+
+    position:
+        relative;
+
+    z-index:
+        20;
+
+    padding:
+        22px 0;
+
+    background:
+        transparent;
+
+    border-bottom:
+        1px solid rgba(112, 72, 52, 0.07);
+
+    border:
+        0;
+
+}
+
+body.pagina-comunidad .barra-comunidad {
+
+    display:
+        flex;
+
+    align-items:
+        stretch;
+
+    justify-content:
+        space-between;
+
+    gap:
+        16px;
+
+    flex-direction:
+        column;
+
+    padding:
+        20px;
+
+    background:
+        #faf8f5;
+
+    border:
+        1px solid #ded8d1;
+
+    border-radius:
+        18px;
+
+}
+
+body.pagina-comunidad .filtros-publicaciones {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    min-width:
+        0;
+
+    flex-wrap:
+        wrap;
+
+    overflow-x:
+        visible;
+
+}
+
+body.pagina-comunidad .filtro-publicacion {
+
+    min-height:
+        40px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    padding:
+        8px 12px;
+
+    border:
+        1px solid #ded8d1;
+
+    border-radius:
+        99px;
+
+    background:
+        #faf8f5;
+
+    color:
+        var(--comunidad-texto);
+
+    font:
+        inherit;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+    font-size:
+        .8rem;
+
+}
+
+body.pagina-comunidad .filtro-publicacion > span:first-child {
+
+    width:
+        22px;
+
+    height:
+        22px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    flex-shrink:
+        0;
+
+    border-radius:
+        0;
+
+    background:
+        transparent;
+
+    color:
+        var(--comunidad-naranjo);
+
+    font-size:
+        1rem;
+
+    font-weight:
+        800;
+
+}
+
+body.pagina-comunidad .filtro-publicacion > span:last-child {
+
+    display:
+        inline;
+
+    flex-direction:
+        column;
+
+    align-items:
+        flex-start;
+
+    gap:
+        1px;
+
+    white-space:
+        nowrap;
+
+    font-size:
+        .8rem;
+
+    font-weight:
+        700;
+
+}
+
+body.pagina-comunidad .filtro-publicacion small {
+
+    color:
+        var(--comunidad-texto-suave);
+
+    font-size:
+        inherit;
+
+    font-weight:
+        500;
+
+    display:
+        inline;
+
+}
+
+body.pagina-comunidad .filtro-publicacion:hover {
+
+    background:
+        #fff;
+
+    border-color:
+        rgba(211, 101, 48, 0.16);
+
+    transform:
+        translateY(-1px);
+
+}
+
+body.pagina-comunidad .filtro-publicacion.activo {
+
+    border-color:
+        rgba(211, 101, 48, 0.22);
+
+    background:
+        #b97868;
+
+    box-shadow:
+        none;
+
+    color:
+        #ffffff;
+
+    border:
+        1px solid #b97868;
+
+}
+
+body.pagina-comunidad .filtro-publicacion.activo > span:first-child {
+
+    background:
+        var(--comunidad-naranjo);
+
+    color:
+        #fff;
+
+}
+
+body.pagina-comunidad .buscador-comunidad {
+
+    width:
+        100%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        9px;
+
+    flex-shrink:
+        0;
+
+    padding:
+        10px 14px;
+
+    border:
+        1px solid #ded8d1;
+
+    border-radius:
+        10px;
+
+    background:
+        #fff;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+    min-width:
+        0;
+
+}
+
+body.pagina-comunidad .buscador-comunidad:focus-within {
+
+    border-color:
+        var(--comunidad-naranjo);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(217, 103, 50, 0.09);
+
+}
+
+body.pagina-comunidad .buscador-comunidad > span {
+
+    color:
+        var(--comunidad-naranjo);
+
+    font-size:
+        20px;
+
+}
+
+body.pagina-comunidad .buscador-comunidad input {
+
+    width:
+        100%;
+
+    padding:
+        14px 0;
+
+    border:
+        none;
+
+    outline:
+        none;
+
+    background:
+        transparent;
+
+    color:
+        var(--comunidad-texto);
+
+    font:
+        inherit;
+
+    font-size:
+        .9rem;
+
+}
+
+body.pagina-comunidad .buscador-comunidad input::placeholder {
+
+    color:
+        #a69b95;
+
+}
+
+/* ==========================================================
+   PUBLICACIONES Y CONTENIDO LATERAL
+   ========================================================== */
+
+body.pagina-comunidad .seccion-comunidad {
+
+    padding:
+        0 0 40px;
+
+    background:
+        transparent;
+
+}
+
+body.pagina-comunidad .comunidad-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(0, 2.15fr) minmax(280px, 1fr);
+
+    align-items:
+        start;
+
+    gap:
+        24px;
+
+}
+
+body.pagina-comunidad .columna-publicaciones {
+
+    min-width:
+        0;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        20px;
+
+}
+
+/* ==========================================================
+   FORMULARIO DE PUBLICACIÓN
+   ========================================================== */
+
+body.pagina-comunidad .crear-publicacion {
+
+    padding:
+        22px;
+
+    border:
+        1px solid var(--comunidad-borde);
+
+    border-radius:
+        18px;
+
+    background:
+        #faf8f5;
+
+    box-shadow:
+        var(--comunidad-sombra);
+
+}
+
+body.pagina-comunidad .crear-publicacion-cabecera {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        13px;
+
+    margin-bottom:
+        14px;
+
+}
+
+body.pagina-comunidad .avatar-usuario {
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    flex-shrink:
+        0;
+
+    border-radius:
+        50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8d5b8,
+            #f1b580
+        );
+
+    font-size:
+        23px;
+
+}
+
+body.pagina-comunidad .crear-publicacion-cabecera h2 {
+
+    margin:
+        0 0 3px;
+
+    color:
+        var(--comunidad-cafe);
+
+    font-size:
+        1rem;
+
+}
+
+body.pagina-comunidad .crear-publicacion-cabecera p {
+
+    margin:
+        0;
+
+    color:
+        var(--comunidad-texto-suave);
+
+    font-size:
+        .82rem;
+
+}
+
+body.pagina-comunidad .formulario-publicacion textarea {
+
+    width:
+        100%;
+
+    min-height:
+        100px;
+
+    display:
+        block;
+
+    padding:
+        14px;
+
+    border:
+        1px solid rgba(112, 72, 52, 0.16);
+
+    border-radius:
+        10px;
+
+    outline:
+        none;
+
+    resize:
+        vertical;
+
+    background:
+        #fffdfa;
+
+    color:
+        var(--comunidad-texto);
+
+    font:
+        inherit;
+
+    font-size:
+        .9rem;
+
+    line-height:
+        1.6;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+
+}
+
+body.pagina-comunidad .formulario-publicacion textarea::placeholder {
+
+    color:
+        #aaa09a;
+
+}
+
+body.pagina-comunidad .formulario-publicacion textarea:focus {
+
+    border-color:
+        var(--comunidad-naranjo);
+
+    background:
+        #fff;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(217, 103, 50, 0.08);
+
+}
+
+body.pagina-comunidad .crear-publicacion-opciones {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    margin-top:
+        13px;
+
+    flex-wrap:
+        wrap;
+
+}
+
+body.pagina-comunidad .opcion-publicacion {
+
+    min-height:
+        40px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        6px;
+
+    padding:
+        8px 10px;
+
+    border:
+        1px solid rgba(112, 72, 52, 0.1);
+
+    border-radius:
+        10px;
+
+    background:
+        #fffaf6;
+
+    color:
+        var(--comunidad-texto-suave);
+
+    font-size:
+        .8rem;
+
+    font-weight:
+        600;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+
+    max-width:
+        100%;
+
+}
+
+body.pagina-comunidad .opcion-publicacion:hover {
+
+    border-color:
+        rgba(217, 103, 50, 0.25);
+
+    background:
+        #fff3e9;
+
+    color:
+        var(--comunidad-naranjo);
+
+}
+
+body.pagina-comunidad .opcion-publicacion > span {
+
+    color:
+        var(--comunidad-naranjo);
+
+    font-size:
+        15px;
+
+}
+
+body.pagina-comunidad .opcion-publicacion select,
+body.pagina-comunidad .opcion-publicacion input {
+
+    max-width:
+        100%;
+
+    padding:
+        0;
+
+    border:
+        none;
+
+    outline:
+        none;
+
+    background:
+        transparent;
+
+    color:
+        inherit;
+
+    font:
+        inherit;
+
+    cursor:
+        pointer;
+
+    font-size:
+        .8rem;
+
+    min-width:
+        0;
+
+}
+
+body.pagina-comunidad .opcion-publicacion input {
+
+    cursor:
+        text;
+
+}
+
+body.pagina-comunidad .opcion-publicacion input::placeholder {
+
+    color:
+        #998e88;
+
+}
+
+body.pagina-comunidad .boton-publicar {
+
+    min-height:
+        40px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        7px;
+
+    margin-left:
+        auto;
+
+    padding:
+        10px 18px;
+
+    border:
+        none;
+
+    border-radius:
+        11px;
+
+    background:
+        #b97868;
+
+    color:
+        #fff;
+
+    font:
+        inherit;
+
+    font-size:
+        .85rem;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 7px 17px rgba(195, 81, 35, 0.18);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+
+}
+
+body.pagina-comunidad .boton-publicar:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 22px rgba(195, 81, 35, 0.24);
+
+    filter:
+        brightness(1.03);
+
+}
+
+body.pagina-comunidad .boton-publicar:active {
+
+    transform:
+        translateY(0);
+
+}
+
+body.pagina-comunidad .vista-previa-publicacion {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    margin-top:
+        14px;
+
+    border-radius:
+        16px;
+
+    background:
+        #f7eee7;
+
+}
+
+body.pagina-comunidad .vista-previa-publicacion[hidden] {
+
+    display:
+        none;
+
+}
+
+body.pagina-comunidad .vista-previa-publicacion img {
+
+    width:
+        100%;
+
+    max-height:
+        390px;
+
+    display:
+        block;
+
+    object-fit:
+        cover;
+
+}
+
+body.pagina-comunidad .vista-previa-publicacion button {
+
+    position:
+        absolute;
+
+    top:
+        12px;
+
+    right:
+        12px;
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    padding:
+        0;
+
+    border:
+        none;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(56, 32, 24, 0.82);
+
+    color:
+        #fff;
+
+    font-size:
+        22px;
+
+    cursor:
+        pointer;
+
+}
+
+body.pagina-comunidad .mensaje-publicacion {
+
+    margin-top:
+        14px;
+
+    padding:
+        11px 13px;
+
+    border-radius:
+        11px;
+
+    font-size:
+        12px;
+
+    font-weight:
+        600;
+
+}
+
+body.pagina-comunidad .mensaje-publicacion[hidden] {
+
+    display:
+        none;
+
+}
+
+body.pagina-comunidad .mensaje-publicacion.exito {
+
+    border:
+        1px solid rgba(74, 137, 85, 0.18);
+
+    background:
+        #f0f8f1;
+
+    color:
+        #47714e;
+
+}
+
+body.pagina-comunidad .mensaje-publicacion.error {
+
+    border:
+        1px solid rgba(190, 71, 57, 0.18);
+
+    background:
+        #fff5f3;
+
+    color:
+        #ad4439;
+
+}
+
+body.pagina-comunidad .lista-publicaciones {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        22px;
+
+}
+
+/* ==========================================================
+   TARJETAS DE PUBLICACIONES
+   ========================================================== */
+
+body.pagina-comunidad .publicacion {
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid var(--comunidad-borde);
+
+    border-radius:
+        18px;
+
+    background:
+        #faf8f5;
+
+    box-shadow:
+        var(--comunidad-sombra);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+
+}
+
+body.pagina-comunidad .publicacion:hover {
+
+    border-color:
+        rgba(217, 103, 50, 0.18);
+
+    box-shadow:
+        var(--comunidad-sombra-hover);
+
+}
+
+body.pagina-comunidad .publicacion[hidden] {
+
+    display:
+        none;
+
+}
+
+body.pagina-comunidad .publicacion-nueva {
+
+    animation:
+        aparecer-publicacion 0.45s ease;
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · aparecer-publicacion
+   ========================================================== */
+
+@keyframes aparecer-publicacion {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(-12px);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+body.pagina-comunidad .publicacion-cabecera {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    padding:
+        20px 20px 12px;
+
+    flex-wrap:
+        wrap;
+
+}
+
+body.pagina-comunidad .avatar-publicacion {
+
+    width:
+        44px;
+
+    height:
+        44px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    flex-shrink:
+        0;
+
+    border-radius:
+        50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8d8bd,
+            #f1bb8b
+        );
+
+    font-size:
+        21px;
+
+}
+
+body.pagina-comunidad .datos-publicacion {
+
+    min-width:
+        0;
+
+    flex:
+        1;
+
+}
+
+body.pagina-comunidad .datos-publicacion > strong {
+
+    display:
+        block;
+
+    margin-bottom:
+        4px;
+
+    color:
+        var(--comunidad-cafe);
+
+    font-size:
+        .9rem;
+
+}
+
+body.pagina-comunidad .publicacion-meta {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        5px;
+
+    color:
+        #998b84;
+
+    font-size:
+        .75rem;
+
+}
+
+body.pagina-comunidad .etiqueta-publicacion {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    padding:
+        4px 8px;
+
+    border-radius:
+        999px;
+
+    font-size:
+        .72rem;
+
+    font-weight:
+        700;
+
+}
+
+body.pagina-comunidad .etiqueta-adopcion {
+
+    background:
+        #fff0e3;
+
+    color:
+        #b95e2d;
+
+}
+
+body.pagina-comunidad .etiqueta-consejos {
+
+    background:
+        #fff6d9;
+
+    color:
+        #8c6c1d;
+
+}
+
+body.pagina-comunidad .etiqueta-preguntas {
+
+    background:
+        #edf3f8;
+
+    color:
+        #536f84;
+
+}
+
+body.pagina-comunidad .etiqueta-difusion {
+
+    background:
+        #f2ebf7;
+
+    color:
+        #76588c;
+
+}
+
+body.pagina-comunidad .boton-opciones-publicacion {
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    flex-shrink:
+        0;
+
+    padding:
+        0;
+
+    border:
+        none;
+
+    border-radius:
+        50%;
+
+    background:
+        transparent;
+
+    color:
+        #8e817b;
+
+    font:
+        inherit;
+
+    font-size:
+        16px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+
+}
+
+body.pagina-comunidad .boton-opciones-publicacion:hover {
+
+    background:
+        var(--comunidad-durazno-claro);
+
+    color:
+        var(--comunidad-naranjo);
+
+}
+
+body.pagina-comunidad .publicacion-contenido {
+
+    padding:
+        0 20px 16px;
+
+}
+
+body.pagina-comunidad .publicacion-contenido h3 {
+
+    margin:
+        0 0 10px;
+
+    color:
+        var(--comunidad-cafe);
+
+    font-size:
+        1.15rem;
+
+    line-height:
+        1.4;
+
+}
+
+body.pagina-comunidad .publicacion-contenido p {
+
+    margin:
+        0 0 10px;
+
+    color:
+        var(--comunidad-texto);
+
+    font-size:
+        .9rem;
+
+    line-height:
+        1.7;
+
+}
+
+body.pagina-comunidad .publicacion-contenido p:last-child {
+
+    margin-bottom:
+        0;
+
+}
+
+body.pagina-comunidad .imagenes-publicacion {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        7px;
+
+    margin-top:
+        16px;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        15px;
+
+}
+
+body.pagina-comunidad .imagen-placeholder {
+
+    min-height:
+        230px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f6dfca,
+            #f4c69d
+        );
+
+    font-size:
+        85px;
+
+}
+
+body.pagina-comunidad .imagenes-publicacion.imagen-unica {
+
+    grid-template-columns:
+        1fr;
+
+}
+
+body.pagina-comunidad .imagenes-publicacion img {
+
+    width:
+        100%;
+
+    max-height:
+        450px;
+
+    display:
+        block;
+
+    object-fit:
+        cover;
+
+}
+
+body.pagina-comunidad .publicacion-acciones {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    padding:
+        10px 20px;
+
+    border-top:
+        1px solid rgba(112, 72, 52, 0.08);
+
+    background:
+        rgba(255, 251, 247, 0.55);
+
+}
+
+body.pagina-comunidad .accion-publicacion {
+
+    min-height:
+        38px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        7px;
+
+    padding:
+        8px 10px;
+
+    border:
+        none;
+
+    border-radius:
+        10px;
+
+    background:
+        transparent;
+
+    color:
+        var(--comunidad-texto-suave);
+
+    font:
+        inherit;
+
+    font-size:
+        .82rem;
+
+    font-weight:
+        600;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+body.pagina-comunidad .accion-publicacion > span:first-child {
+
+    color:
+        var(--comunidad-naranjo);
+
+    font-size:
+        17px;
+
+}
+
+body.pagina-comunidad .accion-publicacion:hover {
+
+    background:
+        #fff0e4;
+
+    color:
+        var(--comunidad-cafe);
+
+    transform:
+        translateY(-1px);
+
+}
+
+body.pagina-comunidad .boton-compartir:hover {
+
+    background:
+        #fff0e4;
+
+    color:
+        var(--comunidad-naranjo);
+
+}
+
+/* ==========================================================
+   COMENTARIOS Y RESPUESTAS
+   ========================================================== */
+
+body.pagina-comunidad .seccion-comentarios {
+
+    padding:
+        16px 20px;
+
+    border-top:
+        1px solid rgba(112, 72, 52, 0.08);
+
+    background:
+        #f3efe9;
+
+}
+
+body.pagina-comunidad .seccion-comentarios[hidden] {
+
+    display:
+        none;
+
+}
+
+body.pagina-comunidad .comentarios-lista {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        8px;
+
+    margin-bottom:
+        14px;
+
+}
+
+body.pagina-comunidad .comentarios-lista:empty {
+
+    display:
+        none;
+
+}
+
+body.pagina-comunidad .comentarios-lista p {
+
+    margin:
+        0;
+
+    padding:
+        10px 12px;
+
+    border-radius:
+        10px;
+
+    background:
+        #fff;
+
+    color:
+        var(--comunidad-texto);
+
+    font-size:
+        .82rem;
+
+    line-height:
+        1.65;
+
+}
+
+body.pagina-comunidad .comentarios-lista strong {
+
+    color:
+        var(--comunidad-cafe);
+
+}
+
+body.pagina-comunidad .formulario-comentario {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+}
+
+body.pagina-comunidad .formulario-comentario input {
+
+    min-width:
+        0;
+
+    flex:
+        1;
+
+    padding:
+        11px 13px;
+
+    border:
+        1px solid rgba(112, 72, 52, 0.15);
+
+    border-radius:
+        11px;
+
+    outline:
+        none;
+
+    background:
+        #fff;
+
+    color:
+        var(--comunidad-texto);
+
+    font:
+        inherit;
+
+    font-size:
+        .85rem;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+body.pagina-comunidad .formulario-comentario input:focus {
+
+    border-color:
+        var(--comunidad-naranjo);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(217, 103, 50, 0.08);
+
+}
+
+body.pagina-comunidad .formulario-comentario button {
+
+    width:
+        40px;
+
+    height:
+        40px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    flex-shrink:
+        0;
+
+    padding:
+        0;
+
+    border:
+        none;
+
+    border-radius:
+        10px;
+
+    background:
+        var(--comunidad-naranjo);
+
+    color:
+        #fff;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+
+}
+
+body.pagina-comunidad .formulario-comentario button:hover {
+
+    background:
+        var(--comunidad-naranjo-oscuro);
+
+    transform:
+        translateY(-1px);
+
+}
+
+body.pagina-comunidad .sin-publicaciones {
+
+    padding:
+        55px 25px;
+
+    border:
+        1px dashed rgba(112, 72, 52, 0.2);
+
+    border-radius:
+        20px;
+
+    background:
+        #fffaf6;
+
+    text-align:
+        center;
+
+}
+
+body.pagina-comunidad .sin-publicaciones[hidden] {
+
+    display:
+        none;
+
+}
+
+body.pagina-comunidad .sin-publicaciones > span {
+
+    display:
+        block;
+
+    margin-bottom:
+        12px;
+
+    font-size:
+        42px;
+
+}
+
+body.pagina-comunidad .sin-publicaciones h3 {
+
+    margin:
+        0 0 7px;
+
+    color:
+        var(--comunidad-cafe);
+
+    font-size:
+        18px;
+
+}
+
+body.pagina-comunidad .sin-publicaciones p {
+
+    margin:
+        0;
+
+    color:
+        var(--comunidad-texto-suave);
+
+    font-size:
+        12px;
+
+}
+
+/* ==========================================================
+   TEMAS Y ANIMALES EN ADOPCIÓN
+   ========================================================== */
+
+body.pagina-comunidad .barra-lateral-comunidad {
+
+    position:
+        static;
+
+    top:
+        98px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        20px;
+
+}
+
+body.pagina-comunidad .tarjeta-comunidad {
+
+    padding:
+        20px;
+
+    border:
+        1px solid var(--comunidad-borde);
+
+    border-radius:
+        18px;
+
+    background:
+        #faf8f5;
+
+    box-shadow:
+        var(--comunidad-sombra);
+
+}
+
+body.pagina-comunidad .tarjeta-comunidad h2 {
+
+    margin:
+        0;
+
+    color:
+        var(--comunidad-cafe);
+
+    font-size:
+        1rem;
+
+    line-height:
+        1.4;
+
+}
+
+body.pagina-comunidad .icono-tarjeta-comunidad {
+
+    width:
+        44px;
+
+    height:
+        44px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    margin-bottom:
+        12px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--comunidad-naranjo);
+
+    font-size:
+        20px;
+
+}
+
+body.pagina-comunidad .titulo-tarjeta-lateral {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        12px;
+
+    margin-bottom:
+        15px;
+
+}
+
+body.pagina-comunidad .boton-texto {
+
+    padding:
+        0;
+
+    border:
+        none;
+
+    background:
+        transparent;
+
+    color:
+        var(--comunidad-naranjo);
+
+    font:
+        inherit;
+
+    font-size:
+        .78rem;
+
+    font-weight:
+        700;
+
+    text-decoration:
+        none;
+
+    cursor:
+        pointer;
+
+}
+
+body.pagina-comunidad .boton-texto:hover {
+
+    text-decoration:
+        underline;
+
+}
+
+body.pagina-comunidad .lista-temas {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        7px;
+
+}
+
+body.pagina-comunidad .tema-comunidad {
+
+    width:
+        100%;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        34px minmax(0, 1fr);
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    padding:
+        10px 0;
+
+    border:
+        1px solid transparent;
+
+    border-radius:
+        11px;
+
+    background:
+        transparent;
+
+    color:
+        inherit;
+
+    text-align:
+        left;
+
+    font:
+        inherit;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+body.pagina-comunidad .tema-comunidad:hover {
+
+    border-color:
+        rgba(217, 103, 50, 0.13);
+
+    background:
+        #fff7f0;
+
+    transform:
+        translateX(2px);
+
+}
+
+body.pagina-comunidad .icono-tema {
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--comunidad-durazno-claro);
+
+    font-size:
+        1rem;
+
+}
+
+body.pagina-comunidad .tema-comunidad > span:last-child {
+
+    min-width:
+        0;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        2px;
+
+}
+
+body.pagina-comunidad .tema-comunidad strong {
+
+    overflow:
+        hidden;
+
+    color:
+        var(--comunidad-cafe);
+
+    font-size:
+        .82rem;
+
+    text-overflow:
+        ellipsis;
+
+    white-space:
+        nowrap;
+
+    line-height:
+        1.5;
+
+}
+
+body.pagina-comunidad .tema-comunidad small {
+
+    color:
+        var(--comunidad-texto-suave);
+
+    font-size:
+        .75rem;
+
+    line-height:
+        1.5;
+
+}
+
+body.pagina-comunidad .descripcion-patitas {
+
+    margin:
+        -5px 0 15px;
+
+    color:
+        var(--comunidad-texto-suave);
+
+    font-size:
+        .82rem;
+
+    line-height:
+        1.65;
+
+}
+
+body.pagina-comunidad .patitas-destacadas {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr;
+
+    gap:
+        10px;
+
+}
+
+body.pagina-comunidad .patita-destacada {
+
+    min-width:
+        0;
+
+    display:
+        grid;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    padding:
+        8px 0;
+
+    border:
+        1px solid rgba(112, 72, 52, 0.09);
+
+    border-radius:
+        12px;
+
+    background:
+        #fffaf6;
+
+    color:
+        inherit;
+
+    text-align:
+        left;
+
+    text-decoration:
+        none;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+
+    grid-template-columns:
+        52px minmax(0, 1fr);
+
+    column-gap:
+        12px;
+
+}
+
+body.pagina-comunidad .patita-destacada:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        rgba(217, 103, 50, 0.22);
+
+    background:
+        #fff4eb;
+
+}
+
+body.pagina-comunidad .foto-patita {
+
+    width:
+        52px;
+
+    height:
+        52px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    margin-bottom:
+        7px;
+
+    border-radius:
+        50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7dfcb,
+            #f4c49a
+        );
+
+    font-size:
+        1.6rem;
+
+    grid-row:
+        1 / 3;
+
+    margin:
+        0;
+
+}
+
+body.pagina-comunidad .patita-destacada strong {
+
+    color:
+        var(--comunidad-cafe);
+
+    font-size:
+        .85rem;
+
+    align-self:
+        end;
+
+}
+
+body.pagina-comunidad .patita-destacada small {
+
+    margin-top:
+        2px;
+
+    color:
+        var(--comunidad-naranjo);
+
+    font-size:
+        .75rem;
+
+    font-weight:
+        600;
+
+}
+
+/* ==========================================================
+   PIE DE PÁGINA
+   ========================================================== */
+
+body.pagina-comunidad .pie-pagina {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    padding:
+        24px 0;
+
+    background:
+        #faf8f5;
+
+    color:
+        #4f606c;
+
+    border-top:
+        1px solid #ded8d1;
+
+}
+
+body.pagina-comunidad .pie-contenido {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr auto 1fr;
+
+    align-items:
+        center;
+
+    gap:
+        30px;
+
+}
+
+body.pagina-comunidad .marca-pie {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        3px;
+
+}
+
+body.pagina-comunidad .marca-pie strong {
+
+    font-size:
+        22px;
+
+}
+
+body.pagina-comunidad .marca-pie span {
+
+    color:
+        #74777a;
+
+    font-size:
+        10px;
+
+}
+
+body.pagina-comunidad .frase-pie {
+
+    margin:
+        0;
+
+    color:
+        #74777a;
+
+    font-size:
+        12px;
+
+    text-align:
+        center;
+
+}
+
+body.pagina-comunidad .frase-pie span {
+
+    color:
+        #9f6255;
+
+    font-weight:
+        700;
+
+}
+
+body.pagina-comunidad .mascotas-pie {
+
+    justify-self:
+        end;
+
+    font-size:
+        26px;
+
+    color:
+        #74777a;
+
+}
+
+body.pagina-comunidad {
+
+    scroll-behavior:
+        smooth;
+
+}
+
+body.pagina-comunidad #crearPublicacion,
+body.pagina-comunidad #listaPublicaciones {
+
+    scroll-margin-top:
+        105px;
+
+}
+
+body.pagina-comunidad .accion-publicacion:disabled {
+
+    opacity:
+        0.75;
+
+    cursor:
+        default;
+
+    transform:
+        none;
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 1100px)
+   ========================================================== */
+
+@media  (max-width: 1100px) {
+
+    body.pagina-comunidad .cabecera-contenido {
+
+        gap:
+            18px;
+
+    }
+
+    body.pagina-comunidad .enlace-navegacion {
+
+        padding:
+            9px 9px;
+
+        font-size:
+            13px;
+
+    }
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 900px)
+   ========================================================== */
+
+@media  (max-width: 900px) {
+
+    body.pagina-comunidad .cabecera-contenido {
+
+        position:
+            relative;
+
+    }
+
+    body.pagina-comunidad .boton-menu {
+
+        display:
+            flex;
+
+    }
+
+    body.pagina-comunidad .navegacion-principal {
+
+        position:
+            absolute;
+
+        top:
+            calc(100% + 10px);
+
+        left:
+            0;
+
+        right:
+            0;
+
+        display:
+            none;
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+        gap:
+            5px;
+
+        padding:
+            14px;
+
+        border:
+            1px solid var(--comunidad-borde);
+
+        border-radius:
+            16px;
+
+        background:
+            rgba(255, 252, 248, 0.99);
+
+        box-shadow:
+            0 18px 40px
+            rgba(66, 39, 27, 0.13);
+
+    }
+
+    body.pagina-comunidad .navegacion-principal.abierta {
+
+        display:
+            flex;
+
+    }
+
+    body.pagina-comunidad .enlace-navegacion {
+
+        padding:
+            12px 14px;
+
+        text-align:
+            center;
+
+    }
+
+    body.pagina-comunidad .hero-comunidad-texto h2,
+body.pagina-comunidad .hero-comunidad-texto > p {
+
+        margin-left:
+            auto;
+
+        margin-right:
+            auto;
+
+    }
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 650px)
+   ========================================================== */
+
+@media  (max-width: 650px) {
+
+    body.pagina-comunidad .cabecera-contenido {
+
+        min-height:
+            68px;
+
+    }
+
+    body.pagina-comunidad .simbolo-marca {
+
+        width:
+            42px;
+
+        height:
+            42px;
+
+        font-size:
+            13px;
+
+    }
+
+    body.pagina-comunidad .nombre-marca {
+
+        font-size:
+            12px;
+
+    }
+
+    body.pagina-comunidad .nombre-marca span {
+
+        font-size:
+            10px;
+
+    }
+
+    body.pagina-comunidad .imagenes-publicacion {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    body.pagina-comunidad .imagen-placeholder {
+
+        min-height:
+            210px;
+
+        font-size:
+            75px;
+
+    }
+
+    body.pagina-comunidad .pie-contenido {
+
+        grid-template-columns:
+            1fr;
+
+        justify-items:
+            center;
+
+        text-align:
+            center;
+
+    }
+
+    body.pagina-comunidad .mascotas-pie {
+
+        justify-self:
+            center;
+
+    }
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 420px)
+   ========================================================== */
+
+@media  (max-width: 420px) {
+
+    body.pagina-comunidad .nombre-marca {
+
+        display:
+            none;
+
+    }
+
+    body.pagina-comunidad .accion-publicacion > span:first-child {
+
+        font-size:
+            15px;
+
+    }
+
+}
+
+/* ==========================================================
+   MOVIMIENTO REDUCIDO
+   ========================================================== */
+
+@media  (prefers-reduced-motion: reduce) {
+
+    body.pagina-comunidad *,
+body.pagina-comunidad *::before,
+body.pagina-comunidad *::after {
+
+        scroll-behavior:
+            auto !important;
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+    }
+
+}
+
+body.pagina-comunidad .boton-opciones-publicacion {
+
+    width:
+        auto;
+
+    min-width:
+        64px;
+
+    height:
+        auto;
+
+    min-height:
+        36px;
+
+    padding:
+        8px 10px;
+
+    flex-shrink:
+        0;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.2;
+
+    color:
+        #963b2c;
+
+}
+
+body.pagina-comunidad .filtros-publicaciones {
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        8px;
+
+    overflow-x:
+        visible;
+
+}
+
+body.pagina-comunidad .comentario-comunidad {
+
+    padding:
+        12px 0;
+
+    overflow-wrap:
+        anywhere;
+
+}
+
+body.pagina-comunidad .comentarios-lista .comentario-comunidad > p {
+
+    margin:
+        0;
+
+}
+
+body.pagina-comunidad .comentario-comunidad.es-respuesta {
+
+    margin-left:
+        12px;
+
+    padding-left:
+        12px;
+
+    border-left:
+        2px solid #efd0c9;
+
+    margin-top:
+        8px;
+
+}
+
+body.pagina-comunidad .comentario-comunidad .comentario-comunidad .comentario-comunidad {
+
+    margin-left:
+        0;
+
+}
+
+body.pagina-comunidad .boton-responder,
+body.pagina-comunidad .aviso-respuesta button {
+
+    border:
+        0;
+
+    background:
+        transparent;
+
+    color:
+        #99462b;
+
+    font-size:
+        12px;
+
+    cursor:
+        pointer;
+
+    padding:
+        6px;
+
+}
+
+body.pagina-comunidad .boton-responder:focus-visible,
+body.pagina-comunidad .aviso-respuesta button:focus-visible {
+
+    outline:
+        2px solid #99462b;
+
+}
+
+body.pagina-comunidad .aviso-respuesta {
+
+    font-size:
+        12px;
+
+    padding:
+        8px 0;
+
+    color:
+        #744e3a;
+
+}
+
+body.pagina-comunidad .aviso-respuesta[hidden] {
+
+    display:
+        none;
+
+}
+
+body.pagina-comunidad .contenedor {
+
+    width:
+        min(1200px, calc(100% - 80px));
+
+    margin-inline:
+        auto;
+
+}
+
+body.pagina-comunidad .tarjeta-orientacion p {
+
+    margin:
+        10px 0;
+
+    color:
+        var(--comunidad-texto-suave);
+
+    font-size:
+        .82rem;
+
+    line-height:
+        1.65;
+
+}
+
+body.pagina-comunidad .enlace-orientacion {
+
+    color:
+        var(--comunidad-naranjo-oscuro);
+
+    font-size:
+        .85rem;
+
+    font-weight:
+        700;
+
+    text-decoration:
+        none;
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 1000px)
+   ========================================================== */
+
+@media  (max-width: 1000px) {
+
+    body.pagina-comunidad .contenedor {
+
+        width:
+            calc(100% - 40px);
+
+    }
+
+    body.pagina-comunidad .comunidad-grid {
+
+        grid-template-columns:
+            minmax(0, 1.7fr) minmax(245px, 1fr);
+
+        gap:
+            18px;
+
+    }
+
+    body.pagina-comunidad .hero-comunidad-contenido {
+
+        grid-template-columns:
+            minmax(0, 1fr) 180px;
+
+        padding:
+            24px;
+
+    }
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 800px)
+   ========================================================== */
+
+@media  (max-width: 800px) {
+
+    body.pagina-comunidad .comunidad-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    body.pagina-comunidad .barra-lateral-comunidad {
+
+        display:
+            grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+    body.pagina-comunidad .tarjeta-orientacion {
+
+        grid-column:
+            1 / -1;
+
+    }
+
+    body.pagina-comunidad .hero-comunidad-contenido {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    body.pagina-comunidad .hero-comunidad-visual {
+
+        display:
+            none;
+
+    }
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 600px)
+   ========================================================== */
+
+@media  (max-width: 600px) {
+
+    body.pagina-comunidad .contenedor {
+
+        width:
+            calc(100% - 28px);
+
+    }
+
+    body.pagina-comunidad .barra-comunidad,
+body.pagina-comunidad .crear-publicacion,
+body.pagina-comunidad .tarjeta-comunidad {
+
+        padding:
+            16px;
+
+    }
+
+    body.pagina-comunidad .barra-lateral-comunidad {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    body.pagina-comunidad .crear-publicacion-opciones {
+
+        align-items:
+            stretch;
+
+    }
+
+    body.pagina-comunidad .opcion-publicacion {
+
+        flex:
+            1 1 100%;
+
+    }
+
+    body.pagina-comunidad .boton-publicar {
+
+        width:
+            100%;
+
+        margin-left:
+            0;
+
+    }
+
+    body.pagina-comunidad .hero-comunidad-texto h1 {
+
+        font-size:
+            2rem;
+
+    }
+
+    body.pagina-comunidad .publicacion-cabecera {
+
+        padding:
+            16px 16px 10px;
+
+    }
+
+    body.pagina-comunidad .publicacion-contenido {
+
+        padding:
+            0 16px 14px;
+
+    }
+
+    body.pagina-comunidad .publicacion-acciones {
+
+        padding:
+            8px 12px;
+
+    }
+
+    body.pagina-comunidad .seccion-comentarios {
+
+        padding:
+            14px;
+
+    }
+
+    body.pagina-comunidad .filtro-publicacion {
+
+        max-width:
+            100%;
+
+    }
+
+}
+
+body.pagina-comunidad .filtro-publicacion strong {
+
+    font-size:
+        inherit;
+
+    font-weight:
+        600;
+
+}
+
+body.pagina-comunidad .filtro-publicacion.activo small {
+
+    color:
+        inherit;
+
+}
+
+/* ==========================================================
+   FOTOS DE LOS ANIMALES DESTACADOS
+   ========================================================== */
+
+body.pagina-comunidad .foto-patita img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    display:
+        block;
+
+    object-fit:
+        cover;
+
+    object-position:
+        center top;
+
+    border-radius:
+        inherit;
+
+}
+
+/* JERARQUÍA DE RESPUESTAS Y ESTADO DE COMPARTIDO */
+
+body.pagina-comunidad .comentario-comunidad.es-respuesta > p {
+
+    font-size:
+        13px;
+
+    line-height:
+        1.6;
+
+}
+
+body.pagina-comunidad .boton-compartir.compartido {
+
+    color:
+        #476743;
+
+    background:
+        #eef5eb;
+
+}
+
+body.pagina-comunidad .boton-responder:focus-visible,
+body.pagina-comunidad .aviso-respuesta button:focus-visible {
+
+    outline:
+        2px solid #99462b;
+
+    outline-offset:
+        3px;
+
+}

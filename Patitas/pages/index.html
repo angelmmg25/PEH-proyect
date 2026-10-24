@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>PEH | Inicio de sesión</title>
+
+    <!-- Conexión con Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fuente Inter -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Archivos CSS -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+  </head>
+
+  <body class="cuerpo-inicio-sesion">
+    <main class="diseno-inicio-sesion">
+
+      <!-- ==================================================
+           PANEL IZQUIERDO
+      ================================================== -->
+      <section class="promocion-inicio-sesion">
+
+        <!-- Marca PEH -->
+        <a class="marca marca-grande" href="index.html">
+          <span class="simbolo-marca">PEH</span>
+        </a>
+
+        <!-- Presentación -->
+        <div class="texto-promocion">
+
+          <span class="subtitulo">
+            PATITAS ESPERANDO UN HOGAR
+          </span>
+
+          <h1>Bienvenido</h1>
+
+          <p>
+            Un espacio para encontrar, ayudar y dar nuevas oportunidades.
+          </p>
+
+          <!-- Conceptos principales -->
+          <div class="etiquetas-promocion">
+            <span>#adopción</span>
+            <span>#comunidad</span>
+            <span>#nuevoshogares</span>
+          </div>
+
+        </div>
+
+        <!-- Pie -->
+        <p class="pie-inicio-sesion">
+          © 2026 PEH · Patitas Esperando un Hogar
+        </p>
+
+      </section>
+
+
+      <!-- ==================================================
+           PANEL DERECHO
+      ================================================== -->
+      <section class="panel-inicio-sesion">
+
+        <div
+          class="contenedor-tarjeta-giratoria"
+          id="contenedorTarjeta"
+        >
+
+          <div
+            class="tarjeta-giratoria"
+            id="tarjetaAcceso"
+          >
+
+            <!-- ==================================================
+                 CARA FRONTAL: INICIO DE SESIÓN
+            ================================================== -->
+            <form
+              class="tarjeta-inicio-sesion cara-tarjeta cara-frontal"
+              id="formularioInicioSesion"
+              novalidate
+            >
+
+              <span class="indicador-estado">
+                ● Comunidad PEH
+              </span>
+
+              <h2>Bienvenido a PEH</h2>
+
+              <p class="atenuado">
+                Inicia sesión para continuar.
+              </p>
+
+
+              <!-- Correo -->
+              <div class="grupo-campo">
+
+                <label for="correo">
+                  Correo electrónico
+                </label>
+
+                <input
+                  id="correo"
+                  type="email"
+                  placeholder="nombre@correo.cl"
+                  autocomplete="email"
+                  required
+                  aria-describedby="errorCorreoInicio"
+                />
+
+                <small
+                  class="mensaje-error"
+                  id="errorCorreoInicio"
+                  aria-live="polite"
+                ></small>
+
+              </div>
+
+
+              <!-- Contraseña -->
+              <div class="grupo-campo">
+
+                <div class="fila-etiqueta">
+
+                  <label for="contrasena">
+                    Contraseña
+                  </label>
+
+                  <a href="#">
+                    ¿Olvidaste tu contraseña?
+                  </a>
+
+                </div>
+
+                <input
+                  id="contrasena"
+                  type="password"
+                  placeholder="••••••••"
+                  minlength="4"
+                  required
+                  aria-describedby="errorContrasenaInicio"
+                />
+
+                <small
+                  class="mensaje-error"
+                  id="errorContrasenaInicio"
+                  aria-live="polite"
+                ></small>
+
+              </div>
+
+
+              <!-- Iniciar sesión -->
+              <button
+                class="boton boton-primario boton-bloque"
+                type="submit"
+                id="botonIniciarSesion"
+              >
+                Iniciar sesión
+              </button>
+
+
+              <!-- Invitado -->
+              <button
+                class="boton boton-secundario boton-bloque"
+                type="button"
+                id="botonInvitado"
+              >
+                Explorar como invitado
+              </button>
+
+
+              <!-- Ir al registro -->
+              <p class="pequeno atenuado centrado texto-cambio-formulario">
+
+                ¿Aún no tienes una cuenta?
+
+                <button
+                  class="enlace-cambio"
+                  type="button"
+                  id="botonMostrarRegistro"
+                >
+                  Regístrate
+                </button>
+
+              </p>
+
+            </form>
+
+
+            <!-- ==================================================
+                 CARA TRASERA: REGISTRO
+            ================================================== -->
+            <form
+              class="tarjeta-inicio-sesion cara-tarjeta cara-trasera"
+              id="formularioRegistro"
+              novalidate
+              inert
+            >
+
+              <span class="indicador-estado">
+                ● Únete a PEH
+              </span>
+
+              <h2>Crea tu cuenta</h2>
+
+              <p class="atenuado">
+                Forma parte de nuestra comunidad.
+              </p>
+
+
+              <!-- Nombre y apellido -->
+              <div class="fila-campos-registro">
+
+                <!-- Nombre -->
+                <div class="grupo-campo">
+
+                  <label for="nombreRegistro">
+                    Nombre
+                  </label>
+
+                  <input
+                    id="nombreRegistro"
+                    name="nombre"
+                    type="text"
+                    placeholder="Ej: Daniel"
+                    autocomplete="given-name"
+                    minlength="2"
+                    maxlength="30"
+                    required
+                    aria-describedby="errorNombreRegistro"
+                  />
+
+                  <small
+                    class="mensaje-error"
+                    id="errorNombreRegistro"
+                    aria-live="polite"
+                  ></small>
+
+                </div>
+
+
+                <!-- Apellido -->
+                <div class="grupo-campo">
+
+                  <label for="apellidoRegistro">
+                    Apellido
+                  </label>
+
+                  <input
+                    id="apellidoRegistro"
+                    name="apellido"
+                    type="text"
+                    placeholder="Ej: Riquelme"
+                    autocomplete="family-name"
+                    minlength="2"
+                    maxlength="30"
+                    required
+                    aria-describedby="errorApellidoRegistro"
+                  />
+
+                  <small
+                    class="mensaje-error"
+                    id="errorApellidoRegistro"
+                    aria-live="polite"
+                  ></small>
+
+                </div>
+
+              </div>
+
+
+              <!-- Nombre de usuario -->
+              <div class="grupo-campo">
+
+                <label for="usuarioRegistro">
+                  Nombre de usuario
+                </label>
+
+                <input
+                  id="usuarioRegistro"
+                  name="usuario"
+                  type="text"
+                  placeholder="Ej: daniel_25"
+                  autocomplete="username"
+                  minlength="4"
+                  maxlength="16"
+                  required
+                  aria-describedby="ayudaUsuarioRegistro errorUsuarioRegistro"
+                />
+
+                <small
+                  class="sugerencia-campo"
+                  id="ayudaUsuarioRegistro"
+                >
+                  Entre 4 y 16 caracteres. Solo letras, números y guion bajo.
+                </small>
+
+                <small
+                  class="mensaje-error"
+                  id="errorUsuarioRegistro"
+                  aria-live="polite"
+                ></small>
+
+              </div>
+
+
+              <!-- Correo -->
+              <div class="grupo-campo">
+
+                <label for="correoRegistro">
+                  Correo electrónico
+                </label>
+
+                <input
+                  id="correoRegistro"
+                  name="correoRegistro"
+                  type="email"
+                  placeholder="nombre@correo.cl"
+                  autocomplete="email"
+                  required
+                  aria-describedby="errorCorreoRegistro"
+                />
+
+                <small
+                  class="mensaje-error"
+                  id="errorCorreoRegistro"
+                  aria-live="polite"
+                ></small>
+
+              </div>
+
+
+              <!-- Fecha de nacimiento -->
+              <div class="grupo-campo">
+
+                <label for="fechaNacimientoRegistro">
+                  Fecha de nacimiento
+                </label>
+
+                <input
+                  id="fechaNacimientoRegistro"
+                  name="fechaNacimiento"
+                  type="date"
+                  autocomplete="bday"
+                  min="1900-01-01"
+                  required
+                  aria-describedby="errorFechaNacimientoRegistro"
+                />
+
+                <small
+                  class="mensaje-error"
+                  id="errorFechaNacimientoRegistro"
+                  aria-live="polite"
+                ></small>
+
+              </div>
+
+
+              <!-- Contraseñas -->
+              <div class="fila-campos-registro">
+
+                <!-- Contraseña -->
+                <div class="grupo-campo">
+
+                  <label for="contrasenaRegistro">
+                    Contraseña
+                  </label>
+
+                  <input
+                    id="contrasenaRegistro"
+                    name="contrasenaRegistro"
+                    type="password"
+                    placeholder="Mínimo 8 caracteres"
+                    autocomplete="new-password"
+                    minlength="8"
+                    required
+                    aria-describedby="ayudaContrasenaRegistro errorContrasenaRegistro"
+                  />
+
+                  <small
+                    class="sugerencia-campo"
+                    id="ayudaContrasenaRegistro"
+                  >
+                    Mayúscula, minúscula, número y carácter especial.
+                  </small>
+
+                  <small
+                    class="mensaje-error"
+                    id="errorContrasenaRegistro"
+                    aria-live="polite"
+                  ></small>
+
+                </div>
+
+
+                <!-- Confirmar contraseña -->
+                <div class="grupo-campo">
+
+                  <label for="confirmarContrasenaRegistro">
+                    Confirmar contraseña
+                  </label>
+
+                  <input
+                    id="confirmarContrasenaRegistro"
+                    name="confirmarContrasena"
+                    type="password"
+                    placeholder="Repite tu contraseña"
+                    autocomplete="new-password"
+                    minlength="8"
+                    required
+                    aria-describedby="errorConfirmarContrasenaRegistro"
+                  />
+
+                  <small
+                    class="mensaje-error"
+                    id="errorConfirmarContrasenaRegistro"
+                    aria-live="polite"
+                  ></small>
+
+                </div>
+
+              </div>
+
+
+              <!-- Términos -->
+              <div class="grupo-campo grupo-terminos">
+
+                <label
+                  class="etiqueta-checkbox"
+                  for="terminosRegistro"
+                >
+
+                  <input
+                    id="terminosRegistro"
+                    name="terminos"
+                    type="checkbox"
+                  />
+
+                  <span>
+                    Acepto participar de manera responsable y respetuosa
+                    dentro de la comunidad PEH.
+                  </span>
+
+                </label>
+
+                <small
+                  class="mensaje-error"
+                  id="errorTerminosRegistro"
+                  aria-live="polite"
+                ></small>
+
+              </div>
+
+
+              <!-- Mensaje general -->
+              <div
+                class="mensaje-formulario"
+                id="mensajeRegistro"
+                aria-live="polite"
+              ></div>
+
+
+              <!-- Crear cuenta -->
+              <button
+                class="boton boton-primario boton-bloque"
+                type="submit"
+                id="botonRegistrar"
+              >
+                Crear cuenta
+              </button>
+
+
+              <!-- Volver al login -->
+              <p class="pequeno atenuado centrado texto-cambio-formulario">
+
+                ¿Ya tienes una cuenta?
+
+                <button
+                  class="enlace-cambio"
+                  type="button"
+                  id="botonMostrarInicio"
+                >
+                  Inicia sesión
+                </button>
+
+              </p>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <script src="../js/app.js"></script>
+    <script src="../js/index.js"></script>
+  </body>
+</html>

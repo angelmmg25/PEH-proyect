@@ -1,0 +1,26 @@
+/* Cabecera común de las páginas internas de PEH. */
+.cabecera-global { position: sticky; top: 0; z-index: 1000; width: 100%; background: rgba(255,252,248,.97); border-bottom: 1px solid #eee3da; backdrop-filter: blur(14px); }
+.cabecera-global .cabecera-contenido { position: relative; display: flex; align-items: center; justify-content: space-between; width: min(1200px, calc(100% - 40px)); min-height: 76px; gap: 20px; margin: 0 auto; padding: 0; }
+.cabecera-global .marca-principal { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; color: #57372a; text-decoration: none; }
+.cabecera-global .simbolo-marca { display: grid; place-items: center; width: 48px; height: 48px; flex-shrink: 0; border-radius: 50% 50% 45% 45%; background: linear-gradient(135deg,#e56c35,#e98c52); box-shadow: 0 7px 18px #d05c2a33; color: white; font-size: 15px; font-weight: 800; letter-spacing: .5px; }
+.cabecera-global .nombre-marca { display: flex; flex-direction: column; color: #57372a; font-size: 14px; font-weight: 800; line-height: 1.1; }
+.cabecera-global .nombre-marca span { margin-top: 3px; color: #827268; font-size: 11px; font-weight: 500; }
+.cabecera-global .navegacion-principal { position: static; display: flex; flex-direction: row; align-items: center; justify-content: flex-end; gap: 6px; width: auto; margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+.cabecera-global .enlace-navegacion { display: block; padding: 11px 14px; border: 0; border-radius: 999px; background: transparent; color: #594c44; font-size: 14px; font-weight: 600; line-height: 1.4; white-space: nowrap; }
+.cabecera-global .enlace-navegacion:hover { background: #fff0e4; color: #7b3f21; }
+.cabecera-global .enlace-navegacion.activo { background: #fac795; color: #57372a; box-shadow: 0 5px 16px #de9b5926; }
+.cabecera-global .boton-menu { display: none; }
+.cabecera-global a:focus-visible, .cabecera-global button:focus-visible { outline: 3px solid #c66c3f; outline-offset: 3px; }
+@media (max-width: 1000px) {
+ .cabecera-global .cabecera-contenido { min-height: 72px; gap: 12px; }
+ .cabecera-global .boton-menu { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; width: 42px; height: 42px; padding: 10px; border: 1px solid #e6d7cc; border-radius: 12px; background: #fff8f1; color: #57372a; cursor: pointer; }
+ .cabecera-global .boton-menu span { display: block; width: 20px; height: 2px; border-radius: 2px; background: #57372a; }
+ .cabecera-global .navegacion-principal { position: absolute; top: 100%; left: 0; right: 0; display: none; flex-direction: column; align-items: stretch; gap: 4px; width: 100%; padding: 12px; border: 1px solid #eee3da; border-radius: 0 0 16px 16px; background: #fffcf8; box-shadow: 0 12px 24px #57372a15; }
+ .cabecera-global .navegacion-principal.abierta { display: flex; }
+ .cabecera-global .enlace-navegacion { width: 100%; padding: 12px 14px; }
+}
+@media (max-width: 420px) {
+ .cabecera-global .cabecera-contenido { width: calc(100% - 24px); }
+ .cabecera-global .nombre-marca { font-size: 12px; }
+ .cabecera-global .simbolo-marca { width: 42px; height: 42px; }
+}

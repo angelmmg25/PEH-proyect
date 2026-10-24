@@ -1,0 +1,428 @@
+/* Aislamiento frente al reset de Bootstrap para conservar el diseño HTML. */
+body.pagina-desarrollador,
+body.pagina-desarrollador *,
+body.pagina-desarrollador *::before,
+body.pagina-desarrollador *::after { all: revert; }
+
+/* ==========================================================
+   PEH · PANEL DE ADMINISTRACIÓN
+   Cargar después de style.css y navegacion.css.
+   Todos los estilos están limitados a esta página.
+   ========================================================== */
+
+body.pagina-desarrollador {
+    --admin-superficie: #fffcf8;
+    --admin-fondo: #f5f1eb;
+    --admin-tinta: #40392f;
+    --admin-suave: #74685e;
+    --admin-borde: #e6ddd2;
+    --admin-acento: #985d4c;
+    --admin-acento-oscuro: #7f493b;
+    --admin-acento-claro: #f3e3d9;
+    --admin-foco: #87573f;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--admin-fondo);
+    color: var(--admin-tinta);
+    font-family: "Inter", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* En React, la raíz reúne cabecera, panel y pie como antes lo hacía body. */
+body.pagina-desarrollador #root {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    min-height: 100vh;
+}
+
+/* Respeta las secciones y mensajes que oculta JavaScript. */
+body.pagina-desarrollador [hidden] {
+    display: none !important;
+}
+
+body.pagina-desarrollador *,
+body.pagina-desarrollador *::before,
+body.pagina-desarrollador *::after {
+    box-sizing: border-box;
+}
+
+body.pagina-desarrollador button,
+body.pagina-desarrollador input,
+body.pagina-desarrollador select,
+body.pagina-desarrollador textarea {
+    font: inherit;
+}
+
+body.pagina-desarrollador button { cursor: pointer; }
+body.pagina-desarrollador button:disabled { opacity: .55; cursor: not-allowed; }
+body.pagina-desarrollador h1,
+body.pagina-desarrollador h2,
+body.pagina-desarrollador h3 { color: var(--admin-tinta); line-height: 1.25; }
+body.pagina-desarrollador h1 { margin: 8px 0 12px; font-size: clamp(1.75rem, 3vw, 2.4rem); letter-spacing: -.045em; }
+body.pagina-desarrollador h2 { margin: 0; font-size: 1.3rem; letter-spacing: -.025em; }
+body.pagina-desarrollador h3 { margin: 0 0 10px; font-size: 1rem; }
+body.pagina-desarrollador p { margin: 0; }
+body.pagina-desarrollador .sobre-titulo { color: var(--admin-acento); font-size: .72rem; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+
+body.pagina-desarrollador :is(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 3px solid var(--admin-foco);
+    outline-offset: 3px;
+}
+
+body.pagina-desarrollador .saltar-contenido {
+    position: fixed;
+    top: 10px;
+    left: 12px;
+    z-index: 1100;
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: var(--admin-tinta);
+    color: #fff;
+    transform: translateY(-180%);
+}
+body.pagina-desarrollador .saltar-contenido:focus { transform: translateY(0); }
+
+/* Cabecera y estructura principal. */
+body.pagina-desarrollador .cabecera-global .cabecera-contenido,
+body.pagina-desarrollador .administracion-layout,
+body.pagina-desarrollador .pie-administracion .contenedor {
+    width: min(1440px, calc(100% - 64px));
+    margin-inline: auto;
+}
+
+body.pagina-desarrollador .cabecera-global .navegacion-principal {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 6px;
+    width: auto;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+body.pagina-desarrollador .cabecera-global .enlace-navegacion { width: auto; }
+
+body.pagina-desarrollador .administracion-layout {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    align-items: start;
+    gap: 30px;
+    padding-block: 32px 48px;
+}
+
+body.pagina-desarrollador .menu-administracion {
+    position: sticky;
+    top: 100px;
+    min-width: 0;
+    padding: 22px 16px 16px;
+    border: 1px solid var(--admin-borde);
+    border-radius: 22px;
+    background: var(--admin-superficie);
+    box-shadow: 0 6px 24px #59463308;
+}
+body.pagina-desarrollador .identidad-administracion { padding: 2px 10px 22px; border-bottom: 1px solid var(--admin-borde); }
+body.pagina-desarrollador .icono-administracion { display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 14px; border-radius: 15px; background: #f4e6db; font-size: 1.35rem; }
+body.pagina-desarrollador .identidad-administracion strong { display: block; font-size: .93rem; }
+body.pagina-desarrollador .identidad-administracion p { margin-top: 5px; color: var(--admin-suave); font-size: .77rem; overflow-wrap: anywhere; }
+body.pagina-desarrollador .navegacion-administracion { display: grid; gap: 6px; padding-block: 18px; }
+body.pagina-desarrollador .opcion-administracion {
+    display: grid;
+    grid-template-columns: 23px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 47px;
+    padding: 11px 12px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    background: transparent;
+    color: #61564b;
+    font-size: .81rem;
+    font-weight: 600;
+    line-height: 1.35;
+    text-align: left;
+    transition: background .18s ease, color .18s ease;
+}
+body.pagina-desarrollador .opcion-administracion > span { font-size: 1.05rem; text-align: center; }
+body.pagina-desarrollador .opcion-administracion:hover { background: #f7eee5; color: var(--admin-acento-oscuro); }
+body.pagina-desarrollador .opcion-administracion.activo { border-color: #e8cbb9; background: #f4e3d6; color: #794b36; }
+body.pagina-desarrollador .volver-sitio,
+body.pagina-desarrollador .boton-cerrar-administracion { display: block; width: 100%; padding: 12px; border: 0; border-radius: 10px; background: transparent; font-size: .78rem; font-weight: 600; text-align: left; text-decoration: none; }
+body.pagina-desarrollador .volver-sitio { border-top: 1px solid var(--admin-borde); border-radius: 0; color: var(--admin-suave); }
+body.pagina-desarrollador .boton-cerrar-administracion { margin-top: 4px; color: #964d44; }
+body.pagina-desarrollador .boton-cerrar-administracion:hover { background: #f9e8e3; }
+
+/* Contenido, mensajes y botones. */
+body.pagina-desarrollador .contenido-administracion { min-width: 0; scroll-margin-top: 100px; }
+body.pagina-desarrollador .encabezado-administracion { display: flex; align-items: center; justify-content: space-between; gap: 22px; margin: 4px 0 30px; }
+body.pagina-desarrollador .encabezado-administracion p { max-width: 65ch; color: var(--admin-suave); font-size: .9rem; }
+body.pagina-desarrollador .encabezado-administracion > .boton { flex-shrink: 0; }
+body.pagina-desarrollador .boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 11px 17px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    font-size: .8rem;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none;
+    white-space: normal;
+    transition: background .18s ease, border-color .18s ease;
+}
+body.pagina-desarrollador .boton-primario { background: var(--admin-acento); color: #fff; box-shadow: none; }
+body.pagina-desarrollador .boton-primario:hover { background: var(--admin-acento-oscuro); }
+body.pagina-desarrollador .boton-secundario { border-color: #d9cebf; background: #fffaf5; color: #655445; }
+body.pagina-desarrollador .boton-secundario:hover { border-color: #bd9d86; background: #f8eadf; }
+body.pagina-desarrollador .boton-peligro { background: #a3483f; color: #fff; }
+body.pagina-desarrollador .boton-peligro:hover { background: #86372f; }
+body.pagina-desarrollador .mensaje-administracion,
+body.pagina-desarrollador .error-administracion,
+body.pagina-desarrollador .error-formulario-admin,
+body.pagina-desarrollador .aviso-administracion { padding: 14px 17px; border: 1px solid #cadacf; border-radius: 12px; background: #edf5ef; color: #365b43; font-size: .85rem; overflow-wrap: anywhere; }
+body.pagina-desarrollador .mensaje-administracion,
+body.pagina-desarrollador .error-administracion { margin-bottom: 22px; }
+body.pagina-desarrollador .error-administracion,
+body.pagina-desarrollador .error-formulario-admin { border-color: #e7bbb3; background: #fff0ec; color: #8a332c; }
+body.pagina-desarrollador .error-formulario-admin { margin-top: 18px; }
+body.pagina-desarrollador .aviso-administracion { margin-block: 24px; }
+body.pagina-desarrollador .titulo-seccion-administracion { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-bottom: 22px; }
+body.pagina-desarrollador .titulo-seccion-administracion > h2 { flex-basis: 100%; }
+body.pagina-desarrollador .titulo-seccion-administracion p { margin-top: 6px; color: var(--admin-suave); font-size: .83rem; }
+body.pagina-desarrollador .seccion-administracion { scroll-margin-top: 100px; }
+
+/* Resumen. */
+body.pagina-desarrollador .resumen-administracion { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+body.pagina-desarrollador .tarjeta-estadistica {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-content: center;
+    align-items: center;
+    column-gap: 14px;
+    row-gap: 4px;
+    min-height: 135px;
+    padding: 22px 18px;
+    border: 1px solid var(--admin-borde);
+    border-radius: 18px;
+    background: var(--admin-superficie);
+    text-align: left;
+    box-shadow: 0 5px 20px #59463305;
+    transition: border-color .18s ease, box-shadow .18s ease;
+}
+body.pagina-desarrollador .tarjeta-estadistica:hover { border-color: #c7aa94; box-shadow: 0 8px 24px #5946330d; }
+body.pagina-desarrollador .tarjeta-estadistica > span:first-child { grid-row: 1 / 3; display: grid; place-items: center; width: 42px; height: 46px; border-radius: 14px; background: #f3e7da; color: #895b3c; font-size: 1.3rem; }
+body.pagina-desarrollador .tarjeta-estadistica:nth-child(2n) > span:first-child { background: #e8efea; color: #516b59; }
+body.pagina-desarrollador .tarjeta-estadistica:nth-child(3n) > span:first-child { background: #e9edf1; color: #5e6d7c; }
+body.pagina-desarrollador .tarjeta-estadistica strong { font-size: 1.9rem; font-weight: 800; line-height: 1.1; }
+body.pagina-desarrollador .tarjeta-estadistica > span:last-child { color: var(--admin-suave); font-size: .75rem; font-weight: 600; line-height: 1.4; }
+body.pagina-desarrollador .tarjeta-orientacion { margin-top: 25px; padding: 26px 28px; border: 1px solid #e9d8c5; border-radius: 20px; background: linear-gradient(120deg, #fff9ef, #f7ebe0); }
+body.pagina-desarrollador .tarjeta-orientacion h3 { font-size: 1.1rem; }
+body.pagina-desarrollador .tarjeta-orientacion p { max-width: 80ch; color: #766453; font-size: .86rem; }
+body.pagina-desarrollador .acciones-administracion { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+
+/* Búsqueda y tablas. El scroll pertenece a la tabla, no a la página. */
+body.pagina-desarrollador .filtros-administracion { display: flex; align-items: end; flex-wrap: wrap; gap: 16px; margin-bottom: 14px; padding: 20px; border: 1px solid var(--admin-borde); border-radius: 16px; background: var(--admin-superficie); }
+body.pagina-desarrollador .filtros-administracion > .grupo-admin { flex: 1 1 170px; }
+body.pagina-desarrollador .filtros-administracion > .grupo-admin:first-child { flex: 2 1 250px; }
+body.pagina-desarrollador .resultado-administracion { margin: 0 0 12px; color: var(--admin-suave); font-size: .77rem; }
+body.pagina-desarrollador .tabla-administracion-contenedor { max-width: 100%; overflow-x: auto; border: 1px solid var(--admin-borde); border-radius: 16px; background: var(--admin-superficie); overscroll-behavior-x: contain; }
+body.pagina-desarrollador .tabla-administracion { width: 100%; min-width: 740px; margin: 0; border-collapse: collapse; font-size: .8rem; text-align: left; }
+body.pagina-desarrollador #seccionReservas .tabla-administracion { min-width: 870px; }
+body.pagina-desarrollador .tabla-administracion caption { padding: 15px 18px; color: #766759; background: #fffcf8; font-size: .75rem; font-weight: 600; text-align: left; caption-side: top; }
+body.pagina-desarrollador .tabla-administracion th { padding: 13px 16px; border-block: 1px solid var(--admin-borde); background: #f3ede5; color: #72604f; font-size: .7rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+body.pagina-desarrollador .tabla-administracion td { max-width: 290px; padding: 16px; border-bottom: 1px solid #eee7dd; vertical-align: middle; overflow-wrap: anywhere; }
+body.pagina-desarrollador .tabla-administracion tbody tr:last-child td { border-bottom: 0; }
+body.pagina-desarrollador .tabla-administracion tbody tr:hover { background: #fbf5ee; }
+body.pagina-desarrollador .tabla-administracion td > strong { display: block; font-weight: 700; }
+body.pagina-desarrollador .tabla-administracion small { display: block; margin-top: 4px; color: var(--admin-suave); font-size: .72rem; }
+body.pagina-desarrollador .tabla-administracion td[colspan] { padding: 35px 22px; color: var(--admin-suave); text-align: center; }
+body.pagina-desarrollador .animal-celda-admin { display: flex; align-items: center; gap: 12px; min-width: 170px; }
+body.pagina-desarrollador .animal-celda-admin img { flex: 0 0 52px; width: 52px; height: 52px; border: 1px solid var(--admin-borde); border-radius: 13px; object-fit: cover; background: #ede6de; }
+body.pagina-desarrollador .estado-admin { display: inline-block; padding: 5px 10px; border: 1px solid #e5d2b8; border-radius: 999px; background: #faf0df; color: #79572f; font-size: .7rem; font-weight: 700; line-height: 1.4; white-space: nowrap; }
+body.pagina-desarrollador .acciones-fila-admin { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; min-width: 145px; }
+body.pagina-desarrollador .tabla-administracion button { min-height: 36px; padding: 7px 10px; border: 1px solid #ddc9b5; border-radius: 9px; background: #fff8ed; color: #765236; font-size: .72rem; font-weight: 700; line-height: 1.35; }
+body.pagina-desarrollador .tabla-administracion button:hover { background: #f5e6d3; border-color: #b59373; }
+body.pagina-desarrollador .tabla-administracion .accion-peligro { border-color: #e6c5bc; background: #fff1ed; color: #9a4137; }
+body.pagina-desarrollador .tabla-administracion .accion-peligro:hover { border-color: #c48272; background: #f8ddd5; }
+body.pagina-desarrollador .texto-comentario-admin { max-width: 40ch; white-space: pre-wrap; }
+
+/* Diálogos nativos: no se cambia su display cuando están cerrados. */
+body.pagina-desarrollador .dialogo-administracion {
+    width: min(660px, calc(100vw - 40px));
+    max-width: none;
+    max-height: calc(100vh - 48px);
+    max-height: calc(100dvh - 48px);
+    margin: auto;
+    padding: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border: 1px solid #e1d5c7;
+    border-radius: 23px;
+    background: var(--admin-superficie);
+    color: var(--admin-tinta);
+    box-shadow: 0 30px 100px #30251d40;
+}
+body.pagina-desarrollador .dialogo-administracion[open] { animation: peh-admin-entrada .18s ease-out; }
+body.pagina-desarrollador .dialogo-administracion::backdrop { background: #30251d80; backdrop-filter: blur(4px); }
+body.pagina-desarrollador .dialogo-amplio { width: min(900px, calc(100vw - 40px)); }
+body.pagina-desarrollador .dialogo-administracion > form { padding: 28px; }
+body.pagina-desarrollador .cabecera-dialogo { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; margin-bottom: 24px; }
+body.pagina-desarrollador .cabecera-dialogo h2 { margin-top: 4px; font-size: 1.3rem; overflow-wrap: anywhere; }
+body.pagina-desarrollador .cerrar-dialogo { display: grid; place-items: center; flex: 0 0 38px; width: 38px; height: 38px; padding: 0; border: 1px solid #e7d9cb; border-radius: 12px; background: #f7eee6; color: #76543d; font-size: 1.5rem; line-height: 1; }
+body.pagina-desarrollador .cerrar-dialogo:hover { background: #eeddd0; }
+body.pagina-desarrollador .campos-admin { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+body.pagina-desarrollador .grupo-admin { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+body.pagina-desarrollador form > .grupo-admin { margin-top: 18px; }
+body.pagina-desarrollador .campo-completo { grid-column: 1 / -1; }
+body.pagina-desarrollador .grupo-admin label,
+body.pagina-desarrollador .grupo-admin legend { color: #625345; font-size: .79rem; font-weight: 700; }
+body.pagina-desarrollador .grupo-admin :is(input:not([type="checkbox"]):not([type="hidden"]), select, textarea) { width: 100%; min-height: 44px; padding: 11px 12px; border: 1px solid #d9ccbd; border-radius: 10px; background: #fff; color: var(--admin-tinta); font-size: .84rem; line-height: 1.5; }
+body.pagina-desarrollador .grupo-admin :is(input, textarea)::placeholder { color: #84786c; opacity: 1; }
+body.pagina-desarrollador .grupo-admin textarea { min-height: 105px; resize: vertical; }
+body.pagina-desarrollador .grupo-admin :is(input, select, textarea):focus { border-color: var(--admin-acento); }
+body.pagina-desarrollador .grupo-admin :is(input, select, textarea)[aria-invalid="true"] { border-color: #ae5345; background: #fff9f6; }
+body.pagina-desarrollador .grupo-admin small,
+body.pagina-desarrollador .ayuda-admin { color: var(--admin-suave); font-size: .73rem; line-height: 1.5; }
+body.pagina-desarrollador .ayuda-admin { margin-top: 10px; }
+body.pagina-desarrollador fieldset.grupo-admin { margin: 0; padding: 14px 16px; border: 1px solid var(--admin-borde); border-radius: 12px; }
+body.pagina-desarrollador fieldset.grupo-admin legend { padding-inline: 5px; }
+body.pagina-desarrollador .grupo-admin .opcion-admin { display: flex; align-items: center; gap: 9px; min-height: 30px; font-weight: 500; cursor: pointer; }
+body.pagina-desarrollador .opcion-admin input { width: 17px; height: 17px; margin: 0; accent-color: var(--admin-acento); }
+body.pagina-desarrollador input[type="file"]::file-selector-button { margin-right: 12px; padding: 7px 10px; border: 0; border-radius: 7px; background: #f1e5da; color: #6b4b35; font: inherit; font-weight: 600; cursor: pointer; }
+body.pagina-desarrollador .vista-previa-animal { display: block; width: min(240px, 100%); height: 180px; margin-top: 8px; border: 1px solid var(--admin-borde); border-radius: 14px; background: #eee7df; object-fit: cover; }
+body.pagina-desarrollador .acciones-dialogo { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 10px; margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--admin-borde); }
+body.pagina-desarrollador .detalle-registro-admin { display: grid; grid-template-columns: 160px minmax(0, 1fr); margin: 0 0 20px; padding: 0; border: 1px solid var(--admin-borde); border-radius: 13px; overflow: hidden; }
+body.pagina-desarrollador .detalle-registro-admin dt,
+body.pagina-desarrollador .detalle-registro-admin dd { margin: 0; padding: 11px 14px; border-bottom: 1px solid #eee5da; font-size: .8rem; overflow-wrap: anywhere; }
+body.pagina-desarrollador .detalle-registro-admin dt { background: #f5eee5; color: #6c5845; font-weight: 700; }
+body.pagina-desarrollador .detalle-registro-admin dd { background: #fffdf9; white-space: pre-wrap; }
+body.pagina-desarrollador .detalle-registro-admin dt:nth-last-child(2),
+body.pagina-desarrollador .detalle-registro-admin dd:last-child { border-bottom: 0; }
+body.pagina-desarrollador #dialogoAdopcion h3,
+body.pagina-desarrollador #dialogoConsulta h3 { margin-bottom: 12px; }
+body.pagina-desarrollador .mensaje-original-admin { margin-bottom: 22px; padding: 18px; border: 1px solid #e5d6c4; border-radius: 13px; background: #f8f0e5; }
+body.pagina-desarrollador .mensaje-original-admin p { font-size: .85rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+body.pagina-desarrollador .respuestas-consulta-admin { display: grid; gap: 12px; margin: 0 0 18px; padding: 0; list-style: none; }
+body.pagina-desarrollador .respuestas-consulta-admin li { padding: 16px 18px; border: 1px solid #d3dfd4; border-left: 4px solid #79937a; border-radius: 12px; background: #f1f6ef; }
+body.pagina-desarrollador .respuestas-consulta-admin strong { color: #4e654c; font-size: .77rem; }
+body.pagina-desarrollador .respuestas-consulta-admin p { margin-top: 7px; font-size: .84rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+body.pagina-desarrollador #sinRespuestasConsultaAdmin { margin-bottom: 18px; color: var(--admin-suave); font-size: .8rem; }
+body.pagina-desarrollador #guardarEstadoConsultaAdmin { margin-top: 12px; }
+body.pagina-desarrollador .dialogo-confirmacion { width: min(470px, calc(100vw - 40px)); text-align: center; }
+body.pagina-desarrollador .icono-confirmacion-admin { display: grid; place-items: center; width: 56px; height: 56px; margin: 0 auto 18px; border-radius: 18px; background: #f7e5dc; color: #a05839; font-size: 1.8rem; font-weight: 800; }
+body.pagina-desarrollador .dialogo-confirmacion h2 { margin-bottom: 13px; }
+body.pagina-desarrollador .dialogo-confirmacion p { color: var(--admin-suave); font-size: .88rem; }
+body.pagina-desarrollador .dialogo-confirmacion .acciones-dialogo { justify-content: center; }
+
+/* Acceso restringido y pie. */
+body.pagina-desarrollador .acceso-restringido { width: min(680px, calc(100% - 40px)); margin: 70px auto; padding: 42px; border: 1px solid var(--admin-borde); border-radius: 24px; background: var(--admin-superficie); text-align: center; }
+body.pagina-desarrollador .acceso-restringido > span { display: block; margin-bottom: 15px; font-size: 2.2rem; }
+body.pagina-desarrollador .acceso-restringido h1 { font-size: 1.8rem; }
+body.pagina-desarrollador .acceso-restringido p { max-width: 50ch; margin: 0 auto 24px; color: var(--admin-suave); font-size: .9rem; }
+body.pagina-desarrollador .acceso-restringido .boton { margin: 4px; }
+body.pagina-desarrollador .pie-administracion { margin-top: auto; padding-block: 23px; border-top: 1px solid var(--admin-borde); background: #f0ebe3; }
+body.pagina-desarrollador .pie-administracion .contenedor { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px 24px; }
+body.pagina-desarrollador .pie-administracion p { color: #786757; font-size: .73rem; }
+
+/* Tabletas y pantallas medianas. */
+@media (max-width: 1180px) {
+    body.pagina-desarrollador .administracion-layout { grid-template-columns: 220px minmax(0, 1fr); gap: 22px; }
+    body.pagina-desarrollador .resumen-administracion { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    body.pagina-desarrollador .encabezado-administracion { flex-direction: column; align-items: flex-start; gap: 15px; }
+}
+
+@media (max-width: 960px) {
+    body.pagina-desarrollador .cabecera-global .cabecera-contenido,
+    body.pagina-desarrollador .administracion-layout,
+    body.pagina-desarrollador .pie-administracion .contenedor { width: calc(100% - 40px); }
+    body.pagina-desarrollador .administracion-layout { grid-template-columns: minmax(0, 1fr); padding-top: 22px; }
+    body.pagina-desarrollador .menu-administracion { position: static; padding: 18px; }
+    body.pagina-desarrollador .identidad-administracion { display: grid; grid-template-columns: 42px minmax(0, 1fr); column-gap: 12px; padding: 0 0 16px; }
+    body.pagina-desarrollador .icono-administracion { grid-row: 1 / 3; margin: 0; }
+    body.pagina-desarrollador .identidad-administracion p { margin-top: 2px; }
+    body.pagina-desarrollador .navegacion-administracion { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; padding-block: 15px; }
+    body.pagina-desarrollador .volver-sitio { display: inline-block; width: auto; padding-block: 8px; border: 0; }
+    body.pagina-desarrollador .boton-cerrar-administracion { display: inline-block; width: auto; margin: 0 0 0 10px; padding-block: 8px; }
+    body.pagina-desarrollador .encabezado-administracion { flex-direction: row; align-items: center; }
+    body.pagina-desarrollador .resumen-administracion { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    body.pagina-desarrollador .tarjeta-estadistica { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 18px; }
+    body.pagina-desarrollador .tarjeta-estadistica > span:first-child { grid-row: auto; }
+}
+
+/* Celulares: menú visible, formularios de una columna y tablas desplazables. */
+@media (max-width: 640px) {
+    body.pagina-desarrollador .cabecera-global .cabecera-contenido,
+    body.pagina-desarrollador .administracion-layout,
+    body.pagina-desarrollador .pie-administracion .contenedor { width: calc(100% - 28px); }
+    body.pagina-desarrollador .cabecera-global .cabecera-contenido { min-height: 70px; gap: 10px; }
+    body.pagina-desarrollador .cabecera-global .enlace-navegacion { padding: 9px 10px; font-size: .73rem; }
+    body.pagina-desarrollador .cabecera-global .nombre-marca { font-size: .72rem; }
+    body.pagina-desarrollador .cabecera-global .nombre-marca span { font-size: .62rem; }
+    body.pagina-desarrollador .menu-administracion { padding: 16px 12px 12px; border-radius: 17px; }
+    body.pagina-desarrollador .navegacion-administracion { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    body.pagina-desarrollador .opcion-administracion { grid-template-columns: 20px minmax(0, 1fr); gap: 7px; min-height: 48px; padding: 10px 8px; font-size: .74rem; }
+    body.pagina-desarrollador .encabezado-administracion { flex-direction: column; align-items: flex-start; margin-bottom: 24px; }
+    body.pagina-desarrollador .encabezado-administracion p { font-size: .82rem; }
+    body.pagina-desarrollador h1 { font-size: 1.8rem; }
+    body.pagina-desarrollador .resumen-administracion { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    body.pagina-desarrollador .tarjeta-estadistica { min-height: 150px; padding: 16px; }
+    body.pagina-desarrollador .tarjeta-estadistica strong { font-size: 1.7rem; }
+    body.pagina-desarrollador .tarjeta-orientacion { padding: 22px 18px; }
+    body.pagina-desarrollador .acciones-administracion { flex-direction: column; align-items: stretch; }
+    body.pagina-desarrollador .filtros-administracion { padding: 16px; gap: 14px; }
+    body.pagina-desarrollador .filtros-administracion > .grupo-admin,
+    body.pagina-desarrollador .filtros-administracion > .grupo-admin:first-child { flex-basis: 100%; }
+    body.pagina-desarrollador .titulo-seccion-administracion > .boton { width: 100%; }
+    body.pagina-desarrollador .tabla-administracion th,
+    body.pagina-desarrollador .tabla-administracion td { padding: 12px 14px; }
+    body.pagina-desarrollador .dialogo-administracion,
+    body.pagina-desarrollador .dialogo-amplio,
+    body.pagina-desarrollador .dialogo-confirmacion { width: calc(100vw - 24px); max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); border-radius: 17px; }
+    body.pagina-desarrollador .dialogo-administracion > form { padding: 20px 17px; }
+    body.pagina-desarrollador .cabecera-dialogo { gap: 12px; margin-bottom: 20px; }
+    body.pagina-desarrollador .cabecera-dialogo h2 { font-size: 1.15rem; }
+    body.pagina-desarrollador .campos-admin { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    body.pagina-desarrollador .acciones-dialogo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+    body.pagina-desarrollador .acciones-dialogo .boton { min-width: 0; padding-inline: 10px; }
+    body.pagina-desarrollador .detalle-registro-admin { grid-template-columns: minmax(0, 1fr); }
+    body.pagina-desarrollador .detalle-registro-admin dt { padding-block: 8px; border-bottom: 0; }
+    body.pagina-desarrollador .detalle-registro-admin dd { padding-block: 9px 13px; }
+    body.pagina-desarrollador .detalle-registro-admin dt:nth-last-child(2) { border-bottom: 0; }
+    body.pagina-desarrollador .acceso-restringido { margin-block: 35px; padding: 28px 20px; }
+    body.pagina-desarrollador .pie-administracion .contenedor { flex-direction: column; gap: 6px; }
+}
+
+@media (max-width: 480px) {
+    body.pagina-desarrollador .cabecera-global .nombre-marca { display: none; }
+    body.pagina-desarrollador .cabecera-global .enlace-navegacion[aria-current="page"] { display: none; }
+    body.pagina-desarrollador .cabecera-global .simbolo-marca { width: 42px; height: 42px; }
+    body.pagina-desarrollador .identidad-administracion strong { font-size: .85rem; }
+}
+
+@keyframes peh-admin-entrada {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.pagina-desarrollador *,
+    body.pagina-desarrollador *::before,
+    body.pagina-desarrollador *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

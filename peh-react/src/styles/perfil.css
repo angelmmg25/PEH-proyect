@@ -1,0 +1,5721 @@
+/* Perfil del HTML original, aislada del resto de las páginas y Bootstrap. */
+body.pagina-perfil, body.pagina-perfil *, body.pagina-perfil *::before, body.pagina-perfil *::after { all: revert; }
+
+/* ==========================================================
+   PEH - ESTILOS GENERALES
+   Patitas Esperando un Hogar
+   ========================================================== */
+
+/* ==========================================================
+   VARIABLES / IDENTIDAD VISUAL
+   ========================================================== */
+
+body.pagina-perfil {
+    /* Fondos */
+    --peh-fondo: #f3efe9;
+    --peh-fondo-claro: #faf8f5;
+    --peh-blanco: #ffffff;
+
+    /* Azul grisáceo */
+    --peh-azul: #667784;
+    --peh-azul-oscuro: #4f606c;
+    --peh-azul-claro: #dce3e6;
+
+    /* Terracota */
+    --peh-terracota: #b97868;
+    --peh-terracota-oscuro: #9f6255;
+    --peh-terracota-claro: #ead0c9;
+
+    /* Coral */
+    --peh-coral: #d99a8f;
+    --peh-coral-claro: #efd0c9;
+
+    /* Texto */
+    --peh-texto: #343638;
+    --peh-texto-suave: #74777a;
+
+    /* Bordes */
+    --peh-borde: #ded8d1;
+
+    /* Estados */
+    --peh-error: #b85c5c;
+    --peh-exito: #66806a;
+    --peh-advertencia: #b38a56;
+
+    /* Sombras */
+    --peh-sombra-suave:
+        0 8px 25px rgba(71, 62, 55, 0.08);
+
+    --peh-sombra:
+        0 20px 50px rgba(71, 62, 55, 0.12);
+
+    /* Bordes redondeados */
+    --peh-radio-pequeno: 8px;
+    --peh-radio: 12px;
+    --peh-radio-grande: 22px;
+    --peh-radio-redondo: 999px;
+
+    /* Transiciones */
+    --peh-transicion:
+        0.2s ease;
+}
+
+/* ==========================================================
+   RESET BÁSICO
+   ========================================================== */
+
+body.pagina-perfil * {
+    box-sizing: border-box;
+}
+
+body.pagina-perfil {
+    scroll-behavior: smooth;
+}
+
+body.pagina-perfil {
+    margin: 0;
+
+    background:
+        var(--peh-fondo);
+
+    color:
+        var(--peh-texto);
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    line-height: 1.5;
+}
+
+body.pagina-perfil img {
+    display: block;
+
+    max-width: 100%;
+}
+
+body.pagina-perfil button,
+body.pagina-perfil input,
+body.pagina-perfil select,
+body.pagina-perfil textarea {
+    font: inherit;
+}
+
+body.pagina-perfil button {
+    color: inherit;
+}
+
+body.pagina-perfil a {
+    color: inherit;
+
+    text-decoration: none;
+}
+
+/* ==========================================================
+   SELECCIÓN DE TEXTO
+   ========================================================== */
+
+body.pagina-perfil ::selection {
+    background:
+        var(--peh-terracota-claro);
+
+    color:
+        var(--peh-texto);
+}
+
+/* ==========================================================
+   SCROLLBAR
+   ========================================================== */
+
+body.pagina-perfil ::-webkit-scrollbar {
+    width: 10px;
+}
+
+body.pagina-perfil ::-webkit-scrollbar-track {
+    background:
+        var(--peh-fondo);
+}
+
+body.pagina-perfil ::-webkit-scrollbar-thumb {
+    border:
+        2px solid
+        var(--peh-fondo);
+
+    border-radius:
+        var(--peh-radio-redondo);
+
+    background:
+        var(--peh-azul);
+}
+
+body.pagina-perfil ::-webkit-scrollbar-thumb:hover {
+    background:
+        var(--peh-azul-oscuro);
+}
+
+/* ==========================================================
+   TIPOGRAFÍA GENERAL
+   ========================================================== */
+
+body.pagina-perfil h1,
+body.pagina-perfil h2,
+body.pagina-perfil h3,
+body.pagina-perfil h4,
+body.pagina-perfil h5,
+body.pagina-perfil h6 {
+    margin-top: 0;
+
+    color:
+        var(--peh-texto);
+
+    font-weight: 700;
+
+    line-height: 1.15;
+
+    letter-spacing: -0.025em;
+}
+
+body.pagina-perfil p {
+    margin-top: 0;
+}
+
+body.pagina-perfil .texto-suave {
+    color:
+        var(--peh-texto-suave);
+}
+
+body.pagina-perfil .texto-centrado {
+    text-align: center;
+}
+
+/* ==========================================================
+   CONTENEDOR GENERAL
+   ========================================================== */
+
+body.pagina-perfil .contenedor {
+    width:
+        min(1180px, calc(100% - 40px));
+
+    margin-inline: auto;
+}
+
+/* ==========================================================
+   MARCA PEH
+   ========================================================== */
+
+body.pagina-perfil .marca {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    width: fit-content;
+
+    color:
+        inherit;
+
+    text-decoration: none;
+}
+
+body.pagina-perfil .simbolo-marca {
+    font-size: 1.8rem;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+}
+
+/* ==========================================================
+   BOTONES GENERALES
+   ========================================================== */
+
+body.pagina-perfil .boton {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding:
+        11px
+        18px;
+
+    border:
+        1px solid transparent;
+
+    border-radius:
+        var(--peh-radio);
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    transition:
+        background var(--peh-transicion),
+        border-color var(--peh-transicion),
+        color var(--peh-transicion),
+        transform var(--peh-transicion),
+        box-shadow var(--peh-transicion);
+}
+
+body.pagina-perfil .boton:hover {
+    transform:
+        translateY(-1px);
+}
+
+body.pagina-perfil .boton:active {
+    transform:
+        translateY(0);
+}
+
+body.pagina-perfil .boton:focus-visible {
+    outline:
+        3px solid
+        rgba(185, 120, 104, 0.25);
+
+    outline-offset: 3px;
+}
+
+/* Botón principal */
+
+body.pagina-perfil .boton-primario {
+    background:
+        var(--peh-terracota);
+
+    color:
+        var(--peh-blanco);
+
+    box-shadow:
+        0 8px 20px
+        rgba(185, 120, 104, 0.18);
+}
+
+body.pagina-perfil .boton-primario:hover {
+    background:
+        var(--peh-terracota-oscuro);
+
+    box-shadow:
+        0 11px 24px
+        rgba(159, 98, 85, 0.23);
+}
+
+/* Botón secundario */
+
+body.pagina-perfil .boton-secundario {
+    border-color:
+        var(--peh-borde);
+
+    background:
+        transparent;
+
+    color:
+        var(--peh-azul-oscuro);
+}
+
+body.pagina-perfil .boton-secundario:hover {
+    border-color:
+        rgba(102, 119, 132, 0.45);
+
+    background:
+        rgba(102, 119, 132, 0.07);
+}
+
+/* Botón claro */
+
+body.pagina-perfil .boton-claro {
+    background:
+        var(--peh-fondo-claro);
+
+    color:
+        var(--peh-azul-oscuro);
+}
+
+body.pagina-perfil .boton-claro:hover {
+    background:
+        var(--peh-blanco);
+}
+
+/* Botón ancho */
+
+body.pagina-perfil .boton-bloque {
+    width: 100%;
+}
+
+/* ==========================================================
+   CAMPOS DE FORMULARIO GENERALES
+   ========================================================== */
+
+body.pagina-perfil .grupo-campo {
+    margin-bottom: 20px;
+}
+
+body.pagina-perfil .grupo-campo label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color:
+        var(--peh-texto);
+
+    font-size: 0.87rem;
+    font-weight: 600;
+}
+
+body.pagina-perfil .grupo-campo input,
+body.pagina-perfil .grupo-campo select,
+body.pagina-perfil .grupo-campo textarea {
+    width: 100%;
+
+    padding:
+        12px
+        14px;
+
+    border:
+        1px solid
+        var(--peh-borde);
+
+    border-radius:
+        var(--peh-radio);
+
+    outline: none;
+
+    background:
+        rgba(255, 255, 255, 0.75);
+
+    color:
+        var(--peh-texto);
+
+    transition:
+        border-color var(--peh-transicion),
+        box-shadow var(--peh-transicion),
+        background var(--peh-transicion);
+}
+
+body.pagina-perfil .grupo-campo input::placeholder,
+body.pagina-perfil .grupo-campo textarea::placeholder {
+    color:
+        #a4a09b;
+}
+
+body.pagina-perfil .grupo-campo input:focus,
+body.pagina-perfil .grupo-campo select:focus,
+body.pagina-perfil .grupo-campo textarea:focus {
+    border-color:
+        var(--peh-terracota);
+
+    background:
+        var(--peh-blanco);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(185, 120, 104, 0.10);
+}
+
+body.pagina-perfil textarea {
+    resize: vertical;
+}
+
+/* ==========================================================
+   VALIDACIONES
+   ========================================================== */
+
+body.pagina-perfil .mensaje-error {
+    display: block;
+
+    margin-top: 6px;
+
+    color:
+        var(--peh-error);
+
+    font-size: 0.74rem;
+}
+
+body.pagina-perfil .grupo-campo.campo-error
+input:not([type="checkbox"]),
+body.pagina-perfil .grupo-campo.campo-error
+select,
+body.pagina-perfil .grupo-campo.campo-error
+textarea {
+    border-color:
+        var(--peh-error);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(184, 92, 92, 0.08);
+}
+
+body.pagina-perfil .grupo-campo.campo-valido
+input:not([type="checkbox"]),
+body.pagina-perfil .grupo-campo.campo-valido
+select,
+body.pagina-perfil .grupo-campo.campo-valido
+textarea {
+    border-color:
+        rgba(102, 128, 106, 0.65);
+}
+
+/* ==========================================================
+   TARJETAS GENERALES
+   ========================================================== */
+
+body.pagina-perfil .tarjeta {
+    border:
+        1px solid
+        rgba(222, 216, 209, 0.75);
+
+    border-radius:
+        var(--peh-radio-grande);
+
+    background:
+        var(--peh-fondo-claro);
+
+    box-shadow:
+        var(--peh-sombra-suave);
+}
+
+/* ==========================================================
+   ETIQUETAS / CHIPS
+   ========================================================== */
+
+body.pagina-perfil .etiqueta {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding:
+        6px
+        10px;
+
+    border-radius:
+        var(--peh-radio-redondo);
+
+    background:
+        var(--peh-azul-claro);
+
+    color:
+        var(--peh-azul-oscuro);
+
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+
+/* ==========================================================
+   ESTADOS
+   ========================================================== */
+
+body.pagina-perfil .estado-exito {
+    color:
+        var(--peh-exito);
+}
+
+body.pagina-perfil .estado-error {
+    color:
+        var(--peh-error);
+}
+
+body.pagina-perfil .estado-advertencia {
+    color:
+        var(--peh-advertencia);
+}
+
+/* ==========================================================
+   ACCESIBILIDAD
+   ========================================================== */
+
+body.pagina-perfil :focus-visible {
+    outline:
+        3px solid
+        rgba(185, 120, 104, 0.28);
+
+    outline-offset: 3px;
+}
+
+/* ==========================================================
+   RESPONSIVE GENERAL
+   ========================================================== */
+
+@media  (max-width: 768px) {
+
+    body.pagina-perfil .contenedor {
+        width:
+            min(100% - 28px, 1180px);
+    }
+
+}
+
+/* ==========================================================
+   PEH - PERFIL
+   Patitas Esperando un Hogar
+   ========================================================== */
+
+body.pagina-perfil .contenido-resumen-adopcion,
+body.pagina-perfil .contenido-resumen-reserva {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        115px minmax(0, 1fr);
+
+    align-items:
+        center;
+
+    gap:
+        15px;
+
+    width:
+        100%;
+
+}
+
+body.pagina-perfil .imagen-animal-resumen {
+
+    min-height:
+        135px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        14px;
+
+    background:
+        linear-gradient(
+        135deg,
+        #dcebd5,
+        #c6e2bd
+    );
+
+    color:
+        #56845d;
+
+    font-size:
+        62px;
+
+}
+
+body.pagina-perfil .datos-adopcion-resumen,
+body.pagina-perfil .datos-reserva-resumen {
+
+    min-width:
+        0;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+    gap:
+        4px;
+
+}
+
+body.pagina-perfil .datos-adopcion-resumen p {
+
+    margin:
+        0 0 5px;
+
+    color:
+        var(--perfil-texto-suave);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.5;
+
+}
+
+body.pagina-perfil .datos-adopcion-resumen p strong {
+
+    color:
+        var(--perfil-verde);
+
+    font-weight:
+        800;
+
+}
+
+body.pagina-perfil .nombre-estado {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        8px;
+
+}
+
+body.pagina-perfil .datos-adopcion-resumen h4,
+body.pagina-perfil .datos-reserva-resumen h4 {
+
+    margin:
+        0 0 7px;
+
+    color:
+        var(--perfil-cafe-oscuro);
+
+    font-size:
+        18px;
+
+}
+
+body.pagina-perfil .estado-proceso {
+
+    padding:
+        5px 8px;
+
+    border-radius:
+        999px;
+
+    background:
+        #fff0d8;
+
+    color:
+        #c36d2c;
+
+    font-size:
+        9px;
+
+    font-weight:
+        700;
+
+}
+
+body.pagina-perfil .datos-adopcion-resumen p {
+
+    margin:
+        0 0 12px;
+
+    color:
+        var(--perfil-texto-suave);
+
+    font-size:
+        10px;
+
+    line-height:
+        1.55;
+
+}
+
+body.pagina-perfil .datos-reserva-resumen ul {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        5px;
+
+    margin:
+        0 0 12px;
+
+    padding:
+        0;
+
+    list-style:
+        none;
+
+}
+
+body.pagina-perfil .datos-reserva-resumen li {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    color:
+        var(--perfil-texto-suave);
+
+    font-size:
+        10px;
+
+}
+
+body.pagina-perfil .datos-reserva-resumen li span {
+
+    width:
+        16px;
+
+    color:
+        var(--perfil-azul);
+
+    text-align:
+        center;
+
+    font-weight:
+        700;
+
+}
+
+body.pagina-perfil .boton-resumen {
+
+    width:
+        100%;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    margin-top:
+        auto;
+
+    padding:
+        9px 12px;
+
+    border-radius:
+        9px;
+
+    color:
+        #fff;
+
+    text-decoration:
+        none;
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+
+}
+
+body.pagina-perfil .boton-resumen:hover {
+
+    transform:
+        translateY(-1px);
+
+    filter:
+        brightness(1.04);
+
+}
+
+body.pagina-perfil .boton-adopcion-resumen {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--perfil-naranjo),
+            var(--perfil-naranjo-oscuro)
+        );
+
+}
+
+body.pagina-perfil .boton-reserva-resumen {
+
+    background:
+        linear-gradient(
+            135deg,
+            #4e8fc1,
+            #3675a7
+        );
+
+}
+
+/* ==========================================================
+   MODALES Y FORMULARIOS
+   ========================================================== */
+
+body.pagina-perfil .modal-perfil {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        3000;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    padding:
+        20px;
+
+}
+
+body.pagina-perfil .modal-perfil[hidden] {
+
+    display:
+        none;
+
+}
+
+body.pagina-perfil .fondo-modal-perfil {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background:
+        rgba(54, 31, 23, 0.5);
+
+    backdrop-filter:
+        blur(5px);
+
+    animation:
+        aparecer-fondo 0.2s ease;
+
+}
+
+body.pagina-perfil .contenido-modal-perfil {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    width:
+        min(470px, 100%);
+
+    max-height:
+        calc(100vh - 40px);
+
+    overflow-y:
+        auto;
+
+    padding:
+        29px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.65);
+
+    border-radius:
+        22px;
+
+    background:
+        #fffdf9;
+
+    box-shadow:
+        0 25px 70px
+        rgba(54, 31, 23, 0.25);
+
+    animation:
+        aparecer-modal 0.25s ease;
+
+}
+
+body.pagina-perfil .modal-configuracion {
+
+    width:
+        min(520px, 100%);
+
+}
+
+body.pagina-perfil .modal-cerrar-sesion {
+
+    width:
+        min(410px, 100%);
+
+    text-align:
+        center;
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · aparecer-fondo
+   ========================================================== */
+
+@keyframes aparecer-fondo {
+
+    from {
+
+        opacity:
+            0;
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+    }
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · aparecer-modal
+   ========================================================== */
+
+@keyframes aparecer-modal {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(15px)
+            scale(0.98);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+body.pagina-perfil.modal-abierto {
+
+    overflow:
+        hidden;
+
+}
+
+body.pagina-perfil .cerrar-modal-perfil {
+
+    position:
+        absolute;
+
+    top:
+        14px;
+
+    right:
+        14px;
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    padding:
+        0;
+
+    border:
+        none;
+
+    border-radius:
+        50%;
+
+    background:
+        #f9eee5;
+
+    color:
+        var(--perfil-cafe);
+
+    font-size:
+        21px;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+body.pagina-perfil .cerrar-modal-perfil:hover {
+
+    background:
+        var(--perfil-durazno-claro);
+
+    transform:
+        rotate(5deg);
+
+}
+
+body.pagina-perfil .icono-modal {
+
+    width:
+        47px;
+
+    height:
+        47px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    margin-bottom:
+        13px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--perfil-durazno-claro);
+
+    color:
+        var(--perfil-naranjo);
+
+    font-size:
+        21px;
+
+}
+
+body.pagina-perfil .contenido-modal-perfil > h2 {
+
+    margin:
+        0 0 6px;
+
+    color:
+        var(--perfil-cafe-oscuro);
+
+    font-size:
+        23px;
+
+}
+
+body.pagina-perfil .contenido-modal-perfil > p {
+
+    margin:
+        0 0 21px;
+
+    color:
+        var(--perfil-texto-suave);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.55;
+
+}
+
+body.pagina-perfil #formularioEditarPerfil {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        8px;
+
+}
+
+body.pagina-perfil #formularioEditarPerfil label,
+body.pagina-perfil .grupo-configuracion label {
+
+    margin-top:
+        5px;
+
+    color:
+        var(--perfil-cafe);
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+}
+
+body.pagina-perfil #formularioEditarPerfil input,
+body.pagina-perfil .grupo-configuracion input,
+body.pagina-perfil .grupo-configuracion select {
+
+    width:
+        100%;
+
+    padding:
+        12px 13px;
+
+    border:
+        1px solid rgba(112, 72, 52, 0.16);
+
+    border-radius:
+        10px;
+
+    outline:
+        none;
+
+    background:
+        #fff;
+
+    color:
+        var(--perfil-texto);
+
+    font:
+        inherit;
+
+    font-size:
+        12px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+body.pagina-perfil #formularioEditarPerfil input:focus,
+body.pagina-perfil .grupo-configuracion input:focus,
+body.pagina-perfil .grupo-configuracion select:focus {
+
+    border-color:
+        var(--perfil-naranjo);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(217, 103, 50, 0.08);
+
+}
+
+body.pagina-perfil .boton-guardar-cambios,
+body.pagina-perfil .boton-guardar-configuracion {
+
+    width:
+        100%;
+
+    margin-top:
+        12px;
+
+    padding:
+        12px 15px;
+
+    border:
+        none;
+
+    border-radius:
+        10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--perfil-naranjo),
+            var(--perfil-naranjo-oscuro)
+        );
+
+    color:
+        #fff;
+
+    font:
+        inherit;
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 7px 17px
+        rgba(190, 79, 34, 0.18);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+body.pagina-perfil .boton-guardar-cambios:hover,
+body.pagina-perfil .boton-guardar-configuracion:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 22px
+        rgba(190, 79, 34, 0.24);
+
+}
+
+body.pagina-perfil .mensaje-modal,
+body.pagina-perfil .mensaje-configuracion,
+body.pagina-perfil .mensaje-confirmacion-configuracion {
+
+    margin-top:
+        10px;
+
+    padding:
+        10px 12px;
+
+    border-radius:
+        9px;
+
+    font-size:
+        10px;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.5;
+
+}
+
+body.pagina-perfil .mensaje-modal[hidden],
+body.pagina-perfil .mensaje-configuracion[hidden] {
+
+    display:
+        none;
+
+}
+
+body.pagina-perfil .mensaje-modal.exito,
+body.pagina-perfil .mensaje-configuracion.exito,
+body.pagina-perfil .mensaje-confirmacion-configuracion {
+
+    border:
+        1px solid rgba(80, 135, 87, 0.16);
+
+    background:
+        #eff8f0;
+
+    color:
+        #4e7954;
+
+}
+
+body.pagina-perfil .mensaje-modal.error,
+body.pagina-perfil .mensaje-configuracion.error {
+
+    border:
+        1px solid rgba(190, 71, 57, 0.16);
+
+    background:
+        #fff3f1;
+
+    color:
+        #ad4439;
+
+}
+
+body.pagina-perfil .mensaje-confirmacion-configuracion {
+
+    display:
+        none;
+
+    margin:
+        0 0 15px;
+
+}
+
+body.pagina-perfil .mensaje-confirmacion-configuracion.visible {
+
+    display:
+        block;
+
+    animation:
+        aparecer-mensaje 0.25s ease;
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · aparecer-mensaje
+   ========================================================== */
+
+@keyframes aparecer-mensaje {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(-5px);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+body.pagina-perfil .formulario-configuracion {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        13px;
+
+}
+
+body.pagina-perfil .grupo-configuracion {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        6px;
+
+}
+
+body.pagina-perfil .opcion-interruptor {
+
+    position:
+        relative;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        auto;
+
+    align-items:
+        center;
+
+    gap:
+        15px;
+
+    padding:
+        14px;
+
+    border:
+        1px solid var(--perfil-borde);
+
+    border-radius:
+        12px;
+
+    background:
+        #fff;
+
+    cursor:
+        pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+
+}
+
+body.pagina-perfil .opcion-interruptor:hover {
+
+    border-color:
+        rgba(217, 103, 50, 0.22);
+
+    background:
+        #fffaf6;
+
+}
+
+body.pagina-perfil .opcion-interruptor > span:first-child {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        3px;
+
+}
+
+body.pagina-perfil .opcion-interruptor strong {
+
+    color:
+        var(--perfil-cafe);
+
+    font-size:
+        11px;
+
+}
+
+body.pagina-perfil .opcion-interruptor small {
+
+    color:
+        var(--perfil-texto-suave);
+
+    font-size:
+        9px;
+
+    line-height:
+        1.45;
+
+}
+
+body.pagina-perfil .opcion-interruptor input {
+
+    position:
+        absolute;
+
+    opacity:
+        0;
+
+    pointer-events:
+        none;
+
+}
+
+body.pagina-perfil .interruptor {
+
+    position:
+        relative;
+
+    width:
+        42px;
+
+    height:
+        23px;
+
+    border-radius:
+        999px;
+
+    background:
+        #d9d4d1;
+
+    transition:
+        background 0.25s ease;
+
+}
+
+body.pagina-perfil .interruptor::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        17px;
+
+    height:
+        17px;
+
+    top:
+        3px;
+
+    left:
+        3px;
+
+    border-radius:
+        50%;
+
+    background:
+        #fff;
+
+    box-shadow:
+        0 2px 6px
+        rgba(40, 30, 25, 0.2);
+
+    transition:
+        transform 0.25s ease;
+
+}
+
+body.pagina-perfil .opcion-interruptor input:checked + .interruptor {
+
+    background:
+        var(--perfil-naranjo);
+
+}
+
+body.pagina-perfil .opcion-interruptor input:checked + .interruptor::after {
+
+    transform:
+        translateX(19px);
+
+}
+
+body.pagina-perfil .nota-seguridad {
+
+    margin-top:
+        18px;
+
+    padding:
+        14px;
+
+    border:
+        1px solid rgba(74, 125, 165, 0.12);
+
+    border-radius:
+        12px;
+
+    background:
+        #f3f8fc;
+
+}
+
+body.pagina-perfil .nota-seguridad strong {
+
+    display:
+        block;
+
+    margin-bottom:
+        5px;
+
+    color:
+        #456f91;
+
+    font-size:
+        11px;
+
+}
+
+body.pagina-perfil .nota-seguridad p {
+
+    margin:
+        0;
+
+    color:
+        #667984;
+
+    font-size:
+        9px;
+
+    line-height:
+        1.55;
+
+}
+
+body.pagina-perfil .nota-preferencias {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        10px;
+
+    margin-top:
+        3px;
+
+    padding:
+        13px;
+
+    border:
+        1px solid rgba(217, 103, 50, 0.12);
+
+    border-radius:
+        11px;
+
+    background:
+        #fff7ef;
+
+}
+
+body.pagina-perfil .nota-preferencias > span {
+
+    font-size:
+        18px;
+
+}
+
+body.pagina-perfil .nota-preferencias p {
+
+    margin:
+        0;
+
+    color:
+        var(--perfil-texto-suave);
+
+    font-size:
+        9px;
+
+    line-height:
+        1.55;
+
+}
+
+body.pagina-perfil .modal-cerrar-sesion .icono-modal {
+
+    margin:
+        0 auto 13px;
+
+}
+
+body.pagina-perfil .acciones-cerrar-sesion {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        9px;
+
+    margin-top:
+        20px;
+
+}
+
+body.pagina-perfil .boton-cancelar,
+body.pagina-perfil .boton-confirmar-sesion {
+
+    padding:
+        11px 13px;
+
+    border-radius:
+        10px;
+
+    font:
+        inherit;
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+
+}
+
+body.pagina-perfil .boton-cancelar {
+
+    border:
+        1px solid var(--perfil-borde);
+
+    background:
+        #fff;
+
+    color:
+        var(--perfil-cafe);
+
+}
+
+body.pagina-perfil .boton-cancelar:hover {
+
+    background:
+        #f8f2ed;
+
+    transform:
+        translateY(-1px);
+
+}
+
+body.pagina-perfil .boton-confirmar-sesion {
+
+    border:
+        none;
+
+    background:
+        var(--perfil-rojo);
+
+    color:
+        #fff;
+
+}
+
+body.pagina-perfil .boton-confirmar-sesion:hover {
+
+    background:
+        #ae4036;
+
+    transform:
+        translateY(-1px);
+
+}
+
+body.pagina-perfil {
+
+    scroll-behavior:
+        smooth;
+
+}
+
+body.pagina-perfil #inicioPerfil,
+body.pagina-perfil #adopcionPerfil,
+body.pagina-perfil #reservasPerfil,
+body.pagina-perfil #cuentaPerfil,
+body.pagina-perfil #notificacionesPerfil {
+
+    scroll-margin-top:
+        105px;
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 900px)
+   ========================================================== */
+
+@media  (max-width: 900px) {
+
+    body.pagina-perfil .separador-menu-perfil {
+
+        width:
+            1px;
+
+        height:
+            30px;
+
+        margin:
+            0 6px;
+
+        flex-shrink:
+            0;
+
+    }
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 650px)
+   ========================================================== */
+
+@media  (max-width: 650px) {
+
+    body.pagina-perfil .boton-editar-perfil {
+
+        width:
+            100%;
+
+    }
+
+    body.pagina-perfil .tarjeta-resumen {
+
+        padding:
+            17px;
+
+    }
+
+    body.pagina-perfil .contenido-resumen-adopcion,
+body.pagina-perfil .contenido-resumen-reserva {
+
+        grid-template-columns:
+            95px
+            minmax(0, 1fr);
+
+        gap:
+            12px;
+
+    }
+
+    body.pagina-perfil .imagen-animal-resumen {
+
+        min-height:
+            120px;
+
+        font-size:
+            55px;
+
+    }
+
+    body.pagina-perfil .boton-soporte-perfil {
+
+        text-align:
+            center;
+
+    }
+
+    body.pagina-perfil .contenido-modal-perfil {
+
+        padding:
+            25px 19px;
+
+    }
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 420px)
+   ========================================================== */
+
+@media  (max-width: 420px) {
+
+    body.pagina-perfil .contenido-resumen-adopcion,
+body.pagina-perfil .contenido-resumen-reserva {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    body.pagina-perfil .imagen-animal-resumen {
+
+        min-height:
+            150px;
+
+    }
+
+    body.pagina-perfil .datos-adopcion-resumen,
+body.pagina-perfil .datos-reserva-resumen {
+
+        min-height:
+            125px;
+
+    }
+
+    body.pagina-perfil .nombre-estado {
+
+        justify-content:
+            space-between;
+
+    }
+
+    body.pagina-perfil .notificacion-perfil {
+
+        grid-template-columns:
+            auto
+            minmax(0, 1fr);
+
+    }
+
+    body.pagina-perfil .notificacion-perfil small {
+
+        grid-column:
+            2;
+
+        justify-self:
+            start;
+
+    }
+
+    body.pagina-perfil .acciones-cerrar-sesion {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+body.pagina-perfil .boton-editar-perfil:focus-visible,
+body.pagina-perfil .boton-soporte-perfil:focus-visible,
+body.pagina-perfil .boton-guardar-cambios:focus-visible,
+body.pagina-perfil .boton-guardar-configuracion:focus-visible,
+body.pagina-perfil .boton-cancelar:focus-visible,
+body.pagina-perfil .boton-confirmar-sesion:focus-visible,
+body.pagina-perfil .cerrar-modal-perfil:focus-visible {
+
+    outline:
+        3px solid
+        rgba(217, 103, 50, 0.3);
+
+    outline-offset:
+        3px;
+
+}
+
+/* ==========================================================
+   MOVIMIENTO REDUCIDO
+   ========================================================== */
+
+@media  (prefers-reduced-motion: reduce) {
+
+    body.pagina-perfil *,
+body.pagina-perfil *::before,
+body.pagina-perfil *::after {
+
+        scroll-behavior:
+            auto !important;
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+    }
+
+}
+
+body.pagina-perfil .tarjeta-adopcion[role="button"] {
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+
+}
+
+body.pagina-perfil .tarjeta-adopcion[role="button"]:hover {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(89, 139, 90, 0.35);
+
+    box-shadow:
+        0 16px 35px rgba(67, 110, 70, 0.14);
+
+}
+
+body.pagina-perfil .tarjeta-adopcion[role="button"]:focus-visible {
+
+    outline:
+        3px solid rgba(89, 139, 90, 0.45);
+
+    outline-offset:
+        4px;
+
+}
+
+body.pagina-perfil .resumen-adopciones-registradas {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        9px;
+
+}
+
+body.pagina-perfil .resumen-adopciones-registradas p {
+
+    margin:
+        0;
+
+    color:
+        #5e6258;
+
+    line-height:
+        1.6;
+
+}
+
+body.pagina-perfil .resumen-adopciones-registradas strong {
+
+    color:
+        #416e46;
+
+}
+
+body.pagina-perfil .enlace-historial-adopciones {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    width:
+        fit-content;
+
+    margin-top:
+        8px;
+
+    color:
+        #477b4d;
+
+    font-size:
+        0.88rem;
+
+    font-weight:
+        700;
+
+    transition:
+        transform 0.2s ease;
+
+}
+
+body.pagina-perfil .tarjeta-adopcion:hover .enlace-historial-adopciones {
+
+    transform:
+        translateX(4px);
+
+}
+
+/* ==========================================================
+   HISTORIAL DE ADOPCIONES
+   ========================================================== */
+
+body.pagina-perfil .modal-historial-adopciones {
+
+    z-index:
+        3500;
+
+}
+
+body.pagina-perfil .modal-historial-adopciones[hidden] {
+
+    display:
+        none !important;
+
+}
+
+body.pagina-perfil .modal-historial-adopciones .fondo-modal-perfil {
+
+    background:
+        rgba(43, 30, 24, 0.58);
+
+    backdrop-filter:
+        blur(6px);
+
+    -webkit-backdrop-filter:
+        blur(6px);
+
+}
+
+body.pagina-perfil .contenido-historial-adopciones {
+
+    width:
+        min(590px, 100%);
+
+    max-height:
+        min(740px, calc(100dvh - 36px));
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    padding:
+        30px;
+
+    overflow-y:
+        auto;
+
+    border-radius:
+        24px;
+
+    background:
+        #fffdfa;
+
+    box-shadow:
+        0 28px 80px rgba(43, 30, 24, 0.25);
+
+    scrollbar-width:
+        thin;
+
+    scrollbar-color:
+        #dfc7b7 transparent;
+
+}
+
+body.pagina-perfil .contenido-historial-adopciones:focus {
+
+    outline:
+        none;
+
+}
+
+body.pagina-perfil .encabezado-historial-adopciones {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    margin-bottom:
+        23px;
+
+    padding:
+        8px 25px 0;
+
+    text-align:
+        center;
+
+}
+
+body.pagina-perfil .encabezado-historial-adopciones .icono-modal {
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    width:
+        57px;
+
+    height:
+        57px;
+
+    border-radius:
+        50%;
+
+    background:
+        #fce9da;
+
+    font-size:
+        1.65rem;
+
+}
+
+body.pagina-perfil .encabezado-historial-adopciones h2 {
+
+    margin:
+        0;
+
+    color:
+        #432b22;
+
+    font-size:
+        1.45rem;
+
+    font-weight:
+        800;
+
+    line-height:
+        1.3;
+
+}
+
+body.pagina-perfil .encabezado-historial-adopciones p {
+
+    max-width:
+        390px;
+
+    margin:
+        0;
+
+    color:
+        #8b7065;
+
+    font-size:
+        0.9rem;
+
+    line-height:
+        1.6;
+
+}
+
+body.pagina-perfil .estadisticas-historial-adopciones {
+
+    margin-bottom:
+        18px;
+
+}
+
+body.pagina-perfil .estadisticas-historial-adopciones:empty {
+
+    display:
+        none;
+
+}
+
+body.pagina-perfil .estadistica-adopcion {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        12px;
+
+    padding:
+        14px 17px;
+
+    border:
+        1px solid #e3ecdd;
+
+    border-radius:
+        14px;
+
+    background:
+        #f2f7ef;
+
+}
+
+body.pagina-perfil .estadistica-adopcion strong {
+
+    color:
+        #46774b;
+
+    font-size:
+        1.55rem;
+
+    font-weight:
+        800;
+
+}
+
+body.pagina-perfil .estadistica-adopcion span {
+
+    color:
+        #637760;
+
+    font-size:
+        0.85rem;
+
+    font-weight:
+        600;
+
+}
+
+body.pagina-perfil .lista-historial-adopciones {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        13px;
+
+    min-width:
+        0;
+
+}
+
+body.pagina-perfil .item-historial-adopcion {
+
+    padding:
+        17px;
+
+    border:
+        1px solid #f0e3da;
+
+    border-radius:
+        17px;
+
+    background:
+        #ffffff;
+
+    box-shadow:
+        0 5px 18px rgba(72, 46, 31, 0.045);
+
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease;
+
+}
+
+body.pagina-perfil .item-historial-adopcion:hover {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        #e6cbb9;
+
+    box-shadow:
+        0 10px 25px rgba(72, 46, 31, 0.09);
+
+}
+
+body.pagina-perfil .informacion-historial-adopcion {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        14px;
+
+    min-width:
+        0;
+
+}
+
+body.pagina-perfil .icono-animal-historial {
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    width:
+        58px;
+
+    height:
+        58px;
+
+    flex-shrink:
+        0;
+
+    border-radius:
+        15px;
+
+    background:
+        #fce8d8;
+
+    font-size:
+        1.55rem;
+
+}
+
+body.pagina-perfil .datos-animal-historial {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        flex-start;
+
+    gap:
+        6px;
+
+    min-width:
+        0;
+
+}
+
+body.pagina-perfil .datos-animal-historial h3 {
+
+    margin:
+        0;
+
+    color:
+        #493025;
+
+    font-size:
+        1.08rem;
+
+    font-weight:
+        800;
+
+}
+
+body.pagina-perfil .fecha-historial-adopcion {
+
+    margin:
+        0;
+
+    color:
+        #93796c;
+
+    font-size:
+        0.78rem;
+
+    line-height:
+        1.4;
+
+}
+
+body.pagina-perfil .estado-adopcion {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    padding:
+        5px 11px;
+
+    border-radius:
+        30px;
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        750;
+
+    line-height:
+        1.3;
+
+}
+
+body.pagina-perfil .estado-pendiente {
+
+    background:
+        #fff0d7;
+
+    color:
+        #99600d;
+
+}
+
+body.pagina-perfil .estado-revision {
+
+    background:
+        #e8f2ff;
+
+    color:
+        #386d9e;
+
+}
+
+body.pagina-perfil .estado-aprobada {
+
+    background:
+        #e5f5e5;
+
+    color:
+        #34783b;
+
+}
+
+body.pagina-perfil .estado-rechazada {
+
+    background:
+        #fce8e7;
+
+    color:
+        #b34943;
+
+}
+
+body.pagina-perfil .estado-completada {
+
+    background:
+        #e8f3e8;
+
+    color:
+        #43774a;
+
+}
+
+body.pagina-perfil .estado-cancelada {
+
+    background:
+        #f0efed;
+
+    color:
+        #6f6c68;
+
+}
+
+body.pagina-perfil .detalle-historial-adopcion {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        9px;
+
+    margin-top:
+        15px;
+
+    padding-top:
+        13px;
+
+    border-top:
+        1px solid #f1e9e2;
+
+}
+
+body.pagina-perfil .detalle-historial-adopcion small {
+
+    color:
+        #a18b80;
+
+    font-size:
+        0.72rem;
+
+    overflow-wrap:
+        anywhere;
+
+}
+
+body.pagina-perfil .detalle-historial-adopcion p {
+
+    margin:
+        0;
+
+    color:
+        #78675e;
+
+    font-size:
+        0.84rem;
+
+    line-height:
+        1.6;
+
+}
+
+body.pagina-perfil .historial-adopciones-vacio {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    padding:
+        35px 20px;
+
+    border:
+        1px dashed #e9d8cb;
+
+    border-radius:
+        17px;
+
+    background:
+        #fffaf5;
+
+    text-align:
+        center;
+
+}
+
+body.pagina-perfil .icono-historial-vacio {
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    width:
+        65px;
+
+    height:
+        65px;
+
+    border-radius:
+        50%;
+
+    background:
+        #fce8da;
+
+    font-size:
+        1.8rem;
+
+}
+
+body.pagina-perfil .historial-adopciones-vacio h3 {
+
+    margin:
+        0;
+
+    color:
+        #493025;
+
+    font-size:
+        1.05rem;
+
+}
+
+body.pagina-perfil .historial-adopciones-vacio p {
+
+    max-width:
+        330px;
+
+    margin:
+        0;
+
+    color:
+        #8d776c;
+
+    font-size:
+        0.86rem;
+
+    line-height:
+        1.65;
+
+}
+
+body.pagina-perfil .boton-explorar-adopciones {
+
+    display:
+        inline-flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    margin-top:
+        8px;
+
+    padding:
+        11px 19px;
+
+    border-radius:
+        11px;
+
+    background:
+        #d96732;
+
+    color:
+        #ffffff;
+
+    font-size:
+        0.85rem;
+
+    font-weight:
+        700;
+
+    text-decoration:
+        none;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+body.pagina-perfil .boton-explorar-adopciones:hover {
+
+    background:
+        #bd5126;
+
+    color:
+        #ffffff;
+
+    transform:
+        translateY(-2px);
+
+}
+
+body.pagina-perfil .pie-historial-adopciones {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        10px;
+
+    margin-top:
+        22px;
+
+    padding:
+        14px;
+
+    border-radius:
+        13px;
+
+    background:
+        #f9f3ec;
+
+}
+
+body.pagina-perfil .pie-historial-adopciones > span {
+
+    color:
+        #d96732;
+
+    font-size:
+        1.3rem;
+
+}
+
+body.pagina-perfil .pie-historial-adopciones p {
+
+    margin:
+        0;
+
+    color:
+        #907367;
+
+    font-size:
+        0.78rem;
+
+    line-height:
+        1.6;
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 600px)
+   ========================================================== */
+
+@media  (max-width: 600px) {
+
+    body.pagina-perfil .modal-historial-adopciones {
+
+        padding:
+            12px;
+
+    }
+
+    body.pagina-perfil .contenido-historial-adopciones {
+
+        width:
+            100%;
+
+        max-height:
+            calc(100dvh - 24px);
+
+        padding:
+            25px 17px;
+
+        border-radius:
+            19px;
+
+    }
+
+    body.pagina-perfil .encabezado-historial-adopciones {
+
+        padding:
+            5px 20px 0;
+
+    }
+
+    body.pagina-perfil .encabezado-historial-adopciones h2 {
+
+        font-size:
+            1.2rem;
+
+    }
+
+    body.pagina-perfil .encabezado-historial-adopciones p {
+
+        font-size:
+            0.82rem;
+
+    }
+
+    body.pagina-perfil .item-historial-adopcion {
+
+        padding:
+            14px;
+
+    }
+
+    body.pagina-perfil .icono-animal-historial {
+
+        width:
+            49px;
+
+        height:
+            49px;
+
+        font-size:
+            1.35rem;
+
+    }
+
+    body.pagina-perfil .estadistica-adopcion {
+
+        padding:
+            12px 14px;
+
+    }
+
+    body.pagina-perfil .pie-historial-adopciones {
+
+        padding:
+            12px;
+
+    }
+
+}
+
+body.pagina-perfil .boton-explorar-adopciones:focus-visible,
+body.pagina-perfil .tarjeta-adopcion:focus-visible {
+
+    outline:
+        3px solid rgba(217, 103, 50, 0.4);
+
+    outline-offset:
+        3px;
+
+}
+
+/* ==========================================================
+   MOVIMIENTO REDUCIDO
+   ========================================================== */
+
+@media  (prefers-reduced-motion: reduce) {
+
+    body.pagina-perfil .item-historial-adopcion,
+body.pagina-perfil .tarjeta-adopcion,
+body.pagina-perfil .enlace-historial-adopciones {
+
+        transition:
+            none;
+
+    }
+
+}
+
+body.pagina-perfil .tarjeta-reserva[role="button"] {
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+
+}
+
+body.pagina-perfil .tarjeta-reserva[role="button"]:hover {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(70, 124, 168, 0.3);
+
+    box-shadow:
+        0 16px 35px rgba(56, 104, 145, 0.14);
+
+}
+
+body.pagina-perfil .tarjeta-reserva[role="button"]:focus-visible {
+
+    outline:
+        3px solid rgba(70, 124, 168, 0.4);
+
+    outline-offset:
+        4px;
+
+}
+
+body.pagina-perfil .tarjeta-reserva .imagen-animal-resumen {
+
+    background:
+        linear-gradient(
+            135deg,
+            #dceefa,
+            #c5e2f5
+        );
+
+    color:
+        #467ca8;
+
+}
+
+body.pagina-perfil .tarjeta-reserva .datos-reserva-resumen > p {
+
+    margin:
+        0 0 12px;
+
+    color:
+        #667e8f;
+
+    font-size:
+        0.8rem;
+
+    line-height:
+        1.55;
+
+}
+
+body.pagina-perfil .mascota-reserva-resumen {
+
+    color:
+        #4d7e9e !important;
+
+    font-weight:
+        600;
+
+}
+
+body.pagina-perfil .enlace-historial-reservas,
+body.pagina-perfil .texto-historial-reservas {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    width:
+        fit-content;
+
+    margin-top:
+        12px;
+
+    color:
+        #3675a7;
+
+    font-size:
+        0.82rem;
+
+    font-weight:
+        700;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+body.pagina-perfil .tarjeta-reserva:hover .enlace-historial-reservas,
+body.pagina-perfil .tarjeta-reserva:hover .texto-historial-reservas {
+
+    color:
+        #245b85;
+
+    transform:
+        translateX(4px);
+
+}
+
+/* ==========================================================
+   HISTORIAL DE RESERVAS
+   ========================================================== */
+
+body.pagina-perfil .modal-historial-reservas {
+
+    z-index:
+        3500;
+
+}
+
+body.pagina-perfil .modal-historial-reservas[hidden] {
+
+    display:
+        none !important;
+
+}
+
+body.pagina-perfil .modal-historial-reservas .fondo-modal-perfil {
+
+    background:
+        rgba(27, 46, 62, 0.58);
+
+    backdrop-filter:
+        blur(6px);
+
+    -webkit-backdrop-filter:
+        blur(6px);
+
+}
+
+body.pagina-perfil .contenido-historial-reservas {
+
+    width:
+        min(590px, 100%);
+
+    max-height:
+        min(740px, calc(100dvh - 36px));
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    padding:
+        30px;
+
+    overflow-y:
+        auto;
+
+    border-radius:
+        24px;
+
+    background:
+        #fcfeff;
+
+    box-shadow:
+        0 28px 80px rgba(27, 46, 62, 0.25);
+
+    scrollbar-width:
+        thin;
+
+    scrollbar-color:
+        #b8d4e7 transparent;
+
+}
+
+body.pagina-perfil .contenido-historial-reservas:focus {
+
+    outline:
+        none;
+
+}
+
+body.pagina-perfil .contenido-historial-reservas .cerrar-modal-perfil {
+
+    background:
+        #eaf4fb;
+
+    color:
+        #467ca8;
+
+}
+
+body.pagina-perfil .contenido-historial-reservas .cerrar-modal-perfil:hover {
+
+    background:
+        #d5e9f7;
+
+}
+
+body.pagina-perfil .encabezado-historial-reservas {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    margin-bottom:
+        23px;
+
+    padding:
+        8px 25px 0;
+
+    text-align:
+        center;
+
+}
+
+body.pagina-perfil .encabezado-historial-reservas .icono-modal {
+
+    width:
+        58px;
+
+    height:
+        58px;
+
+    margin-bottom:
+        4px;
+
+    border-radius:
+        50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eaf4fb,
+            #d5e9f7
+        );
+
+    color:
+        #467ca8;
+
+    font-size:
+        1.7rem;
+
+}
+
+body.pagina-perfil .encabezado-historial-reservas h2 {
+
+    margin:
+        0;
+
+    color:
+        #284f6d;
+
+    font-size:
+        1.55rem;
+
+    font-weight:
+        800;
+
+    line-height:
+        1.25;
+
+}
+
+body.pagina-perfil .encabezado-historial-reservas p {
+
+    max-width:
+        410px;
+
+    margin:
+        0;
+
+    color:
+        #6a8191;
+
+    font-size:
+        0.87rem;
+
+    line-height:
+        1.6;
+
+}
+
+body.pagina-perfil .estadisticas-historial-reservas {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        12px;
+
+    margin-bottom:
+        23px;
+
+}
+
+body.pagina-perfil .estadistica-reserva {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        5px;
+
+    padding:
+        17px 15px;
+
+    border:
+        1px solid rgba(70, 124, 168, 0.12);
+
+    border-radius:
+        15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f2f9fd,
+            #e7f3fb
+        );
+
+    text-align:
+        center;
+
+}
+
+body.pagina-perfil .estadistica-reserva strong {
+
+    color:
+        #3675a7;
+
+    font-size:
+        1.65rem;
+
+    font-weight:
+        800;
+
+}
+
+body.pagina-perfil .estadistica-reserva span {
+
+    color:
+        #69859a;
+
+    font-size:
+        0.75rem;
+
+    font-weight:
+        600;
+
+}
+
+body.pagina-perfil .lista-historial-reservas {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        13px;
+
+    min-width:
+        0;
+
+}
+
+body.pagina-perfil .subtitulo-historial-reservas {
+
+    margin:
+        8px 0 2px;
+
+    padding-bottom:
+        8px;
+
+    border-bottom:
+        1px solid rgba(70, 124, 168, 0.14);
+
+    color:
+        #355f7f;
+
+    font-size:
+        0.95rem;
+
+    font-weight:
+        800;
+
+}
+
+body.pagina-perfil .item-historial-reserva {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        15px;
+
+    padding:
+        18px;
+
+    border:
+        1px solid rgba(70, 124, 168, 0.14);
+
+    border-radius:
+        17px;
+
+    background:
+        #ffffff;
+
+    box-shadow:
+        0 5px 17px rgba(56, 104, 145, 0.045);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+
+}
+
+body.pagina-perfil .item-historial-reserva:hover {
+
+    border-color:
+        rgba(70, 124, 168, 0.3);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(56, 104, 145, 0.09);
+
+}
+
+body.pagina-perfil .informacion-historial-reserva {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        13px;
+
+}
+
+body.pagina-perfil .icono-mascota-historial {
+
+    width:
+        55px;
+
+    height:
+        55px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    flex-shrink:
+        0;
+
+    border-radius:
+        15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eaf4fb,
+            #d5e9f7
+        );
+
+    font-size:
+        1.55rem;
+
+}
+
+body.pagina-perfil .datos-mascota-historial {
+
+    min-width:
+        0;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        flex-start;
+
+    gap:
+        5px;
+
+}
+
+body.pagina-perfil .datos-mascota-historial h3 {
+
+    margin:
+        0;
+
+    color:
+        #284f6d;
+
+    font-size:
+        1.08rem;
+
+    font-weight:
+        800;
+
+    overflow-wrap:
+        anywhere;
+
+}
+
+body.pagina-perfil .servicio-historial-reserva {
+
+    margin:
+        0;
+
+    color:
+        #6a8191;
+
+    font-size:
+        0.83rem;
+
+    line-height:
+        1.5;
+
+}
+
+body.pagina-perfil .estado-reserva {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    width:
+        fit-content;
+
+    margin-top:
+        4px;
+
+    padding:
+        6px 11px;
+
+    border-radius:
+        999px;
+
+    font-size:
+        0.73rem;
+
+    font-weight:
+        700;
+
+}
+
+body.pagina-perfil .estado-reserva-pendiente,
+body.pagina-perfil .estado-reserva-revision {
+
+    background:
+        #fff2d9;
+
+    color:
+        #a86a1f;
+
+}
+
+body.pagina-perfil .estado-reserva-confirmada {
+
+    background:
+        #e5f3fd;
+
+    color:
+        #3479aa;
+
+}
+
+body.pagina-perfil .estado-reserva-completada {
+
+    background:
+        #e8f5e9;
+
+    color:
+        #477b4d;
+
+}
+
+body.pagina-perfil .estado-reserva-cancelada,
+body.pagina-perfil .estado-reserva-rechazada {
+
+    background:
+        #fce9e7;
+
+    color:
+        #b74c42;
+
+}
+
+body.pagina-perfil .estado-reserva-desconocido {
+
+    background:
+        #f0f1f3;
+
+    color:
+        #656b73;
+
+}
+
+body.pagina-perfil .detalle-historial-reserva {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        8px;
+
+    padding-top:
+        13px;
+
+    border-top:
+        1px solid rgba(70, 124, 168, 0.1);
+
+}
+
+body.pagina-perfil .detalle-historial-reserva p {
+
+    margin:
+        0;
+
+    color:
+        #637888;
+
+    font-size:
+        0.83rem;
+
+    line-height:
+        1.55;
+
+    overflow-wrap:
+        anywhere;
+
+}
+
+body.pagina-perfil .detalle-historial-reserva p strong {
+
+    color:
+        #365f7e;
+
+    font-weight:
+        700;
+
+}
+
+body.pagina-perfil .detalle-historial-reserva small {
+
+    color:
+        #8a9ca9;
+
+    font-size:
+        0.72rem;
+
+    overflow-wrap:
+        anywhere;
+
+}
+
+body.pagina-perfil .detalle-historial-reserva .descripcion-estado-reserva {
+
+    margin-top:
+        5px;
+
+    padding:
+        11px 12px;
+
+    border-radius:
+        10px;
+
+    background:
+        #f1f8fd;
+
+    color:
+        #648096;
+
+    font-size:
+        0.78rem;
+
+}
+
+body.pagina-perfil .historial-reservas-vacio {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    padding:
+        32px 20px;
+
+    border:
+        1px dashed rgba(70, 124, 168, 0.25);
+
+    border-radius:
+        17px;
+
+    background:
+        #f6fbfe;
+
+    text-align:
+        center;
+
+}
+
+body.pagina-perfil .historial-reservas-vacio .icono-historial-vacio {
+
+    font-size:
+        2.3rem;
+
+}
+
+body.pagina-perfil .historial-reservas-vacio h3 {
+
+    margin:
+        0;
+
+    color:
+        #284f6d;
+
+    font-size:
+        1.1rem;
+
+}
+
+body.pagina-perfil .historial-reservas-vacio p {
+
+    max-width:
+        350px;
+
+    margin:
+        0;
+
+    color:
+        #6a8191;
+
+    font-size:
+        0.85rem;
+
+    line-height:
+        1.6;
+
+}
+
+body.pagina-perfil .boton-agendar-reserva {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    margin-top:
+        7px;
+
+    padding:
+        11px 18px;
+
+    border-radius:
+        11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4e8fc1,
+            #3675a7
+        );
+
+    color:
+        #ffffff;
+
+    text-decoration:
+        none;
+
+    font-size:
+        0.82rem;
+
+    font-weight:
+        700;
+
+    box-shadow:
+        0 7px 17px rgba(54, 117, 167, 0.17);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+body.pagina-perfil .boton-agendar-reserva:hover {
+
+    color:
+        #ffffff;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 22px rgba(54, 117, 167, 0.24);
+
+}
+
+body.pagina-perfil .pie-historial-reservas {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        10px;
+
+    margin-top:
+        22px;
+
+    padding:
+        14px;
+
+    border-radius:
+        13px;
+
+    background:
+        #edf6fc;
+
+}
+
+body.pagina-perfil .pie-historial-reservas > span {
+
+    color:
+        #467ca8;
+
+    font-size:
+        1.3rem;
+
+}
+
+body.pagina-perfil .pie-historial-reservas p {
+
+    margin:
+        0;
+
+    color:
+        #69859a;
+
+    font-size:
+        0.78rem;
+
+    line-height:
+        1.6;
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 600px)
+   ========================================================== */
+
+@media  (max-width: 600px) {
+
+    body.pagina-perfil .modal-historial-reservas {
+
+        padding:
+            12px;
+
+    }
+
+    body.pagina-perfil .contenido-historial-reservas {
+
+        width:
+            100%;
+
+        max-height:
+            calc(100dvh - 24px);
+
+        padding:
+            25px 17px;
+
+        border-radius:
+            19px;
+
+    }
+
+    body.pagina-perfil .encabezado-historial-reservas {
+
+        padding:
+            5px 20px 0;
+
+    }
+
+    body.pagina-perfil .encabezado-historial-reservas h2 {
+
+        font-size:
+            1.2rem;
+
+    }
+
+    body.pagina-perfil .encabezado-historial-reservas p {
+
+        font-size:
+            0.82rem;
+
+    }
+
+    body.pagina-perfil .estadistica-reserva {
+
+        padding:
+            12px 10px;
+
+    }
+
+    body.pagina-perfil .estadistica-reserva strong {
+
+        font-size:
+            1.4rem;
+
+    }
+
+    body.pagina-perfil .item-historial-reserva {
+
+        padding:
+            14px;
+
+    }
+
+    body.pagina-perfil .icono-mascota-historial {
+
+        width:
+            49px;
+
+        height:
+            49px;
+
+        font-size:
+            1.35rem;
+
+    }
+
+    body.pagina-perfil .pie-historial-reservas {
+
+        padding:
+            12px;
+
+    }
+
+    body.pagina-perfil .contenido-resumen-reserva {
+
+        grid-template-columns:
+            85px minmax(0, 1fr);
+
+    }
+
+    body.pagina-perfil .tarjeta-reserva .imagen-animal-resumen {
+
+        min-height:
+            110px;
+
+        font-size:
+            2.7rem;
+
+    }
+
+}
+
+body.pagina-perfil .boton-agendar-reserva:focus-visible,
+body.pagina-perfil .tarjeta-reserva:focus-visible {
+
+    outline:
+        3px solid rgba(70, 124, 168, 0.45);
+
+    outline-offset:
+        3px;
+
+}
+
+/* ==========================================================
+   MOVIMIENTO REDUCIDO
+   ========================================================== */
+
+@media  (prefers-reduced-motion: reduce) {
+
+    body.pagina-perfil .item-historial-reserva,
+body.pagina-perfil .tarjeta-reserva,
+body.pagina-perfil .enlace-historial-reservas,
+body.pagina-perfil .texto-historial-reservas,
+body.pagina-perfil .boton-agendar-reserva {
+
+        transition:
+            none;
+
+    }
+
+    body.pagina-perfil .modal-historial-reservas .fondo-modal-perfil,
+body.pagina-perfil .contenido-historial-reservas {
+
+        animation:
+            none;
+
+    }
+
+}
+
+body.pagina-perfil .estadisticas-historial-adopciones {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap:
+        10px;
+
+    margin-bottom:
+        22px;
+
+}
+
+body.pagina-perfil .estadistica-adopcion {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        6px;
+
+    min-width:
+        0;
+
+    padding:
+        16px 10px;
+
+    border:
+        1px solid rgba(86, 132, 93, 0.14);
+
+    border-radius:
+        15px;
+
+    background:
+        linear-gradient(
+        135deg,
+        #f3f9f0,
+        #e7f3e4
+    );
+
+    text-align:
+        center;
+
+}
+
+body.pagina-perfil .estadistica-adopcion strong {
+
+    color:
+        #477b4d;
+
+    font-size:
+        1.6rem;
+
+    font-weight:
+        800;
+
+}
+
+body.pagina-perfil .estadistica-adopcion span {
+
+    color:
+        #65816a;
+
+    font-size:
+        0.73rem;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.4;
+
+}
+
+body.pagina-perfil .filtros-historial-adopciones {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        8px;
+
+    margin-bottom:
+        20px;
+
+}
+
+body.pagina-perfil .filtro-historial-adopcion {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        7px;
+
+    padding:
+        9px 12px;
+
+    border:
+        1px solid rgba(86, 132, 93, 0.17);
+
+    border-radius:
+        999px;
+
+    background:
+        #ffffff;
+
+    color:
+        #617867;
+
+    font:
+        inherit;
+
+    font-size:
+        0.78rem;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+body.pagina-perfil .filtro-historial-adopcion:hover {
+
+    background:
+        #edf6eb;
+
+    border-color:
+        rgba(86, 132, 93, 0.35);
+
+    color:
+        #477b4d;
+
+    transform:
+        translateY(-2px);
+
+}
+
+body.pagina-perfil .filtro-historial-adopcion.activo {
+
+    background:
+        linear-gradient(
+        135deg,
+        #56845d,
+        #427449
+    );
+
+    border-color:
+        #56845d;
+
+    color:
+        #ffffff;
+
+    box-shadow:
+        0 6px 16px rgba(86, 132, 93, 0.2);
+
+}
+
+body.pagina-perfil .filtro-historial-adopcion span {
+
+    display:
+        inline-grid;
+
+    place-items:
+        center;
+
+    min-width:
+        21px;
+
+    height:
+        21px;
+
+    padding:
+        0 5px;
+
+    border-radius:
+        999px;
+
+    background:
+        #edf5ea;
+
+    color:
+        #56845d;
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        800;
+
+}
+
+body.pagina-perfil .filtro-historial-adopcion.activo span {
+
+    background:
+        rgba(255, 255, 255, 0.22);
+
+    color:
+        #ffffff;
+
+}
+
+body.pagina-perfil .filtro-historial-adopcion:focus-visible {
+
+    outline:
+        3px solid rgba(86, 132, 93, 0.35);
+
+    outline-offset:
+        3px;
+
+}
+
+body.pagina-perfil .resultados-historial-adopciones {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        13px;
+
+}
+
+body.pagina-perfil .resultados-historial-adopciones .item-historial-adopcion {
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+body.pagina-perfil .resultados-historial-adopciones .item-historial-adopcion:hover {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(86, 132, 93, 0.3);
+
+    box-shadow:
+        0 10px 25px rgba(67, 110, 70, 0.09);
+
+}
+
+body.pagina-perfil .resultados-historial-adopciones .estado-adopcion {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    width:
+        fit-content;
+
+    padding:
+        6px 11px;
+
+    border-radius:
+        999px;
+
+    font-size:
+        0.73rem;
+
+    font-weight:
+        700;
+
+}
+
+body.pagina-perfil .resultados-historial-adopciones .estado-pendiente,
+body.pagina-perfil .resultados-historial-adopciones .estado-revision {
+
+    background:
+        #fff1d8;
+
+    color:
+        #aa6b20;
+
+}
+
+body.pagina-perfil .resultados-historial-adopciones .estado-aprobada {
+
+    background:
+        #e6f5e8;
+
+    color:
+        #427b4b;
+
+}
+
+body.pagina-perfil .resultados-historial-adopciones .estado-rechazada {
+
+    background:
+        #fce8e6;
+
+    color:
+        #b84d43;
+
+}
+
+body.pagina-perfil .resultados-historial-adopciones .estado-completada {
+
+    background:
+        #e4f1fa;
+
+    color:
+        #467ca8;
+
+}
+
+body.pagina-perfil .resultados-historial-adopciones .estado-cancelada {
+
+    background:
+        #f0eeec;
+
+    color:
+        #766e69;
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 600px)
+   ========================================================== */
+
+@media  (max-width: 600px) {
+
+    body.pagina-perfil .estadisticas-historial-adopciones {
+
+        gap:
+            7px;
+
+    }
+
+    body.pagina-perfil .estadistica-adopcion {
+
+        padding:
+            12px 6px;
+
+        border-radius:
+            12px;
+
+    }
+
+    body.pagina-perfil .estadistica-adopcion strong {
+
+        font-size:
+            1.35rem;
+
+    }
+
+    body.pagina-perfil .estadistica-adopcion span {
+
+        font-size:
+            0.65rem;
+
+    }
+
+    body.pagina-perfil .filtros-historial-adopciones {
+
+        gap:
+            7px;
+
+    }
+
+    body.pagina-perfil .filtro-historial-adopcion {
+
+        padding:
+            8px 10px;
+
+        font-size:
+            0.72rem;
+
+    }
+
+    body.pagina-perfil .filtro-historial-adopcion span {
+
+        min-width:
+            19px;
+
+        height:
+            19px;
+
+    }
+
+}
+
+/* ==========================================================
+   MOVIMIENTO REDUCIDO
+   ========================================================== */
+
+@media  (prefers-reduced-motion: reduce) {
+
+    body.pagina-perfil .filtro-historial-adopcion,
+body.pagina-perfil .resultados-historial-adopciones .item-historial-adopcion {
+
+        transition:
+            none;
+
+    }
+
+}
+
+/* ==========================================================
+   IDENTIDAD Y DISTRIBUCIÓN DEL PERFIL
+   ========================================================== */
+
+body.pagina-perfil.pagina-perfil {
+
+    --perfil-cafe:
+        #4f606c;
+
+    --perfil-cafe-oscuro:
+        #343638;
+
+    --perfil-naranjo:
+        #b97868;
+
+    --perfil-naranjo-oscuro:
+        #9f6255;
+
+    --perfil-crema:
+        #f3efe9;
+
+    --perfil-crema-claro:
+        #faf8f5;
+
+    --perfil-durazno:
+        #ead0c9;
+
+    --perfil-durazno-claro:
+        #f5e5dc;
+
+    --perfil-verde:
+        #56845d;
+
+    --perfil-verde-claro:
+        #edf6eb;
+
+    --perfil-azul:
+        #667784;
+
+    --perfil-azul-claro:
+        #eaf0f3;
+
+    --perfil-rojo:
+        #b85c5c;
+
+    --perfil-texto:
+        #343638;
+
+    --perfil-texto-suave:
+        #74777a;
+
+    --perfil-borde:
+        #ded8d1;
+
+    --perfil-sombra:
+        0 6px 22px #473e370a;
+
+    --perfil-sombra-hover:
+        0 10px 28px #473e3715;
+
+    min-height:
+        100vh;
+
+    background:
+        #f3efe9;
+
+    color:
+        #343638;
+
+}
+
+body.pagina-perfil.pagina-perfil .perfil-limpio .contenedor,
+body.pagina-perfil.pagina-perfil .pie-perfil-limpio .contenedor {
+
+    width:
+        min(1200px, calc(100% - 80px));
+
+    margin-inline:
+        auto;
+
+}
+
+body.pagina-perfil.pagina-perfil .hero-perfil {
+
+    padding:
+        30px 0 24px;
+
+    background:
+        transparent;
+
+}
+
+body.pagina-perfil.pagina-perfil .hero-perfil-contenido {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        24px;
+
+}
+
+body.pagina-perfil.pagina-perfil .miga-navegacion {
+
+    display:
+        block;
+
+    color:
+        #74777a;
+
+    font-size:
+        .85rem;
+
+    margin-bottom:
+        12px;
+
+}
+
+body.pagina-perfil.pagina-perfil .miga-navegacion span {
+
+    margin:
+        0 6px;
+
+}
+
+body.pagina-perfil.pagina-perfil .hero-perfil h1 {
+
+    color:
+        #343638;
+
+    font-size:
+        clamp(1.9rem,3vw,2.5rem);
+
+    margin:
+        0 0 10px;
+
+    line-height:
+        1.2;
+
+}
+
+body.pagina-perfil.pagina-perfil .hero-perfil-texto > p {
+
+    margin:
+        0;
+
+    color:
+        #74777a;
+
+    line-height:
+        1.65;
+
+}
+
+body.pagina-perfil.pagina-perfil .detalle-perfil {
+
+    color:
+        #ead0c9;
+
+    font-size:
+        3rem;
+
+    opacity:
+        .55;
+
+    flex-shrink:
+        0;
+
+}
+
+body.pagina-perfil.pagina-perfil .seccion-perfil {
+
+    margin:
+        0;
+
+    padding-bottom:
+        24px;
+
+}
+
+body.pagina-perfil.pagina-perfil .perfil-layout {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        270px minmax(0,1fr);
+
+    gap:
+        24px;
+
+    align-items:
+        start;
+
+}
+
+/* ==========================================================
+   TARJETA LATERAL Y NAVEGACIÓN
+   ========================================================== */
+
+body.pagina-perfil.pagina-perfil .menu-lateral-perfil {
+
+    position:
+        static;
+
+    padding:
+        22px 16px;
+
+    border:
+        1px solid #ded8d1;
+
+    border-radius:
+        18px;
+
+    background:
+        #faf8f5;
+
+    box-shadow:
+        var(--perfil-sombra);
+
+    min-width:
+        0;
+
+}
+
+body.pagina-perfil.pagina-perfil .identidad-lateral {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    flex-direction:
+        column;
+
+    gap:
+        14px;
+
+    text-align:
+        center;
+
+}
+
+body.pagina-perfil.pagina-perfil .foto-perfil-contenedor {
+
+    position:
+        relative;
+
+    width:
+        90px;
+
+    height:
+        90px;
+
+}
+
+body.pagina-perfil.pagina-perfil .foto-perfil {
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    width:
+        90px;
+
+    height:
+        90px;
+
+    border-radius:
+        50%;
+
+    overflow:
+        hidden;
+
+    background:
+        #b97868;
+
+    color:
+        white;
+
+    font-size:
+        2.4rem;
+
+}
+
+body.pagina-perfil.pagina-perfil .foto-perfil img {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+}
+
+body.pagina-perfil.pagina-perfil .boton-cambiar-foto {
+
+    position:
+        absolute;
+
+    right:
+        -3px;
+
+    bottom:
+        0;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    width:
+        30px;
+
+    height:
+        30px;
+
+    border:
+        2px solid #faf8f5;
+
+    border-radius:
+        50%;
+
+    background:
+        #f5e5dc;
+
+    cursor:
+        pointer;
+
+    font-size:
+        .85rem;
+
+}
+
+body.pagina-perfil.pagina-perfil .datos-usuario-perfil {
+
+    min-width:
+        0;
+
+    max-width:
+        100%;
+
+}
+
+body.pagina-perfil.pagina-perfil .datos-usuario-perfil h2 {
+
+    margin:
+        0 0 6px;
+
+    color:
+        #343638;
+
+    font-size:
+        1.1rem;
+
+    overflow-wrap:
+        anywhere;
+
+}
+
+body.pagina-perfil.pagina-perfil .datos-usuario-perfil p {
+
+    margin:
+        0 0 7px;
+
+    font-size:
+        .79rem;
+
+    color:
+        #74777a;
+
+    overflow-wrap:
+        anywhere;
+
+    line-height:
+        1.5;
+
+}
+
+body.pagina-perfil.pagina-perfil .datos-usuario-perfil .miembro-desde {
+
+    display:
+        inline-block;
+
+    padding:
+        5px 12px;
+
+    border-radius:
+        99px;
+
+    background:
+        #f5e5dc;
+
+    color:
+        #9f6255;
+
+    font-size:
+        .75rem;
+
+    margin-top:
+        4px;
+
+}
+
+body.pagina-perfil.pagina-perfil .navegacion-perfil {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        4px;
+
+}
+
+body.pagina-perfil.pagina-perfil .opcion-menu-perfil {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    width:
+        100%;
+
+    min-height:
+        43px;
+
+    padding:
+        10px;
+
+    border:
+        0;
+
+    border-radius:
+        10px;
+
+    background:
+        transparent;
+
+    color:
+        #4f606c;
+
+    font:
+        inherit;
+
+    font-size:
+        .82rem;
+
+    text-align:
+        left;
+
+    cursor:
+        pointer;
+
+}
+
+body.pagina-perfil.pagina-perfil .opcion-menu-perfil > span {
+
+    width:
+        22px;
+
+    text-align:
+        center;
+
+    flex-shrink:
+        0;
+
+    font-size:
+        1.1rem;
+
+}
+
+body.pagina-perfil.pagina-perfil .opcion-menu-perfil:hover,
+body.pagina-perfil.pagina-perfil .opcion-menu-perfil.activo {
+
+    color:
+        #9f6255;
+
+    background:
+        #f5e5dc;
+
+}
+
+body.pagina-perfil.pagina-perfil .separador-menu-perfil {
+
+    height:
+        1px;
+
+    background:
+        #ded8d1;
+
+    margin:
+        16px 6px;
+
+}
+
+body.pagina-perfil.pagina-perfil .cerrar-sesion-lateral {
+
+    color:
+        #9f6255;
+
+    font-weight:
+        700;
+
+}
+
+/* ==========================================================
+   RESUMEN Y CONTENIDO PRINCIPAL
+   ========================================================== */
+
+body.pagina-perfil.pagina-perfil .contenido-perfil {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    min-width:
+        0;
+
+    gap:
+        22px;
+
+}
+
+body.pagina-perfil.pagina-perfil .bienvenida-perfil {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    border:
+        1px solid #ded8d1;
+
+    border-radius:
+        18px;
+
+    padding:
+        26px;
+
+    background:
+        #faf8f5;
+
+    box-shadow:
+        var(--perfil-sombra);
+
+    scroll-margin-top:
+        100px;
+
+}
+
+body.pagina-perfil.pagina-perfil .bienvenida-perfil h2 {
+
+    margin:
+        0 0 9px;
+
+    font-size:
+        1.65rem;
+
+    line-height:
+        1.2;
+
+}
+
+body.pagina-perfil.pagina-perfil .bienvenida-perfil p {
+
+    margin:
+        0 0 16px;
+
+    color:
+        #74777a;
+
+    line-height:
+        1.65;
+
+    max-width:
+        560px;
+
+    font-size:
+        .92rem;
+
+}
+
+body.pagina-perfil.pagina-perfil .boton-editar-perfil,
+body.pagina-perfil.pagina-perfil .boton-soporte-perfil {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-height:
+        42px;
+
+    border:
+        1px solid #b97868;
+
+    padding:
+        10px 18px;
+
+    border-radius:
+        10px;
+
+    background:
+        #b97868;
+
+    color:
+        white;
+
+    text-decoration:
+        none;
+
+    font:
+        inherit;
+
+    font-size:
+        .84rem;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+}
+
+body.pagina-perfil.pagina-perfil .boton-editar-perfil:hover,
+body.pagina-perfil.pagina-perfil .boton-soporte-perfil:hover {
+
+    background:
+        #9f6255;
+
+}
+
+body.pagina-perfil.pagina-perfil .titulo-seccion-perfil {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    margin-bottom:
+        16px;
+
+}
+
+body.pagina-perfil.pagina-perfil .icono-titulo-perfil {
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    background:
+        #f5e5dc;
+
+    border-radius:
+        50%;
+
+    font-size:
+        1.2rem;
+
+    flex-shrink:
+        0;
+
+}
+
+body.pagina-perfil.pagina-perfil .titulo-seccion-perfil h2 {
+
+    margin:
+        0 0 5px;
+
+    color:
+        #343638;
+
+    font-size:
+        1.35rem;
+
+}
+
+body.pagina-perfil.pagina-perfil .titulo-seccion-perfil p {
+
+    margin:
+        0;
+
+    color:
+        #74777a;
+
+    font-size:
+        .83rem;
+
+    line-height:
+        1.6;
+
+}
+
+body.pagina-perfil.pagina-perfil .tarjetas-resumen {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:
+        18px;
+
+}
+
+body.pagina-perfil.pagina-perfil .tarjeta-resumen {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    min-width:
+        0;
+
+    min-height:
+        200px;
+
+    padding:
+        22px;
+
+    border:
+        1px solid #ded8d1;
+
+    border-radius:
+        16px;
+
+    box-shadow:
+        none;
+
+    cursor:
+        pointer;
+
+}
+
+body.pagina-perfil.pagina-perfil .tarjeta-adopcion {
+
+    background:
+        #fbf2ed;
+
+}
+
+body.pagina-perfil.pagina-perfil .tarjeta-reserva {
+
+    background:
+        #f0f3f5;
+
+}
+
+body.pagina-perfil.pagina-perfil .tarjeta-resumen:hover {
+
+    box-shadow:
+        var(--perfil-sombra-hover);
+
+    transform:
+        none;
+
+}
+
+body.pagina-perfil.pagina-perfil .cabecera-resumen {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    margin-bottom:
+        15px;
+
+}
+
+body.pagina-perfil.pagina-perfil .cabecera-resumen h3 {
+
+    color:
+        #343638;
+
+    margin:
+        0;
+
+    font-size:
+        1rem;
+
+    line-height:
+        1.3;
+
+}
+
+body.pagina-perfil.pagina-perfil .icono-resumen {
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    border-radius:
+        50%;
+
+    font-size:
+        1.3rem;
+
+    flex-shrink:
+        0;
+
+}
+
+body.pagina-perfil.pagina-perfil .enlace-historial-adopciones,
+body.pagina-perfil.pagina-perfil .enlace-historial-reservas {
+
+    display:
+        block;
+
+    color:
+        #9f6255;
+
+    font-weight:
+        700;
+
+    margin-top:
+        auto;
+
+    padding-top:
+        16px;
+
+    font-size:
+        .83rem;
+
+}
+
+/* ==========================================================
+   NOTIFICACIONES
+   ========================================================== */
+
+body.pagina-perfil.pagina-perfil .panel-notificaciones-perfil {
+
+    background:
+        #faf8f5;
+
+    padding:
+        22px;
+
+    border:
+        1px solid #ded8d1;
+
+    border-radius:
+        18px;
+
+    scroll-margin-top:
+        100px;
+
+}
+
+body.pagina-perfil.pagina-perfil .lista-notificaciones-perfil {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr;
+
+    gap:
+        12px;
+
+}
+
+body.pagina-perfil.pagina-perfil .notificacion-perfil {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        34px minmax(0,1fr) auto;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    padding:
+        14px;
+
+    background:
+        #f3efe9;
+
+    border-radius:
+        12px;
+
+}
+
+body.pagina-perfil.pagina-perfil .icono-notificacion {
+
+    font-size:
+        1.3rem;
+
+}
+
+body.pagina-perfil.pagina-perfil .notificacion-perfil strong {
+
+    display:
+        block;
+
+    margin-bottom:
+        4px;
+
+    font-size:
+        .85rem;
+
+}
+
+body.pagina-perfil.pagina-perfil .notificacion-perfil p {
+
+    color:
+        #74777a;
+
+    margin:
+        0;
+
+    line-height:
+        1.6;
+
+    font-size:
+        .8rem;
+
+}
+
+body.pagina-perfil.pagina-perfil .notificacion-perfil small {
+
+    font-size:
+        .72rem;
+
+    color:
+        #74777a;
+
+}
+
+/* ==========================================================
+   AYUDA
+   ========================================================== */
+
+body.pagina-perfil.pagina-perfil .ayuda-perfil {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    padding:
+        22px;
+
+    background:
+        #fbf0e7;
+
+    border:
+        1px solid #ead0c9;
+
+    border-radius:
+        18px;
+
+}
+
+body.pagina-perfil.pagina-perfil .ayuda-perfil-contenido {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        14px;
+
+}
+
+body.pagina-perfil.pagina-perfil .huella-ayuda {
+
+    font-size:
+        1.6rem;
+
+    flex-shrink:
+        0;
+
+}
+
+body.pagina-perfil.pagina-perfil .ayuda-perfil h2 {
+
+    margin:
+        0 0 6px;
+
+    font-size:
+        1.15rem;
+
+}
+
+body.pagina-perfil.pagina-perfil .ayuda-perfil p {
+
+    margin:
+        0;
+
+    color:
+        #74777a;
+
+    font-size:
+        .83rem;
+
+    line-height:
+        1.6;
+
+}
+
+body.pagina-perfil.pagina-perfil .boton-soporte-perfil {
+
+    flex-shrink:
+        0;
+
+}
+
+/* ==========================================================
+   PIE DEL PERFIL
+   ========================================================== */
+
+body.pagina-perfil.pagina-perfil .pie-perfil-limpio {
+
+    padding:
+        0 0 22px;
+
+}
+
+body.pagina-perfil.pagina-perfil .pie-perfil-limpio .contenedor {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    gap:
+        24px;
+
+    padding-top:
+        18px;
+
+    border-top:
+        1px solid #ded8d1;
+
+}
+
+body.pagina-perfil.pagina-perfil .pie-perfil-limpio p,
+body.pagina-perfil.pagina-perfil .frase-perfil {
+
+    margin:
+        0;
+
+    color:
+        #74777a;
+
+    font-size:
+        .75rem;
+
+    line-height:
+        1.6;
+
+}
+
+body.pagina-perfil.pagina-perfil .frase-perfil {
+
+    max-width:
+        460px;
+
+    font-style:
+        italic;
+
+}
+
+body.pagina-perfil.pagina-perfil #adopcionPerfil,
+body.pagina-perfil.pagina-perfil #reservasPerfil {
+
+    scroll-margin-top:
+        100px;
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width:1000px)
+   ========================================================== */
+
+@media  (max-width:1000px) {
+
+    body.pagina-perfil.pagina-perfil .perfil-limpio .contenedor,
+body.pagina-perfil.pagina-perfil .pie-perfil-limpio .contenedor {
+
+        width:
+            calc(100% - 40px);
+
+    }
+
+    body.pagina-perfil.pagina-perfil .perfil-layout {
+
+        grid-template-columns:
+            235px minmax(0,1fr);
+
+        gap:
+            18px;
+
+    }
+
+    body.pagina-perfil.pagina-perfil .tarjetas-resumen {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    body.pagina-perfil.pagina-perfil .ayuda-perfil {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+    }
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width:700px)
+   ========================================================== */
+
+@media  (max-width:700px) {
+
+    body.pagina-perfil.pagina-perfil .perfil-limpio .contenedor,
+body.pagina-perfil.pagina-perfil .pie-perfil-limpio .contenedor {
+
+        width:
+            calc(100% - 28px);
+
+    }
+
+    body.pagina-perfil.pagina-perfil .perfil-layout {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    body.pagina-perfil.pagina-perfil .hero-perfil {
+
+        padding:
+            24px 0;
+
+    }
+
+    body.pagina-perfil.pagina-perfil .detalle-perfil {
+
+        display:
+            none;
+
+    }
+
+    body.pagina-perfil.pagina-perfil .bienvenida-perfil {
+
+        padding:
+            22px;
+
+    }
+
+    body.pagina-perfil.pagina-perfil .pie-perfil-limpio .contenedor {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        gap:
+            12px;
+
+    }
+
+    body.pagina-perfil.pagina-perfil .notificacion-perfil {
+
+        grid-template-columns:
+            30px minmax(0,1fr);
+
+    }
+
+    body.pagina-perfil.pagina-perfil .notificacion-perfil small {
+
+        grid-column:
+            2;
+
+    }
+
+}
+
+/* OPCIONES SECUNDARIAS Y AVISOS DEL PERFIL */
+
+body.pagina-perfil.pagina-perfil .opcion-menu-perfil.opcion-secundaria {
+
+    font-size:
+        12px;
+
+    min-height:
+        38px;
+
+    color:
+        #74695e;
+
+}
+
+body.pagina-perfil.pagina-perfil .sin-avisos-perfil {
+
+    margin:
+        0;
+
+    padding:
+        16px;
+
+    border-radius:
+        12px;
+
+    background:
+        #faf7f1;
+
+    color:
+        #74695e;
+
+    line-height:
+        1.6;
+
+}
+
+/* Restaura el espacio nativo de la fecha que Bootstrap modifica. */
+body.pagina-perfil input::-webkit-datetime-edit-fields-wrapper,
+body.pagina-perfil input::-webkit-datetime-edit-text,
+body.pagina-perfil input::-webkit-datetime-edit-minute,
+body.pagina-perfil input::-webkit-datetime-edit-hour-field,
+body.pagina-perfil input::-webkit-datetime-edit-day-field,
+body.pagina-perfil input::-webkit-datetime-edit-month-field,
+body.pagina-perfil input::-webkit-datetime-edit-year-field { padding: revert; }
+
+/* Consultas y respuestas de la cuenta: contenido completo, incluso textos largos. */
+body.pagina-perfil #consultasPerfil .notificacion-perfil > div { min-width: 0; width: 100%; }
+body.pagina-perfil #consultasPerfil :is(p, small, strong) { overflow-wrap: anywhere; }
+body.pagina-perfil #consultasPerfil blockquote { margin: 16px 0 0; padding: 12px 16px; border-left: 3px solid #9f7b62; border-radius: 0 10px 10px 0; background: #f6efe5; }
+body.pagina-perfil #consultasPerfil blockquote p { white-space: pre-wrap; }

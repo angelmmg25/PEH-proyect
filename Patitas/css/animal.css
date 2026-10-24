@@ -1,0 +1,2188 @@
+/* ==========================================================
+   PEH - ANIMAL
+   Patitas Esperando un Hogar
+   ========================================================== */
+
+
+/* ==========================================================
+   ESTILOS GENERALES
+   ========================================================== */
+
+.pagina-animal {
+
+    --verde-oscuro:
+        #4f606c;
+
+    --verde:
+        #68745b;
+
+    --verde-medio:
+        #89967b;
+
+    --verde-claro:
+        #e8ede2;
+
+    --verde-muy-claro:
+        #f3f5ef;
+
+    --cafe-oscuro:
+        #343638;
+
+    --cafe:
+        #9f6255;
+
+    --caramelo:
+        #b97868;
+
+    --caramelo-claro:
+        #d9b38f;
+
+    --durazno:
+        #e9b39d;
+
+    --durazno-claro:
+        #f7e2d8;
+
+    --rosa:
+        #c96f73;
+
+    --rosa-claro:
+        #f7e4e2;
+
+    --crema:
+        #f3efe9;
+
+    --crema-claro:
+        #faf8f5;
+
+    --texto:
+        #343638;
+
+    --texto-suave:
+        #74777a;
+
+    --blanco:
+        #ffffff;
+
+    --borde:
+        #eadfd4;
+
+    --sombra-suave:
+        0 8px 24px rgba(87, 53, 34, 0.08);
+
+    --sombra-media:
+        0 14px 35px rgba(87, 53, 34, 0.13);
+
+    margin:
+        0;
+
+    min-height:
+        100vh;
+
+    background-color:
+        var(--crema-claro);
+
+    color:
+        var(--texto);
+
+    background:
+        #f3efe9;
+
+}
+
+
+.estructura-animal.perfil-oculto {
+
+    display:
+        none;
+
+}
+
+
+.contenido-animal {
+
+    min-width:
+        0;
+
+    padding:
+        28px 0 35px;
+
+    background:
+        transparent;
+
+}
+
+
+.contenedor-animal {
+
+    width:
+        min(1200px, calc(100% - 80px));
+
+    max-width:
+        none;
+
+    margin:
+        0 auto;
+
+}
+
+
+.presentacion-animal {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(0, 1.35fr) minmax(0, 1fr);
+
+    gap:
+        24px;
+
+    align-items:
+        stretch;
+
+    margin-bottom:
+        24px;
+
+}
+
+
+.columna-fotografias {
+
+    min-width:
+        0;
+
+}
+
+
+.contenedor-imagen-animal {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    height:
+        auto;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        18px;
+
+    background-color:
+        var(--crema);
+
+    box-shadow:
+        var(--sombra-media);
+
+    aspect-ratio:
+        4 / 3;
+
+    background:
+        #faf8f5;
+
+}
+
+
+.contenedor-imagen-animal img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    display:
+        block;
+
+    object-fit:
+        contain;
+
+    transition:
+        transform 0.35s ease;
+
+}
+
+
+.contenedor-imagen-animal:hover img {
+
+    transform:
+        none;
+
+}
+
+
+.boton-carrusel {
+
+    position:
+        absolute;
+
+    top:
+        50%;
+
+    transform:
+        translateY(-50%);
+
+    width:
+        44px;
+
+    height:
+        44px;
+
+    border:
+        none;
+
+    border-radius:
+        50%;
+
+    background-color:
+        rgba(255, 250, 244, 0.92);
+
+    color:
+        var(--cafe-oscuro);
+
+    font-size:
+        31px;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 5px 16px rgba(87, 53, 34, 0.16);
+
+}
+
+
+.boton-carrusel.anterior {
+
+    left:
+        18px;
+
+}
+
+
+.boton-carrusel.siguiente {
+
+    right:
+        18px;
+
+}
+
+
+.boton-carrusel[hidden],
+.indicadores-carrusel[hidden] {
+
+    display:
+        none !important;
+
+}
+
+
+.indicadores-carrusel {
+
+    min-height:
+        28px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        8px;
+
+    padding-top:
+        13px;
+
+}
+
+
+.indicador-carrusel {
+
+    width:
+        8px;
+
+    height:
+        8px;
+
+    padding:
+        0;
+
+    border:
+        none;
+
+    border-radius:
+        50%;
+
+    background-color:
+        #d8c8bb;
+
+    cursor:
+        pointer;
+
+}
+
+
+.indicador-carrusel.activo {
+
+    width:
+        25px;
+
+    border-radius:
+        20px;
+
+    background-color:
+        var(--caramelo);
+
+}
+
+
+.boton-adoptar {
+
+    width:
+        100%;
+
+    min-height:
+        48px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        11px;
+
+    margin-top:
+        16px;
+
+    padding:
+        14px 20px;
+
+    border:
+        none;
+
+    border-radius:
+        12px;
+
+    background:
+        #b97868;
+
+    color:
+        #fff;
+
+    font-family:
+        inherit;
+
+    font-size:
+        1rem;
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 8px 20px rgba(149, 103, 71, 0.24);
+
+    transition:
+        0.25s ease;
+
+    margin:
+        20px 0 12px;
+
+}
+
+
+.boton-adoptar:hover {
+
+    transform:
+        translateY(-2px);
+
+    filter:
+        brightness(0.95);
+
+}
+
+
+.encabezado-animal {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    justify-content:
+        space-between;
+
+    gap:
+        14px;
+
+    padding-bottom:
+        24px;
+
+    border-bottom:
+        1px solid var(--borde);
+
+    flex-direction:
+        column-reverse;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.encabezado-animal h1 {
+
+    margin:
+        0 0 12px;
+
+    color:
+        var(--cafe-oscuro);
+
+    font-size:
+        clamp(2rem, 4vw, 3.3rem);
+
+    font-weight:
+        800;
+
+    line-height:
+        1;
+
+    margin-bottom:
+        16px;
+
+}
+
+
+.datos-resumen-animal {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        10px;
+
+    color:
+        var(--texto-suave);
+
+    font-size:
+        .88rem;
+
+    font-weight:
+        600;
+
+}
+
+
+.estado-adopcion {
+
+    flex-shrink:
+        0;
+
+    padding:
+        6px 12px;
+
+    border-radius:
+        999px;
+
+    background-color:
+        var(--verde-claro);
+
+    color:
+        #9f6255;
+
+    font-size:
+        .8rem;
+
+    font-weight:
+        800;
+
+    background:
+        #f5e5dc;
+
+}
+
+
+/* ==========================================================
+   HISTORIA Y DETALLES
+   ========================================================== */
+
+.historia-animal {
+
+    padding-top:
+        25px;
+
+    padding:
+        26px;
+
+    background:
+        #faf8f5;
+
+    border:
+        1px solid #ded8d1;
+
+    border-radius:
+        18px;
+
+    margin-bottom:
+        24px;
+
+    scroll-margin-top:
+        100px;
+
+}
+
+
+.historia-animal h2 {
+
+    margin:
+        0 0 17px;
+
+    color:
+        var(--cafe-oscuro);
+
+    font-size:
+        1.5rem;
+
+}
+
+
+.historia-animal h2 span {
+
+    color:
+        var(--rosa);
+
+}
+
+
+.historia-animal p {
+
+    margin:
+        0 0 15px;
+
+    color:
+        var(--texto-suave);
+
+    font-size:
+        .95rem;
+
+    line-height:
+        1.8;
+
+}
+
+
+.historia-animal blockquote {
+
+    margin:
+        25px 0 0;
+
+    padding:
+        14px 18px;
+
+    border-left:
+        4px solid var(--caramelo);
+
+    border-radius:
+        10px;
+
+    background-color:
+        #fff0df;
+
+    color:
+        var(--cafe);
+
+    font-size:
+        .9rem;
+
+    font-style:
+        italic;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.6;
+
+    background:
+        #f3efe9;
+
+}
+
+
+.detalles-animal {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        20px;
+
+}
+
+
+.tarjeta-detalle {
+
+    padding:
+        24px;
+
+    border:
+        1px solid #ded8d1;
+
+    border-radius:
+        18px;
+
+    box-shadow:
+        var(--sombra-suave);
+
+    background:
+        #faf8f5;
+
+}
+
+
+.informacion-basica {
+
+    background:
+        #faf8f5;
+
+}
+
+
+.salud-cuidados {
+
+    background:
+        #faf8f5;
+
+}
+
+
+
+.convivencia-animal {
+
+    background:
+        #faf8f5;
+
+}
+
+
+.tarjeta-detalle h2 {
+
+    margin:
+        0 0 20px;
+
+    color:
+        var(--cafe-oscuro);
+
+    font-size:
+        1.25rem;
+
+    margin-bottom:
+        18px;
+
+}
+
+
+.lista-datos-animal,
+.lista-convivencia {
+
+    margin:
+        0;
+
+}
+
+
+.lista-datos-animal > div,
+.lista-convivencia > div {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(100px, .8fr) minmax(0, 1fr);
+
+    gap:
+        16px;
+
+    padding:
+        12px 0;
+
+    border-bottom:
+        1px solid rgba(87, 53, 34, 0.08);
+
+}
+
+
+.lista-datos-animal > div:last-child,
+.lista-convivencia > div:last-child {
+
+    border-bottom:
+        none;
+
+}
+
+
+.lista-datos-animal dt,
+.lista-convivencia dt {
+
+    font-size:
+        .88rem;
+
+    font-weight:
+        700;
+
+}
+
+
+.lista-datos-animal dd,
+.lista-convivencia dd {
+
+    margin:
+        0;
+
+    color:
+        var(--texto-suave);
+
+    font-size:
+        .88rem;
+
+    line-height:
+        1.6;
+
+}
+
+
+.dato-cuidados-especiales {
+
+    margin-top:
+        5px;
+
+    padding:
+        13px !important;
+
+    border:
+        none !important;
+
+    border-radius:
+        12px;
+
+    background-color:
+        rgba(255, 255, 255, 0.55);
+
+}
+
+
+.etiquetas-personalidad {
+
+    margin:
+        0 0 20px;
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        9px;
+
+}
+
+
+.etiquetas-personalidad span {
+
+    padding:
+        8px 12px;
+
+    border-radius:
+        999px;
+
+    background-color:
+        #f3d5ce;
+
+    color:
+        #8c4f4f;
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+}
+
+
+.mensaje-oportunidad {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        12px;
+
+    margin-top:
+        24px;
+
+    padding:
+        22px;
+
+    border-radius:
+        18px;
+
+    background:
+        #faf8f5;
+
+    color:
+        var(--cafe-oscuro);
+
+    text-align:
+        center;
+
+    box-shadow:
+        var(--sombra-suave);
+
+    border:
+        1px solid #ded8d1;
+
+}
+
+
+.mensaje-oportunidad p {
+
+    margin:
+        0;
+
+    font-size:
+        14px;
+
+    font-weight:
+        800;
+
+}
+
+
+/* ==========================================================
+   SOLICITUD DE ADOPCIÓN
+   ========================================================== */
+
+.modo-adopcion {
+
+    display:
+        none;
+
+    min-height:
+        calc(100vh - 82px);
+
+    background-color:
+        var(--crema-claro);
+
+}
+
+
+.modo-adopcion.activo {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(520px, 1.05fr)
+        minmax(380px, 0.95fr);
+
+    animation:
+        aparecerAdopcion 0.35s ease;
+
+}
+
+
+/* ==========================================================
+   ANIMACIÓN · aparecerAdopcion
+   ========================================================== */
+
+@keyframes aparecerAdopcion {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateX(-25px);
+
+    }
+
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateX(0);
+
+    }
+
+}
+
+
+.panel-formulario-adopcion {
+
+    padding:
+        42px 55px 60px;
+
+    background-color:
+        var(--crema-claro);
+
+}
+
+
+.encabezado-formulario {
+
+    max-width:
+        720px;
+
+    margin:
+        0 auto 32px;
+
+}
+
+
+.boton-volver-perfil {
+
+    margin-bottom:
+        30px;
+
+    padding:
+        0;
+
+    border:
+        none;
+
+    background:
+        none;
+
+    color:
+        var(--cafe);
+
+    font-family:
+        inherit;
+
+    font-size:
+        14px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+}
+
+
+.boton-volver-perfil:hover {
+
+    color:
+        var(--cafe-oscuro);
+
+}
+
+
+.titulo-formulario {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        15px;
+
+}
+
+
+.icono-formulario {
+
+    width:
+        54px;
+
+    height:
+        54px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        16px;
+
+    background-color:
+        var(--durazno-claro);
+
+    font-size:
+        25px;
+
+}
+
+
+.etiqueta-formulario {
+
+    margin:
+        0 0 4px;
+
+    color:
+        var(--caramelo);
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        1px;
+
+}
+
+
+.titulo-formulario h2 {
+
+    margin:
+        0;
+
+    color:
+        var(--cafe-oscuro);
+
+    font-size:
+        31px;
+
+}
+
+
+.introduccion-formulario {
+
+    margin:
+        20px 0 0;
+
+    color:
+        var(--texto-suave);
+
+    line-height:
+        1.7;
+
+}
+
+
+.formulario-adopcion {
+
+    max-width:
+        720px;
+
+    margin:
+        0 auto;
+
+}
+
+
+.grupo-formulario {
+
+    margin:
+        0 0 22px;
+
+    padding:
+        25px;
+
+    border:
+        1px solid var(--borde);
+
+    border-radius:
+        18px;
+
+    background-color:
+        var(--blanco);
+
+    box-shadow:
+        var(--sombra-suave);
+
+}
+
+
+.grupo-formulario legend {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    padding:
+        0 8px;
+
+    color:
+        var(--cafe-oscuro);
+
+    font-size:
+        16px;
+
+    font-weight:
+        800;
+
+}
+
+
+.grupo-formulario legend span {
+
+    width:
+        28px;
+
+    height:
+        28px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background-color:
+        var(--durazno-claro);
+
+    color:
+        var(--cafe);
+
+    font-size:
+        12px;
+
+}
+
+
+.fila-formulario {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        16px;
+
+}
+
+
+.campo-formulario {
+
+    margin-bottom:
+        18px;
+
+}
+
+
+.campo-formulario:last-child {
+
+    margin-bottom:
+        0;
+
+}
+
+
+.campo-formulario > label {
+
+    display:
+        block;
+
+    margin-bottom:
+        8px;
+
+    color:
+        var(--texto);
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+}
+
+
+.campo-formulario input,
+.campo-formulario select,
+.campo-formulario textarea {
+
+    width:
+        100%;
+
+    box-sizing:
+        border-box;
+
+    padding:
+        12px 14px;
+
+    border:
+        1px solid #ded5cc;
+
+    border-radius:
+        10px;
+
+    background-color:
+        #fffdf9;
+
+    color:
+        var(--texto);
+
+    font:
+        inherit;
+
+    font-size:
+        14px;
+
+    outline:
+        none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.campo-formulario textarea {
+
+    resize:
+        vertical;
+
+    min-height:
+        90px;
+
+}
+
+
+.campo-formulario input:focus,
+.campo-formulario select:focus,
+.campo-formulario textarea:focus {
+
+    border-color:
+        var(--caramelo);
+
+    box-shadow:
+        0 0 0 3px rgba(184, 135, 96, 0.13);
+
+}
+
+
+.opciones-formulario {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        10px;
+
+}
+
+
+.opcion-radio {
+
+    cursor:
+        pointer;
+
+    position:
+        relative;
+
+    display:
+        inline-flex;
+
+}
+
+
+.opcion-radio input {
+
+    position:
+        absolute;
+
+    opacity:
+        0;
+
+    pointer-events:
+        none;
+
+    width:
+        1px;
+
+    height:
+        1px;
+
+    min-width:
+        0;
+
+    margin:
+        0;
+
+    left:
+        0;
+
+    top:
+        0;
+
+}
+
+
+.opcion-radio span {
+
+    display:
+        inline-flex;
+
+    padding:
+        9px 15px;
+
+    border:
+        1px solid var(--borde);
+
+    border-radius:
+        999px;
+
+    background-color:
+        #fffdf9;
+
+    color:
+        var(--texto-suave);
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+    transition:
+        0.2s ease;
+
+}
+
+
+.opcion-radio input:checked + span {
+
+    border-color:
+        var(--caramelo);
+
+    background-color:
+        var(--durazno-claro);
+
+    color:
+        var(--cafe-oscuro);
+
+}
+
+
+.compromiso-adopcion {
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8f3,
+            #f9eee5
+        );
+
+}
+
+
+.compromiso-adopcion > p {
+
+    color:
+        var(--texto-suave);
+
+    font-size:
+        14px;
+
+    line-height:
+        1.6;
+
+}
+
+
+.opcion-compromiso {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        12px;
+
+    margin-top:
+        18px;
+
+    cursor:
+        pointer;
+
+}
+
+
+.opcion-compromiso input {
+
+    margin-top:
+        4px;
+
+    accent-color:
+        var(--cafe);
+
+}
+
+
+.opcion-compromiso span {
+
+    color:
+        var(--texto);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.6;
+
+}
+
+
+.acciones-formulario {
+
+    display:
+        flex;
+
+    justify-content:
+        flex-end;
+
+    gap:
+        12px;
+
+    padding-top:
+        8px;
+
+}
+
+
+.boton-cancelar-adopcion,
+.boton-enviar-solicitud {
+
+    min-height:
+        48px;
+
+    padding:
+        12px 22px;
+
+    border-radius:
+        12px;
+
+    font-family:
+        inherit;
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+
+}
+
+
+.boton-cancelar-adopcion {
+
+    border:
+        1px solid var(--borde);
+
+    background-color:
+        var(--blanco);
+
+    color:
+        var(--texto-suave);
+
+}
+
+
+.boton-enviar-solicitud {
+
+    border:
+        none;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--caramelo),
+            var(--cafe)
+        );
+
+    color:
+        var(--blanco);
+
+    box-shadow:
+        0 8px 20px rgba(149, 103, 71, 0.20);
+
+}
+
+
+.panel-animal-adopcion {
+
+    position:
+        relative;
+
+    padding:
+        42px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f0dfd0,
+            #e5c8b2
+        );
+
+}
+
+
+.animal-adopcion-sticky {
+
+    position:
+        sticky;
+
+    top:
+        124px;
+
+    max-width:
+        560px;
+
+    margin:
+        0 auto;
+
+}
+
+
+.imagen-adopcion {
+
+    position:
+        relative;
+
+    height:
+        520px;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        28px;
+
+    box-shadow:
+        0 18px 45px rgba(87, 53, 34, 0.20);
+
+}
+
+
+.imagen-adopcion img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    display:
+        block;
+
+    object-fit:
+        cover;
+
+}
+
+
+.estado-adopcion-formulario {
+
+    position:
+        absolute;
+
+    top:
+        20px;
+
+    right:
+        20px;
+
+    padding:
+        9px 14px;
+
+    border-radius:
+        999px;
+
+    background-color:
+        rgba(255, 255, 255, 0.90);
+
+    color:
+        var(--verde-oscuro);
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+}
+
+
+.resumen-animal-adopcion {
+
+    padding:
+        25px 8px 0;
+
+}
+
+
+.peh-presenta {
+
+    margin:
+        0;
+
+    color:
+        var(--cafe);
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+}
+
+
+.resumen-animal-adopcion h2 {
+
+    margin:
+        4px 0 14px;
+
+    color:
+        var(--cafe-oscuro);
+
+    font-size:
+        42px;
+
+}
+
+
+.datos-adopcion {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        9px;
+
+}
+
+
+.datos-adopcion span {
+
+    padding:
+        7px 10px;
+
+    border-radius:
+        999px;
+
+    background-color:
+        rgba(255, 255, 255, 0.55);
+
+    color:
+        var(--texto);
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+}
+
+
+.recordatorio-adopcion {
+
+    display:
+        flex;
+
+    gap:
+        12px;
+
+    margin-top:
+        22px;
+
+    padding:
+        17px;
+
+    border-radius:
+        14px;
+
+    background-color:
+        rgba(255, 255, 255, 0.52);
+
+}
+
+
+.recordatorio-adopcion > span {
+
+    color:
+        var(--rosa);
+
+    font-size:
+        21px;
+
+}
+
+
+.recordatorio-adopcion p {
+
+    margin:
+        0;
+
+    color:
+        var(--cafe-oscuro);
+
+    font-size:
+        13px;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.55;
+
+}
+
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 1050px)
+   ========================================================== */
+
+@media (max-width: 1050px) {
+
+    .modo-adopcion.activo {
+
+        grid-template-columns:
+            minmax(480px, 1fr)
+            minmax(320px, 0.75fr);
+
+    }
+
+
+    .panel-formulario-adopcion {
+
+        padding:
+            35px 35px
+            50px;
+
+    }
+
+
+    .panel-animal-adopcion {
+
+        padding:
+            35px 25px;
+
+    }
+
+
+    .imagen-adopcion {
+
+        height:
+            450px;
+
+    }
+
+}
+
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 850px)
+   ========================================================== */
+
+@media (max-width: 850px) {
+
+    .modo-adopcion.activo {
+
+        display:
+            flex;
+
+        flex-direction:
+            column-reverse;
+
+    }
+
+
+    .panel-animal-adopcion {
+
+        padding:
+            25px;
+
+    }
+
+
+    .animal-adopcion-sticky {
+
+        position:
+            static;
+
+        max-width:
+            620px;
+
+    }
+
+
+    .imagen-adopcion {
+
+        height:
+            390px;
+
+    }
+
+
+    .panel-formulario-adopcion {
+
+        padding:
+            30px 22px 50px;
+
+    }
+
+}
+
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 600px)
+   ========================================================== */
+
+@media (max-width: 600px) {
+
+    .fila-formulario {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            0;
+
+    }
+
+
+    .grupo-formulario {
+
+        padding:
+            20px 17px;
+
+    }
+
+
+    .acciones-formulario {
+
+        flex-direction:
+            column-reverse;
+
+    }
+
+
+    .boton-cancelar-adopcion,
+    .boton-enviar-solicitud {
+
+        width:
+            100%;
+
+    }
+
+
+    .imagen-adopcion {
+
+        height:
+            300px;
+
+        border-radius:
+            20px;
+
+    }
+
+
+    .resumen-animal-adopcion h2 {
+
+        font-size:
+            34px;
+
+    }
+
+}
+
+
+/* ==========================================================
+   PERFIL DEL ANIMAL
+   ========================================================== */
+
+.estructura-animal {
+
+    display:
+        block;
+
+    min-height:
+        0;
+
+}
+
+
+.volver-catalogo {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    margin-bottom:
+        24px;
+
+    color:
+        var(--terracota, #b97868);
+
+    text-decoration:
+        none;
+
+    font-weight:
+        600;
+
+}
+
+
+.volver-catalogo:hover {
+
+    text-decoration:
+        underline;
+
+}
+
+
+.volver-catalogo:focus-visible {
+
+    outline:
+        3px solid #b97868;
+
+    outline-offset:
+        5px;
+
+    border-radius:
+        4px;
+
+}
+
+
+.informacion-principal-animal {
+
+    min-width:
+        0;
+
+    padding:
+        28px;
+
+    border:
+        1px solid #ded8d1;
+
+    border-radius:
+        18px;
+
+    background:
+        #faf8f5;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+}
+
+
+.introduccion-adopcion {
+
+    font-size:
+        .95rem;
+
+    line-height:
+        1.7;
+
+    color:
+        #74777a;
+
+    margin:
+        0;
+
+}
+
+
+.enlace-historia-animal {
+
+    color:
+        #9f6255;
+
+    font-size:
+        .9rem;
+
+    line-height:
+        1.6;
+
+    text-decoration:
+        none;
+
+}
+
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 1000px)
+   ========================================================== */
+
+@media (max-width: 1000px) {
+
+    .pagina-animal .contenedor,
+    .contenedor-animal {
+
+        width:
+            calc(100% - 40px);
+
+    }
+
+}
+
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 800px)
+   ========================================================== */
+
+@media (max-width: 800px) {
+
+    .presentacion-animal {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .detalles-animal {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 600px)
+   ========================================================== */
+
+@media (max-width: 600px) {
+
+    .contenedor-animal {
+
+        width:
+            calc(100% - 28px);
+
+    }
+
+
+    .informacion-principal-animal,
+    .historia-animal,
+    .tarjeta-detalle {
+
+        padding:
+            20px;
+
+    }
+
+
+    .lista-datos-animal > div,
+    .lista-convivencia > div {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            6px;
+
+    }
+
+}
+
+
+.opcion-radio input:focus-visible + span {
+
+    outline:
+        3px solid #b97868;
+
+    outline-offset:
+        3px;
+
+}
+
+
+.panel-formulario-adopcion,
+.panel-animal-adopcion {
+
+    min-width:
+        0;
+
+    max-width:
+        100%;
+
+}

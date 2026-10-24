@@ -1,0 +1,1588 @@
+/* Aísla el acceso de Bootstrap y de las páginas aún pendientes de migrar. */
+body.cuerpo-inicio-sesion, body.cuerpo-inicio-sesion *, body.cuerpo-inicio-sesion *::before, body.cuerpo-inicio-sesion *::after { all: revert; }
+/* ==========================================================
+   PEH - ESTILOS GENERALES
+   Patitas Esperando un Hogar
+   ========================================================== */
+
+
+/* ==========================================================
+   VARIABLES / IDENTIDAD VISUAL
+   ========================================================== */
+
+body.cuerpo-inicio-sesion {
+    /* Fondos */
+    --peh-fondo: #f3efe9;
+    --peh-fondo-claro: #faf8f5;
+    --peh-blanco: #ffffff;
+
+    /* Azul grisáceo */
+    --peh-azul: #667784;
+    --peh-azul-oscuro: #4f606c;
+    --peh-azul-claro: #dce3e6;
+
+    /* Terracota */
+    --peh-terracota: #b97868;
+    --peh-terracota-oscuro: #9f6255;
+    --peh-terracota-claro: #ead0c9;
+
+    /* Coral */
+    --peh-coral: #d99a8f;
+    --peh-coral-claro: #efd0c9;
+
+    /* Texto */
+    --peh-texto: #343638;
+    --peh-texto-suave: #74777a;
+
+    /* Bordes */
+    --peh-borde: #ded8d1;
+
+    /* Estados */
+    --peh-error: #b85c5c;
+    --peh-exito: #66806a;
+    --peh-advertencia: #b38a56;
+
+    /* Sombras */
+    --peh-sombra-suave:
+        0 8px 25px rgba(71, 62, 55, 0.08);
+
+    --peh-sombra:
+        0 20px 50px rgba(71, 62, 55, 0.12);
+
+    /* Bordes redondeados */
+    --peh-radio-pequeno: 8px;
+    --peh-radio: 12px;
+    --peh-radio-grande: 22px;
+    --peh-radio-redondo: 999px;
+
+    /* Transiciones */
+    --peh-transicion:
+        0.2s ease;
+}
+
+
+
+/* ==========================================================
+   RESET BÁSICO
+   ========================================================== */
+
+body.cuerpo-inicio-sesion * {
+    box-sizing: border-box;
+}
+
+
+
+body.cuerpo-inicio-sesion {
+    scroll-behavior: smooth;
+}
+
+
+
+body.cuerpo-inicio-sesion {
+    margin: 0;
+
+    background:
+        var(--peh-fondo);
+
+    color:
+        var(--peh-texto);
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    line-height: 1.5;
+}
+
+
+
+body.cuerpo-inicio-sesion img {
+    display: block;
+
+    max-width: 100%;
+}
+
+
+
+body.cuerpo-inicio-sesion button,
+body.cuerpo-inicio-sesion input,
+body.cuerpo-inicio-sesion select,
+body.cuerpo-inicio-sesion textarea {
+    font: inherit;
+}
+
+
+
+body.cuerpo-inicio-sesion button {
+    color: inherit;
+}
+
+
+
+body.cuerpo-inicio-sesion a {
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+
+/* ==========================================================
+   SELECCIÓN DE TEXTO
+   ========================================================== */
+
+body.cuerpo-inicio-sesion ::selection {
+    background:
+        var(--peh-terracota-claro);
+
+    color:
+        var(--peh-texto);
+}
+
+
+
+/* ==========================================================
+   SCROLLBAR
+   ========================================================== */
+
+body.cuerpo-inicio-sesion ::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+
+body.cuerpo-inicio-sesion ::-webkit-scrollbar-track {
+    background:
+        var(--peh-fondo);
+}
+
+
+
+body.cuerpo-inicio-sesion ::-webkit-scrollbar-thumb {
+    border:
+        2px solid
+        var(--peh-fondo);
+
+    border-radius:
+        var(--peh-radio-redondo);
+
+    background:
+        var(--peh-azul);
+}
+
+
+
+body.cuerpo-inicio-sesion ::-webkit-scrollbar-thumb:hover {
+    background:
+        var(--peh-azul-oscuro);
+}
+
+
+
+/* ==========================================================
+   TIPOGRAFÍA GENERAL
+   ========================================================== */
+
+body.cuerpo-inicio-sesion h1,
+body.cuerpo-inicio-sesion h2,
+body.cuerpo-inicio-sesion h3,
+body.cuerpo-inicio-sesion h4,
+body.cuerpo-inicio-sesion h5,
+body.cuerpo-inicio-sesion h6 {
+    margin-top: 0;
+
+    color:
+        var(--peh-texto);
+
+    font-weight: 700;
+
+    line-height: 1.15;
+
+    letter-spacing: -0.025em;
+}
+
+
+
+body.cuerpo-inicio-sesion p {
+    margin-top: 0;
+}
+
+
+
+body.cuerpo-inicio-sesion .texto-suave {
+    color:
+        var(--peh-texto-suave);
+}
+
+
+
+body.cuerpo-inicio-sesion .texto-centrado {
+    text-align: center;
+}
+
+
+
+/* ==========================================================
+   CONTENEDOR GENERAL
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .contenedor {
+    width:
+        min(1180px, calc(100% - 40px));
+
+    margin-inline: auto;
+}
+
+
+
+/* ==========================================================
+   MARCA PEH
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .marca {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    width: fit-content;
+
+    color:
+        inherit;
+
+    text-decoration: none;
+}
+
+
+
+body.cuerpo-inicio-sesion .simbolo-marca {
+    font-size: 1.8rem;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+}
+
+
+
+/* ==========================================================
+   BOTONES GENERALES
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .boton {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding:
+        11px
+        18px;
+
+    border:
+        1px solid transparent;
+
+    border-radius:
+        var(--peh-radio);
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    transition:
+        background var(--peh-transicion),
+        border-color var(--peh-transicion),
+        color var(--peh-transicion),
+        transform var(--peh-transicion),
+        box-shadow var(--peh-transicion);
+}
+
+
+
+body.cuerpo-inicio-sesion .boton:hover {
+    transform:
+        translateY(-1px);
+}
+
+
+
+body.cuerpo-inicio-sesion .boton:active {
+    transform:
+        translateY(0);
+}
+
+
+
+body.cuerpo-inicio-sesion .boton:focus-visible {
+    outline:
+        3px solid
+        rgba(185, 120, 104, 0.25);
+
+    outline-offset: 3px;
+}
+
+
+
+/* Botón principal */
+
+body.cuerpo-inicio-sesion .boton-primario {
+    background:
+        var(--peh-terracota);
+
+    color:
+        var(--peh-blanco);
+
+    box-shadow:
+        0 8px 20px
+        rgba(185, 120, 104, 0.18);
+}
+
+
+
+body.cuerpo-inicio-sesion .boton-primario:hover {
+    background:
+        var(--peh-terracota-oscuro);
+
+    box-shadow:
+        0 11px 24px
+        rgba(159, 98, 85, 0.23);
+}
+
+
+
+/* Botón secundario */
+
+body.cuerpo-inicio-sesion .boton-secundario {
+    border-color:
+        var(--peh-borde);
+
+    background:
+        transparent;
+
+    color:
+        var(--peh-azul-oscuro);
+}
+
+
+
+body.cuerpo-inicio-sesion .boton-secundario:hover {
+    border-color:
+        rgba(102, 119, 132, 0.45);
+
+    background:
+        rgba(102, 119, 132, 0.07);
+}
+
+
+
+/* Botón claro */
+
+body.cuerpo-inicio-sesion .boton-claro {
+    background:
+        var(--peh-fondo-claro);
+
+    color:
+        var(--peh-azul-oscuro);
+}
+
+
+
+body.cuerpo-inicio-sesion .boton-claro:hover {
+    background:
+        var(--peh-blanco);
+}
+
+
+
+/* Botón ancho */
+
+body.cuerpo-inicio-sesion .boton-bloque {
+    width: 100%;
+}
+
+
+
+/* ==========================================================
+   CAMPOS DE FORMULARIO GENERALES
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .grupo-campo {
+    margin-bottom: 20px;
+}
+
+
+
+body.cuerpo-inicio-sesion .grupo-campo label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color:
+        var(--peh-texto);
+
+    font-size: 0.87rem;
+    font-weight: 600;
+}
+
+
+
+body.cuerpo-inicio-sesion .grupo-campo input,
+body.cuerpo-inicio-sesion .grupo-campo select,
+body.cuerpo-inicio-sesion .grupo-campo textarea {
+    width: 100%;
+
+    padding:
+        12px
+        14px;
+
+    border:
+        1px solid
+        var(--peh-borde);
+
+    border-radius:
+        var(--peh-radio);
+
+    outline: none;
+
+    background:
+        rgba(255, 255, 255, 0.75);
+
+    color:
+        var(--peh-texto);
+
+    transition:
+        border-color var(--peh-transicion),
+        box-shadow var(--peh-transicion),
+        background var(--peh-transicion);
+}
+
+
+
+body.cuerpo-inicio-sesion .grupo-campo input::placeholder,
+body.cuerpo-inicio-sesion .grupo-campo textarea::placeholder {
+    color:
+        #a4a09b;
+}
+
+
+
+body.cuerpo-inicio-sesion .grupo-campo input:focus,
+body.cuerpo-inicio-sesion .grupo-campo select:focus,
+body.cuerpo-inicio-sesion .grupo-campo textarea:focus {
+    border-color:
+        var(--peh-terracota);
+
+    background:
+        var(--peh-blanco);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(185, 120, 104, 0.10);
+}
+
+
+
+body.cuerpo-inicio-sesion textarea {
+    resize: vertical;
+}
+
+
+
+/* ==========================================================
+   VALIDACIONES
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .mensaje-error {
+    display: block;
+
+    margin-top: 6px;
+
+    color:
+        var(--peh-error);
+
+    font-size: 0.74rem;
+}
+
+
+
+body.cuerpo-inicio-sesion .grupo-campo.campo-error
+input:not([type="checkbox"]),
+body.cuerpo-inicio-sesion .grupo-campo.campo-error
+select,
+body.cuerpo-inicio-sesion .grupo-campo.campo-error
+textarea {
+    border-color:
+        var(--peh-error);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(184, 92, 92, 0.08);
+}
+
+
+
+body.cuerpo-inicio-sesion .grupo-campo.campo-valido
+input:not([type="checkbox"]),
+body.cuerpo-inicio-sesion .grupo-campo.campo-valido
+select,
+body.cuerpo-inicio-sesion .grupo-campo.campo-valido
+textarea {
+    border-color:
+        rgba(102, 128, 106, 0.65);
+}
+
+
+
+/* ==========================================================
+   TARJETAS GENERALES
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .tarjeta {
+    border:
+        1px solid
+        rgba(222, 216, 209, 0.75);
+
+    border-radius:
+        var(--peh-radio-grande);
+
+    background:
+        var(--peh-fondo-claro);
+
+    box-shadow:
+        var(--peh-sombra-suave);
+}
+
+
+
+/* ==========================================================
+   ETIQUETAS / CHIPS
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .etiqueta {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding:
+        6px
+        10px;
+
+    border-radius:
+        var(--peh-radio-redondo);
+
+    background:
+        var(--peh-azul-claro);
+
+    color:
+        var(--peh-azul-oscuro);
+
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+
+
+
+/* ==========================================================
+   ESTADOS
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .estado-exito {
+    color:
+        var(--peh-exito);
+}
+
+
+
+body.cuerpo-inicio-sesion .estado-error {
+    color:
+        var(--peh-error);
+}
+
+
+
+body.cuerpo-inicio-sesion .estado-advertencia {
+    color:
+        var(--peh-advertencia);
+}
+
+
+
+/* ==========================================================
+   ACCESIBILIDAD
+   ========================================================== */
+
+body.cuerpo-inicio-sesion :focus-visible {
+    outline:
+        3px solid
+        rgba(185, 120, 104, 0.28);
+
+    outline-offset: 3px;
+}
+
+
+
+/* ==========================================================
+   RESPONSIVE GENERAL
+   ========================================================== */
+
+@media  (max-width: 768px) {
+
+    body.cuerpo-inicio-sesion .contenedor {
+        width:
+            min(100% - 28px, 1180px);
+    }
+
+
+}
+
+/* ==========================================================
+   PEH - INDEX
+   Inicio de sesión y registro
+   ========================================================== */
+
+
+/* ==========================================================
+   CUERPO DEL INDEX
+   ========================================================== */
+
+body.cuerpo-inicio-sesion {
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eee6dc 0%,
+            var(--peh-fondo) 45%,
+            #f7f3ee 100%
+        );
+}
+
+
+
+/* ==========================================================
+   ESTRUCTURA PRINCIPAL
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .diseno-inicio-sesion {
+    display: grid;
+
+    grid-template-columns:
+        minmax(380px, 1fr)
+        minmax(500px, 1fr);
+
+    min-height: 100vh;
+}
+
+
+
+/* ==========================================================
+   PANEL IZQUIERDO
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .promocion-inicio-sesion {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    padding:
+        54px
+        64px
+        42px;
+
+    /*
+       La capa oscura permite leer el texto
+       sin ocultar demasiado la fotografía.
+    */
+    background:
+        linear-gradient(
+            90deg,
+            rgba(52, 54, 56, 0.45),
+            rgba(79, 96, 108, 0.25)
+        ),
+        url("/img/Loign.jpg");
+
+    background-size: cover;
+
+    /*
+       Si quieres mover el encuadre:
+       50% = centro
+       55%-65% = más hacia la derecha
+    */
+    background-position: 58% center;
+
+    background-repeat: no-repeat;
+
+    color:
+        var(--peh-fondo-claro);
+}
+
+
+
+/* ==========================================================
+   MARCA PEH
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .promocion-inicio-sesion .marca {
+    position: relative;
+
+    z-index: 1;
+}
+
+
+
+body.cuerpo-inicio-sesion .promocion-inicio-sesion .simbolo-marca {
+    color:
+        var(--peh-fondo-claro);
+
+    font-size: 2.15rem;
+}
+
+
+
+/* Pequeño detalle bajo PEH */
+
+body.cuerpo-inicio-sesion .promocion-inicio-sesion
+.simbolo-marca::after {
+    content: "";
+
+    display: block;
+
+    width: 34px;
+    height: 4px;
+
+    margin-top: 8px;
+
+    border-radius:
+        var(--peh-radio-redondo);
+
+    background:
+        var(--peh-coral);
+}
+
+
+
+/* ==========================================================
+   PRESENTACIÓN
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .texto-promocion {
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+    max-width: 590px;
+}
+
+
+
+body.cuerpo-inicio-sesion .subtitulo {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    color:
+        rgba(250, 248, 245, 0.82);
+
+    font-size: 0.77rem;
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+
+    text-shadow:
+        0 1px 8px
+        rgba(0, 0, 0, 0.18);
+}
+
+
+
+body.cuerpo-inicio-sesion .texto-promocion h1 {
+    max-width: 600px;
+
+    margin:
+        0
+        0
+        18px;
+
+    color:
+        var(--peh-fondo-claro);
+
+    font-size:
+        clamp(
+            3rem,
+            6vw,
+            5.5rem
+        );
+
+    line-height: 0.96;
+
+    letter-spacing: -0.055em;
+
+    text-shadow:
+        0 3px 18px
+        rgba(0, 0, 0, 0.22);
+}
+
+
+
+body.cuerpo-inicio-sesion .texto-promocion p {
+    max-width: 520px;
+
+    margin:
+        0
+        0
+        32px;
+
+    color:
+        rgba(250, 248, 245, 0.92);
+
+    font-size: 1.15rem;
+
+    line-height: 1.75;
+
+    text-shadow:
+        0 2px 10px
+        rgba(0, 0, 0, 0.20);
+}
+
+
+
+/* ==========================================================
+   ETIQUETAS DEL PANEL IZQUIERDO
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .etiquetas-promocion {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+
+
+body.cuerpo-inicio-sesion .etiquetas-promocion span {
+    padding:
+        8px
+        13px;
+
+    border:
+        1px solid
+        rgba(250, 248, 245, 0.30);
+
+    border-radius:
+        var(--peh-radio-redondo);
+
+    background:
+        rgba(52, 54, 56, 0.22);
+
+    color:
+        rgba(250, 248, 245, 0.95);
+
+    font-size: 0.8rem;
+    font-weight: 500;
+
+    backdrop-filter:
+        blur(5px);
+}
+
+
+
+/* ==========================================================
+   PIE DEL PANEL IZQUIERDO
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .pie-inicio-sesion {
+    position: relative;
+
+    z-index: 1;
+
+    margin: 0;
+
+    color:
+        rgba(250, 248, 245, 0.75);
+
+    font-size: 0.78rem;
+
+    text-shadow:
+        0 1px 7px
+        rgba(0, 0, 0, 0.20);
+}
+
+
+
+/* ==========================================================
+   PANEL DERECHO
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .panel-inicio-sesion {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 55px;
+
+    background:
+        var(--peh-fondo);
+}
+
+
+
+/* ==========================================================
+   CONTENEDOR DE LA TARJETA GIRATORIA
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .contenedor-tarjeta-giratoria {
+    width:
+        min(100%, 510px);
+
+    perspective: 1600px;
+
+    transition:
+        width 0.45s ease,
+        height 0.45s ease;
+}
+
+
+
+body.cuerpo-inicio-sesion .tarjeta-giratoria {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 580px;
+
+    transform-style:
+        preserve-3d;
+
+    transition:
+        transform 0.65s
+        cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        );
+}
+
+
+
+body.cuerpo-inicio-sesion .tarjeta-giratoria.girada {
+    transform:
+        rotateY(180deg);
+}
+
+
+
+/* ==========================================================
+   CARAS DE LA TARJETA
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .cara-tarjeta {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    backface-visibility: hidden;
+
+    -webkit-backface-visibility:
+        hidden;
+}
+
+
+
+body.cuerpo-inicio-sesion .cara-trasera {
+    transform:
+        rotateY(180deg);
+}
+
+
+
+/* ==========================================================
+   TARJETA LOGIN / REGISTRO
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .tarjeta-inicio-sesion {
+    padding:
+        42px
+        44px;
+
+    border:
+        1px solid
+        rgba(185, 120, 104, 0.12);
+
+    border-radius: 26px;
+
+    background:
+        rgba(250, 248, 245, 0.94);
+
+    box-shadow:
+        var(--peh-sombra);
+
+    backdrop-filter:
+        blur(18px);
+}
+
+
+
+body.cuerpo-inicio-sesion .tarjeta-inicio-sesion h2 {
+    margin:
+        18px
+        0
+        8px;
+
+    color:
+        var(--peh-texto);
+
+    font-size: 2rem;
+
+    line-height: 1.15;
+
+    letter-spacing: -0.035em;
+}
+
+
+
+body.cuerpo-inicio-sesion .tarjeta-inicio-sesion > .atenuado {
+    margin:
+        0
+        0
+        30px;
+}
+
+
+
+/* ==========================================================
+   TEXTO ATENUADO
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .atenuado {
+    color:
+        var(--peh-texto-suave);
+}
+
+
+
+/* ==========================================================
+   INDICADOR SUPERIOR
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .indicador-estado {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding:
+        7px
+        11px;
+
+    border-radius:
+        var(--peh-radio-redondo);
+
+    background:
+        rgba(217, 154, 143, 0.14);
+
+    color:
+        var(--peh-terracota-oscuro);
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    letter-spacing: 0.02em;
+}
+
+
+
+/* ==========================================================
+   FILA CONTRASEÑA / RECUPERAR CONTRASEÑA
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .fila-etiqueta {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+}
+
+
+
+body.cuerpo-inicio-sesion .fila-etiqueta a {
+    margin-bottom: 8px;
+
+    color:
+        var(--peh-azul);
+
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    transition:
+        color var(--peh-transicion);
+}
+
+
+
+body.cuerpo-inicio-sesion .fila-etiqueta a:hover {
+    color:
+        var(--peh-terracota);
+}
+
+
+
+/* ==========================================================
+   FILAS DEL REGISTRO
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .fila-campos-registro {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+
+
+/* ==========================================================
+   BOTÓN SECUNDARIO DEL INDEX
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .tarjeta-inicio-sesion
+.boton-secundario {
+    margin-top: 11px;
+}
+
+
+
+/* ==========================================================
+   CAMBIO ENTRE LOGIN Y REGISTRO
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .texto-cambio-formulario {
+    margin:
+        24px
+        0
+        0;
+}
+
+
+
+body.cuerpo-inicio-sesion .centrado {
+    text-align: center;
+}
+
+
+
+body.cuerpo-inicio-sesion .pequeno {
+    font-size: 0.83rem;
+}
+
+
+
+body.cuerpo-inicio-sesion .enlace-cambio {
+    padding: 0;
+
+    border: 0;
+
+    cursor: pointer;
+
+    background:
+        transparent;
+
+    color:
+        var(--peh-terracota-oscuro);
+
+    font: inherit;
+    font-weight: 700;
+
+    transition:
+        color var(--peh-transicion);
+}
+
+
+
+body.cuerpo-inicio-sesion .enlace-cambio:hover {
+    color:
+        var(--peh-terracota);
+}
+
+
+
+/* ==========================================================
+   AYUDAS DE LOS CAMPOS
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .sugerencia-campo {
+    display: block;
+
+    margin-top: 6px;
+
+    color:
+        var(--peh-texto-suave);
+
+    font-size: 0.72rem;
+
+    line-height: 1.45;
+}
+
+
+
+/* ==========================================================
+   CHECKBOX DEL REGISTRO
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .grupo-terminos {
+    margin-top: 4px;
+}
+
+
+
+body.cuerpo-inicio-sesion .etiqueta-checkbox {
+    display: flex !important;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    cursor: pointer;
+
+    color:
+        var(--peh-texto-suave) !important;
+
+    font-size: 0.77rem !important;
+    font-weight: 400 !important;
+
+    line-height: 1.5;
+}
+
+
+
+body.cuerpo-inicio-sesion .etiqueta-checkbox input {
+    flex: 0 0 auto;
+
+    width: 17px;
+    height: 17px;
+
+    margin-top: 2px;
+
+    accent-color:
+        var(--peh-terracota);
+}
+
+
+
+/* ==========================================================
+   MENSAJE GENERAL DEL REGISTRO
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .mensaje-formulario {
+    margin-bottom: 15px;
+
+    font-size: 0.78rem;
+
+    line-height: 1.5;
+}
+
+
+
+body.cuerpo-inicio-sesion .mensaje-formulario.error {
+    padding:
+        10px
+        12px;
+
+    border-radius:
+        var(--peh-radio-pequeno);
+
+    background:
+        rgba(184, 92, 92, 0.08);
+
+    color:
+        var(--peh-error);
+}
+
+
+
+body.cuerpo-inicio-sesion .mensaje-formulario.exito {
+    padding:
+        10px
+        12px;
+
+    border-radius:
+        var(--peh-radio-pequeno);
+
+    background:
+        rgba(102, 128, 106, 0.10);
+
+    color:
+        var(--peh-exito);
+}
+
+
+
+/* ==========================================================
+   TAMAÑO DEL REGISTRO
+   ========================================================== */
+
+body.cuerpo-inicio-sesion .contenedor-tarjeta-giratoria.modo-registro {
+    width:
+        min(100%, 590px);
+}
+
+
+
+body.cuerpo-inicio-sesion .contenedor-tarjeta-giratoria.modo-registro
+.tarjeta-giratoria {
+    min-height: 860px;
+}
+
+
+
+/* ==========================================================
+   RESPONSIVE - TABLET
+   ========================================================== */
+
+@media  (max-width: 1000px) {
+
+    body.cuerpo-inicio-sesion .diseno-inicio-sesion {
+        grid-template-columns:
+            0.85fr
+            1.15fr;
+    }
+
+
+
+    body.cuerpo-inicio-sesion .promocion-inicio-sesion {
+        padding:
+            45px
+            38px
+            36px;
+
+        background-position:
+            55% center;
+    }
+
+
+
+    body.cuerpo-inicio-sesion .panel-inicio-sesion {
+        padding: 38px;
+    }
+
+
+
+    body.cuerpo-inicio-sesion .texto-promocion h1 {
+        font-size:
+            clamp(
+                2.8rem,
+                7vw,
+                4.5rem
+            );
+    }
+
+
+}
+
+
+
+/* ==========================================================
+   RESPONSIVE - MÓVIL / TABLET PEQUEÑA
+   ========================================================== */
+
+@media  (max-width: 780px) {
+
+    body.cuerpo-inicio-sesion .diseno-inicio-sesion {
+        display: block;
+    }
+
+
+
+    body.cuerpo-inicio-sesion .promocion-inicio-sesion {
+        min-height: 620px;
+
+        padding:
+            32px
+            28px
+            38px;
+
+        /*
+           En móvil damos más protagonismo
+           a los animales.
+        */
+        background-position:
+            center;
+    }
+
+
+
+    body.cuerpo-inicio-sesion .texto-promocion {
+        margin-top: 75px;
+    }
+
+
+
+    body.cuerpo-inicio-sesion .texto-promocion h1 {
+        font-size: 3.4rem;
+    }
+
+
+
+    body.cuerpo-inicio-sesion .pie-inicio-sesion {
+        margin-top: 65px;
+    }
+
+
+
+    body.cuerpo-inicio-sesion .panel-inicio-sesion {
+        min-height: 720px;
+
+        padding:
+            45px
+            22px;
+    }
+
+
+
+    body.cuerpo-inicio-sesion .contenedor-tarjeta-giratoria {
+        max-width: 520px;
+    }
+
+
+}
+
+
+
+/* ==========================================================
+   RESPONSIVE - MÓVIL
+   ========================================================== */
+
+@media  (max-width: 560px) {
+
+    body.cuerpo-inicio-sesion .promocion-inicio-sesion {
+        min-height: 560px;
+
+        padding:
+            28px
+            22px
+            32px;
+    }
+
+
+
+    body.cuerpo-inicio-sesion .texto-promocion {
+        margin-top: 55px;
+    }
+
+
+
+    body.cuerpo-inicio-sesion .texto-promocion h1 {
+        font-size: 2.9rem;
+    }
+
+
+
+    body.cuerpo-inicio-sesion .texto-promocion p {
+        font-size: 1rem;
+    }
+
+
+
+    body.cuerpo-inicio-sesion .panel-inicio-sesion {
+        padding:
+            35px
+            16px;
+    }
+
+
+
+    body.cuerpo-inicio-sesion .tarjeta-inicio-sesion {
+        padding:
+            32px
+            24px;
+
+        border-radius: 20px;
+    }
+
+
+
+    body.cuerpo-inicio-sesion .fila-campos-registro {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+
+
+    body.cuerpo-inicio-sesion .contenedor-tarjeta-giratoria.modo-registro
+    .tarjeta-giratoria {
+        min-height: 1120px;
+    }
+
+
+
+    body.cuerpo-inicio-sesion .fila-etiqueta {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 0;
+    }
+
+
+}
+
+/* La cara oculta no debe alargar el documento ni reservar altura. */
+body.cuerpo-inicio-sesion .tarjeta-giratoria,
+body.cuerpo-inicio-sesion .contenedor-tarjeta-giratoria.modo-registro .tarjeta-giratoria {
+    min-height: 0;
+}
+
+body.cuerpo-inicio-sesion .cara-tarjeta[aria-hidden="false"] {
+    position: relative;
+}
+
+body.cuerpo-inicio-sesion .cara-tarjeta[aria-hidden="true"] {
+    height: 0;
+    overflow: clip;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* En escritorio el fondo permanece fijo; los formularios largos
+   pueden desplazarse dentro de su panel sin mover toda la página. */
+@media (min-width: 781px) {
+    body.cuerpo-inicio-sesion {
+        height: 100dvh;
+        overflow: hidden;
+    }
+
+    body.cuerpo-inicio-sesion .diseno-inicio-sesion {
+        height: 100dvh;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    body.cuerpo-inicio-sesion .promocion-inicio-sesion {
+        min-height: 0;
+    }
+
+    body.cuerpo-inicio-sesion .panel-inicio-sesion {
+        min-height: 0;
+        overflow-y: auto;
+        align-items: safe center;
+        padding-block: clamp(16px, 4vh, 55px);
+    }
+}

@@ -1,0 +1,2990 @@
+/* Veterinaria del HTML original, aislada del resto de las páginas y Bootstrap. */
+body.pagina-veterinaria, body.pagina-veterinaria *, body.pagina-veterinaria *::before, body.pagina-veterinaria *::after { all: revert; }
+
+/* ==========================================================
+   PEH - ESTILOS GENERALES
+   Patitas Esperando un Hogar
+   ========================================================== */
+
+/* ==========================================================
+   VARIABLES / IDENTIDAD VISUAL
+   ========================================================== */
+
+body.pagina-veterinaria {
+    /* Fondos */
+    --peh-fondo: #f3efe9;
+    --peh-fondo-claro: #faf8f5;
+    --peh-blanco: #ffffff;
+
+    /* Azul grisáceo */
+    --peh-azul: #667784;
+    --peh-azul-oscuro: #4f606c;
+    --peh-azul-claro: #dce3e6;
+
+    /* Terracota */
+    --peh-terracota: #b97868;
+    --peh-terracota-oscuro: #9f6255;
+    --peh-terracota-claro: #ead0c9;
+
+    /* Coral */
+    --peh-coral: #d99a8f;
+    --peh-coral-claro: #efd0c9;
+
+    /* Texto */
+    --peh-texto: #343638;
+    --peh-texto-suave: #74777a;
+
+    /* Bordes */
+    --peh-borde: #ded8d1;
+
+    /* Estados */
+    --peh-error: #b85c5c;
+    --peh-exito: #66806a;
+    --peh-advertencia: #b38a56;
+
+    /* Sombras */
+    --peh-sombra-suave:
+        0 8px 25px rgba(71, 62, 55, 0.08);
+
+    --peh-sombra:
+        0 20px 50px rgba(71, 62, 55, 0.12);
+
+    /* Bordes redondeados */
+    --peh-radio-pequeno: 8px;
+    --peh-radio: 12px;
+    --peh-radio-grande: 22px;
+    --peh-radio-redondo: 999px;
+
+    /* Transiciones */
+    --peh-transicion:
+        0.2s ease;
+}
+
+/* ==========================================================
+   RESET BÁSICO
+   ========================================================== */
+
+body.pagina-veterinaria * {
+    box-sizing: border-box;
+}
+
+body.pagina-veterinaria {
+    scroll-behavior: smooth;
+}
+
+body.pagina-veterinaria {
+    margin: 0;
+
+    background:
+        var(--peh-fondo);
+
+    color:
+        var(--peh-texto);
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    line-height: 1.5;
+}
+
+body.pagina-veterinaria img {
+    display: block;
+
+    max-width: 100%;
+}
+
+body.pagina-veterinaria button,
+body.pagina-veterinaria input,
+body.pagina-veterinaria select,
+body.pagina-veterinaria textarea {
+    font: inherit;
+}
+
+body.pagina-veterinaria button {
+    color: inherit;
+}
+
+body.pagina-veterinaria a {
+    color: inherit;
+
+    text-decoration: none;
+}
+
+/* ==========================================================
+   SELECCIÓN DE TEXTO
+   ========================================================== */
+
+body.pagina-veterinaria ::selection {
+    background:
+        var(--peh-terracota-claro);
+
+    color:
+        var(--peh-texto);
+}
+
+/* ==========================================================
+   SCROLLBAR
+   ========================================================== */
+
+body.pagina-veterinaria ::-webkit-scrollbar {
+    width: 10px;
+}
+
+body.pagina-veterinaria ::-webkit-scrollbar-track {
+    background:
+        var(--peh-fondo);
+}
+
+body.pagina-veterinaria ::-webkit-scrollbar-thumb {
+    border:
+        2px solid
+        var(--peh-fondo);
+
+    border-radius:
+        var(--peh-radio-redondo);
+
+    background:
+        var(--peh-azul);
+}
+
+body.pagina-veterinaria ::-webkit-scrollbar-thumb:hover {
+    background:
+        var(--peh-azul-oscuro);
+}
+
+/* ==========================================================
+   TIPOGRAFÍA GENERAL
+   ========================================================== */
+
+body.pagina-veterinaria h1,
+body.pagina-veterinaria h2,
+body.pagina-veterinaria h3,
+body.pagina-veterinaria h4,
+body.pagina-veterinaria h5,
+body.pagina-veterinaria h6 {
+    margin-top: 0;
+
+    color:
+        var(--peh-texto);
+
+    font-weight: 700;
+
+    line-height: 1.15;
+
+    letter-spacing: -0.025em;
+}
+
+body.pagina-veterinaria p {
+    margin-top: 0;
+}
+
+body.pagina-veterinaria .texto-suave {
+    color:
+        var(--peh-texto-suave);
+}
+
+body.pagina-veterinaria .texto-centrado {
+    text-align: center;
+}
+
+/* ==========================================================
+   CONTENEDOR GENERAL
+   ========================================================== */
+
+body.pagina-veterinaria .contenedor {
+    width:
+        min(1180px, calc(100% - 40px));
+
+    margin-inline: auto;
+}
+
+/* ==========================================================
+   MARCA PEH
+   ========================================================== */
+
+body.pagina-veterinaria .marca {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    width: fit-content;
+
+    color:
+        inherit;
+
+    text-decoration: none;
+}
+
+body.pagina-veterinaria .simbolo-marca {
+    font-size: 1.8rem;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+}
+
+/* ==========================================================
+   BOTONES GENERALES
+   ========================================================== */
+
+body.pagina-veterinaria .boton {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding:
+        11px
+        18px;
+
+    border:
+        1px solid transparent;
+
+    border-radius:
+        var(--peh-radio);
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    transition:
+        background var(--peh-transicion),
+        border-color var(--peh-transicion),
+        color var(--peh-transicion),
+        transform var(--peh-transicion),
+        box-shadow var(--peh-transicion);
+}
+
+body.pagina-veterinaria .boton:hover {
+    transform:
+        translateY(-1px);
+}
+
+body.pagina-veterinaria .boton:active {
+    transform:
+        translateY(0);
+}
+
+body.pagina-veterinaria .boton:focus-visible {
+    outline:
+        3px solid
+        rgba(185, 120, 104, 0.25);
+
+    outline-offset: 3px;
+}
+
+/* Botón principal */
+
+body.pagina-veterinaria .boton-primario {
+    background:
+        var(--peh-terracota);
+
+    color:
+        var(--peh-blanco);
+
+    box-shadow:
+        0 8px 20px
+        rgba(185, 120, 104, 0.18);
+}
+
+body.pagina-veterinaria .boton-primario:hover {
+    background:
+        var(--peh-terracota-oscuro);
+
+    box-shadow:
+        0 11px 24px
+        rgba(159, 98, 85, 0.23);
+}
+
+/* Botón secundario */
+
+body.pagina-veterinaria .boton-secundario {
+    border-color:
+        var(--peh-borde);
+
+    background:
+        transparent;
+
+    color:
+        var(--peh-azul-oscuro);
+}
+
+body.pagina-veterinaria .boton-secundario:hover {
+    border-color:
+        rgba(102, 119, 132, 0.45);
+
+    background:
+        rgba(102, 119, 132, 0.07);
+}
+
+/* Botón claro */
+
+body.pagina-veterinaria .boton-claro {
+    background:
+        var(--peh-fondo-claro);
+
+    color:
+        var(--peh-azul-oscuro);
+}
+
+body.pagina-veterinaria .boton-claro:hover {
+    background:
+        var(--peh-blanco);
+}
+
+/* Botón ancho */
+
+body.pagina-veterinaria .boton-bloque {
+    width: 100%;
+}
+
+/* ==========================================================
+   CAMPOS DE FORMULARIO GENERALES
+   ========================================================== */
+
+body.pagina-veterinaria .grupo-campo {
+    margin-bottom: 20px;
+}
+
+body.pagina-veterinaria .grupo-campo label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color:
+        var(--peh-texto);
+
+    font-size: 0.87rem;
+    font-weight: 600;
+}
+
+body.pagina-veterinaria .grupo-campo input,
+body.pagina-veterinaria .grupo-campo select,
+body.pagina-veterinaria .grupo-campo textarea {
+    width: 100%;
+
+    padding:
+        12px
+        14px;
+
+    border:
+        1px solid
+        var(--peh-borde);
+
+    border-radius:
+        var(--peh-radio);
+
+    outline: none;
+
+    background:
+        rgba(255, 255, 255, 0.75);
+
+    color:
+        var(--peh-texto);
+
+    transition:
+        border-color var(--peh-transicion),
+        box-shadow var(--peh-transicion),
+        background var(--peh-transicion);
+}
+
+body.pagina-veterinaria .grupo-campo input::placeholder,
+body.pagina-veterinaria .grupo-campo textarea::placeholder {
+    color:
+        #a4a09b;
+}
+
+body.pagina-veterinaria .grupo-campo input:focus,
+body.pagina-veterinaria .grupo-campo select:focus,
+body.pagina-veterinaria .grupo-campo textarea:focus {
+    border-color:
+        var(--peh-terracota);
+
+    background:
+        var(--peh-blanco);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(185, 120, 104, 0.10);
+}
+
+body.pagina-veterinaria textarea {
+    resize: vertical;
+}
+
+/* ==========================================================
+   VALIDACIONES
+   ========================================================== */
+
+body.pagina-veterinaria .mensaje-error {
+    display: block;
+
+    margin-top: 6px;
+
+    color:
+        var(--peh-error);
+
+    font-size: 0.74rem;
+}
+
+body.pagina-veterinaria .grupo-campo.campo-error
+input:not([type="checkbox"]),
+body.pagina-veterinaria .grupo-campo.campo-error
+select,
+body.pagina-veterinaria .grupo-campo.campo-error
+textarea {
+    border-color:
+        var(--peh-error);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(184, 92, 92, 0.08);
+}
+
+body.pagina-veterinaria .grupo-campo.campo-valido
+input:not([type="checkbox"]),
+body.pagina-veterinaria .grupo-campo.campo-valido
+select,
+body.pagina-veterinaria .grupo-campo.campo-valido
+textarea {
+    border-color:
+        rgba(102, 128, 106, 0.65);
+}
+
+/* ==========================================================
+   TARJETAS GENERALES
+   ========================================================== */
+
+body.pagina-veterinaria .tarjeta {
+    border:
+        1px solid
+        rgba(222, 216, 209, 0.75);
+
+    border-radius:
+        var(--peh-radio-grande);
+
+    background:
+        var(--peh-fondo-claro);
+
+    box-shadow:
+        var(--peh-sombra-suave);
+}
+
+/* ==========================================================
+   ETIQUETAS / CHIPS
+   ========================================================== */
+
+body.pagina-veterinaria .etiqueta {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding:
+        6px
+        10px;
+
+    border-radius:
+        var(--peh-radio-redondo);
+
+    background:
+        var(--peh-azul-claro);
+
+    color:
+        var(--peh-azul-oscuro);
+
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+
+/* ==========================================================
+   ESTADOS
+   ========================================================== */
+
+body.pagina-veterinaria .estado-exito {
+    color:
+        var(--peh-exito);
+}
+
+body.pagina-veterinaria .estado-error {
+    color:
+        var(--peh-error);
+}
+
+body.pagina-veterinaria .estado-advertencia {
+    color:
+        var(--peh-advertencia);
+}
+
+/* ==========================================================
+   ACCESIBILIDAD
+   ========================================================== */
+
+body.pagina-veterinaria :focus-visible {
+    outline:
+        3px solid
+        rgba(185, 120, 104, 0.28);
+
+    outline-offset: 3px;
+}
+
+/* ==========================================================
+   RESPONSIVE GENERAL
+   ========================================================== */
+
+@media  (max-width: 768px) {
+
+    body.pagina-veterinaria .contenedor {
+        width:
+            min(100% - 28px, 1180px);
+    }
+
+}
+
+/* ==========================================================
+   PEH - VETERINARIA
+   Patitas Esperando un Hogar
+   ========================================================== */
+
+/* ==========================================================
+   ESTILOS GENERALES
+   ========================================================== */
+
+body.pagina-veterinaria.pagina-veterinaria {
+
+    --vet-fondo:
+        #f3efe9;
+
+    --vet-fondo-claro:
+        #faf8f5;
+
+    --vet-terracota:
+        #b97868;
+
+    --vet-terracota-oscuro:
+        #9f6255;
+
+    --vet-terracota-suave:
+        #efd5c9;
+
+    --vet-azul:
+        #7893a0;
+
+    --vet-azul-oscuro:
+        #343638;
+
+    --vet-azul-suave:
+        #dce7eb;
+
+    --vet-texto:
+        #343638;
+
+    --vet-texto-suave:
+        #74777a;
+
+    --vet-blanco:
+        #ffffff;
+
+    --vet-borde:
+        #ded8d1;
+
+    --vet-sombra:
+        0 15px 40px rgba(53, 45, 40, 0.08);
+
+    margin:
+        0;
+
+    background:
+        var(--vet-fondo);
+
+    color:
+        var(--vet-texto);
+
+    font-family:
+        "Inter", sans-serif;
+
+}
+
+body.pagina-veterinaria.pagina-veterinaria *,
+body.pagina-veterinaria.pagina-veterinaria *::before,
+body.pagina-veterinaria.pagina-veterinaria *::after {
+
+    box-sizing:
+        border-box;
+
+}
+
+body.pagina-veterinaria.pagina-veterinaria [hidden] {
+
+    display:
+        none !important;
+
+}
+
+body.pagina-veterinaria.pagina-veterinaria #reservar,
+body.pagina-veterinaria.pagina-veterinaria #servicios {
+
+    scroll-margin-top:
+        105px;
+
+}
+
+/* ==========================================================
+   PRESENTACIÓN
+   ========================================================== */
+
+body.pagina-veterinaria .hero-veterinaria {
+
+    padding:
+        28px 0 30px;
+
+}
+
+body.pagina-veterinaria .hero-veterinaria-contenido {
+
+    min-height:
+        300px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(0, 1fr) minmax(0, 1fr);
+
+    overflow:
+        hidden;
+
+    border-radius:
+        20px;
+
+    background:
+        #faf8f5;
+
+    box-shadow:
+        var(--vet-sombra);
+
+    border:
+        1px solid #ded8d1;
+
+}
+
+body.pagina-veterinaria .hero-veterinaria-imagen {
+
+    position:
+        relative;
+
+    min-height:
+        300px;
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    justify-content:
+        center;
+
+    overflow:
+        hidden;
+
+    padding:
+        40px;
+
+    background:
+        #eaded5 url("/img/Loign.jpg") center / cover no-repeat;
+
+    grid-column:
+        2;
+
+    grid-row:
+        1;
+
+}
+
+body.pagina-veterinaria .hero-veterinaria-texto {
+
+    position:
+        relative;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+    align-items:
+        flex-start;
+
+    padding:
+        32px;
+
+    color:
+        var(--vet-blanco);
+
+    grid-column:
+        1;
+
+    grid-row:
+        1;
+
+    background:
+        transparent;
+
+}
+
+body.pagina-veterinaria .hero-veterinaria-etiqueta {
+
+    display:
+        inline-flex;
+
+    margin-bottom:
+        15px;
+
+    padding:
+        8px 14px;
+
+    border:
+        1px solid #ead0c9;
+
+    border-radius:
+        999px;
+
+    background:
+        #f5e5dc;
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.8px;
+
+    color:
+        #9f6255;
+
+}
+
+body.pagina-veterinaria .hero-veterinaria-texto h1 {
+
+    margin:
+        0;
+
+    font-size:
+        clamp(2.3rem, 4vw, 3.5rem);
+
+    line-height:
+        0.95;
+
+    letter-spacing:
+        -2px;
+
+}
+
+body.pagina-veterinaria .hero-veterinaria-texto h2 {
+
+    margin:
+        15px 0 13px;
+
+    max-width:
+        520px;
+
+    font-size:
+        1.25rem;
+
+    line-height:
+        1.5;
+
+    font-weight:
+        500;
+
+}
+
+body.pagina-veterinaria .hero-veterinaria-texto p {
+
+    max-width:
+        560px;
+
+    margin:
+        0 0 25px;
+
+    color:
+        #74777a;
+
+    font-size:
+        .95rem;
+
+    line-height:
+        1.65;
+
+}
+
+body.pagina-veterinaria.pagina-veterinaria .boton {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        9px;
+
+    min-height:
+        46px;
+
+    padding:
+        12px 20px;
+
+    border:
+        0;
+
+    border-radius:
+        13px;
+
+    text-decoration:
+        none;
+
+    font-family:
+        inherit;
+
+    font-size:
+        14px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+
+}
+
+body.pagina-veterinaria.pagina-veterinaria .boton:hover {
+
+    transform:
+        translateY(-2px);
+
+}
+
+body.pagina-veterinaria .boton-claro {
+
+    background:
+        #b97868;
+
+    color:
+        #fff;
+
+    box-shadow:
+        0 8px 25px rgba(31, 54, 67, 0.15);
+
+}
+
+body.pagina-veterinaria .boton-claro:hover {
+
+    background:
+        #fff8f3;
+
+}
+
+body.pagina-veterinaria .boton-primario {
+
+    background:
+        var(--vet-terracota);
+
+    color:
+        var(--vet-blanco);
+
+    box-shadow:
+        0 8px 22px rgba(185, 87, 63, 0.20);
+
+}
+
+body.pagina-veterinaria .boton-primario:hover {
+
+    background:
+        var(--vet-terracota-oscuro);
+
+}
+
+body.pagina-veterinaria .encabezado-seccion {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        15px;
+
+    margin-bottom:
+        23px;
+
+}
+
+body.pagina-veterinaria .icono-seccion {
+
+    flex:
+        0 0 auto;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    border-radius:
+        15px;
+
+    background:
+        var(--vet-terracota-suave);
+
+    color:
+        var(--vet-terracota);
+
+    font-size:
+        23px;
+
+}
+
+body.pagina-veterinaria .sobre-titulo {
+
+    display:
+        block;
+
+    margin-bottom:
+        4px;
+
+    color:
+        var(--vet-terracota);
+
+    font-size:
+        11px;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        1px;
+
+}
+
+body.pagina-veterinaria .encabezado-seccion h2,
+body.pagina-veterinaria .encabezado-reserva h2 {
+
+    margin:
+        0;
+
+    color:
+        var(--vet-azul-oscuro);
+
+    font-size:
+        clamp(25px, 3vw, 32px);
+
+    line-height:
+        1.1;
+
+}
+
+body.pagina-veterinaria .encabezado-seccion p,
+body.pagina-veterinaria .encabezado-reserva p {
+
+    margin:
+        6px 0 0;
+
+    color:
+        var(--vet-texto-suave);
+
+    font-size:
+        14px;
+
+    line-height:
+        1.6;
+
+}
+
+body.pagina-veterinaria .seccion-servicios {
+
+    padding:
+        0 0 32px;
+
+}
+
+/* ==========================================================
+   SERVICIOS VETERINARIOS
+   ========================================================== */
+
+body.pagina-veterinaria .lista-servicios {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(6, minmax(0, 1fr));
+
+    gap:
+        18px;
+
+}
+
+body.pagina-veterinaria .tarjeta-servicio {
+
+    position:
+        relative;
+
+    min-height:
+        155px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        22px;
+
+    border:
+        1px solid var(--vet-borde);
+
+    border-radius:
+        16px;
+
+    background:
+        #faf8f5;
+
+    color:
+        var(--vet-texto);
+
+    font-family:
+        inherit;
+
+    text-align:
+        center;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        none;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+
+    grid-column:
+        span 2;
+
+}
+
+body.pagina-veterinaria .tarjeta-servicio:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(185, 87, 63, 0.30);
+
+    background:
+        var(--vet-blanco);
+
+    box-shadow:
+        0 15px 30px rgba(70, 51, 42, 0.09);
+
+}
+
+body.pagina-veterinaria .tarjeta-servicio.seleccionado,
+body.pagina-veterinaria .tarjeta-servicio[aria-pressed="true"] {
+
+    border-color:
+        var(--vet-terracota);
+
+    background:
+        linear-gradient(
+        180deg,
+        #fffaf6,
+        #f8e8df
+    );
+
+    box-shadow:
+        0 12px 28px rgba(185, 87, 63, 0.13);
+
+}
+
+body.pagina-veterinaria .tarjeta-servicio.seleccionado::after,
+body.pagina-veterinaria .tarjeta-servicio[aria-pressed="true"]::after {
+
+    content:
+        "✓";
+
+    position:
+        absolute;
+
+    top:
+        12px;
+
+    right:
+        12px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        24px;
+
+    height:
+        24px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--vet-terracota);
+
+    color:
+        var(--vet-blanco);
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+}
+
+body.pagina-veterinaria .servicio-icono {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-height:
+        58px;
+
+    margin-bottom:
+        12px;
+
+    font-size:
+        42px;
+
+    transition:
+        transform 0.2s ease;
+
+}
+
+body.pagina-veterinaria .tarjeta-servicio:hover .servicio-icono {
+
+    transform:
+        scale(1.08);
+
+}
+
+body.pagina-veterinaria .tarjeta-servicio strong {
+
+    margin-bottom:
+        8px;
+
+    color:
+        var(--vet-azul-oscuro);
+
+    font-size:
+        15px;
+
+}
+
+body.pagina-veterinaria .tarjeta-servicio p {
+
+    margin:
+        0;
+
+    color:
+        var(--vet-texto-suave);
+
+    font-size:
+        .86rem;
+
+    line-height:
+        1.6;
+
+}
+
+body.pagina-veterinaria .seccion-reserva {
+
+    padding:
+        0 0 32px;
+
+}
+
+/* ==========================================================
+   RESERVA Y ORIENTACIÓN
+   ========================================================== */
+
+body.pagina-veterinaria .reserva-contenido {
+
+    position:
+        relative;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(0, 1.8fr) minmax(260px, .85fr);
+
+    overflow:
+        hidden;
+
+    border-radius:
+        20px;
+
+    background:
+        #faf8f5;
+
+    box-shadow:
+        var(--vet-sombra);
+
+    border:
+        1px solid #ded8d1;
+
+    gap:
+        0;
+
+}
+
+body.pagina-veterinaria .reserva-formulario {
+
+    position:
+        relative;
+
+    z-index:
+        3;
+
+    min-width:
+        0;
+
+    padding:
+        28px;
+
+}
+
+body.pagina-veterinaria .encabezado-reserva {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        15px;
+
+    margin-bottom:
+        28px;
+
+}
+
+body.pagina-veterinaria .reserva-icono {
+
+    flex:
+        0 0 auto;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    border-radius:
+        15px;
+
+    background:
+        var(--vet-terracota);
+
+    color:
+        var(--vet-blanco);
+
+    font-size:
+        22px;
+
+}
+
+body.pagina-veterinaria .campos-reserva {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        20px;
+
+}
+
+body.pagina-veterinaria .grupo-campo {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    min-width:
+        0;
+
+}
+
+body.pagina-veterinaria .grupo-campo label {
+
+    margin-bottom:
+        8px;
+
+    color:
+        var(--vet-azul-oscuro);
+
+    font-size:
+        .87rem;
+
+    font-weight:
+        700;
+
+}
+
+body.pagina-veterinaria .grupo-campo label span {
+
+    margin-left:
+        5px;
+
+    color:
+        var(--vet-texto-suave);
+
+    font-size:
+        11px;
+
+    font-weight:
+        500;
+
+}
+
+body.pagina-veterinaria .grupo-campo input,
+body.pagina-veterinaria .grupo-campo select,
+body.pagina-veterinaria .grupo-campo textarea {
+
+    width:
+        100%;
+
+    min-width:
+        0;
+
+    padding:
+        13px 14px;
+
+    border:
+        1px solid rgba(39, 57, 71, 0.12);
+
+    border-radius:
+        11px;
+
+    outline:
+        none;
+
+    background:
+        rgba(255, 255, 255, 0.82);
+
+    color:
+        var(--vet-texto);
+
+    font-family:
+        inherit;
+
+    font-size:
+        13px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+
+}
+
+body.pagina-veterinaria .grupo-campo input::placeholder,
+body.pagina-veterinaria .grupo-campo textarea::placeholder {
+
+    color:
+        #8b9298;
+
+}
+
+body.pagina-veterinaria .grupo-campo select {
+
+    min-height:
+        47px;
+
+    cursor:
+        pointer;
+
+}
+
+body.pagina-veterinaria .grupo-campo textarea {
+
+    min-height:
+        90px;
+
+    resize:
+        vertical;
+
+}
+
+body.pagina-veterinaria .grupo-campo input:focus,
+body.pagina-veterinaria .grupo-campo select:focus,
+body.pagina-veterinaria .grupo-campo textarea:focus {
+
+    border-color:
+        var(--vet-terracota);
+
+    background:
+        var(--vet-blanco);
+
+    box-shadow:
+        0 0 0 4px rgba(185, 87, 63, 0.10);
+
+}
+
+body.pagina-veterinaria #nombreMascotaReserva {
+
+    min-height:
+        47px;
+
+}
+
+body.pagina-veterinaria #nombreMascotaReserva:focus {
+
+    border-color:
+        var(--vet-terracota);
+
+    background:
+        var(--vet-blanco);
+
+}
+
+body.pagina-veterinaria #nombreMascotaReserva:not(:placeholder-shown) {
+
+    color:
+        var(--vet-azul-oscuro);
+
+}
+
+body.pagina-veterinaria .campo-observaciones {
+
+    margin-top:
+        18px;
+
+}
+
+body.pagina-veterinaria .campo-observaciones textarea {
+
+    line-height:
+        1.6;
+
+}
+
+body.pagina-veterinaria .ayuda-observaciones {
+
+    display:
+        block;
+
+    margin-top:
+        7px;
+
+    color:
+        var(--vet-texto-suave);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.5;
+
+}
+
+body.pagina-veterinaria .mensaje-error {
+
+    display:
+        block;
+
+    min-height:
+        16px;
+
+    margin-top:
+        5px;
+
+    color:
+        #a43d35;
+
+    font-size:
+        11px;
+
+    line-height:
+        1.5;
+
+}
+
+body.pagina-veterinaria .campo-error input,
+body.pagina-veterinaria .campo-error select,
+body.pagina-veterinaria .campo-error textarea,
+body.pagina-veterinaria .grupo-campo [aria-invalid="true"] {
+
+    border-color:
+        #b8473f;
+
+    background:
+        #fff8f7;
+
+}
+
+body.pagina-veterinaria .campo-error input:focus,
+body.pagina-veterinaria .campo-error select:focus,
+body.pagina-veterinaria .campo-error textarea:focus {
+
+    border-color:
+        #b8473f;
+
+    box-shadow:
+        0 0 0 4px rgba(184, 71, 63, 0.10);
+
+}
+
+body.pagina-veterinaria .campo-error .mensaje-error {
+
+    color:
+        #a43d35;
+
+    font-weight:
+        600;
+
+}
+
+body.pagina-veterinaria .campo-error .ayuda-observaciones {
+
+    color:
+        #a43d35;
+
+}
+
+body.pagina-veterinaria .boton-reservar {
+
+    width:
+        100%;
+
+    min-height:
+        44px;
+
+    margin-top:
+        22px;
+
+    font-size:
+        .9rem;
+
+}
+
+body.pagina-veterinaria .boton-reservar:disabled {
+
+    opacity:
+        0.6;
+
+    cursor:
+        not-allowed;
+
+    transform:
+        none;
+
+}
+
+body.pagina-veterinaria .reserva-visual {
+
+    position:
+        relative;
+
+    min-height:
+        500px;
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    justify-content:
+        center;
+
+    padding:
+        28px;
+
+    overflow:
+        hidden;
+
+    min-width:
+        0;
+
+    flex-direction:
+        column;
+
+    background:
+        #f7ede5;
+
+    gap:
+        16px;
+
+}
+
+body.pagina-veterinaria .mensaje-reserva {
+
+    margin-top:
+        18px;
+
+}
+
+body.pagina-veterinaria .mensaje-reserva:empty {
+
+    display:
+        none;
+
+}
+
+body.pagina-veterinaria .mensaje-reserva.exito {
+
+    display:
+        block;
+
+    padding:
+        15px;
+
+    border:
+        1px solid rgba(71, 130, 88, 0.20);
+
+    border-radius:
+        14px;
+
+    background:
+        #edf7ef;
+
+}
+
+body.pagina-veterinaria .confirmacion-reserva {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        12px;
+
+}
+
+body.pagina-veterinaria .confirmacion-icono {
+
+    flex:
+        0 0 auto;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        32px;
+
+    height:
+        32px;
+
+    border-radius:
+        50%;
+
+    background:
+        #5e936a;
+
+    color:
+        white;
+
+    font-weight:
+        800;
+
+}
+
+body.pagina-veterinaria .confirmacion-reserva strong {
+
+    color:
+        #345d3e;
+
+    font-size:
+        13px;
+
+}
+
+body.pagina-veterinaria .confirmacion-reserva p {
+
+    margin:
+        4px 0 0;
+
+    color:
+        #52705a;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.5;
+
+}
+
+body.pagina-veterinaria .mensaje-reserva.error {
+
+    display:
+        block;
+
+    padding:
+        13px 15px;
+
+    border:
+        1px solid rgba(184, 71, 63, 0.15);
+
+    border-radius:
+        12px;
+
+    background:
+        #fbe9e7;
+
+    color:
+        #9a3e37;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.6;
+
+}
+
+body.pagina-veterinaria .seccion-consejos {
+
+    padding:
+        0 0 32px;
+
+}
+
+body.pagina-veterinaria .lista-consejos {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap:
+        16px;
+
+}
+
+body.pagina-veterinaria .tarjeta-consejo {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        17px;
+
+    min-height:
+        125px;
+
+    padding:
+        22px;
+
+    border:
+        1px solid var(--vet-borde);
+
+    border-radius:
+        16px;
+
+    background:
+        #faf8f5;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+body.pagina-veterinaria .tarjeta-consejo:hover {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(185, 87, 63, 0.25);
+
+    background:
+        var(--vet-blanco);
+
+    box-shadow:
+        0 10px 25px rgba(57, 48, 43, 0.08);
+
+}
+
+body.pagina-veterinaria .consejo-icono {
+
+    flex:
+        0 0 auto;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        58px;
+
+    height:
+        58px;
+
+    border-radius:
+        18px;
+
+    background:
+        var(--vet-terracota-suave);
+
+    color:
+        var(--vet-terracota);
+
+    font-size:
+        28px;
+
+    transition:
+        transform 0.2s ease;
+
+}
+
+body.pagina-veterinaria .tarjeta-consejo:hover .consejo-icono {
+
+    transform:
+        scale(1.08);
+
+}
+
+body.pagina-veterinaria .tarjeta-consejo h3 {
+
+    margin:
+        0 0 7px;
+
+    color:
+        var(--vet-azul-oscuro);
+
+    font-size:
+        1rem;
+
+}
+
+body.pagina-veterinaria .tarjeta-consejo p {
+
+    margin:
+        0;
+
+    color:
+        var(--vet-texto-suave);
+
+    font-size:
+        .86rem;
+
+    line-height:
+        1.55;
+
+}
+
+body.pagina-veterinaria .consejo-ver-mas {
+
+    display:
+        inline-block;
+
+    margin-top:
+        12px;
+
+    color:
+        var(--vet-terracota);
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+body.pagina-veterinaria .tarjeta-consejo:hover .consejo-ver-mas {
+
+    color:
+        var(--vet-terracota-oscuro);
+
+    transform:
+        translateX(4px);
+
+}
+
+/* ==========================================================
+   MODAL DE CONSEJOS
+   ========================================================== */
+
+body.pagina-veterinaria .modal-consejo {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        1000;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        24px;
+
+}
+
+body.pagina-veterinaria .modal-consejo[hidden] {
+
+    display:
+        none !important;
+
+}
+
+body.pagina-veterinaria .modal-consejo-fondo {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background:
+        rgba(25, 39, 48, 0.68);
+
+    backdrop-filter:
+        blur(6px);
+
+    -webkit-backdrop-filter:
+        blur(6px);
+
+}
+
+body.pagina-veterinaria .modal-consejo-contenido {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    width:
+        min(100%, 550px);
+
+    max-height:
+        min(85vh, 750px);
+
+    overflow-y:
+        auto;
+
+    padding:
+        38px;
+
+    border:
+        1px solid rgba(185, 87, 63, 0.12);
+
+    border-radius:
+        25px;
+
+    background:
+        var(--vet-fondo-claro);
+
+    color:
+        var(--vet-texto);
+
+    box-shadow:
+        0 25px 70px rgba(20, 33, 41, 0.25);
+
+    animation:
+        aparecerConsejo 0.25s ease both;
+
+}
+
+/* ==========================================================
+   ANIMACIÓN · aparecerConsejo
+   ========================================================== */
+
+@keyframes aparecerConsejo {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(15px) scale(0.97);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0) scale(1);
+
+    }
+
+}
+
+body.pagina-veterinaria .modal-consejo-cerrar {
+
+    position:
+        absolute;
+
+    top:
+        17px;
+
+    right:
+        17px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        38px;
+
+    height:
+        38px;
+
+    padding:
+        0;
+
+    border:
+        0;
+
+    border-radius:
+        12px;
+
+    background:
+        var(--vet-terracota-suave);
+
+    color:
+        var(--vet-terracota-oscuro);
+
+    font-family:
+        inherit;
+
+    font-size:
+        27px;
+
+    line-height:
+        1;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+body.pagina-veterinaria .modal-consejo-cerrar:hover {
+
+    background:
+        #e6b9a7;
+
+    transform:
+        rotate(90deg);
+
+}
+
+body.pagina-veterinaria .modal-consejo-icono {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        70px;
+
+    height:
+        70px;
+
+    margin-bottom:
+        20px;
+
+    border-radius:
+        20px;
+
+    background:
+        var(--vet-terracota-suave);
+
+    font-size:
+        35px;
+
+}
+
+body.pagina-veterinaria .modal-consejo-contenido h2 {
+
+    margin:
+        0 45px 20px 0;
+
+    color:
+        var(--vet-azul-oscuro);
+
+    font-size:
+        clamp(24px, 4vw, 30px);
+
+    line-height:
+        1.2;
+
+}
+
+body.pagina-veterinaria #contenidoModalConsejo p {
+
+    margin:
+        0 0 15px;
+
+    color:
+        var(--vet-texto);
+
+    font-size:
+        14px;
+
+    line-height:
+        1.75;
+
+}
+
+body.pagina-veterinaria #contenidoModalConsejo p:last-child {
+
+    margin-bottom:
+        0;
+
+}
+
+body.pagina-veterinaria .modal-consejo-aviso {
+
+    margin:
+        25px 0 0;
+
+    padding:
+        15px;
+
+    border-left:
+        3px solid var(--vet-terracota);
+
+    border-radius:
+        0 10px 10px 0;
+
+    background:
+        #f5e6dc;
+
+    color:
+        var(--vet-texto-suave);
+
+    font-size:
+        12px;
+
+    line-height:
+        1.6;
+
+}
+
+body.pagina-veterinaria .seccion-ayuda-veterinaria {
+
+    padding:
+        0 0 32px;
+
+}
+
+body.pagina-veterinaria .ayuda-veterinaria-contenido {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    padding:
+        25px;
+
+    border-radius:
+        18px;
+
+    background:
+        #faf8f5;
+
+    color:
+        var(--vet-azul-oscuro);
+
+    box-shadow:
+        var(--vet-sombra);
+
+    flex-wrap:
+        wrap;
+
+}
+
+body.pagina-veterinaria .ayuda-veterinaria-texto {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        18px;
+
+    min-width:
+        0;
+
+    flex:
+        1 1 240px;
+
+}
+
+body.pagina-veterinaria .ayuda-icono {
+
+    flex:
+        0 0 auto;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        52px;
+
+    height:
+        52px;
+
+    border:
+        2px solid rgba(38, 63, 80, 0.65);
+
+    border-radius:
+        50%;
+
+    font-size:
+        20px;
+
+}
+
+body.pagina-veterinaria .ayuda-veterinaria-texto h2 {
+
+    margin:
+        0 0 5px;
+
+    font-size:
+        20px;
+
+}
+
+body.pagina-veterinaria .ayuda-veterinaria-texto p {
+
+    margin:
+        0;
+
+    color:
+        rgba(38, 63, 80, 0.78);
+
+    font-size:
+        13px;
+
+}
+
+body.pagina-veterinaria .boton-secundario {
+
+    flex-shrink:
+        0;
+
+    min-width:
+        145px;
+
+    background:
+        var(--vet-azul-oscuro);
+
+    color:
+        var(--vet-blanco);
+
+}
+
+body.pagina-veterinaria .boton-secundario:hover {
+
+    background:
+        #182f3e;
+
+}
+
+body.pagina-veterinaria.pagina-veterinaria .pie-pagina {
+
+    margin-top:
+        20px;
+
+    padding:
+        38px 0;
+
+    border-top:
+        1px solid var(--vet-borde);
+
+    background:
+        #f0e9e2;
+
+}
+
+body.pagina-veterinaria .pie-contenido {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr auto 1fr;
+
+    align-items:
+        center;
+
+    gap:
+        30px;
+
+}
+
+body.pagina-veterinaria .pie-contenido strong {
+
+    color:
+        var(--vet-azul-oscuro);
+
+    font-size:
+        20px;
+
+}
+
+body.pagina-veterinaria .pie-contenido p {
+
+    margin:
+        4px 0 0;
+
+    color:
+        var(--vet-texto-suave);
+
+    font-size:
+        11px;
+
+}
+
+body.pagina-veterinaria .enlaces-pie {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        22px;
+
+}
+
+body.pagina-veterinaria .enlaces-pie a {
+
+    color:
+        var(--vet-texto-suave);
+
+    text-decoration:
+        none;
+
+    font-size:
+        12px;
+
+    font-weight:
+        600;
+
+    transition:
+        color 0.2s ease;
+
+}
+
+body.pagina-veterinaria .enlaces-pie a:hover {
+
+    color:
+        var(--vet-terracota);
+
+}
+
+body.pagina-veterinaria .copyright {
+
+    justify-self:
+        end;
+
+}
+
+body.pagina-veterinaria.pagina-veterinaria button:focus-visible,
+body.pagina-veterinaria.pagina-veterinaria a:focus-visible,
+body.pagina-veterinaria .tarjeta-consejo:focus-visible {
+
+    outline:
+        3px solid var(--vet-terracota);
+
+    outline-offset:
+        4px;
+
+}
+
+body.pagina-veterinaria .modal-consejo-contenido:focus {
+
+    outline:
+        none;
+
+}
+
+/* ==========================================================
+   MOVIMIENTO REDUCIDO
+   ========================================================== */
+
+@media  (prefers-reduced-motion: reduce) {
+
+    body.pagina-veterinaria.pagina-veterinaria *,
+body.pagina-veterinaria.pagina-veterinaria *::before,
+body.pagina-veterinaria.pagina-veterinaria *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        scroll-behavior:
+            auto !important;
+
+    }
+
+}
+
+body.pagina-veterinaria {
+
+    scroll-behavior:
+        smooth;
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 900px)
+   ========================================================== */
+
+@media  (max-width: 900px) {
+
+    body.pagina-veterinaria .lista-consejos {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 680px)
+   ========================================================== */
+
+@media  (max-width: 680px) {
+
+    body.pagina-veterinaria.pagina-veterinaria .contenedor {
+
+        width:
+            min(calc(100% - 26px), 1180px);
+
+    }
+
+    body.pagina-veterinaria .encabezado-reserva {
+
+        gap:
+            12px;
+
+    }
+
+    body.pagina-veterinaria .modal-consejo {
+
+        padding:
+            15px;
+
+    }
+
+    body.pagina-veterinaria .modal-consejo-contenido {
+
+        width:
+            100%;
+
+        max-height:
+            88vh;
+
+        padding:
+            30px 23px;
+
+        border-radius:
+            20px;
+
+    }
+
+    body.pagina-veterinaria .modal-consejo-icono {
+
+        width:
+            60px;
+
+        height:
+            60px;
+
+        font-size:
+            30px;
+
+    }
+
+    body.pagina-veterinaria .modal-consejo-contenido h2 {
+
+        font-size:
+            25px;
+
+    }
+
+    body.pagina-veterinaria #contenidoModalConsejo p {
+
+        font-size:
+            13px;
+
+    }
+
+    body.pagina-veterinaria .ayuda-veterinaria-texto {
+
+        align-items:
+            flex-start;
+
+    }
+
+    body.pagina-veterinaria .boton-secundario {
+
+        width:
+            100%;
+
+    }
+
+    body.pagina-veterinaria .pie-contenido {
+
+        grid-template-columns:
+            1fr;
+
+        text-align:
+            center;
+
+    }
+
+    body.pagina-veterinaria .enlaces-pie {
+
+        justify-content:
+            center;
+
+        flex-wrap:
+            wrap;
+
+    }
+
+    body.pagina-veterinaria .copyright {
+
+        justify-self:
+            center;
+
+    }
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 420px)
+   ========================================================== */
+
+@media  (max-width: 420px) {
+
+    body.pagina-veterinaria .encabezado-seccion {
+
+        gap:
+            11px;
+
+    }
+
+    body.pagina-veterinaria .icono-seccion,
+body.pagina-veterinaria .reserva-icono {
+
+        width:
+            42px;
+
+        height:
+            42px;
+
+        border-radius:
+            13px;
+
+        font-size:
+            19px;
+
+    }
+
+    body.pagina-veterinaria .encabezado-seccion h2,
+body.pagina-veterinaria .encabezado-reserva h2 {
+
+        font-size:
+            24px;
+
+    }
+
+    body.pagina-veterinaria .modal-consejo-contenido {
+
+        padding:
+            26px 18px;
+
+    }
+
+    body.pagina-veterinaria .modal-consejo-cerrar {
+
+        top:
+            12px;
+
+        right:
+            12px;
+
+    }
+
+}
+
+body.pagina-veterinaria.pagina-veterinaria .contenedor {
+
+    margin:
+        0 auto;
+
+    width:
+        min(1200px, calc(100% - 80px));
+
+}
+
+body.pagina-veterinaria .tarjeta-servicio:nth-last-child(-n + 2) {
+
+    grid-column:
+        span 3;
+
+}
+
+body.pagina-veterinaria .reserva-visual h3 {
+
+    font-size:
+        1.4rem;
+
+    margin:
+        0;
+
+}
+
+body.pagina-veterinaria .reserva-visual p {
+
+    font-size:
+        .9rem;
+
+    line-height:
+        1.7;
+
+    margin:
+        0;
+
+    color:
+        #74777a;
+
+}
+
+body.pagina-veterinaria .enlace-reservas-perfil {
+
+    color:
+        #9f6255;
+
+    font-size:
+        .9rem;
+
+    font-weight:
+        700;
+
+    text-decoration:
+        none;
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 1000px)
+   ========================================================== */
+
+@media  (max-width: 1000px) {
+
+    body.pagina-veterinaria.pagina-veterinaria .contenedor {
+
+        width:
+            calc(100% - 40px);
+
+    }
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 900px)
+   ========================================================== */
+
+@media  (max-width: 900px) {
+
+    body.pagina-veterinaria .reserva-contenido {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    body.pagina-veterinaria .hero-veterinaria-contenido {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    body.pagina-veterinaria .hero-veterinaria-texto {
+
+        grid-column:
+            1;
+
+        grid-row:
+            1;
+
+    }
+
+    body.pagina-veterinaria .hero-veterinaria-imagen {
+
+        grid-column:
+            1;
+
+        grid-row:
+            2;
+
+        min-height:
+            240px;
+
+    }
+
+    body.pagina-veterinaria .lista-servicios {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+    body.pagina-veterinaria .tarjeta-servicio,
+body.pagina-veterinaria .tarjeta-servicio:nth-last-child(-n + 2) {
+
+        grid-column:
+            auto;
+
+    }
+
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE · (max-width: 600px)
+   ========================================================== */
+
+@media  (max-width: 600px) {
+
+    body.pagina-veterinaria.pagina-veterinaria .contenedor {
+
+        width:
+            calc(100% - 28px);
+
+    }
+
+    body.pagina-veterinaria .lista-servicios,
+body.pagina-veterinaria .lista-consejos,
+body.pagina-veterinaria .campos-reserva {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    body.pagina-veterinaria .reserva-formulario,
+body.pagina-veterinaria .reserva-visual,
+body.pagina-veterinaria .hero-veterinaria-texto {
+
+        padding:
+            22px;
+
+    }
+
+    body.pagina-veterinaria .ayuda-veterinaria-contenido {
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+    }
+
+    body.pagina-veterinaria .ayuda-veterinaria-contenido .boton {
+
+        min-width:
+            0;
+
+        max-width:
+            100%;
+
+        width:
+            100%;
+
+    }
+
+}
+
+body.pagina-veterinaria .campo-ancho {
+
+    grid-column:
+        1 / -1;
+
+}
+
+body.pagina-veterinaria .mensaje-error:empty {
+
+    display:
+        none;
+
+}
+
+/* Restaura el espacio nativo de la fecha que Bootstrap modifica. */
+body.pagina-veterinaria input::-webkit-datetime-edit-fields-wrapper,
+body.pagina-veterinaria input::-webkit-datetime-edit-text,
+body.pagina-veterinaria input::-webkit-datetime-edit-minute,
+body.pagina-veterinaria input::-webkit-datetime-edit-hour-field,
+body.pagina-veterinaria input::-webkit-datetime-edit-day-field,
+body.pagina-veterinaria input::-webkit-datetime-edit-month-field,
+body.pagina-veterinaria input::-webkit-datetime-edit-year-field { padding: revert; }

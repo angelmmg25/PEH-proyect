@@ -1,0 +1,958 @@
+<!doctype html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="PEH conecta animales que buscan un hogar con personas dispuestas a darles una nueva oportunidad."
+    >
+
+    <title>PEH | Encuentra a tu compañero</title>
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         ESTILOS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/principal.css"
+    >
+
+    <link rel="stylesheet" href="../css/navegacion.css">
+</head>
+
+
+<body class="pagina-principal">
+
+
+    <!-- =====================================================
+         CABECERA
+    ====================================================== -->
+
+    <header class="cabecera-global">
+        <div class="contenedor cabecera-contenido">
+            <a
+                class="marca marca-principal"
+                href="principal.html"
+                aria-label="Ir al inicio de PEH"
+            >
+                <span class="simbolo-marca">
+                    PEH
+                </span>
+                <span class="nombre-marca">
+                    Patitas Esperando
+                    <span>
+                        un Hogar
+                    </span>
+                </span>
+            </a>
+            <nav
+                id="navegacionGlobal"
+                class="navegacion-principal"
+                aria-label="Navegación principal"
+            >
+                <a
+                    class="enlace-navegacion activo"
+                    href="principal.html"
+                    aria-current="page"
+                >
+                    Inicio
+                </a>
+                <a
+                    class="enlace-navegacion"
+                    href="principal.html#animales"
+                >
+                    Animales
+                </a>
+                <a
+                    class="enlace-navegacion"
+                    href="comunidad.html"
+                >
+                    Comunidad
+                </a>
+                <a
+                    class="enlace-navegacion"
+                    href="veterinaria.html"
+                >
+                    Veterinaria
+                </a>
+                <a
+                    class="enlace-navegacion"
+                    href="perfil.html"
+                >
+                    Perfil
+                </a>
+                <a
+                    class="enlace-navegacion"
+                    href="contacto.html"
+                >
+                    Contacto
+                </a>
+            </nav>
+            <button
+                class="boton-menu"
+                id="botonMenu"
+                type="button"
+                aria-label="Abrir menú"
+                aria-controls="navegacionGlobal"
+                aria-expanded="false"
+            >
+                <span>
+                </span>
+                <span>
+                </span>
+                <span>
+                </span>
+            </button>
+        </div>
+    </header>
+
+
+
+    <main class="inicio-peh">
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="hero-principal">
+
+            <div class="contenedor hero-contenido">
+
+
+                <div class="hero-texto">
+
+                    <span class="hero-etiqueta">
+                        Patitas Esperando un Hogar
+                    </span>
+
+
+                    <h1>
+                        Encuentra a quien
+                        <span>
+                            estaba esperando por ti.
+                        </span>
+                    </h1>
+
+
+                    <p>
+                        Conoce animales que buscan una nueva
+                        oportunidad y descubre quién podría
+                        convertirse en tu próximo compañero.
+                    </p>
+
+
+                    <a
+                        class="boton boton-primario hero-boton"
+                        href="#animales"
+                    >
+                        Conocerlos
+
+                        <span aria-hidden="true">
+                            ↓
+                        </span>
+                    </a>
+
+                </div>
+
+
+                <!--
+                    Más adelante podemos utilizar aquí una
+                    fotografía diferente a la del login.
+                -->
+
+                <div
+                    class="hero-imagen"
+                    aria-hidden="true"
+                >
+
+                    <div class="hero-mensaje">
+
+                        <span>
+                            Una nueva historia
+                        </span>
+
+                        puede comenzar hoy.
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ANIMALES EN ADOPCIÓN
+        ================================================== -->
+
+        <section
+            class="seccion-animales"
+            id="animales"
+        >
+
+            <div class="contenedor">
+
+
+                <!-- Encabezado -->
+
+                <div class="encabezado-seccion">
+
+                    <div>
+
+                        <span class="sobre-titulo">
+                            Adopción
+                        </span>
+
+                        <h2>
+                            Encuentra a tu compañero
+                        </h2>
+
+                        <p>
+                            Conoce sus historias, personalidades
+                            y el tipo de hogar que necesitan.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================================
+                     FILTROS
+                ========================================== -->
+
+                <div
+                    class="barra-filtros"
+                    aria-label="Filtros de animales"
+                >
+
+
+                    <!-- Especie -->
+
+                    <div
+                        class="filtros-especie"
+                        role="group"
+                        aria-label="Filtrar por especie"
+                    >
+
+                        <button
+                            class="filtro-especie activo"
+                            type="button"
+                            data-especie="todos"
+                        >
+                            Todos
+                        </button>
+
+                        <button
+                            class="filtro-especie"
+                            type="button"
+                            data-especie="perro"
+                        >
+                            Perros
+                        </button>
+
+                        <button
+                            class="filtro-especie"
+                            type="button"
+                            data-especie="gato"
+                        >
+                            Gatos
+                        </button>
+
+                        <button
+                            class="filtro-especie"
+                            type="button"
+                            data-especie="otro"
+                        >
+                            Otros · Próximamente
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- Filtros secundarios -->
+
+                    <div class="filtros-secundarios">
+
+
+                        <label
+                            class="selector-filtro"
+                            for="filtroComuna"
+                        >
+
+                            <span>
+                                Comuna
+                            </span>
+
+                            <select id="filtroComuna">
+
+                                <option value="todas">
+                                    Todas
+                                </option>
+
+                                <option value="macul">
+                                    Macul
+                                </option>
+
+                                <option value="nunoa">
+                                    Ñuñoa
+                                </option>
+
+                                <option value="la-florida">
+                                    La Florida
+                                </option>
+
+                                <option value="puente-alto">
+                                    Puente Alto
+                                </option>
+
+                                <option value="penalolen">
+                                    Peñalolén
+                                </option>
+
+                                <option value="san-miguel">
+                                    San Miguel
+                                </option>
+
+                            </select>
+
+                        </label>
+
+
+                        <button
+                            class="boton-mas-filtros"
+                            id="botonMasFiltros"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="panelFiltros"
+                        >
+
+                            Más filtros
+
+                            <span aria-hidden="true">
+                                +
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================================
+                     FILTROS AVANZADOS
+                ========================================== -->
+
+                <div
+                    class="panel-filtros"
+                    id="panelFiltros"
+                    hidden
+                >
+
+
+                    <!-- Tamaño -->
+
+                    <div class="grupo-filtro">
+
+                        <label for="filtroTamano">
+                            Tamaño
+                        </label>
+
+                        <select id="filtroTamano">
+
+                            <option value="todos">
+                                Todos
+                            </option>
+
+                            <option value="pequeno">
+                                Pequeño
+                            </option>
+
+                            <option value="mediano">
+                                Mediano
+                            </option>
+
+                            <option value="grande">
+                                Grande
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Hogar -->
+
+                    <div class="grupo-filtro">
+
+                        <label for="filtroHogar">
+                            Tipo de hogar
+                        </label>
+
+                        <select id="filtroHogar">
+
+                            <option value="todos">
+                                Cualquiera
+                            </option>
+
+                            <option value="departamento">
+                                Departamento
+                            </option>
+
+                            <option value="casa">
+                                Casa
+                            </option>
+
+                            <option value="espacio-amplio">
+                                Espacio amplio
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Convivencia -->
+
+                    <div class="grupo-filtro">
+
+                        <label for="filtroConvivencia">
+                            Convivencia
+                        </label>
+
+                        <select id="filtroConvivencia">
+
+                            <option value="todos">
+                                Sin preferencia
+                            </option>
+
+                            <option value="ninos">
+                                Convive con niños
+                            </option>
+
+                            <option value="perros">
+                                Convive con perros
+                            </option>
+
+                            <option value="gatos">
+                                Convive con gatos
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Sexo -->
+
+                    <div class="grupo-filtro">
+
+                        <label for="filtroSexo">
+                            Sexo
+                        </label>
+
+                        <select id="filtroSexo">
+
+                            <option value="todos">
+                                Todos
+                            </option>
+
+                            <option value="macho">
+                                Macho
+                            </option>
+
+                            <option value="hembra">
+                                Hembra
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!--
+                        La edad existe, pero deliberadamente
+                        no forma parte de los filtros
+                        principales de PEH.
+                    -->
+
+                    <div class="grupo-filtro">
+
+                        <label for="filtroEdad">
+                            Edad
+                        </label>
+
+                        <select id="filtroEdad">
+
+                            <option value="todas">
+                                Sin preferencia
+                            </option>
+
+                            <option value="menos-2">
+                                Hasta 2 años
+                            </option>
+
+                            <option value="2-7">
+                                Entre 2 y 7 años
+                            </option>
+
+                            <option value="mas-7">
+                                Más de 7 años
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <button
+                        class="limpiar-filtros"
+                        id="botonLimpiarFiltros"
+                        type="button"
+                    >
+                        Limpiar filtros
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- =========================================
+                     RESULTADOS
+                ========================================== -->
+
+                <div class="informacion-resultados">
+
+                    <p id="textoResultados">
+                        Conoce a quienes están buscando hogar.
+                    </p>
+
+                </div>
+
+
+
+                <!-- =========================================
+                     CATÁLOGO DE ANIMALES
+
+                     Las tarjetas serán creadas por JS.
+                ========================================== -->
+
+                <div
+                    class="catalogo-animales"
+                    id="catalogoAnimales"
+                    aria-live="polite"
+                >
+                </div>
+
+
+
+                <!-- Sin resultados -->
+
+                <div
+                    class="sin-resultados"
+                    id="sinResultados"
+                    hidden
+                >
+
+                    <span
+                        class="sin-resultados-icono"
+                        aria-hidden="true"
+                    >
+                        ♡
+                    </span>
+
+                    <h3>
+                        No encontramos coincidencias
+                    </h3>
+
+                    <p>
+                        Prueba cambiando algunos filtros.
+                        Puede haber un compañero esperándote
+                        un poco más allá.
+                    </p>
+
+                    <button
+                        class="boton boton-secundario"
+                        id="botonRestablecerFiltros"
+                        type="button"
+                    >
+                        Ver todos
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             LLEVAN MÁS TIEMPO ESPERANDO
+        ================================================== -->
+
+        <section class="seccion-espera">
+
+            <div class="contenedor">
+
+
+                <div class="bloque-espera">
+
+
+                    <div class="texto-espera">
+
+                        <span class="sobre-titulo">
+                            Una oportunidad más
+                        </span>
+
+                        <h2>
+                            Llevan un poco más esperando
+                        </h2>
+
+                        <p>
+                            Algunos compañeros aún no han
+                            encontrado el lugar indicado.
+                            Aquí les damos un poco más de
+                            espacio para que puedan ser
+                            conocidos.
+                        </p>
+
+                    </div>
+
+
+                    <!-- JS colocará aquí animales con
+                         menor exposición -->
+
+                    <div
+                        class="animales-espera"
+                        id="animalesEspera"
+                    >
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             COMUNIDAD
+        ================================================== -->
+
+        <section class="seccion-comunidad">
+
+            <div class="contenedor comunidad-contenido">
+
+
+                <div class="comunidad-presentacion">
+
+                    <span class="sobre-titulo">
+                        Tu comunidad
+                    </span>
+
+                    <h2>
+                        Ayudar también puede empezar cerca
+                        de ti.
+                    </h2>
+
+                    <p>
+                        Descubre publicaciones, actividades
+                        y animales que necesitan ayuda en
+                        tu comuna y sectores cercanos.
+                    </p>
+
+                    <a
+                        class="boton boton-secundario"
+                        href="comunidad.html"
+                    >
+                        Ir a Comunidad
+                    </a>
+
+                </div>
+
+
+
+                <div class="opciones-comunidad">
+
+
+                    <a
+                        class="tarjeta-comunidad"
+                        href="comunidad.html?tipo=perdidos"
+                    >
+
+                        <span
+                            class="icono-comunidad"
+                            aria-hidden="true"
+                        >
+                            ?
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                Animales perdidos
+                            </h3>
+
+                            <p>
+                                Ayuda a que puedan volver
+                                a casa.
+                            </p>
+
+                        </div>
+
+                        <span
+                            class="flecha-tarjeta"
+                            aria-hidden="true"
+                        >
+                            →
+                        </span>
+
+                    </a>
+
+
+
+                    <a
+                        class="tarjeta-comunidad"
+                        href="comunidad.html?tipo=encontrados"
+                    >
+
+                        <span
+                            class="icono-comunidad"
+                            aria-hidden="true"
+                        >
+                            +
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                Animales encontrados
+                            </h3>
+
+                            <p>
+                                Informa sobre un animal
+                                que necesita ayuda.
+                            </p>
+
+                        </div>
+
+                        <span
+                            class="flecha-tarjeta"
+                            aria-hidden="true"
+                        >
+                            →
+                        </span>
+
+                    </a>
+
+
+
+                    <a
+                        class="tarjeta-comunidad"
+                        href="comunidad.html?tipo=jornadas"
+                    >
+
+                        <span
+                            class="icono-comunidad"
+                            aria-hidden="true"
+                        >
+                            ○
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                Jornadas y actividades
+                            </h3>
+
+                            <p>
+                                Conoce eventos y campañas
+                                de tu sector.
+                            </p>
+
+                        </div>
+
+                        <span
+                            class="flecha-tarjeta"
+                            aria-hidden="true"
+                        >
+                            →
+                        </span>
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             VETERINARIA
+        ================================================== -->
+
+        <section class="seccion-veterinaria">
+
+            <div class="contenedor veterinaria-contenido">
+
+
+                <div>
+
+                    <span class="sobre-titulo">
+                        Cuidado
+                    </span>
+
+                    <h2>
+                        Su bienestar también forma parte
+                        de la historia.
+                    </h2>
+
+                    <p>
+                        Reserva servicios veterinarios
+                        para cuidar a tu compañero antes
+                        y después de la adopción.
+                    </p>
+
+                </div>
+
+
+                <a
+                    class="boton boton-primario"
+                    href="veterinaria.html"
+                >
+                    Ver veterinaria
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         PIE DE PÁGINA
+    ====================================================== -->
+
+    <footer class="pie-pagina pie-inicio">
+
+        <div class="contenedor pie-contenido">
+
+
+            <div>
+
+                <strong>
+                    PEH
+                </strong>
+
+                <p>
+                    Patitas Esperando un Hogar
+                </p>
+
+            </div>
+
+
+            <nav
+                class="enlaces-pie"
+                aria-label="Enlaces del pie de página"
+            >
+
+                <a href="principal.html">
+                    Inicio
+                </a>
+
+                <a href="comunidad.html">
+                    Comunidad
+                </a>
+
+                <a href="veterinaria.html">
+                    Veterinaria
+                </a>
+
+                <a href="contacto.html">
+                    Ayuda
+                </a>
+
+            </nav>
+
+
+            <p class="copyright">
+                © 2026 PEH
+            </p>
+
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../js/app.js"></script>
+    <script src="../js/animales.js"></script>
+    <script src="../js/principal.js"></script>
+
+
+</body>
+
+</html>

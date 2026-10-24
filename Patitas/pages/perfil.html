@@ -1,0 +1,1047 @@
+<!doctype html>
+
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        >
+        <meta
+            name="description"
+            content="Gestiona tu perfil, procesos de adopción, reservas veterinarias y configuración de cuenta en PEH."
+        >
+        <title>
+            Mi perfil | PEH
+        </title>
+
+        <!-- =====================================================
+        GOOGLE FONTS
+        ====================================================== -->
+
+        <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+        >
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin
+        >
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+            rel="stylesheet"
+        >
+
+        <!-- =====================================================
+        ESTILOS
+        ====================================================== -->
+
+        <link
+            rel="stylesheet"
+            href="../css/style.css"
+        >
+        <link
+            rel="stylesheet"
+            href="../css/perfil.css"
+        >
+        <link
+            rel="stylesheet"
+            href="../css/navegacion.css"
+        >
+    </head>
+    <body class="pagina-perfil">
+
+        <!-- =====================================================
+        CABECERA
+        ====================================================== -->
+
+        <header class="cabecera-global">
+
+            <div class="contenedor cabecera-contenido">
+                <a
+                    class="marca marca-principal"
+                    href="principal.html"
+                    aria-label="Ir al inicio de PEH"
+                >
+                    <span class="simbolo-marca">
+                        PEH
+                    </span>
+                    <span class="nombre-marca">
+                        Patitas Esperando
+                        <span>
+                            un Hogar
+                        </span>
+                    </span>
+                </a>
+                <nav
+                    id="navegacionGlobal"
+                    class="navegacion-principal"
+                    aria-label="Navegación principal"
+                >
+
+                    <a
+                        class="enlace-navegacion"
+                        href="principal.html"
+                    >
+                        Inicio
+                    </a>
+                    <a
+                        class="enlace-navegacion"
+                        href="principal.html#animales"
+                    >
+                        Animales
+                    </a>
+                    <a
+                        class="enlace-navegacion"
+                        href="comunidad.html"
+                    >
+                        Comunidad
+                    </a>
+                    <a
+                        class="enlace-navegacion"
+                        href="veterinaria.html"
+                    >
+                        Veterinaria
+                    </a>
+                    <a
+                        class="enlace-navegacion activo"
+                        href="perfil.html"
+                        aria-current="page"
+                    >
+                        Perfil
+                    </a>
+                    <a
+                        class="enlace-navegacion"
+                        href="contacto.html"
+                    >
+                        Contacto
+                    </a>
+                </nav>
+
+                <button
+                    class="boton-menu"
+                    id="botonMenu"
+                    type="button"
+                    aria-label="Abrir menú"
+                    aria-controls="navegacionGlobal"
+                    aria-expanded="false"
+                >
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                </button>
+            </div>
+
+        </header>
+
+        <main class="perfil-limpio">
+
+
+            <!-- =================================================
+            PRESENTACIÓN DEL PERFIL
+            ================================================== -->
+
+            <section class="hero-perfil">
+
+                <div class="contenedor hero-perfil-contenido">
+                    <div class="hero-perfil-texto">
+                        <span class="miga-navegacion">
+                            Inicio
+                            <span>
+                                ›
+                            </span>
+                            Perfil
+                        </span>
+                        <h1>
+                            Tu espacio dentro de
+                            <span>
+                                PEH
+                            </span>
+                        </h1>
+                        <p>
+                            Gestiona tus procesos, reservas y configuración desde un solo lugar.
+                        </p>
+                    </div>
+
+                    <span
+                        class="detalle-perfil"
+                        aria-hidden="true"
+                    >
+                        🐾
+                    </span>
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+            CUENTA Y RESUMEN
+            ================================================== -->
+
+            <section class="seccion-perfil">
+
+                <div class="contenedor perfil-layout">
+                    <aside
+                        class="menu-lateral-perfil"
+                        aria-label="Cuenta y secciones del perfil"
+                    >
+
+                        <div class="identidad-lateral">
+                            <div class="foto-perfil-contenedor">
+                                <div
+                                    class="foto-perfil"
+                                    id="fotoPerfil"
+                                    aria-hidden="true"
+                                >
+                                    👤
+                                </div>
+
+                                <label
+                                    class="boton-cambiar-foto"
+                                    for="inputFotoPerfil"
+                                    title="Cambiar foto de perfil"
+                                >
+                                    📷
+                                </label>
+                                <input
+                                    id="inputFotoPerfil"
+                                    type="file"
+                                    accept="image/*"
+                                    hidden
+                                >
+                            </div>
+
+                            <div class="datos-usuario-perfil">
+                                <h2 id="nombrePerfil">
+                                    Usuario PEH
+                                </h2>
+                                <p>
+                                    <span>
+                                        ✉
+                                    </span>
+                                    <span id="correoPerfil">
+                                        usuario@correo.com
+                                    </span>
+                                </p>
+                                <p class="miembro-desde">
+                                    <span>
+                                        ▣
+                                    </span>
+                                    Miembro de PEH
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="separador-menu-perfil">
+                        </div>
+
+                        <nav
+                            class="navegacion-perfil"
+                            aria-label="Secciones del perfil"
+                        >
+
+                            <button
+                                class="opcion-menu-perfil activo"
+                                type="button"
+                                data-seccion="inicioPerfil"
+                            >
+                                <span>
+                                    ⌂
+                                </span>
+                                Inicio
+                            </button>
+                            <button
+                                class="opcion-menu-perfil"
+                                type="button"
+                                data-seccion="adopcionPerfil"
+                            >
+                                <span>
+                                    🐾
+                                </span>
+                                Mi adopción
+                            </button>
+                            <button
+                                class="opcion-menu-perfil"
+                                type="button"
+                                data-seccion="reservasPerfil"
+                            >
+                                <span>
+                                    ▣
+                                </span>
+                                Mis reservas
+                            </button>
+                            <button
+                                class="opcion-menu-perfil"
+                                type="button"
+                                id="botonDatosPersonales"
+                            >
+                                <span>
+                                    ♙
+                                </span>
+                                Mi cuenta
+                            </button>
+                            <button
+                                class="opcion-menu-perfil"
+                                type="button"
+                                data-seccion="notificacionesPerfil"
+                            >
+                                <span>
+                                    ♧
+                                </span>
+                                Notificaciones
+                            </button>
+                            <div class="separador-menu-perfil">
+                            </div>
+
+                            <button
+                                class="opcion-menu-perfil opcion-secundaria"
+                                id="botonPreferenciasAdopcion"
+                                type="button"
+                            >
+                                <span aria-hidden="true">
+                                    ♡
+                                </span>
+                                Preferencias de adopción
+                            </button>
+                            <button
+                                class="opcion-menu-perfil opcion-secundaria"
+                                id="botonSeguridad"
+                                type="button"
+                            >
+                                <span aria-hidden="true">
+                                    ⚙
+                                </span>
+                                Seguridad y privacidad
+                            </button>
+                            <button
+                                class="opcion-menu-perfil opcion-secundaria"
+                                id="botonNotificaciones"
+                                type="button"
+                            >
+                                <span aria-hidden="true">
+                                    ♧
+                                </span>
+                                Preferencias de notificación
+                            </button>
+                            <div class="separador-menu-perfil">
+                            </div>
+
+                            <button
+                                class="opcion-menu-perfil cerrar-sesion-lateral"
+                                id="cerrarSesionLateral"
+                                type="button"
+                            >
+                                <span>
+                                    ↪
+                                </span>
+                                Cerrar sesión
+                            </button>
+                        </nav>
+
+                    </aside>
+
+                    <div class="contenido-perfil">
+                        <section
+                            class="bienvenida-perfil"
+                            id="inicioPerfil"
+                        >
+
+                            <div>
+                                <h2 id="saludoPerfil">
+                                    ¡Hola!
+                                </h2>
+                                <p>
+                                    Aquí puedes revisar tus procesos de adopción, tus reservas y los datos para acompañarte en ellos.
+                                </p>
+                                <button
+                                    class="boton-editar-perfil"
+                                    id="botonEditarPerfil"
+                                    type="button"
+                                >
+                                    ✎ Editar perfil
+                                </button>
+                            </div>
+
+                            <span
+                                class="detalle-perfil"
+                                aria-hidden="true"
+                            >
+                                🐾
+                            </span>
+                        </section>
+
+                        <section class="resumen-perfil">
+
+                            <div class="titulo-seccion-perfil">
+                                <span class="icono-titulo-perfil">
+                                    🐾
+                                </span>
+                                <div>
+                                    <h2>
+                                        Tu resumen
+                                    </h2>
+                                    <p>
+                                        Un vistazo a lo más importante en este momento.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="tarjetas-resumen">
+                                <article
+                                    class="tarjeta-resumen tarjeta-adopcion"
+                                    id="adopcionPerfil"
+                                    role="button"
+                                    tabindex="0"
+                                    aria-label="Ver historial de solicitudes de adopción"
+                                    aria-haspopup="dialog"
+                                    aria-controls="modalHistorialAdopciones"
+                                >
+                                    <header class="cabecera-resumen">
+
+                                        <span class="icono-resumen">
+                                            🐾
+                                        </span>
+                                        <h3>
+                                            Mis procesos de adopción
+                                        </h3>
+                                    </header>
+
+
+                                    <!-- RESUMEN DE SOLICITUDES -->
+
+                                    <div
+                                        class="resumen-historial-adopcion"
+                                        id="resumenHistorialAdopcion"
+                                        aria-live="polite"
+                                    >
+                                        <div class="contenido-resumen-adopcion">
+                                            <div
+                                                class="imagen-animal-resumen"
+                                                aria-hidden="true"
+                                            >
+                                                🐾
+                                            </div>
+
+                                            <div class="datos-adopcion-resumen">
+                                                <h4>
+                                                    Mis solicitudes
+                                                </h4>
+                                                <p>
+                                                    Todavía no tienes solicitudes de adopción registradas.
+                                                </p>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <span class="enlace-historial-adopciones">
+                                        Ver historial completo →
+                                    </span>
+
+                                    <!-- HISTORIAL COMPLETO -->
+
+                                    <div
+                                        class="historial-adopciones"
+                                        id="historialAdopciones"
+                                        aria-label="Historial de solicitudes de adopción"
+                                    >
+                                    </div>
+
+                                </article>
+
+                                <article
+                                    class="tarjeta-resumen tarjeta-reserva"
+                                    id="reservasPerfil"
+                                    role="button"
+                                    tabindex="0"
+                                    aria-label="Ver historial de reservas veterinarias"
+                                    aria-haspopup="dialog"
+                                    aria-controls="modalHistorialReservas"
+                                >
+                                    <header class="cabecera-resumen">
+
+                                        <span
+                                            class="icono-resumen"
+                                            aria-hidden="true"
+                                        >
+                                            ♡
+                                        </span>
+                                        <h3>
+                                            Próxima reserva veterinaria
+                                        </h3>
+                                    </header>
+
+
+                                    <!-- RESUMEN DINÁMICO DE RESERVAS -->
+
+                                    <div
+                                        class="contenido-resumen-reserva"
+                                        id="resumenReservaVeterinaria"
+                                        aria-live="polite"
+                                    >
+                                        <div
+                                            class="imagen-animal-resumen"
+                                            aria-hidden="true"
+                                        >
+                                            🐾
+                                        </div>
+
+                                        <div class="datos-reserva-resumen">
+                                            <h4>
+                                                Consultando reservas...
+                                            </h4>
+                                            <p>
+                                                Aquí aparecerá tu próxima cita veterinaria.
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                    <span class="enlace-historial-reservas">
+                                        Ver historial completo →
+                                    </span>
+                                </article>
+
+                            </div>
+
+                        </section>
+
+                        <section
+                            class="panel-notificaciones-perfil"
+                            id="notificacionesPerfil"
+                        >
+
+                            <div class="titulo-seccion-perfil">
+                                <span class="icono-titulo-perfil">
+                                    🔔
+                                </span>
+                                <div>
+                                    <h2>
+                                        Notificaciones
+                                    </h2>
+                                    <p>
+                                        Mantente al tanto de tus procesos importantes dentro de PEH.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div
+                                class="lista-notificaciones-perfil"
+                                id="listaNotificacionesPerfil"
+                                aria-live="polite"
+                            >
+                            </div>
+
+                        </section>
+
+                        <section class="ayuda-perfil">
+
+                            <div class="ayuda-perfil-contenido">
+                                <span
+                                    class="huella-ayuda"
+                                    aria-hidden="true"
+                                >
+                                    🐾
+                                </span>
+                                <div>
+                                    <h2>
+                                        ¿Necesitas ayuda?
+                                    </h2>
+                                    <p>
+                                        Si tienes dudas sobre tu proceso de adopción, reservas o tu cuenta, estamos aquí para ayudarte.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <a
+                                href="contacto.html"
+                                class="boton-soporte-perfil"
+                            >
+                                ◯ Contactar soporte
+                            </a>
+                        </section>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+        <footer class="pie-perfil-limpio">
+
+            <div class="contenedor">
+                <p>
+                    © 2026 PEH · Patitas Esperando un Hogar
+                </p>
+                <blockquote class="frase-perfil">
+                    “Los animales no cambian el mundo, pero sí el mundo de un animal.”
+                    <span>
+                        ♥
+                    </span>
+                </blockquote>
+            </div>
+
+        </footer>
+
+
+        <!-- =====================================================
+        MODAL EDITAR PERFIL
+        ====================================================== -->
+
+        <div
+            class="modal-perfil"
+            id="modalEditarPerfil"
+            hidden
+        >
+            <div
+                class="fondo-modal-perfil"
+                data-cerrar-modal
+            >
+            </div>
+
+            <section
+                class="contenido-modal-perfil"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="tituloModalPerfil"
+            >
+
+                <button
+                    class="cerrar-modal-perfil"
+                    type="button"
+                    data-cerrar-modal
+                    aria-label="Cerrar"
+                >
+                    ×
+                </button>
+                <span class="icono-modal">
+                    🐾
+                </span>
+                <h2 id="tituloModalPerfil">
+                    Editar perfil
+                </h2>
+                <p>
+                    Actualiza la información básica de tu cuenta.
+                </p>
+                <form id="formularioEditarPerfil">
+                    <label for="editarNombre">
+                        Nombre
+                    </label>
+                    <input
+                        id="editarNombre"
+                        type="text"
+                        maxlength="60"
+                        required
+                    >
+                    <label for="editarCorreo">
+                        Correo electrónico
+                    </label>
+                    <input
+                        id="editarCorreo"
+                        type="email"
+                        maxlength="100"
+                        required
+                    >
+                    <div
+                        class="mensaje-modal"
+                        id="mensajeEditarPerfil"
+                        role="status"
+                        aria-live="polite"
+                        hidden
+                    >
+                    </div>
+
+                    <button
+                        class="boton-guardar-cambios"
+                        type="submit"
+                    >
+                        Guardar cambios
+                    </button>
+                </form>
+            </section>
+
+        </div>
+
+
+        <!-- =====================================================
+        MODAL DE CONFIGURACIÓN
+        ====================================================== -->
+
+        <div
+            class="modal-perfil"
+            id="modalConfiguracion"
+            hidden
+        >
+            <div
+                class="fondo-modal-perfil"
+                data-cerrar-configuracion
+            >
+            </div>
+
+            <section
+                class="contenido-modal-perfil modal-configuracion"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="tituloModalConfiguracion"
+            >
+
+                <button
+                    class="cerrar-modal-perfil"
+                    type="button"
+                    data-cerrar-configuracion
+                    aria-label="Cerrar"
+                >
+                    ×
+                </button>
+                <span
+                    class="icono-modal"
+                    id="iconoModalConfiguracion"
+                >
+                    ⚙
+                </span>
+                <h2 id="tituloModalConfiguracion">
+                    Configuración
+                </h2>
+                <p id="descripcionModalConfiguracion">
+                    Administra las opciones de tu cuenta.
+                </p>
+                <div
+                    class="contenido-configuracion-modal"
+                    id="contenidoConfiguracionModal"
+                >
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- =====================================================
+        MODAL CERRAR SESIÓN
+        ====================================================== -->
+
+        <div
+            class="modal-perfil"
+            id="modalCerrarSesion"
+            hidden
+        >
+            <div
+                class="fondo-modal-perfil"
+                data-cancelar-sesion
+            >
+            </div>
+
+            <section
+                class="contenido-modal-perfil modal-cerrar-sesion"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="tituloCerrarSesion"
+            >
+
+                <span class="icono-modal">
+                    🐾
+                </span>
+                <h2 id="tituloCerrarSesion">
+                    ¿Cerrar sesión?
+                </h2>
+                <p>
+                    Tendrás que volver a iniciar sesión para acceder a tu cuenta de PEH.
+                </p>
+                <div class="acciones-cerrar-sesion">
+                    <button
+                        class="boton-cancelar"
+                        type="button"
+                        data-cancelar-sesion
+                    >
+                        Cancelar
+                    </button>
+                    <button
+                        class="boton-confirmar-sesion"
+                        id="confirmarCerrarSesion"
+                        type="button"
+                    >
+                        Cerrar sesión
+                    </button>
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- =====================================================
+        FOOTER
+        ====================================================== -->
+
+
+        <!-- =====================================================
+        MODAL - HISTORIAL DE ADOPCIONES
+        ====================================================== -->
+
+        <div
+            class="modal-perfil modal-historial-adopciones"
+            id="modalHistorialAdopciones"
+            aria-hidden="true"
+            hidden
+        >
+
+            <!-- Fondo oscuro -->
+
+            <div
+                class="fondo-modal-perfil"
+                data-cerrar-historial-adopciones
+            >
+            </div>
+
+
+            <!-- Ventana principal -->
+
+            <section
+                class="contenido-modal-perfil contenido-historial-adopciones"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="tituloHistorialAdopciones"
+                aria-describedby="descripcionHistorialAdopciones"
+                tabindex="-1"
+            >
+
+
+                <!-- Cerrar ventana -->
+
+                <button
+                    type="button"
+                    class="cerrar-modal-perfil"
+                    id="cerrarHistorialAdopciones"
+                    aria-label="Cerrar historial de adopciones"
+                >
+                    &times;
+                </button>
+
+                <!-- Encabezado -->
+
+                <div class="encabezado-historial-adopciones">
+                    <span
+                        class="icono-modal"
+                        aria-hidden="true"
+                    >
+                        🐾
+                    </span>
+                    <h2 id="tituloHistorialAdopciones">
+                        Mis solicitudes de adopción
+                    </h2>
+                    <p id="descripcionHistorialAdopciones">
+                        Consulta el estado de tus solicitudes y revisa tus procesos anteriores.
+                    </p>
+                </div>
+
+
+                <!-- Resumen de solicitudes -->
+
+                <div
+                    class="estadisticas-historial-adopciones"
+                    id="estadisticasHistorialAdopciones"
+                    aria-live="polite"
+                >
+
+                    <!-- Se generará con JavaScript -->
+
+                </div>
+
+
+                <!-- Listado de solicitudes -->
+
+                <div
+                    class="lista-historial-adopciones"
+                    id="listaHistorialAdopciones"
+                    aria-live="polite"
+                >
+
+                    <!-- Estado inicial -->
+
+                    <div class="historial-adopciones-vacio">
+                        <span
+                            class="icono-historial-vacio"
+                            aria-hidden="true"
+                        >
+                            🐾
+                        </span>
+                        <h3>
+                            Todavía no tienes solicitudes
+                        </h3>
+                        <p>
+                            Cuando solicites adoptar una mascota, aquí podrás consultar el estado de tu proceso y su historial.
+                        </p>
+                        <a
+                            href="principal.html"
+                            class="boton-explorar-adopciones"
+                        >
+                            Conocer animales
+                        </a>
+                    </div>
+
+                </div>
+
+
+                <!-- Información adicional -->
+
+                <footer class="pie-historial-adopciones">
+
+                    <span aria-hidden="true">
+                        ♡
+                    </span>
+                    <p>
+                        Tus solicitudes anteriores permanecerán disponibles, incluso cuando sus procesos hayan finalizado.
+                    </p>
+                </footer>
+
+            </section>
+
+        </div>
+
+
+        <!-- =====================================================
+        MODAL - HISTORIAL DE RESERVAS VETERINARIAS
+        ====================================================== -->
+
+        <div
+            class="modal-perfil modal-historial-reservas"
+            id="modalHistorialReservas"
+            aria-hidden="true"
+            hidden
+        >
+
+            <!-- Fondo oscuro -->
+
+            <div
+                class="fondo-modal-perfil"
+                data-cerrar-historial-reservas
+            >
+            </div>
+
+
+            <!-- Ventana principal -->
+
+            <section
+                class="contenido-modal-perfil contenido-historial-reservas"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="tituloHistorialReservas"
+                aria-describedby="descripcionHistorialReservas"
+                tabindex="-1"
+            >
+
+
+                <!-- Botón cerrar -->
+
+                <button
+                    type="button"
+                    class="cerrar-modal-perfil"
+                    id="cerrarHistorialReservas"
+                    aria-label="Cerrar historial de reservas"
+                >
+                    &times;
+                </button>
+
+                <!-- Encabezado -->
+
+                <div class="encabezado-historial-reservas">
+                    <span
+                        class="icono-modal"
+                        aria-hidden="true"
+                    >
+                        🩺
+                    </span>
+                    <h2 id="tituloHistorialReservas">
+                        Mis reservas veterinarias
+                    </h2>
+                    <p id="descripcionHistorialReservas">
+                        Consulta tus próximas citas y revisa el historial de atenciones veterinarias.
+                    </p>
+                </div>
+
+
+                <!-- Estadísticas -->
+
+                <div
+                    class="estadisticas-historial-reservas"
+                    id="estadisticasHistorialReservas"
+                    aria-live="polite"
+                >
+
+                    <!-- Generado con JavaScript -->
+
+                </div>
+
+
+                <!-- Historial de reservas -->
+
+                <div
+                    class="lista-historial-reservas"
+                    id="listaHistorialReservas"
+                    aria-live="polite"
+                >
+
+                    <!-- Estado vacío -->
+
+                    <div class="historial-reservas-vacio">
+                        <span
+                            class="icono-historial-vacio"
+                            aria-hidden="true"
+                        >
+                            🩺
+                        </span>
+                        <h3>
+                            Todavía no tienes reservas
+                        </h3>
+                        <p>
+                            Cuando agendes una atención veterinaria, podrás consultar aquí su fecha, horario, estado y detalles.
+                        </p>
+                        <a
+                            href="veterinaria.html"
+                            class="boton-agendar-reserva"
+                        >
+                            Agendar una consulta
+                        </a>
+                    </div>
+
+                </div>
+
+
+                <!-- Información adicional -->
+
+                <footer class="pie-historial-reservas">
+
+                    <span aria-hidden="true">
+                        ♡
+                    </span>
+                    <p>
+                        Tus reservas anteriores permanecerán disponibles en este historial, incluso después de la fecha de atención o si fueron canceladas.
+                    </p>
+                </footer>
+
+            </section>
+
+        </div>
+
+
+        <!-- =====================================================
+        JAVASCRIPT
+        ====================================================== -->
+
+        <script src="../js/app.js">
+        </script>
+        <script src="../js/perfil.js">
+        </script>
+    </body>
+</html>
