@@ -16,7 +16,7 @@ export default function TarjetaAnimal({ animal, compacta = false }) {
     <h3 className="animal-nombre">{animal.nombre}</h3>
     <p className="animal-personalidad">{animal.personalidad.slice(0,2).join(" · ")}</p>
     <p className="animal-ubicacion"><span aria-hidden="true">⌖</span>{" "}{animal.comuna}</p>
-    <div className="animal-datos"><span>{formatearSexo(animal.sexo)}</span><span>{formatearTamano(animal.tamano)}</span><span>{formatearEdad(animal.edad)}</span></div>
+    <div className="animal-datos"><span>{formatearSexo(animal.sexo)}</span><span>{formatearTamano(animal.tamano)}</span><span>{formatearEdad(animal)}</span></div>
     <span className="animal-accion">Conocer a {animal.nombre}{" "}<span aria-hidden="true">→</span></span>
    </div>
   </article>

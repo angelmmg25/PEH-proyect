@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {requiereSesion,vistaPermitidaInvitado} from '../src/services/accesoInvitado.js';
+const memoria=new Map();const almacenamiento={getItem:k=>memoria.get(k)??null,setItem:(k,v)=>memoria.set(k,String(v)),removeItem:k=>memoria.delete(k)};
+globalThis.window=new EventTarget();window.localStorage=almacenamiento;window.crypto=crypto;globalThis.localStorage=almacenamiento;
+const {default:PEH}=await import('../src/services/peh.js');const B=await import('../src/services/borradores.js');const V=await import('../src/services/veterinaria.js');
+localStorage.setItem(PEH.CLAVES.cuentas,JSON.stringify([{id:'A',nombre:'Ana',correo:'a@duocuc.cl'}]));PEH.sesion.iniciar({id:'A'});const clave=B.claveBorrador('adopcion:milo');B.guardarBorrador(clave,{nombreAdoptante:'Datos de Ana'});
+PEH.sesion.iniciar({id:'INV',invitado:true});
+for(const ruta of ['inicio','animales','animal/milo','#animal/nala'])assert.ok(vistaPermitidaInvitado(ruta));
+for(const ruta of ['perfil','perfil/consultas','comunidad','comunidad/perdidos','veterinaria','veterinaria/reservar','contacto','desarrollador'])assert.ok(requiereSesion(ruta,PEH.sesion.obtener()));
+const antes=[...memoria];assert.equal(B.claveBorrador('contacto'),null);assert.equal(B.claveBorrador('acceso-registro'),null);assert.equal(B.guardarBorrador(null,{}),false);assert.equal(B.leerBorrador(clave),undefined);assert.equal(B.guardarBorrador(clave,{texto:'Invitado'}),false);assert.equal(B.borrarBorrador(clave),false);assert.equal(V.guardarBorradorReserva({}),false);assert.equal(V.leerBorradorReserva(),null);assert.deepEqual([...memoria],antes);
+PEH.sesion.cerrar();assert.equal(PEH.sesion.obtener(),null);assert.equal(B.claveBorrador('contacto'),null);const acceso=B.claveBorrador('acceso-registro');assert.ok(B.guardarBorrador(acceso,{correo:'a@duocuc.cl',contrasena:'No guardar'}));assert.deepEqual(B.leerBorrador(acceso),{correo:'a@duocuc.cl'});
+PEH.sesion.iniciar({id:'A'});assert.equal(requiereSesion('veterinaria',PEH.sesion.obtener()),false);assert.ok(B.borrarBorrador(acceso));assert.equal(B.leerBorrador(clave).nombreAdoptante,'Datos de Ana');
+console.log('OK: rutas del invitado, bloqueo de borradores, aislamiento de cuentas, salida del invitado y acceso de cuentas registradas.');

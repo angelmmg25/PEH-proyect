@@ -1,0 +1,373 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for src/pages/Contacto.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/pages</a> Contacto.jsx</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">1.28% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>1/78</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/62</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>0/21</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">1.88% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>1/53</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line low'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import PEH from "../services/peh.js";
+import useBorrador, { AvisoBorrador } from "../hooks/useBorrador.jsx";
+import { useEffect, useRef, useState } from "react";
+import Navegacion from "../components/Navegacion";
+import PreguntasContacto from "../components/PreguntasContacto";
+import { asuntosSugeridos } from "../data/contacto";
+import { validarContacto, camposContacto, registrarConsulta } from "../services/contacto";
+import "../styles/contacto.css";
+&nbsp;
+const vacio = { nombre: "", correo: "", motivo: "", asunto: "", mensaje: "" };
+&nbsp;
+export default function <span class="fstat-no" title="function not covered" >Contacto() {</span>
+  const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >contactoInicial = () =&gt; {</span>const u=<span class="cstat-no" title="statement not covered" >PEH.sesion.obtener(),c</span>=<span class="cstat-no" title="statement not covered" >u&amp;&amp;!u.invitado?PEH.cuentas.obtenerPorId(u.id):null,p</span>=<span class="cstat-no" title="statement not covered" >PEH.perfil.obtener();<span class="cstat-no" title="statement not covered" >r</span>eturn {...vacio,nombre:c?(p.nombre || [c.nombre,c.apellido].filter(Boolean).join(" ")):"",correo:c?(p.correo || c.correo):""};}</span>;</span>
+  const [datos, setDatos, borrador] = <span class="cstat-no" title="statement not covered" >useBorrador("contacto", contactoInicial);</span>
+  const [errores, setErrores] = <span class="cstat-no" title="statement not covered" >useState({});</span>
+  const [procesando, setProcesando] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
+  const [confirmacion, setConfirmacion] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
+  const [consultaRegistrada, setConsultaRegistrada] = <span class="cstat-no" title="statement not covered" >useState(null);</span>
+  const [errorEnvio, setErrorEnvio] = <span class="cstat-no" title="statement not covered" >useState("");</span>
+  const contador = <span class="cstat-no" title="statement not covered" >datos.mensaje.length;</span>
+  const formulario = <span class="cstat-no" title="statement not covered" >useRef(null), a</span>viso = <span class="cstat-no" title="statement not covered" >useRef(null), b</span>loqueo = <span class="cstat-no" title="statement not covered" >useRef(false);</span>
+  const temporizador = <span class="cstat-no" title="statement not covered" >useRef(null), f</span>rame = <span class="cstat-no" title="statement not covered" >useRef(null);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  useEffect(() =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >    document.body.classList.add("pagina-contacto");</span>
+<span class="cstat-no" title="statement not covered" >    document.title = "Contacto | PEH";</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    return () =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      clearTimeout(temporizador.current);</span>
+<span class="cstat-no" title="statement not covered" >      cancelAnimationFrame(frame.current);</span>
+<span class="cstat-no" title="statement not covered" >      document.body.classList.remove("pagina-contacto");</span>
+    };
+  }, []);
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >cambiar(e</span>) {
+    const { name, value } = <span class="cstat-no" title="statement not covered" >e.target;</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    setDatos(a</span>ctual =&gt; (<span class="cstat-no" title="statement not covered" >{ ...actual, [name]: value }))</span>;</span>
+<span class="cstat-no" title="statement not covered" >    setErrorEnvio("");</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    setErrores(a</span>ctual =&gt; (<span class="cstat-no" title="statement not covered" >{...actual,[name]:validarContacto({...datos,[name]:value})[name]}))</span>;</span>
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >elegir(m</span>otivo) {
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    setDatos(a</span>ctual =&gt; (<span class="cstat-no" title="statement not covered" >{ ...actual, motivo, asunto: actual.asunto.trim() ? actual.asunto : asuntosSugeridos[motivo] || actual.asunto }))</span>;</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    setErrores(a</span>ctual =&gt; (<span class="cstat-no" title="statement not covered" >{ ...actual, motivo: "" }))</span>;</span>
+<span class="cstat-no" title="statement not covered" >    formulario.current?.scrollIntoView({ behavior: "smooth", block: "start" });</span>
+  }
+&nbsp;
+  function <span class="fstat-no" title="function not covered" >enviar(e</span>) {
+<span class="cstat-no" title="statement not covered" >    e.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >    if (bloqueo.current) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >    clearTimeout(temporizador.current);</span>
+<span class="cstat-no" title="statement not covered" >    setConfirmacion(false);</span>
+<span class="cstat-no" title="statement not covered" >    setErrorEnvio("");</span>
+    const nuevos = <span class="cstat-no" title="statement not covered" >validarContacto(datos);</span>
+<span class="cstat-no" title="statement not covered" >    setErrores(nuevos);</span>
+    const primero = <span class="cstat-no" title="statement not covered" >camposContacto.<span class="fstat-no" title="function not covered" >find(c</span>ampo =&gt; <span class="cstat-no" title="statement not covered" >nuevos[campo])</span>;</span>
+<span class="cstat-no" title="statement not covered" >    if (primero) {</span>
+<span class="cstat-no" title="statement not covered" >      document.getElementById(primero + "Contacto")?.focus();</span>
+<span class="cstat-no" title="statement not covered" >      return;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    bloqueo.current = true;</span>
+<span class="cstat-no" title="statement not covered" >    setProcesando(true);</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+      const resultado = <span class="cstat-no" title="statement not covered" >registrarConsulta(datos);</span>
+<span class="cstat-no" title="statement not covered" >      if (!resultado.ok) {</span>
+<span class="cstat-no" title="statement not covered" >        setErrorEnvio(resultado.mensaje);</span>
+<span class="cstat-no" title="statement not covered" >        return;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      setConsultaRegistrada(resultado.consulta);</span>
+<span class="cstat-no" title="statement not covered" >      setConfirmacion(true);</span>
+<span class="cstat-no" title="statement not covered" >      borrador.reiniciar(contactoInicial());</span>
+<span class="cstat-no" title="statement not covered" >      setErrores({});</span>
+<span class="cstat-no" title="statement not covered" >      frame.current = <span class="fstat-no" title="function not covered" >requestAnimationFrame(() =&gt; <span class="cstat-no" title="statement not covered" >a</span>viso.current?.scrollIntoView({ behavior: "smooth", block: "nearest" }))</span>;</span>
+<span class="cstat-no" title="statement not covered" >      temporizador.current = <span class="fstat-no" title="function not covered" >setTimeout(() =&gt; <span class="cstat-no" title="statement not covered" >s</span>etConfirmacion(false), 6</span>000);</span>
+    } finally {
+<span class="cstat-no" title="statement not covered" >      bloqueo.current = false;</span>
+<span class="cstat-no" title="statement not covered" >      setProcesando(false);</span>
+    }
+  }
+<span class="cstat-no" title="statement not covered" > return &lt;&gt;</span>
+&nbsp;
+&nbsp;
+&lt;Navegacion pagina="contacto" /&gt;
+&nbsp;
+&lt;main&gt;&lt;section className="hero-contacto"&gt;&lt;div className="contenedor"&gt;&lt;div className="hero-contacto-contenido"&gt;&lt;div className="hero-contacto-texto"&gt;&lt;span className="hero-contacto-etiqueta"&gt; Contacto &lt;/span&gt;&lt;h1&gt; Hablemos &lt;span aria-hidden="true"&gt; ♡ &lt;/span&gt;&lt;/h1&gt;&lt;h2&gt; ¿Necesitas ayuda? Estamos aquí para ti. &lt;/h2&gt;&lt;p&gt; Ya sea que tengas dudas sobre una adopción, quieras reportar un problema o simplemente necesites orientación, puedes registrar una consulta en esta demostración de PEH. &lt;/p&gt;&lt;/div&gt;&lt;div className="hero-contacto-visual" aria-hidden="true"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;section className="seccion-contacto" id="escribir"&gt;&lt;div className="contenedor"&gt;&lt;div className="contacto-grid"&gt;&lt;div className="contacto-formulario"&gt;&lt;div className="encabezado-formulario-contacto"&gt;&lt;span className="sobre-titulo"&gt; Estamos para ayudarte &lt;/span&gt;&lt;h2&gt; Envíanos un mensaje &lt;span aria-hidden="true"&gt; 🐾 &lt;/span&gt;&lt;/h2&gt;&lt;p&gt; Completa el formulario para guardar tu consulta en este navegador. Esta demostración no envía correos. &lt;/p&gt;&lt;/div&gt;&lt;div className="tipos-contacto atajos-contacto"&gt;&lt;button type="button" data-motivo="adopcion" className={"tarjeta-tipo-contacto"+(datos.motivo === "adopcion" ? " seleccionada" : "")} <span class="fstat-no" title="function not covered" >onClick={() =&gt; <span class="cstat-no" title="statement not covered" >e</span>legir("adopcion")}&gt;&lt;</span>span className="tipo-contacto-icono" aria-hidden="true"&gt; 🐾 &lt;/span&gt;&lt;span className="tipo-contacto-contenido"&gt;&lt;strong&gt; Adopciones &lt;/strong&gt;&lt;small&gt; Dudas sobre solicitudes, requisitos o el proceso de adopción. &lt;/small&gt;&lt;/span&gt;&lt;span className="tipo-contacto-flecha" aria-hidden="true"&gt; → &lt;/span&gt;&lt;/button&gt;&lt;button type="button" data-motivo="veterinaria" className={"tarjeta-tipo-contacto"+(datos.motivo === "veterinaria" ? " seleccionada" : "")} <span class="fstat-no" title="function not covered" >onClick={() =&gt; <span class="cstat-no" title="statement not covered" >e</span>legir("veterinaria")}&gt;&lt;</span>span className="tipo-contacto-icono" aria-hidden="true"&gt; ♡ &lt;/span&gt;&lt;span className="tipo-contacto-contenido"&gt;&lt;strong&gt; Veterinaria &lt;/strong&gt;&lt;small&gt; Consultas relacionadas con reservas o atención veterinaria. &lt;/small&gt;&lt;/span&gt;&lt;span className="tipo-contacto-flecha" aria-hidden="true"&gt; → &lt;/span&gt;&lt;/button&gt;&lt;button type="button" data-motivo="soporte" className={"tarjeta-tipo-contacto"+(datos.motivo === "soporte" ? " seleccionada" : "")} <span class="fstat-no" title="function not covered" >onClick={() =&gt; <span class="cstat-no" title="statement not covered" >e</span>legir("soporte")}&gt;&lt;</span>span className="tipo-contacto-icono" aria-hidden="true"&gt; ◯ &lt;/span&gt;&lt;span className="tipo-contacto-contenido"&gt;&lt;strong&gt; Soporte general &lt;/strong&gt;&lt;small&gt; Problemas con tu cuenta, publicaciones o funcionamiento de PEH. &lt;/small&gt;&lt;/span&gt;&lt;span className="tipo-contacto-flecha" aria-hidden="true"&gt; → &lt;/span&gt;&lt;/button&gt;&lt;/div&gt;&lt;form id="formularioContacto" noValidate={true} <span class="fstat-no" title="function not covered" >onBlur={e</span> =&gt; {<span class="cstat-no" title="statement not covered" >if(e.target.name)<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >setErrores(a</span>ctual=&gt;(<span class="cstat-no" title="statement not covered" >{...actual,[e.target.name]:validarContacto(datos)[e.target.name]}))</span>;}</span></span>} onSubmit={enviar} ref={formulario}&gt;&lt;div className="campos-contacto"&gt;&lt;div className="grupo-campo"&gt;&lt;label htmlFor="nombreContacto"&gt; Nombre completo &lt;/label&gt;&lt;input id="nombreContacto" name="nombre" type="text" placeholder="Tu nombre" autoComplete="name" maxLength="60" required={true} value={datos.nombre} onChange={cambiar} className={errores.nombre ? "campo-error" : undefined} /&gt;&lt;small className="mensaje-error"&gt;{errores.nombre === undefined ? " " : errores.nombre}&lt;/small&gt;&lt;/div&gt;&lt;div className="grupo-campo"&gt;&lt;label htmlFor="correoContacto"&gt; Correo electrónico &lt;/label&gt;&lt;input id="correoContacto" name="correo" type="email" placeholder="tu.correo@ejemplo.com" autoComplete="email" maxLength="100" required={true} value={datos.correo} onChange={cambiar} className={errores.correo ? "campo-error" : undefined} /&gt;&lt;small className="mensaje-error"&gt;{errores.correo === undefined ? " " : errores.correo}&lt;/small&gt;&lt;/div&gt;&lt;div className="grupo-campo campo-ancho"&gt;&lt;label htmlFor="motivoContacto"&gt; Motivo de contacto &lt;/label&gt;&lt;select id="motivoContacto" name="motivo" required={true} value={datos.motivo} onChange={cambiar} className={errores.motivo ? "campo-error" : undefined}&gt;&lt;option value=""&gt; Selecciona una opción &lt;/option&gt;&lt;option value="adopcion"&gt; Adopciones &lt;/option&gt;&lt;option value="veterinaria"&gt; Veterinaria &lt;/option&gt;&lt;option value="soporte"&gt; Soporte general &lt;/option&gt;&lt;option value="otro"&gt; Otro &lt;/option&gt;&lt;/select&gt;&lt;small className="mensaje-error"&gt;{errores.motivo === undefined ? " " : errores.motivo}&lt;/small&gt;&lt;/div&gt;&lt;div className="grupo-campo campo-ancho"&gt;&lt;label htmlFor="asuntoContacto"&gt; Asunto &lt;/label&gt;&lt;input id="asuntoContacto" name="asunto" type="text" placeholder="Ej. Consulta sobre adopción" maxLength="80" required={true} value={datos.asunto} onChange={cambiar} className={errores.asunto ? "campo-error" : undefined} /&gt;&lt;small className="mensaje-error"&gt;{errores.asunto === undefined ? " " : errores.asunto}&lt;/small&gt;&lt;/div&gt;&lt;div className="grupo-campo campo-mensaje"&gt;&lt;label htmlFor="mensajeContacto"&gt; Mensaje &lt;/label&gt;&lt;textarea id="mensajeContacto" name="mensaje" rows="7" maxLength="500" placeholder="Cuéntanos en qué podemos ayudarte..." required={true} value={datos.mensaje} onChange={cambiar} className={errores.mensaje ? "campo-error" : undefined}&gt;&lt;/textarea&gt;&lt;div className="mensaje-informacion"&gt;&lt;small className="mensaje-error"&gt;{errores.mensaje === undefined ? " " : errores.mensaje}&lt;/small&gt;&lt;span id="contadorMensaje" className={contador &gt;= 450 ? "cerca-limite" : undefined}&gt;{contador} / 500&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;AvisoBorrador estado={borrador}/&gt;&lt;button className="boton boton-secundario boton-cancelar-proceso" type="button" <span class="fstat-no" title="function not covered" >onClick={()=&gt;{<span class="cstat-no" title="statement not covered" ></span>if(borrador.reiniciar(contactoInicial())){<span class="cstat-no" title="statement not covered" >setErrores({});<span class="cstat-no" title="statement not covered" >s</span>etErrorEnvio("");<span class="cstat-no" title="statement not covered" >s</span>etConfirmacion(false);}</span>}</span>}&gt;Cancelar proceso&lt;/button&gt;&lt;button className="boton boton-principal boton-enviar-contacto" type="submit" disabled={procesando}&gt;{procesando ? &lt;&gt;&lt;span className="indicador-carga" /&gt; Guardando...&lt;/&gt; : &lt;&gt;&lt;span aria-hidden="true"&gt;➤&lt;/span&gt;{" "}Registrar consulta{" "}&lt;span aria-hidden="true"&gt;🐾&lt;/span&gt;&lt;/&gt;}&lt;/button&gt;{errorEnvio &amp;&amp; &lt;p className="mensaje-error" role="alert"&gt;{errorEnvio}&lt;/p&gt;}&lt;div className="estado-envio" id="estadoEnvio" role="status" aria-live="polite" hidden={!confirmacion} ref={aviso}&gt;&lt;span aria-hidden="true"&gt; ✓ &lt;/span&gt;&lt;div&gt;&lt;strong&gt; ¡Consulta registrada! &lt;/strong&gt;&lt;p&gt; Tu consulta quedó guardada en este navegador. No se envió un correo. &lt;/p&gt;{consultaRegistrada &amp;&amp; &lt;&gt;&lt;p&gt;Código: {consultaRegistrada.id}&lt;/p&gt;{consultaRegistrada.usuarioId ? &lt;a href="#perfil/consultas"&gt;Ver mis consultas y respuestas&lt;/a&gt; : &lt;p&gt;Las consultas de invitados no tienen seguimiento en un perfil. Para recibir respuestas dentro de PEH, consulta con una cuenta registrada.&lt;/p&gt;}&lt;/&gt;}&lt;/div&gt;&lt;/div&gt;&lt;/form&gt;&lt;/div&gt;&lt;aside className="contacto-ayuda"&gt;&lt;div className="tarjeta-ayuda-contacto"&gt;&lt;div className="encabezado-ayuda-contacto"&gt;&lt;span className="ayuda-contacto-icono" aria-hidden="true"&gt; 💡 &lt;/span&gt;&lt;div&gt;&lt;h2&gt; Antes de escribirnos... &lt;/h2&gt;&lt;p&gt; Quizás encuentres la respuesta que buscas aquí. &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;div className="accesos-ayuda"&gt;&lt;button className="acceso-ayuda" id="botonPreguntas" type="button" <span class="fstat-no" title="function not covered" >onClick={() =&gt; <span class="cstat-no" title="statement not covered" >d</span>ocument.getElementById("preguntasFrecuentes")?.scrollIntoView({behavior:"smooth",block:"start"})}&gt;&lt;</span>span className="acceso-ayuda-icono" aria-hidden="true"&gt; ? &lt;/span&gt;&lt;span&gt;&lt;strong&gt; Preguntas frecuentes &lt;/strong&gt;&lt;small&gt; Revisa las dudas más comunes. &lt;/small&gt;&lt;/span&gt;&lt;span className="acceso-ayuda-flecha" aria-hidden="true"&gt; → &lt;/span&gt;&lt;/button&gt;&lt;a className="acceso-ayuda" href="#animales"&gt;&lt;span className="acceso-ayuda-icono" aria-hidden="true"&gt; 🐾 &lt;/span&gt;&lt;span&gt;&lt;strong&gt; Ver animales en adopción &lt;/strong&gt;&lt;small&gt; Conoce a nuestras patitas en busca de hogar. &lt;/small&gt;&lt;/span&gt;&lt;span className="acceso-ayuda-flecha" aria-hidden="true"&gt; → &lt;/span&gt;&lt;/a&gt;&lt;a className="acceso-ayuda" href="#veterinaria/reservar"&gt;&lt;span className="acceso-ayuda-icono" aria-hidden="true"&gt; ♡ &lt;/span&gt;&lt;span&gt;&lt;strong&gt; Reservar atención veterinaria &lt;/strong&gt;&lt;small&gt; Agenda una hora desde nuestra sección veterinaria. &lt;/small&gt;&lt;/span&gt;&lt;span className="acceso-ayuda-flecha" aria-hidden="true"&gt; → &lt;/span&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div className="tarjeta-compromiso"&gt;&lt;span className="compromiso-corazon" aria-hidden="true"&gt; ♥ &lt;/span&gt;&lt;div&gt;&lt;h2&gt; Nuestro compromiso &lt;/h2&gt;&lt;p&gt; En PEH trabajamos para crear una comunidad más consciente, responsable y comprometida con el bienestar de los animales. &lt;/p&gt;&lt;p&gt; Gracias por ser parte de este cambio. 🐾 &lt;/p&gt;&lt;/div&gt;&lt;div className="compromiso-mascotas" aria-hidden="true"&gt; 🐶 🐱 &lt;/div&gt;&lt;/div&gt;&lt;/aside&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;section className="seccion-preguntas" id="preguntasFrecuentes"&gt;&lt;div className="contenedor"&gt;&lt;div className="encabezado-seccion-preguntas"&gt;&lt;span className="sobre-titulo"&gt; Preguntas frecuentes &lt;/span&gt;&lt;h2&gt; Puede que tu respuesta esté aquí &lt;/h2&gt;&lt;p&gt; Algunas de las consultas más comunes dentro de PEH. &lt;/p&gt;&lt;/div&gt;&lt;PreguntasContacto /&gt;&lt;/div&gt;&lt;/section&gt;&lt;section className="seccion-cierre-contacto"&gt;&lt;div className="contenedor"&gt;&lt;div className="cierre-contacto-contenido"&gt;&lt;span className="cierre-patita" aria-hidden="true"&gt; 🐾 &lt;/span&gt;&lt;div&gt;&lt;h2&gt; Cada mensaje también puede ayudar a una patita. &lt;/h2&gt;&lt;p&gt; Queremos que PEH sea un espacio donde adoptar, cuidar y participar sea cada vez más sencillo. &lt;/p&gt;&lt;/div&gt;&lt;a className="boton boton-secundario" href="#animales"&gt; Conocer animales &lt;span aria-hidden="true"&gt; → &lt;/span&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;/main&gt;
+&nbsp;
+&nbsp;
+&nbsp;
+&lt;footer className="pie-pagina"&gt;&lt;div className="contenedor pie-contenido"&gt;&lt;div&gt;&lt;strong&gt; PEH &lt;/strong&gt;&lt;p&gt; Patitas Esperando un Hogar &lt;/p&gt;&lt;/div&gt;&lt;nav className="enlaces-pie" aria-label="Enlaces del pie de página"&gt;&lt;a href="#inicio"&gt; Inicio &lt;/a&gt;&lt;a href="#comunidad"&gt; Comunidad &lt;/a&gt;&lt;a href="#veterinaria"&gt; Veterinaria &lt;/a&gt;&lt;a href="#contacto"&gt; Ayuda &lt;/a&gt;&lt;/nav&gt;&lt;p className="copyright"&gt; © 2026 PEH &lt;/p&gt;&lt;/div&gt;&lt;/footer&gt;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&lt;/&gt;;
+}
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-10-25T00:43:08.661Z
+            </div>
+        <script src="../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
+    </body>
+</html>
+    

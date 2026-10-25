@@ -1,0 +1,205 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for src/services/reglasFormulario.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/services</a> reglasFormulario.js</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">50.72% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>35/69</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">51.58% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>65/126</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">57.14% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>4/7</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">70.58% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>24/34</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line medium'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {correoValido,errorTelefono,errorComuna} from "./datosCuenta.js";
+export function mensajeDeCampo(control,formulario) {
+  if(!control || control.disabled || control.matches?.(':disabled') || ['hidden','submit','button','reset'].includes(control.type) || control.closest?.('[hidden]'))return '';
+  const nombre=control.name||<span class="branch-1 cbranch-no" title="branch not covered" >control.id, t</span>ipo=control.type, valor=String(control.value??<span class="branch-1 cbranch-no" title="branch not covered" >'')</span>.trim();
+  const lista=Array.from(formulario?.elements||<span class="branch-1 cbranch-no" title="branch not covered" >[])</span>;
+  if(tipo==='radio')return lista.some(c=&gt;c.name===control.name&amp;&amp;c.required)&amp;&amp;!lista.some(c=&gt;c.name===control.name&amp;&amp;c.checked)?'Selecciona una opción.':<span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if(tipo==='checkbox')<span class="cstat-no" title="statement not covered" >return control.required&amp;&amp;!control.checked?'Debes aceptar esta opción para continuar.':'';</span>
+  if(control.required&amp;&amp;!valor)return control.tagName==='SELECT'?'Selecciona una opción.':tipo==='file'?<span class="branch-0 cbranch-no" title="branch not covered" >'Selecciona una imagen.':'</span>Completa este campo.';
+  <span class="missing-if-branch" title="if path not taken" >I</span>if(tipo==='file' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >control.files?.length){</span>
+    const archivo=<span class="cstat-no" title="statement not covered" >control.files[0], a</span>ceptados=<span class="cstat-no" title="statement not covered" >String(control.accept||'').split(',').<span class="fstat-no" title="function not covered" >map(v</span>=&gt;<span class="cstat-no" title="statement not covered" >v.trim())</span>.filter(Boolean);</span>
+<span class="cstat-no" title="statement not covered" >    if(aceptados.length&amp;&amp;!aceptados.<span class="fstat-no" title="function not covered" >some(t</span>=&gt;<span class="cstat-no" title="statement not covered" >t==='image/*'?archivo.type.startsWith('image/'):t===archivo.type)</span>)<span class="cstat-no" title="statement not covered" >return 'Selecciona una imagen con un formato permitido.';</span></span>
+    const maximo=<span class="cstat-no" title="statement not covered" >control.id==='admin-foto'?1:3;</span>
+<span class="cstat-no" title="statement not covered" >    if(archivo.size&gt;maximo*1024*1024)<span class="cstat-no" title="statement not covered" >return `La imagen no puede superar ${maximo} MB.`;</span></span>
+  }
+  <span class="missing-if-branch" title="if path not taken" >I</span>if(!valor)<span class="cstat-no" title="statement not covered" >return '';</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if(control.tagName==='SELECT'&amp;&amp;<span class="branch-1 cbranch-no" title="branch not covered" >!Array.from(control.options).<span class="fstat-no" title="function not covered" >some(o</span>=&gt;<span class="cstat-no" title="statement not covered" >o.value===control.value&amp;&amp;!o.disabled)</span>)<span class="cstat-no" title="statement not covered" >r</span>eturn 'Selecciona una opción válida.';</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if((tipo==='email'||/correo/i.test(nombre))&amp;&amp;<span class="branch-2 cbranch-no" title="branch not covered" >!correoValido(valor))<span class="cstat-no" title="statement not covered" >r</span>eturn 'Ingresa un correo válido con terminación .com o .cl.';</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if(/telefono/i.test(nombre)&amp;&amp;<span class="branch-1 cbranch-no" title="branch not covered" >errorTelefono(valor))<span class="cstat-no" title="statement not covered" >r</span>eturn errorTelefono(valor);</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if(/comuna/i.test(nombre)&amp;&amp;<span class="branch-1 cbranch-no" title="branch not covered" >errorComuna(valor))<span class="cstat-no" title="statement not covered" >r</span>eturn errorComuna(valor);</span>
+  if(control.minLength&gt;0&amp;&amp;valor.length&lt;control.minLength)return `Escribe al menos ${control.minLength} caracteres.`;
+  <span class="missing-if-branch" title="if path not taken" >I</span>if(control.maxLength&gt;0&amp;&amp;<span class="branch-1 cbranch-no" title="branch not covered" >valor.length&gt;control.maxLength)<span class="cstat-no" title="statement not covered" >r</span>eturn `El máximo es de ${control.maxLength} caracteres.`;</span>
+  if(tipo==='number'){
+    const n=Number(valor);
+    <span class="missing-if-branch" title="if path not taken" >I</span>if(!Number.isFinite(n))<span class="cstat-no" title="statement not covered" >return 'Escribe un número válido.';</span>
+    <span class="missing-if-branch" title="if path not taken" >I</span>if(control.min!==''&amp;&amp;<span class="branch-1 cbranch-no" title="branch not covered" >n&lt;Number(control.min))<span class="cstat-no" title="statement not covered" >r</span>eturn `El mínimo permitido es ${control.min}.`;</span>
+    <span class="missing-if-branch" title="else path not taken" >E</span>if(control.max!==''&amp;&amp;n&gt;Number(control.max))return `El máximo permitido es ${control.max}.`;
+<span class="cstat-no" title="statement not covered" >    if((control.step===''||control.step==='1')&amp;&amp;!Number.isInteger(n))<span class="cstat-no" title="statement not covered" >return 'Escribe un número entero.';</span></span>
+  }
+  <span class="missing-if-branch" title="if path not taken" >I</span>if(control.pattern){<span class="cstat-no" title="statement not covered" >try{<span class="cstat-no" title="statement not covered" >if(!new RegExp('^(?:'+control.pattern+')$').test(valor))<span class="cstat-no" title="statement not covered" >return 'Revisa el formato de este campo.';}</span></span>catch{}}</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if(tipo==='password'&amp;&amp;/nueva|^nueva$/.test(nombre)&amp;&amp;<span class="branch-2 cbranch-no" title="branch not covered" >!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9\s]).{8,}$/.test(valor))<span class="cstat-no" title="statement not covered" >r</span>eturn 'Usa al menos 8 caracteres, mayúscula, minúscula, número y símbolo.';</span>
+  <span class="missing-if-branch" title="else path not taken" >E</span>if(tipo==='password'&amp;&amp;/confirmar/i.test(nombre)){
+    const nueva=lista.find(c=&gt;c.name==='nueva'||c.id==='nuevaContrasena');
+    <span class="missing-if-branch" title="else path not taken" >E</span>if(nueva&amp;&amp;control.value!==nueva.value)return 'Las contraseñas no coinciden.';
+  }
+<span class="cstat-no" title="statement not covered" >  if(control.validity?.badInput)<span class="cstat-no" title="statement not covered" >return 'Ingresa un valor válido.';</span></span>
+<span class="cstat-no" title="statement not covered" >  if(control.validity?.rangeUnderflow)<span class="cstat-no" title="statement not covered" >return `El mínimo permitido es ${control.min}.`;</span></span>
+<span class="cstat-no" title="statement not covered" >  if(control.validity?.rangeOverflow)<span class="cstat-no" title="statement not covered" >return `El máximo permitido es ${control.max}.`;</span></span>
+<span class="cstat-no" title="statement not covered" >  if(control.validity?.customError)<span class="cstat-no" title="statement not covered" >return control.validationMessage;</span></span>
+<span class="cstat-no" title="statement not covered" >  return '';</span>
+}
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-10-25T00:43:08.661Z
+            </div>
+        <script src="../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
+    </body>
+</html>
+    

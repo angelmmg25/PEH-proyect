@@ -2610,3 +2610,15 @@ body.pagina-animal .panel-animal-adopcion {
         100%;
 
 }
+
+/* Errores de validación del formulario de adopción. */
+.error-campo-adopcion { display: block; color: #9c2424; font-size: .9rem; margin: .35rem 0; }
+.formulario-adopcion [aria-invalid="true"] { border-color: #9c2424; }
+
+/* Mensajes visibles al cambiar/salir de un campo y al intentar enviar. */
+body.pagina-animal .formulario-adopcion .error-campo-adopcion {
+ display: block; visibility: visible; opacity: 1; height: auto;
+ color: #9c2424; font-size: .9rem; line-height: 1.4; margin: .35rem 0;
+}
+body.pagina-animal .formulario-adopcion .error-campo-adopcion:empty { display: none; }
+body.pagina-animal .formulario-adopcion [aria-invalid="true"] { border-color: #9c2424; }

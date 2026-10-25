@@ -1,3 +1,5 @@
+import useValidacionFormulario from "../hooks/useValidacionFormulario.jsx";
+import useBorrador, { AvisoBorrador } from "../hooks/useBorrador.jsx";
 import { Fragment, useRef, useState } from "react";
 import PEH from "../services/peh";
 import { categorias, textoBusquedaPublicacion } from "../data/comunidad";
@@ -15,8 +17,9 @@ function arbolComentarios(comentarios) {
 }
 export default function Publicacion({publicacion:p,hidden=false,sesion,actualizar,mostrarMensaje}) {
  const [comentariosVisibles,setComentariosVisibles]=useState(false);
- const [texto,setTexto]=useState("");
- const [respuesta,setRespuesta]=useState(null);
+ const [texto,setTexto,bTexto]=useBorrador("comentario:"+p.id,"",{mostrarGuardado:false});
+ const validacion=useValidacionFormulario();
+ const [respuesta,setRespuesta,bRespuesta]=useBorrador("respuesta:"+p.id,null,{mostrarGuardado:false});
  const [compartiendo,setCompartiendo]=useState(false);
  const [compartidoInvitado,setCompartidoInvitado]=useState(false);
  const campo=useRef(null),contenido=useRef(null),bloqueo=useRef(false);
@@ -31,9 +34,10 @@ export default function Publicacion({publicacion:p,hidden=false,sesion,actualiza
  }
  function comentar(e) {
   e.preventDefault();
+  if(!validacion.validar(e.currentTarget))return;
   const comentario=PEH.comentarios.agregar(p.id,texto,respuesta?.id || null);
   if(!comentario){mostrarMensaje("No se pudo publicar el comentario. Inicia sesión y escribe entre 1 y 200 caracteres.","error");return;}
-  setTexto("");cancelarRespuesta();actualizar();
+  bTexto.reiniciar("");bRespuesta.reiniciar(null);actualizar();
  }
  function abrirComentarios(){
   setComentariosVisibles(actual=>!actual);
@@ -97,9 +101,9 @@ export default function Publicacion({publicacion:p,hidden=false,sesion,actualiza
   <div className="seccion-comentarios" hidden={!comentariosVisibles}>
    <div className="comentarios-lista">{arbolComentarios(comentarios).map(c=>dibujarComentario(c))}</div>
    <div className="aviso-respuesta" hidden={!respuesta}>{respuesta && <>Respondiendo a {respuesta.autor}{" "}<button type="button" onClick={cancelarRespuesta}>Cancelar</button></>}</div>
-   <form className="formulario-comentario" onSubmit={comentar}>
-    <input type="text" ref={campo} maxLength={200} placeholder={respuesta?"Escribe tu respuesta...":"Escribe un comentario..."} value={texto} onChange={e=>setTexto(e.target.value)} required />
-    <button type="submit" aria-label="Enviar comentario">➤</button>
+   <form className="formulario-comentario" noValidate onBlur={validacion.evento} onChange={validacion.evento} onSubmit={comentar}>
+    <input name="comentario" aria-label="Comentario" type="text" minLength="1" ref={campo} maxLength={200} placeholder={respuesta?"Escribe tu respuesta...":"Escribe un comentario..."} value={texto} onChange={e=>setTexto(e.target.value)} required />
+    {validacion.mensaje("comentario")}<AvisoBorrador estado={bTexto}/><div className="acciones-comentario-proceso"><button className="boton-cancelar-proceso" type="button" onClick={()=>{bTexto.reiniciar("");bRespuesta.reiniciar(null);validacion.limpiar();}}>Cancelar proceso</button><button type="submit" aria-label="Enviar comentario">➤</button></div>
    </form>
   </div>
  </article>;

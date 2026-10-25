@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeAll, afterAll, beforeEach, vi } from 'vitest';
 
-/* Diez casos Vitest sobre los servicios reales de PEH.
+/* Casos Vitest sobre servicios reales y bloqueo global de formularios de PEH.
  * El único sustituto es localStorage: se conservan cadenas JSON en memoria.
  * Las cuentas son fixtures; no se prueba el registro ni el hash de contraseñas.
  * No se reemplazan las funciones que guardan, filtran o verifican permisos.
@@ -11,8 +11,8 @@ describe('PEH — persistencia y reglas por cuenta', () => {
   const cuentaA = { id: 'TEST-A', nombre: 'Ana', apellido: 'Prueba', usuario: 'ana_test', correo: 'ana.test@gmail.com' };
   const cuentaB = { id: 'TEST-B', nombre: 'Bruno', apellido: 'Prueba', usuario: 'bruno_test', correo: 'bruno.test@gmail.com' };
   const ahora = new Date(2035, 0, 10, 9, 0);
-  const datosReserva = () => ({ servicio: 'consulta', mascota: 'perro', mascotaNombre: 'Firulais', fecha: '2035-01-11', hora: '10:00', observaciones: 'Control general de mi mascota.' });
-  const datosAdopcion = () => ({ nombreAdoptante: 'Ana Prueba', correoAdoptante: 'ana.test@gmail.com', edadAdoptante: '25', telefonoAdoptante: '912345678', comunaAdoptante: 'Macul', tipoVivienda: 'casa', situacionVivienda: 'propia', personasHogar: '2', acuerdoFamiliar: 'si', otrosAnimales: 'no', detalleAnimales: '', experienciaAnimales: 'si', motivoAdopcion: 'Quiero ofrecer un hogar estable y mucho cariño.', cuidadosAnimal: 'Tendrá controles veterinarios, paseos y buena alimentación.', aceptaCompromiso: true });
+  const datosReserva = () => ({ responsableNombre:'Ana Prueba', responsableCorreo:'ana.test@gmail.com', responsableTelefono:'912345678', responsableComuna:'Macul', servicio: 'consulta', mascota: 'perro', mascotaNombre: 'Firulais', fecha: '2035-01-11', hora: '10:30', observaciones: 'Control general de mi mascota.' });
+  const datosAdopcion = () => ({ nombreAdoptante: 'Ana Prueba', correoAdoptante: 'ana.test@gmail.com', edadAdoptante: '25', telefonoAdoptante: '912345678', comunaAdoptante: 'Macul', tipoVivienda: 'casa', situacionVivienda: 'propia', viveConPersonas: 'si', personasHogar: '2', acuerdoFamiliar: 'si', otrosAnimales: 'no', detalleAnimales: '', experienciaAnimales: 'si', motivoAdopcion: 'Quiero ofrecer un hogar estable y mucho cariño.', cuidadosAnimal: 'Tendrá controles veterinarios, paseos y buena alimentación.', aceptaCompromiso: true });
   function entrar(cuenta) { expect(PEH.sesion.iniciar(cuenta)).toBe(true); }
   function volverAEntrar(cuenta) {
     // Cerrar la sesión y reconstruir el almacenamiento a partir de sus cadenas:
@@ -28,7 +28,7 @@ describe('PEH — persistencia y reglas por cuenta', () => {
   }
   beforeAll(async () => {
     // Entorno mínimo para servicios: eventos reales de Node y crypto nativo.
-    // No se simula el DOM ni el renderizado de React.
+    // No se simula el DOM. El caso 15 usa renderizado de React en servidor.
     const ventana = new EventTarget();
     ventana.crypto = globalThis.crypto;
     vi.stubGlobal('window', ventana);
@@ -77,7 +77,7 @@ describe('PEH — persistencia y reglas por cuenta', () => {
     expect(resultado.ok).toBe(true);
     expect(JSON.parse(localStorage.getItem(PEH.CLAVES.reservas))).toContainEqual(expect.objectContaining({ id: resultado.reserva.id, usuarioId: cuentaA.id }));
     volverAEntrar(cuentaA);
-    expect(PEH.reservas.listar()).toEqual([expect.objectContaining({ id: resultado.reserva.id, mascotaNombre: 'Firulais', fecha: '2035-01-11', hora: '10:00' })]);
+    expect(PEH.reservas.listar()).toEqual([expect.objectContaining({ id: resultado.reserva.id, mascotaNombre: 'Firulais', fecha: '2035-01-11', hora: '10:30' })]);
   });
 
   it('03 — conserva comentarios y permite leerlos desde otra cuenta', () => {
@@ -166,4 +166,63 @@ describe('PEH — persistencia y reglas por cuenta', () => {
     volverAEntrar(cuentaA);
     expect(PEH.publicaciones.listar().map(p => p.id)).toEqual([p.id]);
   });
+  it('12 — solo No elimina los datos dependientes', async () => {
+    const { limpiarCondicionales } = await import('../src/services/adopcion.js');
+    const d = {...datosAdopcion(),detalleAnimales:'Un gato adulto tranquilo.'};
+    expect(limpiarCondicionales({...d,viveConPersonas:''}).personasHogar).toBe('2');
+    expect(limpiarCondicionales({...d,viveConPersonas:'no',otrosAnimales:'no'})).toEqual(expect.objectContaining({personasHogar:'',acuerdoFamiliar:'',detalleAnimales:''}));
+  });
+  it('15 — Impide completar formularios como invitado', async () => {
+    const { createElement } = await import('react');
+    const { renderToStaticMarkup } = await import('react-dom/server');
+    const { default: App } = await import('../src/App.jsx');
+    const ubicacionAnterior = Object.getOwnPropertyDescriptor(window, 'location');
+    const ubicacion = { hash: '#inicio', href: 'https://peh.test/#inicio' };
+    Object.defineProperty(window, 'location', { configurable: true, value: ubicacion });
+    entrar({id:'TEST-INVITADO',invitado:true});
+    try {
+      // Verifica el bloqueo global que decide qué vistas puede montar el invitado.
+      // No necesita jsdom: React genera el HTML, sin simular clics del navegador.
+      for (const ruta of ['perfil', 'perfil/consultas', 'comunidad', 'comunidad/perdidos', 'veterinaria', 'veterinaria/reservar', 'contacto', 'desarrollador']) {
+        ubicacion.hash = '#' + ruta;
+        const html = renderToStaticMarkup(createElement(App));
+        expect(html).toContain('Debes iniciar sesión');
+        expect(html).toContain('Iniciar sesión');
+        expect(html).not.toContain('<form');
+      }
+      // El perfil del animal sigue disponible, pero tampoco monta su formulario.
+      ubicacion.hash = '#animal/' + encodeURIComponent(PEH.catalogo.listar()[0].slug);
+      const perfilAnimal = renderToStaticMarkup(createElement(App));
+      expect(perfilAnimal).not.toContain('formularioAdopcion');
+      expect(perfilAnimal).not.toContain('<form');
+      expect(enviarSolicitud(PEH.catalogo.listar()[0],datosAdopcion()).ok).toBe(false);
+      expect(registrarReserva(datosReserva(),ahora).ok).toBe(false);
+    } finally {
+      if (ubicacionAnterior) Object.defineProperty(window, 'location', ubicacionAnterior);
+      else delete window.location;
+    }
+  });
+  it('17 — recupera el borrador tras reconstruir almacenamiento y separa cuentas', async () => {
+    const {guardarBorradorReserva,leerBorradorReserva} = await import('../src/services/veterinaria.js');
+    expect(guardarBorradorReserva(datosReserva())).toBe(true);
+    volverAEntrar(cuentaA);
+    expect(leerBorradorReserva()).toEqual(datosReserva());
+    entrar(cuentaB); expect(leerBorradorReserva()).toBeNull();
+    volverAEntrar(cuentaA);expect(leerBorradorReserva().mascotaNombre).toBe('Firulais');
+  });
+  it('19 — rechaza servicio, horario y fecha que no corresponden', async () => {
+    const {validarCampoReserva} = await import('../src/services/veterinaria.js');
+    for (const [campo,valor] of [['servicio','inventado'],['hora','10:00'],['fecha','2035-02-30'],['responsableTelefono','123']]) {
+      expect(validarCampoReserva(campo,{...datosReserva(),[campo]:valor},ahora)).toBeTruthy();
+    }
+    expect(validarCampoReserva('hora',datosReserva(),ahora)).toBe('');
+  });
+  it('20 — cancelar el borrador conserva la reserva ya enviada', async () => {
+    const {guardarBorradorReserva,eliminarBorradorReserva,leerBorradorReserva} = await import('../src/services/veterinaria.js');
+    const enviada=registrarReserva(datosReserva(),ahora);expect(enviada.ok).toBe(true);
+    expect(guardarBorradorReserva({...datosReserva(),mascotaNombre:'Otra mascota'})).toBe(true);
+    expect(eliminarBorradorReserva()).toBe(true);expect(leerBorradorReserva()).toBeNull();
+    expect(PEH.reservas.listar().map(r=>r.id)).toEqual([enviada.reserva.id]);
+  });
+
 });

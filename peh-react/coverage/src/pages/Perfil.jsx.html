@@ -1,0 +1,388 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for src/pages/Perfil.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/pages</a> Perfil.jsx</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>0/170</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/85</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>0/54</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>0/49</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line low'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import useValidacionFormulario from "../hooks/useValidacionFormulario.jsx";
+import useBorrador, { AvisoBorrador } from "../hooks/useBorrador.jsx";
+import { correoValido, errorTelefono, errorComuna, normalizarTelefono } from "../services/datosCuenta.js";
+import { useEffect, useRef, useState } from "react";
+import PEH from "../services/peh";
+import Navegacion from "../components/Navegacion";
+import ConfiguracionPerfil from "../components/ConfiguracionPerfil";
+import MisConsultas from "../components/MisConsultas";
+import { ResumenAdopciones, ResumenReservas, AvisosPerfil, EstadisticasAdopciones, ListaAdopciones, EstadisticasReservas, ListaReservas } from "../components/HistorialPerfil";
+import { obtenerPerfil, configuraciones } from "../services/perfil";
+import "../styles/perfil.css";
+export default function <span class="fstat-no" title="function not covered" >Perfil({</span> onCerrarSesion }) {
+ const [perfil,setPerfil]=<span class="cstat-no" title="statement not covered" >useState(obtenerPerfil), [</span>adopciones,setAdopciones]=<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >useState(()=&gt;<span class="cstat-no" title="statement not covered" >P</span>EH.adopciones.listar())</span>, [</span>reservas,setReservas]=<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >useState(()=&gt;<span class="cstat-no" title="statement not covered" >P</span>EH.reservas.listar())</span>;</span>
+ const [preferencias,setPreferencias]=<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >useState(()=&gt;<span class="cstat-no" title="statement not covered" >P</span>EH.preferencias.notificaciones())</span>;</span>
+ const [seccion,setSeccion]=<span class="cstat-no" title="statement not covered" >useState("inicioPerfil"),[</span>modal,setModal]=<span class="cstat-no" title="statement not covered" >useState(""),[</span>configuracion,setConfiguracion]=<span class="cstat-no" title="statement not covered" >useState(configuraciones.notificaciones),[</span>filtro,setFiltro]=<span class="cstat-no" title="statement not covered" >useState("todas");</span>
+ const [datos,setDatos,borradorPerfil]=<span class="cstat-no" title="statement not covered" >useBorrador(<span class="fstat-no" title="function not covered" >"editar-perfil",()=&gt;(<span class="cstat-no" title="statement not covered" >{</span>nombre:obtenerPerfil().nombre,correo:obtenerPerfil().correo,telefono:obtenerPerfil().telefono || "",comuna:obtenerPerfil().comuna || ""}))</span>,[</span>mensaje,setMensaje]=<span class="cstat-no" title="statement not covered" >useState({texto:"",tipo:""});</span>
+ const validacionPerfil=<span class="cstat-no" title="statement not covered" >useValidacionFormulario()</span>;
+ const [errorFoto,setErrorFoto]=<span class="cstat-no" title="statement not covered" >useState("");</span>
+ const anterior=<span class="cstat-no" title="statement not covered" >useRef(null),t</span>emporizadores=<span class="cstat-no" title="statement not covered" >useRef([]),v</span>ivo=<span class="cstat-no" title="statement not covered" >useRef(true),f</span>otoTurno=<span class="cstat-no" title="statement not covered" >useRef(0);</span>
+ function <span class="fstat-no" title="function not covered" >despues(f</span>n,ms){<span class="cstat-no" title="statement not covered" >temporizadores.current.push(<span class="fstat-no" title="function not covered" >setTimeout(()=&gt;{<span class="cstat-no" title="statement not covered" ></span>if(vivo.current)<span class="cstat-no" title="statement not covered" >fn();}</span></span>,ms));}</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > useEffect(()=&gt;{</span></span>
+<span class="cstat-no" title="statement not covered" >  vivo.current=true;<span class="cstat-no" title="statement not covered" >d</span>ocument.body.classList.add("pagina-perfil"); <span class="cstat-no" title="statement not covered" >d</span>ocument.title="Mi perfil | PEH";</span>
+  const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >sincronizar=()=&gt;{<span class="cstat-no" title="statement not covered" ></span>setPerfil(obtenerPerfil());<span class="cstat-no" title="statement not covered" >s</span>etAdopciones(PEH.adopciones.listar());<span class="cstat-no" title="statement not covered" >s</span>etReservas(PEH.reservas.listar());<span class="cstat-no" title="statement not covered" >s</span>etPreferencias(PEH.preferencias.notificaciones());}</span>;</span>
+<span class="cstat-no" title="statement not covered" >  window.addEventListener("peh:actualizado",sincronizar);<span class="cstat-no" title="statement not covered" >w</span>indow.addEventListener("storage",sincronizar);</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  return ()=&gt;{<span class="cstat-no" title="statement not covered" ></span>vivo.current=false;<span class="cstat-no" title="statement not covered" >+</span>+fotoTurno.current;<span class="cstat-no" title="statement not covered" >t</span>emporizadores.current.forEach(clearTimeout);<span class="cstat-no" title="statement not covered" >d</span>ocument.body.classList.remove("pagina-perfil","modal-abierto");<span class="cstat-no" title="statement not covered" >w</span>indow.removeEventListener("peh:actualizado",sincronizar);<span class="cstat-no" title="statement not covered" >w</span>indow.removeEventListener("storage",sincronizar);}</span>;</span>
+ },[]);
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > useEffect(()=&gt;{</span></span>
+<span class="cstat-no" title="statement not covered" >  document.body.classList.toggle("modal-abierto",Boolean(modal));</span>
+<span class="cstat-no" title="statement not covered" >  if(modal==="adopciones"||modal==="reservas")<span class="cstat-no" title="statement not covered" >document.querySelector(modal==="adopciones"?".contenido-historial-adopciones":".contenido-historial-reservas")?.focus();</span></span>
+<span class="cstat-no" title="statement not covered" >  if(!modal)<span class="cstat-no" title="statement not covered" >return;</span></span>
+  const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >escape=e</span>=&gt;{<span class="cstat-no" title="statement not covered" >if(e.key==="Escape")<span class="cstat-no" title="statement not covered" >e.preventDefault();}</span></span>;<span class="cstat-no" title="statement not covered" >d</span>ocument.addEventListener("keydown",escape);</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  return ()=&gt;<span class="cstat-no" title="statement not covered" >d</span>ocument.removeEventListener("keydown",escape);</span></span>
+ },[modal]);
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > useEffect(() =&gt; {</span></span>
+  let frame;
+  const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >irConsultas = () =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >   if (window.location.hash === "#perfil/consultas") <span class="cstat-no" title="statement not covered" >frame = <span class="fstat-no" title="function not covered" >requestAnimationFrame(() =&gt; <span class="cstat-no" title="statement not covered" >d</span>ocument.getElementById("consultasPerfil")?.scrollIntoView({ block: "start" }))</span>;</span></span>
+  };
+<span class="cstat-no" title="statement not covered" >  irConsultas(); <span class="cstat-no" title="statement not covered" >w</span>indow.addEventListener("hashchange", irConsultas);</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  return () =&gt; {</span> <span class="cstat-no" title="statement not covered" >cancelAnimationFrame(frame); <span class="cstat-no" title="statement not covered" >w</span>indow.removeEventListener("hashchange", irConsultas); }</span>;</span>
+ }, []);
+ function <span class="fstat-no" title="function not covered" >abrir(t</span>ipo){<span class="cstat-no" title="statement not covered" >anterior.current=document.activeElement;<span class="cstat-no" title="statement not covered" >s</span>etModal(tipo);}</span>
+ function <span class="fstat-no" title="function not covered" >cerrar(){<span class="cstat-no" title="statement not covered" ></span>setModal("");<span class="cstat-no" title="statement not covered" >i</span>f(anterior.current?.isConnected &amp;&amp; ["adopciones","reservas"].includes(modal))<span class="cstat-no" title="statement not covered" >anterior.current.focus();}</span></span>
+ function <span class="fstat-no" title="function not covered" >abrirEditor(){<span class="cstat-no" title="statement not covered" ></span>setMensaje({texto:"",tipo:""});<span class="cstat-no" title="statement not covered" >a</span>brir("editar");<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >d</span>espues(()=&gt;<span class="cstat-no" title="statement not covered" >d</span>ocument.getElementById("editarNombre")?.focus(),1</span>00);}</span>
+ function <span class="fstat-no" title="function not covered" >abrirConfiguracion(t</span>ipo){<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >setConfiguracion(c</span>=&gt;(<span class="cstat-no" title="statement not covered" >{...configuraciones[tipo],tipo,apertura:(c.apertura||0)+1}))</span>;<span class="cstat-no" title="statement not covered" >a</span>brir("configuracion");}</span>
+ function <span class="fstat-no" title="function not covered" >irSeccion(i</span>d){<span class="cstat-no" title="statement not covered" >setSeccion(id);<span class="cstat-no" title="statement not covered" >d</span>ocument.getElementById(id)?.scrollIntoView({behavior:"smooth",block:"start"});}</span>
+ function <span class="fstat-no" title="function not covered" >guardar(e</span>){<span class="cstat-no" title="statement not covered" >e.preventDefault();<span class="cstat-no" title="statement not covered" >i</span>f(!validacionPerfil.validar(e.currentTarget))<span class="cstat-no" title="statement not covered" >return;c</span></span>onst nombre=<span class="cstat-no" title="statement not covered" >datos.nombre.trim(),c</span>orreo=<span class="cstat-no" title="statement not covered" >datos.correo.trim().toLowerCase();</span>
+<span class="cstat-no" title="statement not covered" >  if(nombre.length&lt;2){<span class="cstat-no" title="statement not covered" >validacionPerfil.asignar("nombre","Ingresa un nombre válido.");<span class="cstat-no" title="statement not covered" >s</span>etMensaje({texto:"Ingresa un nombre válido.",tipo:"error"});<span class="cstat-no" title="statement not covered" >d</span>ocument.getElementById("editarNombre")?.focus();<span class="cstat-no" title="statement not covered" >r</span>eturn;}</span></span>
+<span class="cstat-no" title="statement not covered" >  if(!correoValido(correo)){<span class="cstat-no" title="statement not covered" >validacionPerfil.asignar("correo","Ingresa un correo electrónico válido.");<span class="cstat-no" title="statement not covered" >s</span>etMensaje({texto:"Ingresa un correo electrónico válido.",tipo:"error"});<span class="cstat-no" title="statement not covered" >d</span>ocument.getElementById("editarCorreo")?.focus();<span class="cstat-no" title="statement not covered" >r</span>eturn;}</span></span>
+  const errorContacto = <span class="cstat-no" title="statement not covered" >errorTelefono(datos.telefono) || errorComuna(datos.comuna);</span>
+<span class="cstat-no" title="statement not covered" >  if(errorContacto){<span class="cstat-no" title="statement not covered" >validacionPerfil.asignar(errorTelefono(datos.telefono)?"telefono":"comuna",errorContacto);<span class="cstat-no" title="statement not covered" >s</span>etMensaje({texto:errorContacto,tipo:"error"});<span class="cstat-no" title="statement not covered" >d</span>ocument.getElementById(errorTelefono(datos.telefono)?"editarTelefono":"editarComuna")?.focus();<span class="cstat-no" title="statement not covered" >r</span>eturn;}</span></span>
+  const resultadoPerfil=<span class="cstat-no" title="statement not covered" >PEH.cuentas.actualizarPerfil({nombre,correo,telefono:normalizarTelefono(datos.telefono),comuna:datos.comuna.trim()});</span>
+<span class="cstat-no" title="statement not covered" >  if(!resultadoPerfil.ok){<span class="cstat-no" title="statement not covered" >setMensaje({texto:resultadoPerfil.mensaje,tipo:"error"});<span class="cstat-no" title="statement not covered" >i</span>f(/correo/i.test(resultadoPerfil.mensaje))<span class="cstat-no" title="statement not covered" >validacionPerfil.asignar("correo",resultadoPerfil.mensaje);<span class="cstat-no" title="statement not covered" >r</span></span>eturn;}</span></span>
+<span class="cstat-no" title="statement not covered" >  borradorPerfil.borrar();</span>
+<span class="cstat-no" title="statement not covered" >  setPerfil(obtenerPerfil());<span class="cstat-no" title="statement not covered" >s</span>etMensaje({texto:"Perfil actualizado correctamente. 🐾",tipo:"exito"});<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >d</span>espues(()=&gt;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >s</span>etModal(m</span>=&gt;<span class="cstat-no" title="statement not covered" >m==="editar"?"":m)</span>,9</span>00);</span>
+ }
+ function <span class="fstat-no" title="function not covered" >cambiarFoto(e</span>){<span class="cstat-no" title="statement not covered" >setErrorFoto("");c</span>onst archivo=<span class="cstat-no" title="statement not covered" >e.target.files[0];<span class="cstat-no" title="statement not covered" >i</span>f(!archivo)<span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >  if(!archivo.type.startsWith("image/")){<span class="cstat-no" title="statement not covered" >setErrorFoto("Selecciona una imagen válida.");<span class="cstat-no" title="statement not covered" >e</span>.target.value="";<span class="cstat-no" title="statement not covered" >r</span>eturn;}</span></span>
+<span class="cstat-no" title="statement not covered" >  if(archivo.size&gt;2*1024*1024){<span class="cstat-no" title="statement not covered" >setErrorFoto("La imagen no puede superar los 2 MB.");<span class="cstat-no" title="statement not covered" >e</span>.target.value="";<span class="cstat-no" title="statement not covered" >r</span>eturn;}</span></span>
+  const turno=<span class="cstat-no" title="statement not covered" >++fotoTurno.current,u</span>suario=<span class="cstat-no" title="statement not covered" >PEH.sesion.obtener()?.id,l</span>ector=<span class="cstat-no" title="statement not covered" >new FileReader();<span class="cstat-no" title="statement not covered" >l</span>ector.<span class="fstat-no" title="function not covered" >onload=()=&gt;{</span></span>
+<span class="cstat-no" title="statement not covered" >   if(!vivo.current||turno!==fotoTurno.current||PEH.sesion.obtener()?.id!==usuario)<span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >   if(!PEH.perfil.guardar({...obtenerPerfil(),foto:lector.result})){<span class="cstat-no" title="statement not covered" >setErrorFoto("No fue posible guardar la imagen.");<span class="cstat-no" title="statement not covered" >r</span>eturn;}<span class="cstat-no" title="statement not covered" ></span>s</span>etPerfil(obtenerPerfil());</span>
+  };<span class="cstat-no" title="statement not covered" >lector.<span class="fstat-no" title="function not covered" >onerror=()=&gt;<span class="cstat-no" title="statement not covered" >s</span>etErrorFoto("No se pudo leer la imagen. Inténtalo nuevamente.");<span class="cstat-no" title="statement not covered" >l</span></span>ector.readAsDataURL(archivo);</span>
+ }
+ function <span class="fstat-no" title="function not covered" >salir(){<span class="cstat-no" title="statement not covered" ></span>if(!PEH.sesion.cerrar()){<span class="cstat-no" title="statement not covered" >window.alert("No fue posible cerrar la sesión. Inténtalo nuevamente.");<span class="cstat-no" title="statement not covered" >r</span>eturn;}<span class="cstat-no" title="statement not covered" ></span>s</span>etModal("");<span class="cstat-no" title="statement not covered" >o</span>nCerrarSesion();}</span>
+<span class="cstat-no" title="statement not covered" > return &lt;&gt;</span>
+&nbsp;
+&nbsp;
+&lt;Navegacion pagina="perfil" /&gt;
+&nbsp;
+&lt;main className="perfil-limpio"&gt;&lt;section className="hero-perfil"&gt;&lt;div className="contenedor hero-perfil-contenido"&gt;&lt;div className="hero-perfil-texto"&gt;&lt;span className="miga-navegacion"&gt; Inicio &lt;span&gt; › &lt;/span&gt; Perfil &lt;/span&gt;&lt;h1&gt; Tu espacio dentro de &lt;span&gt; PEH &lt;/span&gt;&lt;/h1&gt;&lt;p&gt; Gestiona tus procesos, reservas y configuración desde un solo lugar. &lt;/p&gt;&lt;/div&gt;&lt;span className="detalle-perfil" aria-hidden="true"&gt; 🐾 &lt;/span&gt;&lt;/div&gt;&lt;/section&gt;&lt;section className="seccion-perfil"&gt;&lt;div className="contenedor perfil-layout"&gt;&lt;aside className="menu-lateral-perfil" aria-label="Cuenta y secciones del perfil"&gt;&lt;div className="identidad-lateral"&gt;&lt;div className="foto-perfil-contenedor"&gt;&lt;div id="fotoPerfil" aria-hidden="true" className={"foto-perfil" + (perfil.foto ? " con-imagen" : "")}&gt;{perfil.foto ? &lt;img src={perfil.foto} alt="Foto de perfil" /&gt; : perfil.nombre.trim().charAt(0).toUpperCase()}&lt;/div&gt;&lt;label className="boton-cambiar-foto" htmlFor="inputFotoPerfil" title="Cambiar foto de perfil"&gt; 📷 &lt;/label&gt;&lt;input id="inputFotoPerfil" type="file" accept="image/*" hidden={true} onChange={cambiarFoto} aria-invalid={Boolean(errorFoto)} aria-describedby="errorFotoPerfil" /&gt;&lt;small id="errorFotoPerfil" className="error-formulario-general" role="alert"&gt;{errorFoto}&lt;/small&gt;&lt;/div&gt;&lt;div className="datos-usuario-perfil"&gt;&lt;h2 id="nombrePerfil"&gt;{perfil.nombre}&lt;/h2&gt;&lt;p&gt;&lt;span&gt; ✉ &lt;/span&gt;&lt;span id="correoPerfil"&gt;{perfil.correo}&lt;/span&gt;&lt;/p&gt;&lt;p className="miembro-desde"&gt;&lt;span&gt; ▣ &lt;/span&gt; Miembro de PEH &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;div className="separador-menu-perfil"&gt;&lt;/div&gt;&lt;nav className="navegacion-perfil" aria-label="Secciones del perfil"&gt;&lt;button type="button" data-seccion="inicioPerfil" className={"opcion-menu-perfil" + (seccion === "inicioPerfil" ? " activo" : "")} <span class="fstat-no" title="function not covered" >onClick={() =&gt; <span class="cstat-no" title="statement not covered" >i</span>rSeccion("inicioPerfil") }&gt;&lt;</span>span&gt; ⌂ &lt;/span&gt; Inicio &lt;/button&gt;&lt;button type="button" data-seccion="adopcionPerfil" className={"opcion-menu-perfil" + (seccion === "adopcionPerfil" ? " activo" : "")} <span class="fstat-no" title="function not covered" >onClick={() =&gt; <span class="cstat-no" title="statement not covered" >i</span>rSeccion("adopcionPerfil") }&gt;&lt;</span>span&gt; 🐾 &lt;/span&gt; Mi adopción &lt;/button&gt;&lt;button type="button" data-seccion="reservasPerfil" className={"opcion-menu-perfil" + (seccion === "reservasPerfil" ? " activo" : "")} <span class="fstat-no" title="function not covered" >onClick={() =&gt; <span class="cstat-no" title="statement not covered" >i</span>rSeccion("reservasPerfil") }&gt;&lt;</span>span&gt; ▣ &lt;/span&gt; Mis reservas &lt;/button&gt;&lt;button className="opcion-menu-perfil" type="button" id="botonDatosPersonales" onClick={abrirEditor}&gt;&lt;span&gt; ♙ &lt;/span&gt; Mi cuenta &lt;/button&gt;&lt;button type="button" data-seccion="notificacionesPerfil" className={"opcion-menu-perfil" + (seccion === "notificacionesPerfil" ? " activo" : "")} <span class="fstat-no" title="function not covered" >onClick={() =&gt; <span class="cstat-no" title="statement not covered" >i</span>rSeccion("notificacionesPerfil") } <span class="fstat-no" title="function not covered" >o</span>nDoubleClick={() =&gt; <span class="cstat-no" title="statement not covered" >a</span>brirConfiguracion("notificaciones")}&gt;&lt;</span>span&gt; ♧ &lt;/span&gt; Notificaciones &lt;/button&gt;&lt;div className="separador-menu-perfil"&gt;&lt;/div&gt;&lt;button className="opcion-menu-perfil opcion-secundaria" id="botonPreferenciasAdopcion" type="button" <span class="fstat-no" title="function not covered" >onClick={() =&gt; <span class="cstat-no" title="statement not covered" >a</span>brirConfiguracion("adopcion")}&gt;&lt;</span>span aria-hidden="true"&gt; ♡ &lt;/span&gt; Preferencias de adopción &lt;/button&gt;&lt;button className="opcion-menu-perfil opcion-secundaria" id="botonSeguridad" type="button" <span class="fstat-no" title="function not covered" >onClick={() =&gt; <span class="cstat-no" title="statement not covered" >a</span>brirConfiguracion("seguridad")}&gt;&lt;</span>span aria-hidden="true"&gt; ⚙ &lt;/span&gt; Seguridad y privacidad &lt;/button&gt;&lt;button className="opcion-menu-perfil opcion-secundaria" id="botonNotificaciones" type="button" <span class="fstat-no" title="function not covered" >onClick={() =&gt; <span class="cstat-no" title="statement not covered" >a</span>brirConfiguracion("notificaciones")}&gt;&lt;</span>span aria-hidden="true"&gt; ♧ &lt;/span&gt; Preferencias de notificación &lt;/button&gt;&lt;div className="separador-menu-perfil"&gt;&lt;/div&gt;&lt;button type="button" className={"opcion-menu-perfil" + (seccion === "consultasPerfil" ? " activo" : "")} <span class="fstat-no" title="function not covered" >onClick={() =&gt; <span class="cstat-no" title="statement not covered" >i</span>rSeccion("consultasPerfil")}&gt;&lt;</span>span aria-hidden="true"&gt;✉&lt;/span&gt; Mis consultas &lt;/button&gt;&lt;button className="opcion-menu-perfil cerrar-sesion-lateral" id="cerrarSesionLateral" type="button" <span class="fstat-no" title="function not covered" >onClick={() =&gt; <span class="cstat-no" title="statement not covered" >a</span>brir("salir")}&gt;&lt;</span>span&gt; ↪ &lt;/span&gt; Cerrar sesión &lt;/button&gt;&lt;/nav&gt;&lt;/aside&gt;&lt;div className="contenido-perfil"&gt;&lt;section className="bienvenida-perfil" id="inicioPerfil"&gt;&lt;div&gt;&lt;h2 id="saludoPerfil"&gt;{`¡Hola, ${perfil.nombre.trim().split(/\s+/)[0]}!`}&lt;/h2&gt;&lt;p&gt; Aquí puedes revisar tus procesos de adopción, tus reservas y los datos para acompañarte en ellos. &lt;/p&gt;&lt;button className="boton-editar-perfil" id="botonEditarPerfil" type="button" onClick={abrirEditor}&gt; ✎ Editar perfil &lt;/button&gt;&lt;/div&gt;&lt;span className="detalle-perfil" aria-hidden="true"&gt; 🐾 &lt;/span&gt;&lt;/section&gt;&lt;section className="resumen-perfil"&gt;&lt;div className="titulo-seccion-perfil"&gt;&lt;span className="icono-titulo-perfil"&gt; 🐾 &lt;/span&gt;&lt;div&gt;&lt;h2&gt; Tu resumen &lt;/h2&gt;&lt;p&gt; Un vistazo a lo más importante en este momento. &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;div className="tarjetas-resumen d-flex flex-column flex-lg-row"&gt;&lt;article className="tarjeta-resumen tarjeta-adopcion flex-fill w-100" id="adopcionPerfil" role="button" tabIndex="0" aria-label="Ver historial de solicitudes de adopción" aria-haspopup="dialog" aria-controls="modalHistorialAdopciones" <span class="fstat-no" title="function not covered" >onClick={() =&gt; <span class="cstat-no" title="statement not covered" >a</span>brir("adopciones")} <span class="fstat-no" title="function not covered" >o</span>nKeyDown={e</span> =&gt; { <span class="cstat-no" title="statement not covered" >if (e.target === e.currentTarget &amp;&amp; ["Enter", " "].includes(e.key)) { <span class="cstat-no" title="statement not covered" >e.preventDefault(); <span class="cstat-no" title="statement not covered" >a</span>brir("adopciones"); }</span> }</span>}&gt;&lt;header className="cabecera-resumen"&gt;&lt;span className="icono-resumen"&gt; 🐾 &lt;/span&gt;&lt;h3&gt; Mis procesos de adopción &lt;/h3&gt;&lt;/header&gt;&lt;div className="resumen-historial-adopcion" id="resumenHistorialAdopcion" aria-live="polite"&gt;{&lt;ResumenAdopciones solicitudes={adopciones} /&gt;}&lt;/div&gt;&lt;span className="enlace-historial-adopciones"&gt; Ver historial completo → &lt;/span&gt;&lt;div className="historial-adopciones" id="historialAdopciones" aria-label="Historial de solicitudes de adopción"&gt;&lt;/div&gt;&lt;/article&gt;&lt;article className="tarjeta-resumen tarjeta-reserva flex-fill w-100" id="reservasPerfil" role="button" tabIndex="0" aria-label="Ver historial de reservas veterinarias" aria-haspopup="dialog" aria-controls="modalHistorialReservas" <span class="fstat-no" title="function not covered" >onClick={() =&gt; <span class="cstat-no" title="statement not covered" >a</span>brir("reservas")} <span class="fstat-no" title="function not covered" >o</span>nKeyDown={e</span> =&gt; { <span class="cstat-no" title="statement not covered" >if (e.target === e.currentTarget &amp;&amp; ["Enter", " "].includes(e.key)) { <span class="cstat-no" title="statement not covered" >e.preventDefault(); <span class="cstat-no" title="statement not covered" >a</span>brir("reservas"); }</span> }</span>}&gt;&lt;header className="cabecera-resumen"&gt;&lt;span className="icono-resumen" aria-hidden="true"&gt; ♡ &lt;/span&gt;&lt;h3&gt; Próxima reserva veterinaria &lt;/h3&gt;&lt;/header&gt;&lt;div className="contenido-resumen-reserva" id="resumenReservaVeterinaria" aria-live="polite"&gt;{&lt;ResumenReservas reservas={reservas} /&gt;}&lt;/div&gt;&lt;span className="enlace-historial-reservas"&gt; Ver historial completo → &lt;/span&gt;&lt;/article&gt;&lt;/div&gt;&lt;/section&gt;&lt;section className="panel-notificaciones-perfil" id="notificacionesPerfil"&gt;&lt;div className="titulo-seccion-perfil"&gt;&lt;span className="icono-titulo-perfil"&gt; 🔔 &lt;/span&gt;&lt;div&gt;&lt;h2&gt; Notificaciones &lt;/h2&gt;&lt;p&gt; Mantente al tanto de tus procesos importantes dentro de PEH. &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;div className="lista-notificaciones-perfil" id="listaNotificacionesPerfil" aria-live="polite"&gt;{&lt;AvisosPerfil solicitudes={adopciones} reservas={reservas} preferencias={preferencias} /&gt;}&lt;/div&gt;&lt;/section&gt;&lt;MisConsultas /&gt;&lt;section className="ayuda-perfil"&gt;&lt;div className="ayuda-perfil-contenido"&gt;&lt;span className="huella-ayuda" aria-hidden="true"&gt; 🐾 &lt;/span&gt;&lt;div&gt;&lt;h2&gt; ¿Necesitas ayuda? &lt;/h2&gt;&lt;p&gt; Si tienes dudas sobre tu proceso de adopción, reservas o tu cuenta, estamos aquí para ayudarte. &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;a href="#contacto" className="boton-soporte-perfil"&gt; ◯ Contactar soporte &lt;/a&gt;&lt;/section&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;/main&gt;
+&nbsp;
+&lt;footer className="pie-perfil-limpio"&gt;&lt;div className="contenedor"&gt;&lt;p&gt; © 2026 PEH · Patitas Esperando un Hogar &lt;/p&gt;&lt;blockquote className="frase-perfil"&gt; “Los animales no cambian el mundo, pero sí el mundo de un animal.” &lt;span&gt; ♥ &lt;/span&gt;&lt;/blockquote&gt;&lt;/div&gt;&lt;/footer&gt;
+&nbsp;
+&nbsp;
+&nbsp;
+&lt;div className="modal-perfil" id="modalEditarPerfil" hidden={modal !== "editar"}&gt;&lt;div className="fondo-modal-perfil" data-cerrar-modal=""&gt;&lt;/div&gt;&lt;section className="contenido-modal-perfil" role="dialog" aria-modal="true" aria-labelledby="tituloModalPerfil"&gt;&lt;button className="cerrar-modal-perfil" type="button" data-cerrar-modal="" aria-label="Cerrar" onClick={cerrar}&gt; × &lt;/button&gt;&lt;span className="icono-modal"&gt; 🐾 &lt;/span&gt;&lt;h2 id="tituloModalPerfil"&gt; Editar perfil &lt;/h2&gt;&lt;p&gt; Actualiza la información básica de tu cuenta. &lt;/p&gt;&lt;form id="formularioEditarPerfil" noValidate onBlur={validacionPerfil.evento} onChange={validacionPerfil.evento} onSubmit={guardar}&gt;&lt;AvisoBorrador estado={borradorPerfil}/&gt;&lt;label htmlFor="editarNombre"&gt; Nombre &lt;/label&gt;&lt;input id="editarNombre" name="nombre" pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ' -]+" minLength="2" type="text" maxLength="60" required={true} value={datos.nombre} <span class="fstat-no" title="function not covered" >onChange={e</span> =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >setDatos(d</span> =&gt; (<span class="cstat-no" title="statement not covered" >{...d, nombre: e.target.value}))</span>} /&gt;</span>{validacionPerfil.mensaje("nombre")} &lt;label htmlFor="editarCorreo"&gt; Correo electrónico &lt;/label&gt;&lt;input id="editarCorreo" name="correo" type="email" maxLength="100" required={true} value={datos.correo} <span class="fstat-no" title="function not covered" >onChange={e</span> =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >setDatos(d</span> =&gt; (<span class="cstat-no" title="statement not covered" >{...d, correo: e.target.value}))</span>} /&gt;</span>{validacionPerfil.mensaje("correo")} &lt;label htmlFor="editarTelefono"&gt; Teléfono &lt;/label&gt;&lt;input id="editarTelefono" name="telefono" type="tel" autoComplete="tel" maxLength="20" required value={datos.telefono} <span class="fstat-no" title="function not covered" >onChange={e</span> =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >setDatos(d</span> =&gt; (<span class="cstat-no" title="statement not covered" >{...d, telefono: e.target.value}))</span>} /&gt;</span>{validacionPerfil.mensaje("telefono")} &lt;label htmlFor="editarComuna"&gt; Comuna &lt;/label&gt;&lt;input id="editarComuna" name="comuna" type="text" autoComplete="address-level3" maxLength="60" required value={datos.comuna} <span class="fstat-no" title="function not covered" >onChange={e</span> =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >setDatos(d</span> =&gt; (<span class="cstat-no" title="statement not covered" >{...d, comuna: e.target.value}))</span>} /&gt;</span>{validacionPerfil.mensaje("comuna")} &lt;div id="mensajeEditarPerfil" role="status" aria-live="polite" hidden={!mensaje.texto} className={"mensaje-modal " + mensaje.tipo}&gt;{mensaje.texto}&lt;/div&gt;&lt;button type="button" className="boton-cancelar boton-cancelar-proceso" <span class="fstat-no" title="function not covered" >onClick={()=&gt;{<span class="cstat-no" title="statement not covered" ></span>if(borradorPerfil.reiniciar(obtenerPerfil())){<span class="cstat-no" title="statement not covered" >validacionPerfil.limpiar();<span class="cstat-no" title="statement not covered" >c</span>errar();}</span>}</span>}&gt;Cancelar proceso&lt;/button&gt;&lt;button className="boton-guardar-cambios" type="submit"&gt; Guardar cambios &lt;/button&gt;&lt;/form&gt;&lt;/section&gt;&lt;/div&gt;
+&nbsp;
+&nbsp;
+&nbsp;
+&lt;div className="modal-perfil" id="modalConfiguracion" hidden={modal !== "configuracion"}&gt;&lt;div className="fondo-modal-perfil" data-cerrar-configuracion=""&gt;&lt;/div&gt;&lt;section className="contenido-modal-perfil modal-configuracion" role="dialog" aria-modal="true" aria-labelledby="tituloModalConfiguracion"&gt;&lt;button className="cerrar-modal-perfil" type="button" data-cerrar-configuracion="" aria-label="Cerrar" onClick={cerrar}&gt; × &lt;/button&gt;&lt;span className="icono-modal" id="iconoModalConfiguracion"&gt;{configuracion.icono}&lt;/span&gt;&lt;h2 id="tituloModalConfiguracion"&gt;{configuracion.titulo}&lt;/h2&gt;&lt;p id="descripcionModalConfiguracion"&gt;{configuracion.descripcion}&lt;/p&gt;&lt;div className="contenido-configuracion-modal" id="contenidoConfiguracionModal"&gt;{&lt;ConfiguracionPerfil key={configuracion.apertura || 0} tipo={configuracion.tipo} /&gt;}&lt;/div&gt;&lt;/section&gt;&lt;/div&gt;
+&nbsp;
+&nbsp;
+&nbsp;
+&lt;div className="modal-perfil" id="modalCerrarSesion" hidden={modal !== "salir"}&gt;&lt;div className="fondo-modal-perfil" data-cancelar-sesion=""&gt;&lt;/div&gt;&lt;section className="contenido-modal-perfil modal-cerrar-sesion" role="dialog" aria-modal="true" aria-labelledby="tituloCerrarSesion"&gt;&lt;span className="icono-modal"&gt; 🐾 &lt;/span&gt;&lt;h2 id="tituloCerrarSesion"&gt; ¿Cerrar sesión? &lt;/h2&gt;&lt;p&gt; Tendrás que volver a iniciar sesión para acceder a tu cuenta de PEH. &lt;/p&gt;&lt;div className="acciones-cerrar-sesion"&gt;&lt;button className="boton-cancelar" type="button" data-cancelar-sesion="" onClick={cerrar}&gt; Cancelar &lt;/button&gt;&lt;button className="boton-confirmar-sesion" id="confirmarCerrarSesion" type="button" onClick={salir}&gt; Cerrar sesión &lt;/button&gt;&lt;/div&gt;&lt;/section&gt;&lt;/div&gt;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&lt;div className="modal-perfil modal-historial-adopciones" id="modalHistorialAdopciones" hidden={modal !== "adopciones"} aria-hidden={modal !== "adopciones"}&gt;&lt;div className="fondo-modal-perfil" data-cerrar-historial-adopciones=""&gt;&lt;/div&gt;&lt;section className="contenido-modal-perfil contenido-historial-adopciones" role="dialog" aria-modal="true" aria-labelledby="tituloHistorialAdopciones" aria-describedby="descripcionHistorialAdopciones" tabIndex="-1"&gt;&lt;button type="button" className="cerrar-modal-perfil" id="cerrarHistorialAdopciones" aria-label="Cerrar historial de adopciones" onClick={cerrar}&gt; × &lt;/button&gt;&lt;div className="encabezado-historial-adopciones"&gt;&lt;span className="icono-modal" aria-hidden="true"&gt; 🐾 &lt;/span&gt;&lt;h2 id="tituloHistorialAdopciones"&gt; Mis solicitudes de adopción &lt;/h2&gt;&lt;p id="descripcionHistorialAdopciones"&gt; Consulta el estado de tus solicitudes y revisa tus procesos anteriores. &lt;/p&gt;&lt;/div&gt;&lt;div className="estadisticas-historial-adopciones" id="estadisticasHistorialAdopciones" aria-live="polite"&gt;{&lt;EstadisticasAdopciones solicitudes={adopciones} /&gt;}&lt;/div&gt;&lt;div className="lista-historial-adopciones" id="listaHistorialAdopciones" aria-live="polite"&gt;{&lt;ListaAdopciones solicitudes={adopciones} filtro={filtro} onFiltro={setFiltro} /&gt;}&lt;/div&gt;&lt;footer className="pie-historial-adopciones"&gt;&lt;span aria-hidden="true"&gt; ♡ &lt;/span&gt;&lt;p&gt; Tus solicitudes anteriores permanecerán disponibles, incluso cuando sus procesos hayan finalizado. &lt;/p&gt;&lt;/footer&gt;&lt;/section&gt;&lt;/div&gt;
+&nbsp;
+&nbsp;
+&nbsp;
+&lt;div className="modal-perfil modal-historial-reservas" id="modalHistorialReservas" hidden={modal !== "reservas"} aria-hidden={modal !== "reservas"}&gt;&lt;div className="fondo-modal-perfil" data-cerrar-historial-reservas=""&gt;&lt;/div&gt;&lt;section className="contenido-modal-perfil contenido-historial-reservas" role="dialog" aria-modal="true" aria-labelledby="tituloHistorialReservas" aria-describedby="descripcionHistorialReservas" tabIndex="-1"&gt;&lt;button type="button" className="cerrar-modal-perfil" id="cerrarHistorialReservas" aria-label="Cerrar historial de reservas" onClick={cerrar}&gt; × &lt;/button&gt;&lt;div className="encabezado-historial-reservas"&gt;&lt;span className="icono-modal" aria-hidden="true"&gt; 🩺 &lt;/span&gt;&lt;h2 id="tituloHistorialReservas"&gt; Mis reservas veterinarias &lt;/h2&gt;&lt;p id="descripcionHistorialReservas"&gt; Consulta tus próximas citas y revisa el historial de atenciones veterinarias. &lt;/p&gt;&lt;/div&gt;&lt;div className="estadisticas-historial-reservas" id="estadisticasHistorialReservas" aria-live="polite"&gt;{&lt;EstadisticasReservas reservas={reservas} /&gt;}&lt;/div&gt;&lt;div className="lista-historial-reservas" id="listaHistorialReservas" aria-live="polite"&gt;{&lt;ListaReservas reservas={reservas} /&gt;}&lt;/div&gt;&lt;footer className="pie-historial-reservas"&gt;&lt;span aria-hidden="true"&gt; ♡ &lt;/span&gt;&lt;p&gt; Tus reservas anteriores permanecerán disponibles en este historial, incluso después de la fecha de atención o si fueron canceladas. &lt;/p&gt;&lt;/footer&gt;&lt;/section&gt;&lt;/div&gt;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&lt;/&gt;;
+}
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-10-25T00:43:08.661Z
+            </div>
+        <script src="../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
+    </body>
+</html>
+    

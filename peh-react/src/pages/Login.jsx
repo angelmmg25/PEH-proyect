@@ -1,3 +1,4 @@
+import useBorrador, { AvisoBorrador } from "../hooks/useBorrador.jsx";
 import { useEffect, useRef, useState } from "react";
 import PEH from "../services/peh";
 import { validarAcceso, camposInicio, camposRegistro } from "../services/validacionAcceso";
@@ -5,7 +6,7 @@ import "../styles/login.css";
 
 export default function Login({onAcceso}) {
  const [registro, setRegistro] = useState(false);
- const [valores, setValores] = useState({});
+ const [valores, setValores, borrador] = useBorrador("acceso-registro", {});
  const [estados, setEstados] = useState({});
  const [mensaje, setMensaje] = useState({texto:"", tipo:""});
  const [procesando, setProcesando] = useState(false);
@@ -47,6 +48,7 @@ export default function Login({onAcceso}) {
   try {
    const resultado = await PEH.cuentas.iniciarSesion(valores.correo.trim(), valores.contrasena);
    if(!resultado.ok) { setEstados(actual => ({...actual, contrasena: resultado.mensaje || "Correo o contraseña incorrectos."})); return; }
+   borrador.borrar();
    window.location.hash = PEH.admin.esAdmin() ? "desarrollador" : "inicio";
    onAcceso(PEH.sesion.obtener());
   } catch { setEstados(actual => ({...actual, contrasena:"Ocurrió un problema al iniciar sesión."})); }
@@ -68,14 +70,15 @@ export default function Login({onAcceso}) {
    raiz.current?.querySelector("#" + primerError)?.focus(); return;
   }
   bloqueo.current = true; setProcesando(true);
-  const datos = {nombre:valores.nombreRegistro.trim(), apellido:valores.apellidoRegistro.trim(), usuario:valores.usuarioRegistro.trim(), correo:valores.correoRegistro.trim(), fechaNacimiento:valores.fechaNacimientoRegistro, contrasena:valores.contrasenaRegistro};
+  const datos = {nombre:valores.nombreRegistro.trim(), apellido:valores.apellidoRegistro.trim(), usuario:valores.usuarioRegistro.trim(), correo:valores.correoRegistro.trim(), fechaNacimiento:valores.fechaNacimientoRegistro, telefono:valores.telefonoRegistro, comuna:valores.comunaRegistro, contrasena:valores.contrasenaRegistro};
   try {
    setMensaje({texto:"Estamos creando tu cuenta...", tipo:"info"});
    const resultado = await PEH.cuentas.registrar(datos);
    if(!resultado.ok) { setMensaje({texto:resultado.mensaje || "No se pudo crear la cuenta.", tipo:"error"}); return; }
+   borrador.borrar();
    setMensaje({texto:"¡Bienvenido a PEH! Tu cuenta fue creada correctamente.", tipo:"exito"});
    despues(() => {
-    setValores(actual => ({correo:datos.correo, contrasena:actual.contrasena || ""}));
+    borrador.reiniciar({correo:datos.correo, contrasena:""});
     setEstados(actual => ({contrasena:actual.contrasena}));
     setMensaje({texto:"", tipo:""}); cambiarVista(false);
    }, 900);
@@ -116,7 +119,7 @@ export default function Login({onAcceso}) {
 <div className={"contenedor-tarjeta-giratoria" + (registro ? " modo-registro" : "")} id="contenedorTarjeta">
 <div className={"tarjeta-giratoria" + (registro ? " girada" : "")} id="tarjetaAcceso">
 
-<form className="tarjeta-inicio-sesion cara-tarjeta cara-frontal" id="formularioInicioSesion" noValidate onSubmit={iniciarSesion} inert={registro} aria-hidden={registro}>
+<form className="tarjeta-inicio-sesion cara-tarjeta cara-frontal" id="formularioInicioSesion" noValidate onBlur={e=>{if([...camposInicio,...camposRegistro].includes(e.target.id))validarCampo(e.target.id);}} onSubmit={iniciarSesion} inert={registro} aria-hidden={registro}><AvisoBorrador estado={borrador} />
 <span className="indicador-estado">
                 ● Comunidad PEH
               </span>
@@ -164,7 +167,7 @@ export default function Login({onAcceso}) {
 </p>
 </form>
 
-<form className="tarjeta-inicio-sesion cara-tarjeta cara-trasera" id="formularioRegistro" noValidate onSubmit={crearCuenta} inert={!registro} aria-hidden={!registro}>
+<form className="tarjeta-inicio-sesion cara-tarjeta cara-trasera" id="formularioRegistro" noValidate onBlur={e=>{if([...camposInicio,...camposRegistro].includes(e.target.id))validarCampo(e.target.id);}} onSubmit={crearCuenta} inert={!registro} aria-hidden={!registro}><AvisoBorrador estado={borrador} />
 <span className="indicador-estado">
                 ● Únete a PEH
               </span>
@@ -211,6 +214,16 @@ export default function Login({onAcceso}) {
 <small className="mensaje-error" id="errorCorreoRegistro" aria-live="polite">{estados.correoRegistro || ""}</small>
 </div>
 
+<div className={"grupo-campo" + (estados.telefonoRegistro ? " campo-error" : "")}>
+<label htmlFor="telefonoRegistro">Teléfono</label>
+<input id="telefonoRegistro" name="telefono" type="tel" autoComplete="tel" required maxLength="20" value={valores.telefonoRegistro || ""} onChange={cambiarCampo} onBlur={() => validarCampo("telefonoRegistro")} aria-invalid={Boolean(estados.telefonoRegistro)} aria-describedby="errorTelefonoRegistro" />
+<small className="mensaje-error" id="errorTelefonoRegistro" aria-live="polite">{estados.telefonoRegistro || ""}</small>
+</div>
+<div className={"grupo-campo" + (estados.comunaRegistro ? " campo-error" : "")}>
+<label htmlFor="comunaRegistro">Comuna</label>
+<input id="comunaRegistro" name="comuna" type="text" autoComplete="address-level3" required maxLength="60" value={valores.comunaRegistro || ""} onChange={cambiarCampo} onBlur={() => validarCampo("comunaRegistro")} aria-invalid={Boolean(estados.comunaRegistro)} aria-describedby="errorComunaRegistro" />
+<small className="mensaje-error" id="errorComunaRegistro" aria-live="polite">{estados.comunaRegistro || ""}</small>
+</div>
 <div className={"grupo-campo" + (estados["fechaNacimientoRegistro"] === undefined ? "" : estados["fechaNacimientoRegistro"] ? " campo-error" : " campo-valido")}>
 <label htmlFor="fechaNacimientoRegistro">
                   Fecha de nacimiento
@@ -266,7 +279,7 @@ export default function Login({onAcceso}) {
                   Inicia sesión
                 </button>
 </p>
-</form>
+<button className="enlace-cambio boton-cancelar-proceso" type="button" onClick={() => {if(borrador.reiniciar({})){setEstados({});setMensaje({texto:"",tipo:""});}}}>Cancelar proceso</button></form>
 </div>
 </div>
 </section>

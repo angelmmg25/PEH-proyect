@@ -1,11 +1,17 @@
+import { AvisoAdopcionInvitado } from "../components/AccesoRequerido.jsx";
+import PEH from "../services/peh.js";
+import { formatearEdad } from "../services/catalogo";
 import { useEffect, useState } from "react";
 import Navegacion from "../components/Navegacion";
 import FormularioAdopcion from "../components/FormularioAdopcion";
 import "../styles/animal.css";
 
 const etiquetasHogar = {casa:"Casa", departamento:"Departamento", "espacio-amplio":"Espacio amplio"};
-export default function Animal({animal}) {
+export default function Animal({animal,onIniciarSesion}) {
  const [adoptando, setAdoptando] = useState(false);
+ const [avisoInvitado,setAvisoInvitado] = useState(false);
+ const sesionAnimal=PEH.sesion.obtener();
+ const puedeCompletar=Boolean(sesionAnimal?.id && !sesionAnimal.invitado);
  useEffect(() => {
   document.body.classList.add("pagina-animal");
   document.title = animal ? `${animal.nombre} | PEH` : "Animal no disponible | PEH";
@@ -15,7 +21,7 @@ export default function Animal({animal}) {
   document.body.classList.toggle("adopcion-activa", adoptando);
   return () => document.body.classList.remove("adopcion-activa");
  }, [adoptando]);
- function abrirAdopcion() { if (animal.estadoPerfil !== "disponible") return; setAdoptando(true); window.scrollTo({top:0,behavior:"smooth"}); }
+ function abrirAdopcion() { if (animal.estadoPerfil !== "disponible") return; const usuario = PEH.sesion.obtener(); if (!usuario?.id || usuario.invitado) { setAvisoInvitado(true); return; } setAdoptando(true); window.scrollTo({top:0,behavior:"smooth"}); }
  function cerrarAdopcion() { setAdoptando(false); window.scrollTo({top:0,behavior:"smooth"}); }
  function verHistoria(e) {
   // Un ancla local no debe sustituir la ruta #animal/... de la aplicación.
@@ -24,7 +30,7 @@ export default function Animal({animal}) {
  if(!animal) return <><Navegacion pagina="animales" /><div className="estructura-animal" id="perfilAnimal"><p>Este animal no está disponible. Vuelve al catálogo para conocer a nuestros perros y gatos.</p><a href="#animales">Volver al catálogo</a></div></>;
  const capitalizar = texto => texto.charAt(0).toUpperCase() + texto.slice(1);
  const tamano = {pequeno:"Pequeño", mediano:"Mediano", grande:"Grande"}[animal.tamano];
- const edad = animal.edad + (animal.edad === 1 ? " año aprox." : " años aprox.");
+ const edad = formatearEdad(animal) + " aprox.";
  const sexo = capitalizar(animal.sexo);
  const ubicacion = animal.comuna + ", Santiago";
  const resumen = ["📍 " + ubicacion, "🗓 " + edad, sexo, tamano];
@@ -171,7 +177,7 @@ export default function Animal({animal}) {
 </div>
 </main>
 </div>
-<section className={"modo-adopcion" + (adoptando ? " activo" : "")} id="modoAdopcion" aria-hidden={!adoptando} inert={!adoptando}>
+{puedeCompletar && <section className={"modo-adopcion" + (adoptando ? " activo" : "")} id="modoAdopcion" aria-hidden={!adoptando} inert={!adoptando}>
 
 <div className="panel-formulario-adopcion">
 
@@ -187,7 +193,7 @@ export default function Animal({animal}) {
 <p className="introduccion-formulario">{" Queremos conocerte un poquito mejor. Tus respuestas nos ayudarán a encontrar el hogar más adecuado para " + animal.nombre + ". "}</p>
 </div>
 
-<FormularioAdopcion animal={animal} onCancelar={cerrarAdopcion} onEnviada={cerrarAdopcion} />
+<FormularioAdopcion key={animal.id} animal={animal} onCancelar={cerrarAdopcion} onEnviada={cerrarAdopcion} />
 </div>
 
 <aside className="panel-animal-adopcion">
@@ -212,6 +218,7 @@ export default function Animal({animal}) {
 </div>
 </div>
 </aside>
-</section>
+</section>}
+{avisoInvitado && <AvisoAdopcionInvitado onIniciarSesion={onIniciarSesion} onCerrar={()=>setAvisoInvitado(false)}/>} 
  </>;
 }

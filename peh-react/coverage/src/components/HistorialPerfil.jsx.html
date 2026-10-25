@@ -1,0 +1,148 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for src/components/HistorialPerfil.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/components</a> HistorialPerfil.jsx</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">2.56% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>1/39</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/87</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>0/17</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">7.14% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>1/14</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line low'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { estadoAdopcion, estadoReserva, fechaSolicitud, fechaReserva, fechaHora, finalizada, agruparReservas, contarAdopciones } from "../services/perfil";
+export function <span class="fstat-no" title="function not covered" >ResumenAdopciones({</span>solicitudes}) {
+ const {pendientes,aprobadas}=<span class="cstat-no" title="statement not covered" >contarAdopciones(solicitudes);</span>
+<span class="cstat-no" title="statement not covered" > return &lt;div className="contenido-resumen-adopcion"&gt;&lt;div className="imagen-animal-resumen" aria-hidden="true"&gt;🐾&lt;/div&gt;&lt;div className="datos-adopcion-resumen"&gt;&lt;h4&gt;Mis solicitudes&lt;/h4&gt;{solicitudes.length===0?&lt;&gt;&lt;p&gt;Todavía no tienes solicitudes de adopción registradas.&lt;/p&gt;&lt;p&gt;Cuando solicites adoptar una mascota, podrás consultar aquí su estado.&lt;/p&gt;&lt;/&gt;:&lt;&gt;&lt;p&gt;&lt;strong&gt;{solicitudes.length}&lt;/strong&gt;{" "}{solicitudes.length===1?"solicitud registrada":"solicitudes registradas"}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;{pendientes}&lt;/strong&gt;{" "}{pendientes===1?"pendiente o en revisión":"pendientes o en revisión"}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;{aprobadas}&lt;/strong&gt;{" "}{aprobadas===1?"solicitud aprobada":"solicitudes aprobadas"}&lt;/p&gt;&lt;/&gt;}&lt;/div&gt;&lt;/div&gt;;</span>
+}
+export function <span class="fstat-no" title="function not covered" >ResumenReservas({</span>reservas}) {
+ const proxima=<span class="cstat-no" title="statement not covered" >agruparReservas(reservas).futuras[0];</span>
+<span class="cstat-no" title="statement not covered" > return &lt;&gt;&lt;div className="imagen-animal-resumen" aria-hidden="true"&gt;🩺&lt;/div&gt;&lt;div className="datos-reserva-resumen"&gt;{proxima?&lt;&gt;&lt;h4&gt;{proxima.servicioNombre||proxima.servicio||"Consulta veterinaria"}&lt;/h4&gt;&lt;p className="mascota-reserva-resumen"&gt;🐾 {proxima.mascotaNombre||"Tu mascota"}&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span&gt;▣&lt;/span&gt;{" "}{fechaReserva(proxima.fecha)}&lt;/li&gt;&lt;li&gt;&lt;span&gt;◷&lt;/span&gt;{" "}{proxima.hora||"Sin horario"} hrs&lt;/li&gt;&lt;li&gt;&lt;span&gt;●&lt;/span&gt;{" "}{estadoReserva(proxima.estado).texto}&lt;/li&gt;&lt;/ul&gt;&lt;/&gt;:&lt;&gt;&lt;h4&gt;Sin próximas reservas&lt;/h4&gt;&lt;p&gt;No tienes consultas veterinarias futuras registradas.&lt;/p&gt;&lt;/&gt;}&lt;/div&gt;&lt;/&gt;;</span>
+}
+export function <span class="fstat-no" title="function not covered" >EstadisticasAdopciones({</span>solicitudes}){const c=<span class="cstat-no" title="statement not covered" >contarAdopciones(solicitudes);<span class="cstat-no" title="statement not covered" >r</span>eturn &lt;&gt;{[[solicitudes.length,"Total de solicitudes"],[c.pendientes,"Pendientes"],[c.aprobadas,"Aprobadas"]].<span class="fstat-no" title="function not covered" >map(([</span>n,t])=&gt;<span class="cstat-no" title="statement not covered" >&lt;div className="estadistica-adopcion" key={t}&gt;&lt;strong&gt;{n}&lt;/strong&gt;&lt;span&gt;{t}&lt;/span&gt;&lt;/div&gt;)</span>}&lt;/&gt;;}</span>
+const descripciones={pendiente:"Tu solicitud fue recibida y está pendiente de revisión.",revision:"Tu solicitud se encuentra en proceso de revisión.",aprobada:"Tu solicitud fue aprobada.",rechazada:"Esta solicitud no fue aprobada.",completada:"Este proceso de adopción ha finalizado.",cancelada:"Esta solicitud fue cancelada."};
+export function <span class="fstat-no" title="function not covered" >ListaAdopciones({</span>solicitudes,filtro,onFiltro}){
+ const c=<span class="cstat-no" title="statement not covered" >contarAdopciones(solicitudes);</span>
+<span class="cstat-no" title="statement not covered" > if(!solicitudes.length)<span class="cstat-no" title="statement not covered" >return &lt;div className="historial-adopciones-vacio"&gt;&lt;span className="icono-historial-vacio"&gt;🐾&lt;/span&gt;&lt;h3&gt;Todavía no tienes solicitudes&lt;/h3&gt;&lt;p&gt;Cuando solicites adoptar una mascota, aquí podrás consultar su estado y revisar su historial.&lt;/p&gt;&lt;a href="#inicio" className="boton-explorar-adopciones"&gt;Conocer animales&lt;/a&gt;&lt;/div&gt;;</span></span>
+ const filtradas=<span class="cstat-no" title="statement not covered" >solicitudes.<span class="fstat-no" title="function not covered" >filter(s</span>=&gt;{const e=<span class="cstat-no" title="statement not covered" >estadoAdopcion(s.estado).clase;<span class="cstat-no" title="statement not covered" >r</span>eturn filtro==="pendientes"?["pendiente","revision"].includes(e):filtro==="aprobadas"?e==="aprobada":filtro==="rechazadas"?e==="rechazada":true;}</span>).<span class="fstat-no" title="function not covered" >sort((a</span>,<span class="cstat-no" title="statement not covered" >b)=&gt;(new Date(b.fechaCreacion||0).getTime()||0)-(new Date(a.fechaCreacion||0).getTime()||0))</span>;</span>
+<span class="cstat-no" title="statement not covered" > return &lt;&gt;&lt;div className="filtros-historial-adopciones" role="group" aria-label="Filtrar solicitudes por estado"&gt;{[["todas","Todas",solicitudes.length],["pendientes","Pendientes",c.pendientes],["aprobadas","Aprobadas",c.aprobadas],["rechazadas","Rechazadas",c.rechazadas]].<span class="fstat-no" title="function not covered" >map(([</span>v,t,n])=&gt;<span class="cstat-no" title="statement not covered" >&lt;button key={v} type="button" className={"filtro-historial-adopcion"+(filtro===v?" activo":"")} data-filtro-adopcion={v} aria-pressed={filtro===v} <span class="fstat-no" title="function not covered" >onClick={()=&gt;<span class="cstat-no" title="statement not covered" >o</span>nFiltro(v)}&gt;{t</span>}{" "}&lt;span&gt;{n}&lt;/span&gt;&lt;/button&gt;)</span>}&lt;/div&gt;&lt;div className="resultados-historial-adopciones"&gt;{filtradas.length?filtradas.<span class="fstat-no" title="function not covered" >map(s</span>=&gt;{const e=<span class="cstat-no" title="statement not covered" >estadoAdopcion(s.estado);<span class="cstat-no" title="statement not covered" >r</span>eturn &lt;article className="item-historial-adopcion" key={s.id}&gt;&lt;div className="informacion-historial-adopcion"&gt;&lt;div className="icono-animal-historial"&gt;🐾&lt;/div&gt;&lt;div className="datos-animal-historial"&gt;&lt;h3&gt;{s.animalNombre||"Animal sin nombre"}&lt;/h3&gt;&lt;p className="fecha-historial-adopcion"&gt;Solicitud: {fechaSolicitud(s.fechaCreacion)}&lt;/p&gt;&lt;span className={"estado-adopcion estado-"+e.clase}&gt;{e.texto}&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div className="detalle-historial-adopcion"&gt;&lt;small&gt;Código: {s.id||"Sin identificador"}&lt;/small&gt;&lt;p&gt;{descripciones[e.clase]||"Consulta el estado de tu solicitud."}&lt;/p&gt;{s.observacionAdmin &amp;&amp; &lt;p&gt;&lt;strong&gt;Administración:&lt;/strong&gt;{" "}{s.observacionAdmin}&lt;/p&gt;}&lt;/div&gt;&lt;/article&gt;;}</span>):&lt;div className="historial-adopciones-vacio"&gt;&lt;span className="icono-historial-vacio"&gt;🐾&lt;/span&gt;&lt;h3&gt;No hay solicitudes en esta categoría&lt;/h3&gt;&lt;p&gt;Puedes seleccionar otro filtro para revisar tus solicitudes.&lt;/p&gt;&lt;/div&gt;}&lt;/div&gt;&lt;/&gt;;</span>
+}
+export function <span class="fstat-no" title="function not covered" >EstadisticasReservas({</span>reservas}){<span class="cstat-no" title="statement not covered" >return &lt;&gt;&lt;div className="estadistica-reserva"&gt;&lt;strong&gt;{reservas.length}&lt;/strong&gt;&lt;span&gt;Reservas registradas&lt;/span&gt;&lt;/div&gt;&lt;div className="estadistica-reserva"&gt;&lt;strong&gt;{agruparReservas(reservas).futuras.length}&lt;/strong&gt;&lt;span&gt;Próximas&lt;/span&gt;&lt;/div&gt;&lt;/&gt;;}</span>
+function <span class="fstat-no" title="function not covered" >TarjetaReserva({</span>reserva:r}){const e=<span class="cstat-no" title="statement not covered" >estadoReserva(r.estado),p</span>asada=<span class="cstat-no" title="statement not covered" >fechaHora(r)&amp;&amp;fechaHora(r)&lt;new Date();<span class="cstat-no" title="statement not covered" >r</span>eturn &lt;article className="item-historial-reserva"&gt;&lt;div className="informacion-historial-reserva"&gt;&lt;div className="icono-mascota-historial"&gt;🩺&lt;/div&gt;&lt;div className="datos-mascota-historial"&gt;&lt;h3&gt;{r.mascotaNombre||"Mascota sin nombre"}&lt;/h3&gt;&lt;p className="servicio-historial-reserva"&gt;{r.servicioNombre||r.servicio||"Consulta veterinaria"}&lt;/p&gt;&lt;span className={"estado-reserva estado-reserva-"+e.clase}&gt;{e.texto}&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div className="detalle-historial-reserva"&gt;&lt;p&gt;&lt;strong&gt;Mascota:&lt;/strong&gt;{" "}{r.mascotaTipo||r.mascota||"No especificado"}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Fecha:&lt;/strong&gt;{" "}{fechaReserva(r.fecha)}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Hora:&lt;/strong&gt;{" "}{r.hora||"No disponible"} hrs&lt;/p&gt;&lt;small&gt;Código: {r.id||"Sin identificador"}&lt;/small&gt;&lt;p className="descripcion-estado-reserva"&gt;{pasada&amp;&amp;!finalizada(r)?"La fecha de esta reserva ya pasó. Su estado administrativo sigue pendiente de actualización.":"Puedes consultar aquí los detalles de esta reserva veterinaria."}&lt;/p&gt;{r.observacionAdmin &amp;&amp; &lt;p&gt;&lt;strong&gt;Administración:&lt;/strong&gt;{" "}{r.observacionAdmin}&lt;/p&gt;}&lt;/div&gt;&lt;/article&gt;;}</span>
+export function <span class="fstat-no" title="function not covered" >ListaReservas({</span>reservas}){const {futuras,anteriores}=<span class="cstat-no" title="statement not covered" >agruparReservas(reservas);<span class="cstat-no" title="statement not covered" >i</span>f(!reservas.length)<span class="cstat-no" title="statement not covered" >return &lt;div className="historial-reservas-vacio"&gt;&lt;span className="icono-historial-vacio"&gt;🩺&lt;/span&gt;&lt;h3&gt;Todavía no tienes reservas&lt;/h3&gt;&lt;p&gt;Cuando agendes una atención veterinaria, aquí aparecerá su información.&lt;/p&gt;&lt;a href="#veterinaria" className="boton-agendar-reserva"&gt;Agendar una consulta&lt;/a&gt;&lt;/div&gt;;<span class="cstat-no" title="statement not covered" >r</span></span>eturn &lt;&gt;{futuras.length&gt;0&amp;&amp;&lt;&gt;&lt;h3 className="subtitulo-historial-reservas"&gt;Próximas reservas&lt;/h3&gt;{futuras.<span class="fstat-no" title="function not covered" >map(r</span>=&gt;<span class="cstat-no" title="statement not covered" >&lt;TarjetaReserva key={r.id} reserva={r}/&gt;)</span>}&lt;/&gt;}{anteriores.length&gt;0&amp;&amp;&lt;&gt;&lt;h3 className="subtitulo-historial-reservas"&gt;Historial anterior y finalizado&lt;/h3&gt;{anteriores.<span class="fstat-no" title="function not covered" >map(r</span>=&gt;<span class="cstat-no" title="statement not covered" >&lt;TarjetaReserva key={r.id} reserva={r}/&gt;)</span>}&lt;/&gt;}&lt;/&gt;;}</span>
+export function <span class="fstat-no" title="function not covered" >AvisosPerfil({</span>solicitudes,reservas,preferencias}){const avisos=<span class="cstat-no" title="statement not covered" >[],p</span>endientes=<span class="cstat-no" title="statement not covered" >contarAdopciones(solicitudes).pendientes,r</span>eserva=<span class="cstat-no" title="statement not covered" >preferencias.veterinaria?agruparReservas(reservas).futuras[0]:null;<span class="cstat-no" title="statement not covered" >i</span>f(preferencias.adopcion&amp;&amp;pendientes)<span class="cstat-no" title="statement not covered" >avisos.push({titulo:"Solicitud de adopción",texto:pendientes===1?"Tienes una solicitud pendiente o en revisión. Consulta su estado en Mis adopciones.":`Tienes ${pendientes} solicitudes pendientes o en revisión. Consulta sus estados en Mis adopciones.`,icono:"🐾"});<span class="cstat-no" title="statement not covered" >i</span></span>f(reserva)<span class="cstat-no" title="statement not covered" >avisos.push({titulo:"Próxima reserva",texto:`${reserva.mascotaNombre||"Tu mascota"}: ${fechaReserva(reserva.fecha)}, ${reserva.hora||"sin horario"}. Consulta los detalles en Mis reservas.`,icono:"♡"});<span class="cstat-no" title="statement not covered" >r</span></span>eturn avisos.length?avisos.<span class="fstat-no" title="function not covered" >map(a</span>=&gt;<span class="cstat-no" title="statement not covered" >&lt;article className="notificacion-perfil" key={a.titulo}&gt;&lt;span className="icono-notificacion" aria-hidden="true"&gt;{a.icono}&lt;/span&gt;&lt;div&gt;&lt;strong&gt;{a.titulo}&lt;/strong&gt;&lt;p&gt;{a.texto}&lt;/p&gt;&lt;/div&gt;&lt;/article&gt;)</span>:&lt;p className="sin-avisos-perfil"&gt;No tienes avisos pendientes con tus preferencias actuales. Puedes revisar tus solicitudes y reservas en sus historiales.&lt;/p&gt;;}</span>
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-10-25T00:43:08.661Z
+            </div>
+        <script src="../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
+    </body>
+</html>
+    

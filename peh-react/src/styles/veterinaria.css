@@ -2988,3 +2988,12 @@ body.pagina-veterinaria input::-webkit-datetime-edit-hour-field,
 body.pagina-veterinaria input::-webkit-datetime-edit-day-field,
 body.pagina-veterinaria input::-webkit-datetime-edit-month-field,
 body.pagina-veterinaria input::-webkit-datetime-edit-year-field { padding: revert; }
+
+/* Campos de responsable, errores y borrador de reserva. */
+body.pagina-veterinaria .contenido-reserva-cuenta { border: 0; padding: 0; margin: 0; min-width: 0; }
+body.pagina-veterinaria .contenido-reserva-cuenta > legend { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; }
+body.pagina-veterinaria #formularioReserva .mensaje-error { display: block; visibility: visible; opacity: 1; height: auto; color: #9c2424; font-size: .9rem; line-height: 1.4; margin-top: .35rem; }
+body.pagina-veterinaria #formularioReserva .mensaje-error:empty { display: none; }
+body.pagina-veterinaria #formularioReserva [aria-invalid="true"] { border-color: #9c2424; }
+body.pagina-veterinaria .aviso-borrador-reserva, body.pagina-veterinaria .aviso-sesion-reserva { margin: .75rem 0; line-height: 1.5; }
+body.pagina-veterinaria .cancelar-solicitud-reserva { margin-bottom: .75rem; }

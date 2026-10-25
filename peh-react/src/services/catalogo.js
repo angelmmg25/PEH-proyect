@@ -1,3 +1,4 @@
+import { obtenerEdadMeses, textoEdadMeses } from "./edadAnimal.js";
 // Mismos valores y condiciones que principal.js del HTML.
 export const filtrosIniciales = Object.freeze({especie:"todos", comuna:"todas", tamano:"todos", hogar:"todos", convivencia:"todos", sexo:"todos", edad:"todas"});
 export function formatearSexo(sexo) {
@@ -15,13 +16,7 @@ export function formatearSexo(sexo) {
 }
 
 export function formatearEdad(edad) {
-
-    if (edad === 1) {
-        return "1 año";
-    }
-
-    return `${edad} años`;
-
+ return textoEdadMeses(obtenerEdadMeses(typeof edad === "object" && edad !== null ? edad : {edad}));
 }
 
 export function formatearTamano(tamano) {
@@ -70,21 +65,21 @@ export function cumpleFiltroEdad(animal, filtros) {
 
         case "menos-2":
 
-            return animal.edad <= 2;
+            return obtenerEdadMeses(animal) <= 24;
 
 
         case "2-7":
 
             return (
-                animal.edad > 2
+                obtenerEdadMeses(animal) > 24
                 &&
-                animal.edad <= 7
+                obtenerEdadMeses(animal) <= 84
             );
 
 
         case "mas-7":
 
-            return animal.edad > 7;
+            return obtenerEdadMeses(animal) > 84;
 
 
         default:

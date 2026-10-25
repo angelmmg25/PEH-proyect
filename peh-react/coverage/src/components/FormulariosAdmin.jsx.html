@@ -1,0 +1,382 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for src/components/FormulariosAdmin.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/components</a> FormulariosAdmin.jsx</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">1.57% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>2/127</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/192</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>0/37</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">3.77% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>2/53</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line low'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import useValidacionFormulario from "../hooks/useValidacionFormulario.jsx";
+import useBorrador, { AvisoBorrador } from "../hooks/useBorrador.jsx";
+import { obtenerEdadMeses, opcionesEdad } from "../services/edadAnimal.js";
+import { useEffect, useRef, useState } from "react";
+import PEH from "../services/peh";
+import { nombreResponsable } from "../services/administracion";
+&nbsp;
+const <span class="fstat-no" title="function not covered" >fecha = v</span>alor =&gt; <span class="cstat-no" title="statement not covered" >valor ? PEH.formatearFecha(valor) : "Sin fecha registrada";</span>
+const <span class="fstat-no" title="function not covered" >version = r</span> =&gt; <span class="cstat-no" title="statement not covered" >r?.revision || r?.fechaActualizacion || r?.fechaCreacion || r?.fechaRegistro || "";</span>
+&nbsp;
+function <span class="fstat-no" title="function not covered" >Detalle({</span> pares }) {
+<span class="cstat-no" title="statement not covered" >  return &lt;dl className="detalle-registro-admin"&gt;{pares.<span class="fstat-no" title="function not covered" >map(([</span>titulo, valor]) =&gt; <span class="cstat-no" title="statement not covered" >&lt;ParDetalle key={titulo} titulo={titulo} valor={valor} /&gt;)</span>}&lt;/dl&gt;;</span>
+}
+function <span class="fstat-no" title="function not covered" >ParDetalle({</span> titulo, valor }) {
+<span class="cstat-no" title="statement not covered" >  return &lt;&gt;&lt;dt&gt;{titulo}&lt;/dt&gt;&lt;dd&gt;{valor === true ? "Sí" : valor === false ? "No" : valor || "No indicado"}&lt;/dd&gt;&lt;/&gt;;</span>
+}
+function <span class="fstat-no" title="function not covered" >leerImagen(a</span>rchivo) {
+<span class="cstat-no" title="statement not covered" >  if (!archivo) <span class="cstat-no" title="statement not covered" >return Promise.resolve(null);</span></span>
+<span class="cstat-no" title="statement not covered" >  if (!["image/jpeg", "image/png", "image/webp", "image/avif"].includes(archivo.type) || archivo.size &gt; 1024 * 1024) <span class="cstat-no" title="statement not covered" >return Promise.reject(new Error("Selecciona una imagen JPG, PNG, WEBP o AVIF de hasta 1 MB."));</span></span>
+<span class="cstat-no" title="statement not covered" >  return new <span class="fstat-no" title="function not covered" >Promise((r</span>esolve, reject) =&gt; { const lector = <span class="cstat-no" title="statement not covered" >new FileReader(); <span class="cstat-no" title="statement not covered" >l</span>ector.<span class="fstat-no" title="function not covered" >onload = () =&gt; <span class="cstat-no" title="statement not covered" >r</span>esolve(lector.result); <span class="cstat-no" title="statement not covered" >l</span></span>ector.<span class="fstat-no" title="function not covered" >onerror = () =&gt; <span class="cstat-no" title="statement not covered" >r</span>eject(new Error("No se pudo leer la imagen.")); <span class="cstat-no" title="statement not covered" >l</span></span>ector.readAsDataURL(archivo); }</span>);</span>
+}
+&nbsp;
+export default function <span class="fstat-no" title="function not covered" >FormulariosAdmin({</span> modal, nombres, onCerrar, onGuardado }) {
+  const r = <span class="cstat-no" title="statement not covered" >modal.registro || {};</span>
+  const tipo = <span class="cstat-no" title="statement not covered" >modal.tipo;</span>
+  const dialogo = <span class="cstat-no" title="statement not covered" >useRef(null), v</span>ivo = <span class="cstat-no" title="statement not covered" >useRef(true), b</span>loqueo = <span class="cstat-no" title="statement not covered" >useRef(false), t</span>urnoFoto = <span class="cstat-no" title="statement not covered" >useRef(0);</span>
+  const validacion=<span class="cstat-no" title="statement not covered" >useValidacionFormulario()</span>;
+  const nombreBorrador=<span class="cstat-no" title="statement not covered" >"admin:"+tipo+":"+(r.id || "nuevo")+":"+version(r);</span>
+  const [datos, setDatos, borrador] = <span class="cstat-no" title="statement not covered" >useBorrador(<span class="fstat-no" title="function not covered" >nombreBorrador, () =&gt; (<span class="cstat-no" title="statement not covered" >{</span> ...r, edadMeses: r.id ? String(obtenerEdadMeses(r)) : "", personalidad: (r.personalidad || []).join(", "), historia: (r.historia || []).join("\n\n"), hogar: r.hogar || [], convivencia: r.convivencia || [], estadoPerfil: r.estadoPerfil || "disponible", diasEsperando: r.diasEsperando ?? 0, respuesta: "", estado: r.estado || "Pendiente", observacionAdmin: r.observacionAdmin || "" }), {</span>activo:tipo!=="confirmacion"});</span>
+  const [imagen,setImagen,bImagen]=<span class="cstat-no" title="statement not covered" >useBorrador(nombreBorrador+":foto",r.imagen || "",{activo:tipo==="animal"});</span>
+  const [error, setError] = <span class="cstat-no" title="statement not covered" >useState(""), [</span>procesando, setProcesando] = <span class="cstat-no" title="statement not covered" >useState(false), [</span>leyendoFoto, setLeyendoFoto] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
+  const titulos = <span class="cstat-no" title="statement not covered" >{ animal: r.id ? `Editar a ${r.nombre}` : "Agregar un animal", usuario: "Editar perfil de usuario", adopcion: "Revisar solicitud de adopción", reserva: "Gestionar reserva veterinaria", consulta: "Consulta de contacto", confirmacion: modal.titulo };</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  useEffect(() =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >    vivo.current = true;</span>
+    const elemento = <span class="cstat-no" title="statement not covered" >dialogo.current, a</span>nterior = <span class="cstat-no" title="statement not covered" >document.activeElement;</span>
+<span class="cstat-no" title="statement not covered" >    if (!elemento.open) <span class="cstat-no" title="statement not covered" >elemento.showModal();</span></span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    return () =&gt; {</span> <span class="cstat-no" title="statement not covered" >vivo.current = false; <span class="cstat-no" title="statement not covered" >t</span>urnoFoto.current++; <span class="cstat-no" title="statement not covered" >e</span>lemento.close(); <span class="cstat-no" title="statement not covered" >i</span>f (anterior?.isConnected) <span class="cstat-no" title="statement not covered" >anterior.focus(); }</span></span>;</span>
+  }, []);
+  function <span class="fstat-no" title="function not covered" >cambiar(e</span>) { const { name, value } = <span class="cstat-no" title="statement not covered" >e.target; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >s</span>etDatos(a</span>ctual =&gt; (<span class="cstat-no" title="statement not covered" >{ ...actual, [name]: value }))</span>; }</span>
+  function <span class="fstat-no" title="function not covered" >opcion(c</span>ampo, valor, checked) { <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >setDatos(a</span>ctual =&gt; (<span class="cstat-no" title="statement not covered" >{ ...actual, [campo]: checked ? [...actual[campo], valor] : actual[campo].<span class="fstat-no" title="function not covered" >filter(v</span> =&gt; <span class="cstat-no" title="statement not covered" >v !== valor)</span> }))</span>; }</span>
+  async function <span class="fstat-no" title="function not covered" >elegirFoto(e</span>) {
+    const turno = <span class="cstat-no" title="statement not covered" >++turnoFoto.current;</span>
+<span class="cstat-no" title="statement not covered" >    setError(""); <span class="cstat-no" title="statement not covered" >s</span>etLeyendoFoto(true);</span>
+<span class="cstat-no" title="statement not covered" >    try { <span class="cstat-no" title="statement not covered" >validacion.asignar("admin-foto",""); c</span>onst foto = <span class="cstat-no" title="statement not covered" >await leerImagen(e.target.files[0]); <span class="cstat-no" title="statement not covered" >i</span>f (vivo.current &amp;&amp; turno === turnoFoto.current &amp;&amp; foto) <span class="cstat-no" title="statement not covered" >setImagen(foto); }</span></span></span>
+    catch (fallo) { <span class="cstat-no" title="statement not covered" >if (vivo.current) {<span class="cstat-no" title="statement not covered" >setError(fallo.message);<span class="cstat-no" title="statement not covered" >v</span>alidacion.asignar("admin-foto",fallo.message);}</span> }</span>
+    finally { <span class="cstat-no" title="statement not covered" >if (vivo.current &amp;&amp; turno === turnoFoto.current) <span class="cstat-no" title="statement not covered" >setLeyendoFoto(false); }</span></span>
+  }
+  function <span class="fstat-no" title="function not covered" >campo(n</span>ombre, titulo, opciones = <span class="branch-0 cbranch-no" title="branch not covered" >{}) {</span>
+    const id = <span class="cstat-no" title="statement not covered" >`admin-${nombre}`;</span>
+<span class="cstat-no" title="statement not covered" >    return &lt;div className={`grupo-admin${opciones.completo ? " campo-completo" : ""}`}&gt;&lt;label htmlFor={id}&gt;{titulo}&lt;/label&gt;{opciones.lista ? &lt;select id={id} name={nombre} required value={datos[nombre] ?? ""} onChange={cambiar}&gt;{opciones.lista.<span class="fstat-no" title="function not covered" >map(([</span>valor, texto]) =&gt; <span class="cstat-no" title="statement not covered" >&lt;option key={valor} value={valor}&gt;{texto}&lt;/option&gt;)</span>}&lt;/select&gt; : opciones.filas ? &lt;textarea id={id} name={nombre} rows={opciones.filas} minLength={opciones.minLength} maxLength={opciones.maxLength} required={opciones.required} value={datos[nombre] ?? ""} onChange={cambiar} /&gt; : &lt;input id={id} name={nombre} type={opciones.type || "text"} min={opciones.min} max={opciones.max} step={opciones.step} minLength={opciones.minLength} maxLength={opciones.maxLength} pattern={opciones.pattern} autoComplete="off" required={opciones.required} value={datos[nombre] ?? ""} onChange={cambiar} /&gt;}{opciones.ayuda &amp;&amp; &lt;small&gt;{opciones.ayuda}&lt;/small&gt;}{validacion.mensaje(nombre)}&lt;/div&gt;;</span>
+  }
+  function <span class="fstat-no" title="function not covered" >gestionar(s</span>oloEstado = <span class="branch-0 cbranch-no" title="branch not covered" >false) {</span>
+<span class="cstat-no" title="statement not covered" >    if (tipo === "animal") <span class="cstat-no" title="statement not covered" >return PEH.admin.guardarAnimal({ ...datos, imagen }, r.id ? version(r) : undefined);</span></span>
+<span class="cstat-no" title="statement not covered" >    if (tipo === "usuario") <span class="cstat-no" title="statement not covered" >return PEH.admin.guardarUsuario(datos, version(r));</span></span>
+<span class="cstat-no" title="statement not covered" >    if (tipo === "adopcion") <span class="cstat-no" title="statement not covered" >return PEH.admin.guardarAdopcion(r.id, datos, version(r));</span></span>
+<span class="cstat-no" title="statement not covered" >    if (tipo === "reserva") <span class="cstat-no" title="statement not covered" >return PEH.admin.guardarReserva(r.id, datos, version(r));</span></span>
+<span class="cstat-no" title="statement not covered" >    if (tipo === "consulta") <span class="cstat-no" title="statement not covered" >return PEH.admin.guardarConsulta(r.id, soloEstado ? { estado: datos.estado } : datos, version(r));</span></span>
+<span class="cstat-no" title="statement not covered" >    return modal.operacion();</span>
+  }
+  function <span class="fstat-no" title="function not covered" >guardar(e</span>, soloEstado = <span class="branch-0 cbranch-no" title="branch not covered" >false) {</span>
+<span class="cstat-no" title="statement not covered" >    e?.preventDefault(); <span class="cstat-no" title="statement not covered" >i</span>f (bloqueo.current || leyendoFoto) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >    if(!soloEstado &amp;&amp; tipo!=="confirmacion" &amp;&amp; !validacion.validar(e?.currentTarget || dialogo.current?.querySelector("form")))<span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >    if(tipo==="reserva" &amp;&amp; ["Pendiente","Confirmada"].includes(datos.estado) &amp;&amp; new Date(datos.fecha+"T"+datos.hora+":00")&lt;=new Date()){</span>
+<span class="cstat-no" title="statement not covered" >      validacion.asignar("fecha","Selecciona una fecha y hora futuras para una reserva activa.");<span class="cstat-no" title="statement not covered" >v</span>alidacion.asignar("hora","Selecciona una fecha y hora futuras para una reserva activa.");<span class="cstat-no" title="statement not covered" >d</span>ialogo.current?.querySelector('[name="fecha"]')?.focus();<span class="cstat-no" title="statement not covered" >r</span>eturn;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if(tipo==="animal" &amp;&amp; !imagen){<span class="cstat-no" title="statement not covered" >validacion.asignar("admin-foto","Selecciona una fotografía del animal.");<span class="cstat-no" title="statement not covered" >d</span>ialogo.current?.querySelector("#admin-foto")?.focus();<span class="cstat-no" title="statement not covered" >r</span>eturn;}</span></span>
+<span class="cstat-no" title="statement not covered" >    bloqueo.current = true; <span class="cstat-no" title="statement not covered" >s</span>etProcesando(true); <span class="cstat-no" title="statement not covered" >s</span>etError("");</span>
+<span class="cstat-no" title="statement not covered" >    try { const resultado = <span class="cstat-no" title="statement not covered" >gestionar(soloEstado); <span class="cstat-no" title="statement not covered" >i</span>f (resultado.ok) {<span class="cstat-no" title="statement not covered" >borrador.borrar();<span class="cstat-no" title="statement not covered" >b</span>Imagen.borrar();<span class="cstat-no" title="statement not covered" >o</span>nGuardado(resultado.mensaje);}</span> else {<span class="cstat-no" title="statement not covered" >setError(resultado.mensaje);<span class="cstat-no" title="statement not covered" >i</span>f(tipo==="animal" &amp;&amp; /edad/i.test(resultado.mensaje))<span class="cstat-no" title="statement not covered" >validacion.asignar("edadMeses",resultado.mensaje);<span class="cstat-no" title="statement not covered" >i</span></span>f(tipo==="usuario" &amp;&amp; /correo/i.test(resultado.mensaje))<span class="cstat-no" title="statement not covered" >validacion.asignar("correo",resultado.mensaje);}</span></span> }</span></span>
+    catch (fallo) { <span class="cstat-no" title="statement not covered" >setError(fallo.message || "No se pudo completar la operación."); }</span>
+    finally { <span class="cstat-no" title="statement not covered" >bloqueo.current = false; <span class="cstat-no" title="statement not covered" >i</span>f (vivo.current) <span class="cstat-no" title="statement not covered" >setProcesando(false); }</span></span>
+  }
+  const paresAdopcion = <span class="cstat-no" title="statement not covered" >{ animalNombre: "Animal", nombreAdoptante: "Nombre", correoAdoptante: "Correo", telefonoAdoptante: "Teléfono", edadAdoptante: "Edad", comunaAdoptante: "Comuna", tipoVivienda: "Vivienda", situacionVivienda: "Situación de vivienda", viveConPersonas: "Vive con otras personas", personasHogar: "Personas adicionales en el hogar", acuerdoFamiliar: "Acuerdo familiar", otrosAnimales: "Otros animales", detalleAnimales: "Detalle de animales", experienciaAnimales: "Experiencia", motivoAdopcion: "Motivo de adopción", cuidadosAnimal: "Cuidados propuestos", aceptaCompromiso: "Acepta compromiso" };</span>
+<span class="cstat-no" title="statement not covered" >  return &lt;dialog ref={dialogo} className={`dialogo-administracion${["animal", "adopcion", "consulta"].includes(tipo) ? " dialogo-amplio" : ""}${tipo === "confirmacion" ? " dialogo-confirmacion" : ""}`} aria-labelledby="tituloDialogoReactAdmin" <span class="fstat-no" title="function not covered" >onCancel={e</span> =&gt; <span class="cstat-no" title="statement not covered" >e.preventDefault()}&gt;</span></span>
+    &lt;form noValidate onBlur={validacion.evento} onChange={validacion.evento} onSubmit={guardar}&gt;&lt;AvisoBorrador estado={borrador}/&gt;&lt;AvisoBorrador estado={bImagen}/&gt;
+      {tipo === "confirmacion" ? &lt;&gt;&lt;span className="icono-confirmacion-admin" aria-hidden="true"&gt;!&lt;/span&gt;&lt;h2 id="tituloDialogoReactAdmin"&gt;{titulos[tipo]}&lt;/h2&gt;&lt;p&gt;{modal.texto}&lt;/p&gt;&lt;/&gt; : &lt;div className="cabecera-dialogo"&gt;&lt;h2 id="tituloDialogoReactAdmin"&gt;{titulos[tipo]}&lt;/h2&gt;&lt;button type="button" className="cerrar-dialogo" aria-label="Cerrar" onClick={onCerrar}&gt;×&lt;/button&gt;&lt;/div&gt;}
+      {tipo === "animal" &amp;&amp; &lt;div className="campos-admin"&gt;
+        {campo("nombre", "Nombre", { required: true, minLength: 2, maxLength: 60 })}
+        {campo("especie", "Especie", { lista: [["", "Selecciona"], ["perro", "Perro"], ["gato", "Gato"]] })}
+        {campo("sexo", "Sexo", { lista: [["", "Selecciona"], ["macho", "Macho"], ["hembra", "Hembra"]] })}
+        {campo("edadMeses", "Edad aproximada", { lista: [["", "Selecciona la edad"], ...(r.id &amp;&amp; Number.isFinite(obtenerEdadMeses(r)) &amp;&amp; !opcionesEdad.<span class="fstat-no" title="function not covered" >some(([</span>v]) =&gt; <span class="cstat-no" title="statement not covered" >Number(v) === obtenerEdadMeses(r))</span> ? [[String(obtenerEdadMeses(r)), "Edad anterior: selecciona una opción actualizada"]] : []), ...opcionesEdad.<span class="fstat-no" title="function not covered" >filter(([</span>v]) =&gt; <span class="cstat-no" title="statement not covered" >Number(v) &lt;= (datos.especie === "perro" ? 360 : 480))</span>] })}
+        {campo("tamano", "Tamaño", { lista: [["", "Selecciona"], ["pequeno", "Pequeño"], ["mediano", "Mediano"], ["grande", "Grande"]] })}
+        {campo("comuna", "Comuna", { required: true, minLength: 2, maxLength: 60 })}
+        {campo("diasEsperando", "Días esperando un hogar", { type: "number", required: true, min: 0, step: 1 })}
+        {campo("estadoPerfil", "Estado del perfil", { lista: [["disponible", "Disponible"], ["en-proceso", "En proceso de adopción"], ["adoptado", "Adoptado"], ["no-visible", "No visible"]] })}
+        {campo("personalidad", "Personalidad", { completo: true, maxLength: 180, ayuda: "Separa las características con comas." })}
+        {[["hogar", "Hogar adecuado", [["casa", "Casa"], ["departamento", "Departamento"], ["espacio-amplio", "Espacio amplio"]]], ["convivencia", "Puede convivir con", [["ninos", "Niños"], ["perros", "Perros"], ["gatos", "Gatos"]]]].<span class="fstat-no" title="function not covered" >map(([</span>nombre, titulo, opciones]) =&gt; <span class="cstat-no" title="statement not covered" >&lt;fieldset className="grupo-admin" key={nombre}&gt;&lt;legend&gt;{titulo}&lt;/legend&gt;{opciones.<span class="fstat-no" title="function not covered" >map(([</span>valor, etiqueta]) =&gt; <span class="cstat-no" title="statement not covered" >&lt;label className="opcion-admin" key={valor}&gt;&lt;input type="checkbox" checked={datos[nombre].includes(valor)} <span class="fstat-no" title="function not covered" >onChange={e</span> =&gt; <span class="cstat-no" title="statement not covered" >opcion(nombre, valor, e.target.checked)} /&gt;</span>{etiqueta}&lt;/label&gt;)</span>}&lt;/fieldset&gt;)</span>}
+        {campo("historia", "Historia", { completo: true, filas: 5, required: true, minLength: 20, maxLength: 3000, ayuda: "Separa los párrafos con una línea en blanco." })}
+        {campo("cuidados", "Cuidados y necesidades", { completo: true, filas: 3, required: true, minLength: 10, maxLength: 1500 })}
+        &lt;div className="grupo-admin campo-completo"&gt;&lt;label htmlFor="admin-foto"&gt;Fotografía&lt;/label&gt;&lt;input id="admin-foto" type="file" accept="image/jpeg,image/png,image/webp,image/avif" onChange={elegirFoto} /&gt;{validacion.mensaje("admin-foto")}&lt;small&gt;JPG, PNG, WEBP o AVIF, hasta 1 MB. Al editar, se conserva la foto si no eliges otra.&lt;/small&gt;{imagen &amp;&amp; &lt;img className="vista-previa-animal" src={imagen} alt="Vista previa del animal" width="240" height="180" /&gt;}&lt;/div&gt;
+      &lt;/div&gt;}
+      {tipo === "usuario" &amp;&amp; &lt;div className="campos-admin"&gt;{campo("nombre", "Nombre", { required: true, minLength: 2, maxLength: 30 })}{campo("apellido", "Apellido", { required: true, minLength: 2, maxLength: 30 })}{campo("usuario", "Nombre de usuario", { required: true, minLength: 4, maxLength: 16, pattern: "[A-Za-z0-9_]{4,16}" })}{campo("correo", "Correo electrónico", { type: "email", required: true, maxLength: 100, ayuda: "Correos con terminación .com o .cl" })}&lt;/div&gt;}
+      {tipo === "adopcion" &amp;&amp; &lt;&gt;&lt;section&gt;&lt;h3&gt;Información de la solicitud&lt;/h3&gt;&lt;Detalle pares={[["Código", r.id], ["Cuenta", nombreResponsable(r, nombres)], ["Fecha", fecha(r.fechaCreacion)], ...Object.entries(paresAdopcion).<span class="fstat-no" title="function not covered" >map(([</span>k, etiqueta]) =&gt; <span class="cstat-no" title="statement not covered" >[etiqueta, r[k]])</span>]} /&gt;&lt;/section&gt;{campo("estado", "Estado de la solicitud", { lista: PEH.admin.ESTADOS.adopciones.<span class="fstat-no" title="function not covered" >map(e</span> =&gt; <span class="cstat-no" title="statement not covered" >[e, e])</span> })}&lt;p className="ayuda-admin"&gt;Aprobada indica que la solicitud fue aceptada. Completada indica que la adopción ya se concretó.&lt;/p&gt;{campo("observacionAdmin", "Observaciones para la persona solicitante", { filas: 4, maxLength: 1500 })}&lt;/&gt;}
+      {tipo === "reserva" &amp;&amp; &lt;&gt;&lt;Detalle pares={[["Código", r.id], ["Responsable", r.responsableNombre || nombreResponsable(r, nombres)], ["Correo", r.responsableCorreo], ["Teléfono", r.responsableTelefono], ["Comuna", r.responsableComuna], ["Mascota", r.mascotaNombre], ["Servicio", r.servicioNombre || r.servicio], ["Observaciones originales", r.observaciones]]} /&gt;&lt;div className="campos-admin"&gt;{campo("estado", "Estado de la reserva", { completo: true, lista: PEH.admin.ESTADOS.reservas.<span class="fstat-no" title="function not covered" >map(e</span> =&gt; <span class="cstat-no" title="statement not covered" >[e, e])</span> })}{campo("fecha", "Fecha de atención", { type: "date", required: true })}{campo("hora", "Hora de atención", { lista: [["", "Selecciona"], ...["09:00", "10:30", "12:00", "15:00", "16:30", "18:00"].<span class="fstat-no" title="function not covered" >map(h</span> =&gt; <span class="cstat-no" title="statement not covered" >[h, h])</span>] })}{campo("observacionAdmin", "Observaciones para la persona responsable", { completo: true, filas: 4, required: datos.fecha!==r.fecha || datos.hora!==r.hora, maxLength: 1500, ayuda: "Para reprogramar, indica el motivo del cambio." })}&lt;/div&gt;&lt;/&gt;}
+      {tipo === "consulta" &amp;&amp; &lt;&gt;&lt;Detalle pares={[["Código", r.id], ["Nombre", r.nombre], ["Correo", r.correo], ["Asunto", r.asunto], ["Motivo", r.motivo], ["Fecha", fecha(r.fechaCreacion)], ["Seguimiento", r.usuarioId &amp;&amp; nombres[r.usuarioId] ? "Respuesta visible para su cuenta en Mi perfil" : "Registro interno, sin envío de correo"]]} /&gt;&lt;section className="mensaje-original-admin"&gt;&lt;h3&gt;Mensaje recibido&lt;/h3&gt;&lt;p&gt;{r.mensaje}&lt;/p&gt;&lt;/section&gt;&lt;section&gt;&lt;h3&gt;Respuestas de administración&lt;/h3&gt;{r.respuestas?.length ? &lt;ol className="respuestas-consulta-admin"&gt;{r.respuestas.<span class="fstat-no" title="function not covered" >map(r</span>espuesta =&gt; <span class="cstat-no" title="statement not covered" >&lt;li key={respuesta.id}&gt;&lt;strong&gt;{respuesta.autor} · {fecha(respuesta.fechaCreacion)}&lt;/strong&gt;&lt;p&gt;{respuesta.texto}&lt;/p&gt;&lt;/li&gt;)</span>}&lt;/ol&gt; : &lt;p id="sinRespuestasConsultaAdmin"&gt;Esta consulta todavía no tiene respuestas.&lt;/p&gt;}&lt;/section&gt;{campo("estado", "Estado de la consulta", { lista: PEH.admin.ESTADOS.consultas.<span class="fstat-no" title="function not covered" >map(e</span> =&gt; <span class="cstat-no" title="statement not covered" >[e, e])</span> })}&lt;button id="guardarEstadoConsultaAdmin" type="button" className="boton boton-secundario" disabled={procesando || leyendoFoto} <span class="fstat-no" title="function not covered" >onClick={() =&gt; <span class="cstat-no" title="statement not covered" >g</span>uardar(null, true)}&gt;G</span>uardar solo el estado&lt;/button&gt;{campo("respuesta", "Tu respuesta", { filas: 5, required: true, minLength: 10, maxLength: 2000, ayuda: "La respuesta se registra dentro de PEH. No se envían correos." })}&lt;/&gt;}
+      {error &amp;&amp; &lt;p className="error-formulario-admin" role="alert"&gt;{error}&lt;/p&gt;}
+      &lt;div className="acciones-dialogo"&gt;&lt;button type="button" className="boton boton-secundario boton-cancelar-proceso" <span class="fstat-no" title="function not covered" >onClick={()=&gt;{<span class="cstat-no" title="statement not covered" ></span>if(borrador.borrar() &amp;&amp; bImagen.borrar())<span class="cstat-no" title="statement not covered" >onCerrar();}</span></span>}&gt;Cancelar proceso&lt;/button&gt;&lt;button type="submit" disabled={procesando || leyendoFoto} className={`boton ${tipo === "confirmacion" ? "boton-peligro" : "boton-primario"}`}&gt;{leyendoFoto ? "Leyendo imagen…" : procesando ? "Guardando…" : tipo === "confirmacion" ? "Confirmar" : tipo === "animal" ? "Guardar perfil" : tipo === "adopcion" ? "Guardar estado" : tipo === "reserva" ? "Guardar reserva" : tipo === "consulta" ? "Guardar respuesta" : "Guardar cambios"}&lt;/button&gt;&lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/dialog&gt;;
+}
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-10-25T00:43:08.661Z
+            </div>
+        <script src="../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
+    </body>
+</html>
+    

@@ -665,3 +665,11 @@ textarea {
 @media(prefers-reduced-motion:reduce) { .peh-app *, .peh-app *::before, .peh-app *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
 .peh-app > main.contenedor { width: min(1200px, calc(100% - 40px)); }
 @media(max-width:575px) { .peh-app > main.contenedor { width: calc(100% - 28px); } .peh-app .peh-footer-contenido { flex-direction: column; } .peh-app .peh-footer-contenido p { margin-bottom: 0; } }
+
+/* Reglas comunes para todos los formularios de PEH. */
+.error-formulario-general { display:block !important; visibility:visible !important; opacity:1 !important; height:auto !important; color:#9c2424 !important; font-size:.9rem !important; line-height:1.4; margin:.35rem 0; }
+.error-formulario-general:empty { display:none !important; }
+form [aria-invalid="true"] { border-color:#9c2424 !important; }
+.aviso-borrador-general { color:#5c5149; font-size:.9rem; line-height:1.4; margin:.5rem 0; }
+.formulario-comentario { flex-wrap:wrap; }
+.formulario-comentario .error-formulario-general, .formulario-comentario .aviso-borrador-general { flex-basis:100%; }

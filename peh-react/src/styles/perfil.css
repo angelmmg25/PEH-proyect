@@ -5719,3 +5719,5 @@ body.pagina-perfil #consultasPerfil .notificacion-perfil > div { min-width: 0; w
 body.pagina-perfil #consultasPerfil :is(p, small, strong) { overflow-wrap: anywhere; }
 body.pagina-perfil #consultasPerfil blockquote { margin: 16px 0 0; padding: 12px 16px; border-left: 3px solid #9f7b62; border-radius: 0 10px 10px 0; background: #f6efe5; }
 body.pagina-perfil #consultasPerfil blockquote p { white-space: pre-wrap; }
+
+body.pagina-perfil .contenido-modal-perfil { max-height: 90dvh; overflow-y: auto; }

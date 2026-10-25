@@ -45,7 +45,7 @@ export default function ConsejosVeterinaria() {
   const overflowAnterior=document.body.style.overflow;
   document.body.style.overflow="hidden";cerrarBoton.current?.focus();
   function teclado(e){
-   if(e.key==="Escape")setAbierto(false);
+   if(e.key==="Escape"){e.preventDefault();return;}
    if(e.key==="Tab"){e.preventDefault();cerrarBoton.current?.focus();}
   }
   document.addEventListener("keydown",teclado);
@@ -96,7 +96,7 @@ export default function ConsejosVeterinaria() {
 </div>
 </section>
 <div className="modal-consejo" id="modalConsejo" hidden={!abierto}>
-<div className="modal-consejo-fondo" data-cerrar-modal="" onClick={cerrar}>
+<div className="modal-consejo-fondo" aria-hidden="true">
 </div>
 <div className="modal-consejo-contenido" role="dialog" aria-modal="true" aria-labelledby="tituloModalConsejo" tabIndex="-1">
 <button className="modal-consejo-cerrar" id="cerrarModalConsejo" type="button" aria-label="Cerrar consejo" onClick={cerrar} ref={cerrarBoton}>{" × "}</button>

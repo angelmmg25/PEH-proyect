@@ -1,3 +1,4 @@
+import { correoValido, errorTelefono, errorComuna, normalizarTelefono, edadDesdeFecha, errorNombrePersona } from "./datosCuenta.js";
 
 /* ==========================================================
    PEH — PATITAS ESPERANDO UN HOGAR
@@ -99,7 +100,7 @@
 
     const validar = Object.freeze({
         requerido: valor => String(valor ?? "").trim().length > 0,
-        correo: valor => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(valor ?? "").trim()),
+        correo: correoValido,
         longitud(valor, minimo, maximo = Infinity) {
             const cantidad = String(valor ?? "").trim().length;
             return cantidad >= minimo && cantidad <= maximo;
@@ -214,7 +215,12 @@
             const correo = String(datos.correo || "").trim().toLowerCase();
             const contrasena = String(datos.contrasena || "");
             const fechaNacimiento = String(datos.fechaNacimiento || "");
+            const telefono = normalizarTelefono(datos.telefono), comuna = String(datos.comuna || "").trim();
+            if (errorTelefono(telefono) || errorComuna(comuna)) return {ok:false, mensaje:errorTelefono(telefono) || errorComuna(comuna)};
 
+            const edadRegistro=edadDesdeFecha(fechaNacimiento);
+            if(edadRegistro<13 || edadRegistro>120)return {ok:false,mensaje:"Ingresa una fecha de nacimiento válida: entre 13 y 120 años."};
+            if(errorNombrePersona(nombre,30) || errorNombrePersona(apellido,30))return {ok:false,mensaje:errorNombrePersona(nombre,30) || errorNombrePersona(apellido,30)};
             if (!nombre || !apellido || !/^[A-Za-z0-9_]{4,16}$/.test(usuario) ||
                 !validar.correo(correo) ||
                 !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9\s]).{8,}$/.test(contrasena)) {
@@ -224,7 +230,7 @@
             if (existentes.some(c => c.correo.toLowerCase() === correo)) {
                 return { ok: false, mensaje: "Este correo ya está registrado." };
             }
-            if (existentes.some(c => c.usuario.toLowerCase() === usuario.toLowerCase())) {
+            if (existentes.some(c => String(c.usuario || "").toLowerCase() === usuario.toLowerCase())) {
                 return { ok: false, mensaje: "Este nombre de usuario ya está ocupado." };
             }
             try {
@@ -235,13 +241,13 @@
                 const claveDerivada = await derivarClave(contrasena, salHex, iteraciones);
                 const nueva = {
                     id: id("USR"), nombre, apellido, usuario, correo,
-                    fechaNacimiento, sal: salHex, iteraciones, claveDerivada,
+                    fechaNacimiento, telefono, comuna, sal: salHex, iteraciones, claveDerivada,
                     fechaRegistro: new Date().toISOString()
                 };
                 // Releer antes de guardar para evitar duplicados simples.
                 const actuales = lista(CLAVES.cuentas);
                 if (actuales.some(c => c.correo.toLowerCase() === correo ||
-                    c.usuario.toLowerCase() === usuario.toLowerCase())) {
+                    String(c.usuario || "").toLowerCase() === usuario.toLowerCase())) {
                     return { ok: false, mensaje: "El correo o usuario ya está registrado." };
                 }
                 if (!escribir(CLAVES.cuentas, [...actuales, nueva])) {
@@ -456,6 +462,8 @@
             return clave ? leer(clave, {}) : {};
         },
         guardar(datos) {
+            if (datos?.telefono !== undefined && datos.telefono !== "" && errorTelefono(datos.telefono)) return false;
+            if (datos?.comuna !== undefined && datos.comuna !== "" && errorComuna(datos.comuna)) return false;
             const clave = claveUsuario(CLAVES.perfil);
             return Boolean(clave && datos && typeof datos === "object" &&
                 !Array.isArray(datos) && escribir(clave, datos));

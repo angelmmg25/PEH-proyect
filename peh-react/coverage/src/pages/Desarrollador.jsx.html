@@ -1,0 +1,337 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for src/pages/Desarrollador.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/pages</a> Desarrollador.jsx</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">4.54% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>5/110</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/102</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>0/44</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">9.25% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>5/54</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line low'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useCallback, useEffect, useRef, useState } from "react";
+import PEH from "../services/peh";
+import TablaAdmin from "../components/TablaAdmin";
+import { nombreResponsable } from "../services/administracion";
+import FormulariosAdmin from "../components/FormulariosAdmin";
+import "../styles/desarrollador.css";
+&nbsp;
+const secciones = [
+  ["resumen", "⌂", "Resumen"], ["animales", "🐾", "Animales"], ["usuarios", "♙", "Usuarios"],
+  ["comentarios", "☏", "Comentarios"], ["adopciones", "♡", "Adopciones"], ["reservas", "▣", "Reservas veterinarias"], ["consultas", "✉", "Consultas de contacto"]
+];
+const titulos = { animales: "Perfiles de animales", usuarios: "Cuentas de usuarios", comentarios: "Comentarios de la comunidad", adopciones: "Solicitudes de adopción", reservas: "Reservas veterinarias", consultas: "Consultas de contacto" };
+const descripciones = { animales: "Agrega y actualiza la información que aparece en el catálogo.", usuarios: "Consulta sus datos básicos, edita su perfil o elimina una cuenta de usuario.", comentarios: "Revisa los comentarios y sus respuestas, y elimina contenido cuando sea necesario.", adopciones: "Revisa cada solicitud, registra observaciones y actualiza su estado.", reservas: "Confirma atenciones, reprograma su fecha y hora o registra su finalización.", consultas: "Lee las consultas registradas y guarda tus respuestas como administrador." };
+const <span class="fstat-no" title="function not covered" >version = r</span> =&gt; <span class="cstat-no" title="statement not covered" >r.revision || r.fechaActualizacion || r.fechaCreacion || r.fechaRegistro || "";</span>
+const <span class="fstat-no" title="function not covered" >normalizar = v</span>alor =&gt; <span class="cstat-no" title="statement not covered" >String(valor ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();</span>
+function <span class="fstat-no" title="function not covered" >cargar() {</span>
+  const vacios = <span class="cstat-no" title="statement not covered" >Object.fromEntries(secciones.slice(1).<span class="fstat-no" title="function not covered" >map(([</span>tipo]) =&gt; <span class="cstat-no" title="statement not covered" >[tipo, []])</span>);</span>
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    if (!PEH.admin.esAdmin()) <span class="cstat-no" title="statement not covered" >return { autorizado: false, datos: vacios, nombres: {}, error: "" };</span></span>
+<span class="cstat-no" title="statement not covered" >    return { autorizado: true, datos: Object.fromEntries(secciones.slice(1).<span class="fstat-no" title="function not covered" >map(([</span>tipo]) =&gt; <span class="cstat-no" title="statement not covered" >[tipo, PEH.admin.listar(tipo).<span class="fstat-no" title="function not covered" >sort((a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >String(b.fechaCreacion || b.fechaRegistro || "").localeCompare(String(a.fechaCreacion || a.fechaRegistro || "")))</span>])</span>), nombres: PEH.admin.nombresUsuarios(), error: "" };</span>
+  } catch (error) { <span class="cstat-no" title="statement not covered" >return { autorizado: PEH.admin.esAdmin(), datos: vacios, nombres: {}, error: error.message }; }</span>
+}
+&nbsp;
+export default function <span class="fstat-no" title="function not covered" >Desarrollador({</span> onCerrarSesion }) {
+  const [estado, setEstado] = <span class="cstat-no" title="statement not covered" >useState(cargar), [</span>seccion, setSeccion] = <span class="cstat-no" title="statement not covered" >useState("resumen");</span>
+  const [filtros, setFiltros] = <span class="cstat-no" title="statement not covered" >useState({}), [</span>modal, setModal] = <span class="cstat-no" title="statement not covered" >useState(null), [</span>mensaje, setMensaje] = <span class="cstat-no" title="statement not covered" >useState("");</span>
+  const contenido = <span class="cstat-no" title="statement not covered" >useRef(null);</span>
+  const refrescar = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >useCallback(() =&gt; {</span> const nuevo = <span class="cstat-no" title="statement not covered" >cargar(); <span class="cstat-no" title="statement not covered" >s</span>etEstado(nuevo); <span class="cstat-no" title="statement not covered" >i</span>f (!nuevo.autorizado) <span class="cstat-no" title="statement not covered" >setModal(null); }</span></span>, []);</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  useEffect(() =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >    document.body.classList.add("pagina-desarrollador"); <span class="cstat-no" title="statement not covered" >d</span>ocument.title = "Administración | PEH";</span>
+    const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >actualizar = () =&gt; <span class="cstat-no" title="statement not covered" >r</span>efrescar();</span></span>
+<span class="cstat-no" title="statement not covered" >    window.addEventListener("peh:actualizado", actualizar); <span class="cstat-no" title="statement not covered" >w</span>indow.addEventListener("storage", actualizar); <span class="cstat-no" title="statement not covered" >w</span>indow.addEventListener("focus", actualizar);</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    return () =&gt; {</span> <span class="cstat-no" title="statement not covered" >document.body.classList.remove("pagina-desarrollador"); <span class="cstat-no" title="statement not covered" >w</span>indow.removeEventListener("peh:actualizado", actualizar); <span class="cstat-no" title="statement not covered" >w</span>indow.removeEventListener("storage", actualizar); <span class="cstat-no" title="statement not covered" >w</span>indow.removeEventListener("focus", actualizar); }</span>;</span>
+  }, [refrescar]);
+  const { autorizado, datos, nombres, error } = <span class="cstat-no" title="statement not covered" >estado;</span>
+  function <span class="fstat-no" title="function not covered" >ir(t</span>ipo) { <span class="cstat-no" title="statement not covered" >setSeccion(tipo); <span class="cstat-no" title="statement not covered" >c</span>ontenido.current?.focus({ preventScroll: true }); }</span>
+  function <span class="fstat-no" title="function not covered" >filtrar(c</span>ampo, valor) { <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >setFiltros(a</span>ctual =&gt; (<span class="cstat-no" title="statement not covered" >{ ...actual, [seccion]: { ...actual[seccion], [campo]: valor } }))</span>; }</span>
+  function <span class="fstat-no" title="function not covered" >abrir(t</span>ipo, registro) { <span class="cstat-no" title="statement not covered" >setModal({ tipo, registro: registro ? JSON.parse(JSON.stringify(registro)) : null }); }</span>
+  function <span class="fstat-no" title="function not covered" >confirmar(t</span>itulo, texto, operacion) { <span class="cstat-no" title="statement not covered" >setModal({ tipo: "confirmacion", titulo, texto, operacion }); }</span>
+  function <span class="fstat-no" title="function not covered" >accion(n</span>ombre, r) {
+<span class="cstat-no" title="statement not covered" >    if (nombre === "ver-animal") { <span class="cstat-no" title="statement not covered" >window.open(`${location.pathname}#animal/${encodeURIComponent(r.slug)}`, "_blank", "noopener"); <span class="cstat-no" title="statement not covered" >r</span>eturn; }</span></span>
+<span class="cstat-no" title="statement not covered" >    if (nombre === "ver-comentario") { <span class="cstat-no" title="statement not covered" >window.open(`${location.pathname}#comunidad/todas/${encodeURIComponent(r.publicacionId)}`, "_blank", "noopener"); <span class="cstat-no" title="statement not covered" >r</span>eturn; }</span></span>
+<span class="cstat-no" title="statement not covered" >    if (nombre === "editar-animal") <span class="cstat-no" title="statement not covered" >abrir("animal", r);</span></span>
+<span class="cstat-no" title="statement not covered" >    if (nombre === "editar-usuario") <span class="cstat-no" title="statement not covered" >abrir("usuario", r);</span></span>
+<span class="cstat-no" title="statement not covered" >    if (nombre === "gestionar-adopcion") <span class="cstat-no" title="statement not covered" >abrir("adopcion", r);</span></span>
+<span class="cstat-no" title="statement not covered" >    if (nombre === "gestionar-reserva") <span class="cstat-no" title="statement not covered" >abrir("reserva", r);</span></span>
+<span class="cstat-no" title="statement not covered" >    if (nombre === "gestionar-consulta") <span class="cstat-no" title="statement not covered" >abrir("consulta", r);</span></span>
+<span class="cstat-no" title="statement not covered" >    if (nombre === "eliminar-animal") <span class="cstat-no" title="statement not covered" >confirmar("Eliminar perfil del animal", `Se retirará a ${r.nombre}<span class="fstat-no" title="function not covered" > del catálogo y se cancelarán sus solicitudes activas. Sus historiales anteriores se conservarán.`, () =&gt; <span class="cstat-no" title="statement not covered" >P</span>EH.admin.eliminarAnimal(r.id, version(r)))</span>;</span></span>
+<span class="cstat-no" title="statement not covered" >    if (nombre === "eliminar-usuario") <span class="cstat-no" title="statement not covered" >confirmar("Eliminar cuenta de usuario", `Se eliminará el acceso de ${r.nombre}<span class="fstat-no" title="function not covered" >, su perfil y preferencias, y se cancelarán sus solicitudes y reservas activas. Sus historiales se conservarán y su autoría comunitaria se anonimizará.`, () =&gt; <span class="cstat-no" title="statement not covered" >P</span>EH.admin.eliminarUsuario(r.id, version(r)))</span>;</span></span>
+<span class="cstat-no" title="statement not covered" >    if (nombre === "eliminar-comentario") <span class="cstat-no" title="statement not covered" >confirmar("Eliminar comentario", <span class="fstat-no" title="function not covered" >"Se eliminará este comentario junto con sus respuestas. Esta acción no se puede deshacer desde el panel.", () =&gt; <span class="cstat-no" title="statement not covered" >P</span>EH.admin.eliminarComentario(r.id, version(r)))</span>;</span></span>
+  }
+  function <span class="fstat-no" title="function not covered" >salir() {</span>
+<span class="cstat-no" title="statement not covered" >    confirmar("Cerrar sesión", <span class="fstat-no" title="function not covered" >"¿Quieres cerrar la sesión de administración?", () =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (!PEH.sesion.cerrar()) <span class="cstat-no" title="statement not covered" >return { ok: false, mensaje: "No se pudo cerrar la sesión." };</span></span>
+<span class="cstat-no" title="statement not covered" >      onCerrarSesion(); <span class="cstat-no" title="statement not covered" >r</span>eturn { ok: true, mensaje: "Sesión cerrada." };</span>
+    });
+  }
+  const contadores = <span class="cstat-no" title="statement not covered" >{</span>
+    animales: datos.animales.<span class="fstat-no" title="function not covered" >filter(a</span> =&gt; <span class="cstat-no" title="statement not covered" >["disponible", "en-proceso"].includes(a.estadoPerfil || "disponible"))</span>.length,
+    usuarios: datos.usuarios.length, comentarios: datos.comentarios.length,
+    adopciones: datos.adopciones.<span class="fstat-no" title="function not covered" >filter(r</span> =&gt; <span class="cstat-no" title="statement not covered" >["Pendiente", "En revisión"].includes(r.estado || "Pendiente"))</span>.length,
+    reservas: datos.reservas.<span class="fstat-no" title="function not covered" >filter(<span class="cstat-no" title="statement not covered" >r</span> =&gt; (r.estado || "Pendiente") === "Pendiente")</span>.length,
+    consultas: datos.consultas.<span class="fstat-no" title="function not covered" >filter(r</span> =&gt; <span class="cstat-no" title="statement not covered" >["Pendiente", "En revisión"].includes(r.estado || "Pendiente"))</span>.length
+  };
+  const etiquetas = <span class="cstat-no" title="statement not covered" >{ animales: "Animales visibles", usuarios: "Cuentas de usuarios", comentarios: "Comentarios", adopciones: "Adopciones por revisar", reservas: "Reservas pendientes", consultas: "Consultas sin responder" };</span>
+  const filtro = <span class="cstat-no" title="statement not covered" >filtros[seccion] || {};</span>
+  const <span class="cstat-no" title="statement not covered" >registros = (datos[seccion] || []).<span class="fstat-no" title="function not covered" >filter(r</span> =&gt; {</span>
+    const texto = <span class="cstat-no" title="statement not covered" >Object.values(r).<span class="fstat-no" title="function not covered" >filter(v</span> =&gt; <span class="cstat-no" title="statement not covered" >["string", "number"].includes(typeof v))</span>.join(" ") + " " + nombreResponsable(r, nombres);</span>
+<span class="cstat-no" title="statement not covered" >    return (!filtro.busqueda || normalizar(texto).includes(normalizar(filtro.busqueda))) &amp;&amp; (!filtro.estado || filtro.estado === "todos" || (seccion === "animales" ? r.estadoPerfil || "disponible" : r.estado || "Pendiente") === filtro.estado) &amp;&amp; (seccion !== "animales" || !filtro.especie || filtro.especie === "todos" || r.especie === filtro.especie);</span>
+  });
+  const opcionesEstado = <span class="cstat-no" title="statement not covered" >seccion === "animales" ? [["disponible", "Disponible"], ["en-proceso", "En proceso de adopción"], ["adoptado", "Adoptado"], ["no-visible", "No visible"]] : (PEH.admin.ESTADOS[seccion] || []).<span class="fstat-no" title="function not covered" >map(e</span> =&gt; <span class="cstat-no" title="statement not covered" >[e, e])</span>;</span>
+<span class="cstat-no" title="statement not covered" >  return &lt;&gt;</span>
+    &lt;a className="saltar-contenido" href="#desarrollador" <span class="fstat-no" title="function not covered" >onClick={e</span> =&gt; { <span class="cstat-no" title="statement not covered" >e.preventDefault(); <span class="cstat-no" title="statement not covered" >c</span>ontenido.current?.focus(); }</span>}&gt;Ir al contenido&lt;/a&gt;
+    &lt;header className="cabecera-global"&gt;&lt;div className="contenedor cabecera-contenido"&gt;&lt;a className="marca marca-principal" href="#inicio" aria-label="Ir al inicio de PEH"&gt;&lt;span className="simbolo-marca"&gt;PEH&lt;/span&gt;&lt;span className="nombre-marca"&gt;Patitas Esperando&lt;span&gt;un Hogar&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;nav className="navegacion-principal" aria-label="Accesos de administración"&gt;&lt;a className="enlace-navegacion" href="#inicio"&gt;Ver sitio&lt;/a&gt;&lt;a className="enlace-navegacion" href="#perfil"&gt;Mi perfil&lt;/a&gt;&lt;span className="enlace-navegacion activo" aria-current="page"&gt;Administración&lt;/span&gt;&lt;/nav&gt;&lt;/div&gt;&lt;/header&gt;
+    {!autorizado ? &lt;section className="contenedor acceso-restringido"&gt;&lt;span aria-hidden="true"&gt;🔒&lt;/span&gt;&lt;h1&gt;Acceso de administración&lt;/h1&gt;&lt;p&gt;Inicia sesión con la cuenta administradora predeterminada para continuar.&lt;/p&gt;&lt;button className="boton boton-primario" type="button" onClick={salir}&gt;Ir al acceso&lt;/button&gt;&lt;a className="boton boton-secundario" href="#inicio"&gt;Volver a PEH&lt;/a&gt;&lt;/section&gt; : &lt;div className="contenedor administracion-layout"&gt;
+      &lt;aside className="menu-administracion" aria-label="Secciones del panel"&gt;&lt;div className="identidad-administracion"&gt;&lt;span className="icono-administracion" aria-hidden="true"&gt;🐾&lt;/span&gt;&lt;strong&gt;Administración PEH&lt;/strong&gt;&lt;p&gt;{nombres[PEH.sesion.obtener()?.id] || "Cuenta administradora"}&lt;/p&gt;&lt;/div&gt;&lt;nav className="navegacion-administracion" aria-label="Gestión de PEH"&gt;{secciones.<span class="fstat-no" title="function not covered" >map(([</span>tipo, icono, titulo]) =&gt; <span class="cstat-no" title="statement not covered" >&lt;button key={tipo} type="button" className={`opcion-administracion${seccion === tipo ? " activo" : ""}`} aria-current={seccion === tipo ? "page" : undefined} <span class="fstat-no" title="function not covered" >onClick={() =&gt; <span class="cstat-no" title="statement not covered" >i</span>r(tipo)}&gt;&lt;</span>span aria-hidden="true"&gt;{icono}&lt;/span&gt;{titulo}&lt;/button&gt;)</span>}&lt;/nav&gt;&lt;a className="volver-sitio" href="#inicio"&gt;← Volver al sitio&lt;/a&gt;&lt;button className="boton-cerrar-administracion" type="button" onClick={salir}&gt;Cerrar sesión&lt;/button&gt;&lt;/aside&gt;
+      &lt;main className="contenido-administracion" ref={contenido} tabIndex={-1}&gt;&lt;div className="encabezado-administracion"&gt;&lt;div&gt;&lt;span className="sobre-titulo"&gt;Cuidar también es gestionar&lt;/span&gt;&lt;h1&gt;Panel de administración&lt;/h1&gt;&lt;p&gt;Revisa los procesos de PEH y mantén su información al día.&lt;/p&gt;&lt;/div&gt;&lt;button type="button" className="boton boton-secundario" <span class="fstat-no" title="function not covered" >onClick={() =&gt; {</span> <span class="cstat-no" title="statement not covered" >setMensaje(""); <span class="cstat-no" title="statement not covered" >r</span>efrescar(); }</span>}&gt;Actualizar datos&lt;/button&gt;&lt;/div&gt;{mensaje &amp;&amp; &lt;div className="mensaje-administracion" role="status"&gt;{mensaje}&lt;/div&gt;}{error &amp;&amp; &lt;div className="error-administracion" role="alert"&gt;{error}&lt;/div&gt;}
+        {seccion === "resumen" ? &lt;section className="seccion-administracion"&gt;&lt;div className="titulo-seccion-administracion"&gt;&lt;h2&gt;Un vistazo a PEH&lt;/h2&gt;&lt;p&gt;Los pendientes que necesitan tu atención.&lt;/p&gt;&lt;/div&gt;&lt;div className="resumen-administracion"&gt;{secciones.slice(1).<span class="fstat-no" title="function not covered" >map(([</span>tipo, icono]) =&gt; <span class="cstat-no" title="statement not covered" >&lt;button type="button" className="tarjeta-estadistica" key={tipo} <span class="fstat-no" title="function not covered" >onClick={() =&gt; <span class="cstat-no" title="statement not covered" >i</span>r(tipo)}&gt;&lt;</span>span aria-hidden="true"&gt;{icono}&lt;/span&gt;&lt;strong&gt;{contadores[tipo]}&lt;/strong&gt;&lt;span&gt;{etiquetas[tipo]}&lt;/span&gt;&lt;/button&gt;)</span>}&lt;/div&gt;&lt;article className="tarjeta-orientacion"&gt;&lt;h3&gt;¿Por dónde empezar?&lt;/h3&gt;&lt;p&gt;Revisa primero las solicitudes de adopción y las reservas pendientes. Después puedes actualizar el catálogo y responder las consultas de la comunidad.&lt;/p&gt;&lt;div className="acciones-administracion"&gt;&lt;button type="button" className="boton boton-primario" <span class="fstat-no" title="function not covered" >onClick={() =&gt; <span class="cstat-no" title="statement not covered" >i</span>r("adopciones")}&gt;R</span>evisar adopciones&lt;/button&gt;&lt;button type="button" className="boton boton-secundario" <span class="fstat-no" title="function not covered" >onClick={() =&gt; <span class="cstat-no" title="statement not covered" >i</span>r("consultas")}&gt;V</span>er consultas&lt;/button&gt;&lt;/div&gt;&lt;/article&gt;&lt;/section&gt; : &lt;section className="seccion-administracion" id={`seccion${seccion[0].toUpperCase()}${seccion.slice(1)}`}&gt;&lt;div className="titulo-seccion-administracion"&gt;&lt;div&gt;&lt;h2 id="tituloSeccionReactAdmin"&gt;{titulos[seccion]}&lt;/h2&gt;&lt;p&gt;{descripciones[seccion]}&lt;/p&gt;&lt;/div&gt;{seccion === "animales" &amp;&amp; &lt;button type="button" className="boton boton-primario" <span class="fstat-no" title="function not covered" >onClick={() =&gt; <span class="cstat-no" title="statement not covered" >a</span>brir("animal", null)}&gt;A</span>gregar animal&lt;/button&gt;}&lt;/div&gt;&lt;div className="filtros-administracion"&gt;&lt;div className="grupo-admin"&gt;&lt;label htmlFor="busquedaReactAdmin"&gt;Buscar en {seccion}&lt;/label&gt;&lt;input id="busquedaReactAdmin" type="search" placeholder="Buscar…" value={filtro.busqueda || ""} <span class="fstat-no" title="function not covered" >onChange={e</span> =&gt; <span class="cstat-no" title="statement not covered" >filtrar("busqueda", e.target.value)} /&gt;</span>&lt;/div&gt;{seccion === "animales" &amp;&amp; &lt;div className="grupo-admin"&gt;&lt;label htmlFor="especieReactAdmin"&gt;Especie&lt;/label&gt;&lt;select id="especieReactAdmin" value={filtro.especie || "todos"} <span class="fstat-no" title="function not covered" >onChange={e</span> =&gt; <span class="cstat-no" title="statement not covered" >filtrar("especie", e.target.value)}&gt;&lt;</span>option value="todos"&gt;Todas&lt;/option&gt;&lt;option value="perro"&gt;Perros&lt;/option&gt;&lt;option value="gato"&gt;Gatos&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;}{opcionesEstado.length &gt; 0 &amp;&amp; &lt;div className="grupo-admin"&gt;&lt;label htmlFor="estadoReactAdmin"&gt;Estado&lt;/label&gt;&lt;select id="estadoReactAdmin" value={filtro.estado || "todos"} <span class="fstat-no" title="function not covered" >onChange={e</span> =&gt; <span class="cstat-no" title="statement not covered" >filtrar("estado", e.target.value)}&gt;&lt;</span>option value="todos"&gt;Todos&lt;/option&gt;{opcionesEstado.<span class="fstat-no" title="function not covered" >map(([</span>valor, etiqueta]) =&gt; <span class="cstat-no" title="statement not covered" >&lt;option key={valor} value={valor}&gt;{etiqueta}&lt;/option&gt;)</span>}&lt;/select&gt;&lt;/div&gt;}&lt;/div&gt;&lt;p className="resultado-administracion" aria-live="polite"&gt;{registros.length} de {datos[seccion].length} registros&lt;/p&gt;&lt;TablaAdmin tipo={seccion} registros={registros} nombres={nombres} onAccion={accion} tituloId="tituloSeccionReactAdmin" /&gt;&lt;/section&gt;}
+      &lt;/main&gt;
+    &lt;/div&gt;}
+    &lt;footer className="pie-administracion"&gt;&lt;div className="contenedor"&gt;&lt;p&gt;© 2026 PEH · Patitas Esperando un Hogar&lt;/p&gt;&lt;p&gt;Gestión al servicio de cada nueva oportunidad. ♡&lt;/p&gt;&lt;/div&gt;&lt;/footer&gt;
+    {modal &amp;&amp; &lt;FormulariosAdmin key={`${modal.tipo}-${modal.registro?.id || "nuevo"}`} modal={modal} nombres={nombres} <span class="fstat-no" title="function not covered" >onCerrar={() =&gt; <span class="cstat-no" title="statement not covered" >s</span>etModal(null)} <span class="fstat-no" title="function not covered" >o</span>nGuardado={t</span>exto =&gt; { <span class="cstat-no" title="statement not covered" >setModal(null); <span class="cstat-no" title="statement not covered" >s</span>etMensaje(texto); <span class="cstat-no" title="statement not covered" >r</span>efrescar(); }</span>} /&gt;}
+  &lt;/&gt;;
+}
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-10-25T00:43:08.661Z
+            </div>
+        <script src="../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
+    </body>
+</html>
+    

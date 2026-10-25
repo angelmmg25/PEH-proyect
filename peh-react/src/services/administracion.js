@@ -1,3 +1,6 @@
+import {errorTelefono,errorComuna,normalizarTelefono,errorNombrePersona} from "./datosCuenta.js";
+import { correoValido } from "./datosCuenta.js";
+import { edadMesesValida } from "./edadAnimal.js";
 export function crearAdministracion(base, animalesIniciales, comentariosIniciales = []) {
     const K = Object.freeze({
         catalogo: "peh_catalogo_admin_v1",
@@ -16,7 +19,7 @@ export function crearAdministracion(base, animalesIniciales, comentariosIniciale
         id: "PEH-ADMIN-DEMO", correo: "adminp@gmail.com", usuario: "peh_admin_demo",
         sal: "cef63670a7445fd44cc8d0bec68a0b64", claveDerivada: "b31d108fc7d93a4dd06ab125d9a6d9caad9a004104860b59305ea116a7e8d17c", iteraciones: 120000
     });
-    const correoPermitido = valor => /^[^\s@]+@(?:gmail\.com|duoc\.cl|profesor\.uc\.cl)$/i.test(String(valor || "").trim());
+    const correoPermitido = correoValido;
     const esCuentaAdministradora = cuenta => Boolean(cuenta && cuenta.id === ADMIN_DEMO.id && cuenta.correo === ADMIN_DEMO.correo && cuenta.rol === "ADMIN" && cuenta.administradorPredeterminado === true);
     let catalogoBase = [];
     let comentariosBase = [];
@@ -170,7 +173,11 @@ export function crearAdministracion(base, animalesIniciales, comentariosIniciale
                 if (datos.id && !existente) return fallo("El perfil ya no está disponible.");
                 if (existente) revisarVersion(existente, version);
                 const nombre = texto(datos.nombre), especie = texto(datos.especie), sexo = texto(datos.sexo), tamano = texto(datos.tamano), comuna = texto(datos.comuna);
-                const edad = Number(datos.edad), diasEsperando = Number(datos.diasEsperando);
+                if (!edadMesesValida(datos.edadMeses)) return fallo("Selecciona una edad válida: meses antes del año e intervalos de 3 meses después (máximo 40 años).");
+                const edadMeses = Number(datos.edadMeses);
+                const edadMaxima = especie === "perro" ? 30 : 40;
+                if (edadMeses > edadMaxima * 12) return fallo(`La edad máxima permitida para ${especie === "perro" ? "perros" : "gatos"} es de ${edadMaxima} años.`);
+                const edad = edadMeses / 12, diasEsperando = Number(datos.diasEsperando);
                 const historia = Array.isArray(datos.historia) ? datos.historia.map(texto).filter(Boolean) : texto(datos.historia).split(/\n\s*\n/).filter(Boolean);
                 const cuidados = texto(datos.cuidados);
                 if (nombre.length < 2 || nombre.length > 60 || !["perro", "gato"].includes(especie) || !["macho", "hembra"].includes(sexo) || !["pequeno", "mediano", "grande"].includes(tamano) || comuna.length < 2 || comuna.length > 60 || !Number.isFinite(edad) || edad < 0 || edad > 40 || !Number.isInteger(diasEsperando) || diasEsperando < 0 || historia.join(" ").length < 20 || historia.join(" ").length > 3000 || cuidados.length < 10 || cuidados.length > 1500) return fallo("Revisa los datos del animal: nombre, edad, ubicación, historia y cuidados.");
@@ -185,7 +192,7 @@ export function crearAdministracion(base, animalesIniciales, comentariosIniciale
                 const personalidad = (Array.isArray(datos.personalidad) ? datos.personalidad : texto(datos.personalidad).split(",")).map(texto).filter(Boolean).slice(0, 8);
                 if (personalidad.join(", ").length > 180) return fallo("La personalidad no puede superar 180 caracteres.");
                 const animal = marcarCambio({ ...existente, id, slug, fechaCreacion: existente?.fechaCreacion || ahora() }, {
-                    nombre, especie, sexo, edad, tamano, comuna, comunaValor: normalizar(comuna).replace(/[^a-z0-9]+/g, "-"), diasEsperando, historia, cuidados, imagen, personalidad,
+                    nombre, especie, sexo, edad, edadMeses, tamano, comuna, comunaValor: normalizar(comuna).replace(/[^a-z0-9]+/g, "-"), diasEsperando, historia, cuidados, imagen, personalidad,
                     hogar: (datos.hogar || []).filter(h => ["casa", "departamento", "espacio-amplio"].includes(h)),
                     convivencia: (datos.convivencia || []).filter(c => ["ninos", "perros", "gatos"].includes(c)), estadoPerfil
                 }, cuenta);
@@ -212,7 +219,7 @@ export function crearAdministracion(base, animalesIniciales, comentariosIniciale
                 if (indice < 0) return fallo("La cuenta no está disponible o es administradora.");
                 revisarVersion(cuentas[indice], version);
                 const nombre = texto(datos.nombre), apellido = texto(datos.apellido), usuario = texto(datos.usuario), correo = texto(datos.correo).toLowerCase();
-                if (nombre.length < 2 || nombre.length > 30 || apellido.length < 2 || apellido.length > 30 || !/^[A-Za-z0-9_]{4,16}$/.test(usuario) || !correoPermitido(correo) || correo.length > 100) return fallo("Revisa los datos del perfil. Usa gmail.com, duoc.cl o profesor.uc.cl.");
+                if (nombre.length < 2 || nombre.length > 30 || apellido.length < 2 || apellido.length > 30 || !/^[A-Za-z0-9_]{4,16}$/.test(usuario) || !correoPermitido(correo) || correo.length > 100) return fallo("Revisa los datos del perfil. Usa terminación .com o .cl, como duocuc.cl o profesor.duocuc.cl.");
                 if (cuentas.some(c => c.id !== datos.id && (c.correo.toLowerCase() === correo || c.usuario?.toLowerCase() === usuario.toLowerCase()))) return fallo("Ese correo o nombre de usuario ya está ocupado.");
                 cuentas[indice] = marcarCambio(cuentas[indice], { nombre, apellido, usuario, correo }, cuenta);
                 const clavePerfil = `${base.CLAVES.perfil}__${datos.id}`;
@@ -358,16 +365,34 @@ export function crearAdministracion(base, animalesIniciales, comentariosIniciale
     }
     const cuentas = Object.freeze({
         ...base.cuentas,
+        actualizarPerfil(datos) {
+            try {
+                const sesion=base.sesion.obtener();
+                if(!sesion?.id || sesion.invitado)return fallo("Inicia sesión para editar tu cuenta.");
+                const cuentas=leerLista(base.CLAVES.cuentas), indice=cuentas.findIndex(c=>c.id===sesion.id);
+                if(indice<0)return fallo("No encontramos tu cuenta.");
+                const nombre=texto(datos.nombre),correo=texto(datos.correo).toLowerCase(),telefono=normalizarTelefono(datos.telefono),comuna=texto(datos.comuna);
+                if(errorNombrePersona(nombre))return fallo(errorNombrePersona(nombre));
+                if(!correoValido(correo))return fallo("Ingresa un correo válido con terminación .com o .cl.");
+                if(errorTelefono(telefono) || errorComuna(comuna))return fallo(errorTelefono(telefono) || errorComuna(comuna));
+                if(esCuentaAdministradora(cuentas[indice]) && correo!==cuentas[indice].correo)return fallo("El correo de la cuenta administradora es fijo.");
+                if(cuentas.some(c=>c.id!==sesion.id && texto(c.correo).toLowerCase()===correo))return fallo("Ese correo ya pertenece a otra cuenta.");
+                cuentas[indice]=marcarCambio(cuentas[indice],{correo,telefono,comuna},sesion);
+                const clavePerfil=base.CLAVES.perfil+"__"+sesion.id;
+                guardarGrupo({[base.CLAVES.cuentas]:cuentas,[clavePerfil]:{...leerObjeto(clavePerfil),nombre,correo,telefono,comuna}});
+                return exito("Perfil actualizado correctamente.");
+            }catch(error){return fallo(error.message || "No fue posible guardar los cambios.");}
+        },
         async iniciarSesion(correoIngresado, contrasena) {
             const correo = texto(correoIngresado).toLowerCase();
-            if (!correoPermitido(correo)) return fallo("Usa un correo de gmail.com, duoc.cl o profesor.uc.cl.");
+            if (!correoPermitido(correo)) return fallo("Usa un correo de terminación .com o .cl, como duocuc.cl o profesor.duocuc.cl.");
             try {
                 if (correo === ADMIN_DEMO.correo) await prepararAdministrador(contrasena);
                 return await base.cuentas.iniciarSesion(correo, contrasena);
             } catch (error) { return fallo(error.message || "No se pudo comprobar el acceso."); }
         },
         async registrar(datos) {
-            if (!correoPermitido(datos?.correo)) return fallo("Usa un correo de gmail.com, duoc.cl o profesor.uc.cl.");
+            if (!correoPermitido(datos?.correo)) return fallo("Usa un correo de terminación .com o .cl, como duocuc.cl o profesor.duocuc.cl.");
             if (texto(datos.correo).toLowerCase() === ADMIN_DEMO.correo || texto(datos.usuario).toLowerCase() === ADMIN_DEMO.usuario) return fallo("Ese correo o usuario está reservado para la administración.");
             return base.cuentas.registrar(datos);
         },

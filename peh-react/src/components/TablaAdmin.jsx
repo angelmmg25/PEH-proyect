@@ -1,3 +1,4 @@
+import { formatearEdad } from "../services/catalogo";
 import PEH from "../services/peh";
 import { nombreResponsable } from "../services/administracion";
 
@@ -19,7 +20,7 @@ export default function TablaAdmin({ tipo, registros, nombres, onAccion, tituloI
     return <button type="button" className={peligro ? "accion-peligro" : undefined} onClick={() => onAccion(accion, registro)} aria-label={`${texto}: ${registro.nombre || registro.animalNombre || registro.mascotaNombre || registro.asunto || registro.autor || registro.id}`}>{texto}</button>;
   }
   function celdas(r) {
-    if (tipo === "animales") return <><td><div className="animal-celda-admin"><img src={r.imagen} alt={r.nombre} width="52" height="52" loading="lazy" /><div><strong>{r.nombre}</strong><small>{r.slug}</small></div></div></td><td>{r.especie === "perro" ? "Perro" : "Gato"} · {r.edad} años</td><td>{r.comuna}</td><td>{estado(estadosAnimal[r.estadoPerfil || "disponible"])}</td><td><div className="acciones-fila-admin">{boton("ver-animal", "Ver perfil", r)}{boton("editar-animal", "Editar", r)}{boton("eliminar-animal", "Eliminar perfil", r, true)}</div></td></>;
+    if (tipo === "animales") return <><td><div className="animal-celda-admin"><img src={r.imagen} alt={r.nombre} width="52" height="52" loading="lazy" /><div><strong>{r.nombre}</strong><small>{r.slug}</small></div></div></td><td>{r.especie === "perro" ? "Perro" : "Gato"} · {formatearEdad(r)}</td><td>{r.comuna}</td><td>{estado(estadosAnimal[r.estadoPerfil || "disponible"])}</td><td><div className="acciones-fila-admin">{boton("ver-animal", "Ver perfil", r)}{boton("editar-animal", "Editar", r)}{boton("eliminar-animal", "Eliminar perfil", r, true)}</div></td></>;
     if (tipo === "usuarios") return <><td>{r.nombre} {r.apellido}</td><td>{r.usuario}</td><td>{r.correo}</td><td>{fecha(r.fechaRegistro)}</td><td><div className="acciones-fila-admin">{boton("editar-usuario", "Editar perfil", r)}{boton("eliminar-usuario", "Eliminar cuenta", r, true)}</div></td></>;
     if (tipo === "comentarios") return <><td>{r.autor || "Usuario eliminado"}</td><td><p className="texto-comentario-admin">{r.texto}</p><small>{r.respuestaA ? "Respuesta" : r.demo ? "Comentario de ejemplo" : "Comentario"}</small></td><td>{r.publicacionId}</td><td>{fecha(r.fechaCreacion)}</td><td><div className="acciones-fila-admin">{boton("ver-comentario", "Ver contexto", r)}{boton("eliminar-comentario", "Eliminar", r, true)}</div></td></>;
     if (tipo === "adopciones") return <><td>{r.animalNombre}</td><td><strong>{nombreResponsable(r, nombres)}</strong><small>{r.correoAdoptante}</small></td><td>{fecha(r.fechaCreacion)}</td><td>{estado(r.estado)}</td><td>{boton("gestionar-adopcion", "Revisar solicitud", r)}</td></>;

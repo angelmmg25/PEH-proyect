@@ -1,12 +1,14 @@
+import { errorTelefono, errorComuna } from "./datosCuenta.js";
+import { correoValido, edadDesdeFecha } from "./datosCuenta.js";
 // Reglas y mensajes del index.js original; funciones puras sin modificar el DOM.
 export const camposInicio = ["correo", "contrasena"];
-export const camposRegistro = ["nombreRegistro", "apellidoRegistro", "usuarioRegistro", "correoRegistro", "fechaNacimientoRegistro", "contrasenaRegistro", "confirmarContrasenaRegistro", "terminosRegistro"];
+export const camposRegistro = ["nombreRegistro", "apellidoRegistro", "usuarioRegistro", "correoRegistro", "fechaNacimientoRegistro", "telefonoRegistro", "comunaRegistro", "contrasenaRegistro", "confirmarContrasenaRegistro", "terminosRegistro"];
 export function validarAcceso(id, valores) {
+ if (id === "telefonoRegistro") return errorTelefono(valores[id]);
+ if (id === "comunaRegistro") return errorComuna(valores[id]);
  const campos = Object.fromEntries([...camposInicio, ...camposRegistro].map(id => [id, {value: valores[id] || ""}]));
  const mostrarError = (_campo, _id, mensaje) => mensaje;
  const mostrarValido = () => "";
-    const expresionCorreo =
-        /^[^\s@]+@(?:gmail\.com|duoc\.cl|profesor\.uc\.cl)$/i;
 
     const expresionNombre =
         /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ' -]+$/;
@@ -25,40 +27,7 @@ export function validarAcceso(id, valores) {
 
         return letras ? letras.length : 0;
     };
-    const calcularEdad = (fechaTexto) => {
-        if (!fechaTexto) return -1;
-
-        const nacimiento = new Date(
-            `${fechaTexto}T00:00:00`
-        );
-
-        const hoy = new Date();
-
-        if (
-            Number.isNaN(nacimiento.getTime()) ||
-            nacimiento > hoy
-        ) {
-            return -1;
-        }
-
-        let edad =
-            hoy.getFullYear() - nacimiento.getFullYear();
-
-        const diferenciaMes =
-            hoy.getMonth() - nacimiento.getMonth();
-
-        if (
-            diferenciaMes < 0 ||
-            (
-                diferenciaMes === 0 &&
-                hoy.getDate() < nacimiento.getDate()
-            )
-        ) {
-            edad--;
-        }
-
-        return edad;
-    };
+    const calcularEdad = edadDesdeFecha;
     const validarCorreoInicio = () => {
         const campo = campos["correo"];
         if (!campo) return false;
@@ -73,11 +42,11 @@ export function validarAcceso(id, valores) {
             );
         }
 
-        if (!expresionCorreo.test(valor)) {
+        if (!correoValido(valor)) {
             return mostrarError(
                 campo,
                 'errorCorreoInicio',
-                'Usa un correo de gmail.com, duoc.cl o profesor.uc.cl.'
+                'Usa un correo de terminación .com o .cl, como duocuc.cl o profesor.duocuc.cl.'
             );
         }
 
@@ -124,6 +93,7 @@ export function validarAcceso(id, valores) {
             );
         }
 
+        if (valor.length > 30) return "El máximo es de 30 caracteres.";
         if (!expresionNombre.test(valor)) {
             return mostrarError(
                 campo,
@@ -161,6 +131,7 @@ export function validarAcceso(id, valores) {
             );
         }
 
+        if (valor.length > 30) return "El máximo es de 30 caracteres.";
         if (!expresionNombre.test(valor)) {
             return mostrarError(
                 campo,
@@ -227,11 +198,11 @@ export function validarAcceso(id, valores) {
             );
         }
 
-        if (!expresionCorreo.test(valor)) {
+        if (!correoValido(valor)) {
             return mostrarError(
                 campo,
                 'errorCorreoRegistro',
-                'Usa un correo de gmail.com, duoc.cl o profesor.uc.cl.'
+                'Usa un correo de terminación .com o .cl, como duocuc.cl o profesor.duocuc.cl.'
             );
         }
 
@@ -266,6 +237,7 @@ export function validarAcceso(id, valores) {
             );
         }
 
+        if (edad > 120) return "La edad máxima permitida es de 120 años.";
         if (edad < 13) {
             return mostrarError(
                 campo,

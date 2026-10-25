@@ -1,3 +1,5 @@
+import AccesoRequerido from "./components/AccesoRequerido.jsx";
+import { requiereSesion } from "./services/accesoInvitado.js";
 import { useEffect, useState } from "react";
 import Login from "./pages/Login";
 import Principal from "./pages/Principal";
@@ -58,8 +60,8 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    document.title = sesion ? tituloDeRuta(ruta) : "PEH | Inicio de sesión";
-    if (sesion && ruta === "veterinaria/reservar") {
+    document.title = requiereSesion(ruta,sesion) ? "Debes iniciar sesión | PEH" : sesion ? tituloDeRuta(ruta) : "PEH | Inicio de sesión";
+    if (sesion && !sesion.invitado && ruta === "veterinaria/reservar") {
       const frame = requestAnimationFrame(() => document.getElementById("reservar")?.scrollIntoView({ block: "start" }));
       return () => cancelAnimationFrame(frame);
     }
@@ -83,6 +85,11 @@ export default function App() {
     window.location.hash = "inicio";
   }
 
+  function irAlLogin() {
+    if (!PEH.sesion.cerrar()) throw new Error("No pudimos abrir el inicio de sesión. Inténtalo nuevamente.");
+    volverAlAcceso();
+  }
+
   function cerrarSesion() {
     if (!PEH.sesion.cerrar()) {
       setError("No pudimos cerrar la sesión. Inténtalo otra vez.");
@@ -94,8 +101,9 @@ export default function App() {
   if (!sesion) return <Login onAcceso={setSesion} />;
 
   const pagina = ruta.split("/")[0];
+  if (requiereSesion(ruta,sesion)) return <AccesoRequerido pagina={pagina} onIniciarSesion={irAlLogin}/>;
   if (["inicio", "animales"].includes(pagina)) return <Principal soloAnimales={pagina === "animales"} />;
-  if (pagina === "animal") return <Animal key={`${sesion.id}-${ruta}`} animal={animalDeRuta(ruta, catalogo)} />;
+  if (pagina === "animal") return <Animal key={`${sesion.id}-${ruta}`} animal={animalDeRuta(ruta, catalogo)} onIniciarSesion={irAlLogin} />;
   if (pagina === "comunidad") return <Comunidad key={sesion.id} sesion={sesion} categoriaRuta={ruta.split("/")[1]} publicacionId={ruta.split("/")[2]} ruta={ruta} onRuta={setRuta} />;
   if (pagina === "veterinaria") return <Veterinaria key={sesion.id} />;
   if (pagina === "perfil") return <Perfil key={sesion.id} onCerrarSesion={volverAlAcceso} />;
