@@ -10,7 +10,9 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "test:navegador": "node -e \"const r=require('node:child_process').spawnSync(process.execPath,['node_modules/vitest/vitest.mjs','run','tests/global.spec.js','-t','Navegador real'],{stdio:'inherit',env:{...process.env,PEH_NAVEGADOR:'1'}});process.exit(r.status??1)\"",
+    "test:navegador:instalar": "playwright install chromium"
   },
   "dependencies": {
     "bootstrap": "5.3",
@@ -18,12 +20,16 @@
     "react-dom": "^19.3.1"
   },
   "devDependencies": {
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.8",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
+    "@vitest/coverage-v8": "5.0.5",
+    "jsdom": "^31.0.0",
     "oxlint": "^1.88.0",
+    "playwright": "^1.62.1",
     "vite": "^8.3.4",
-    "vitest": "5.0.5",
-    "@vitest/coverage-v8": "5.0.5"
+    "vitest": "5.0.5"
   }
 }

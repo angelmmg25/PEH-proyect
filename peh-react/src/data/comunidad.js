@@ -1,122 +1,140 @@
-export const categorias = {"adopcion": "Historia de adopción", "consejos": "Consejos y cuidados", "preguntas": "Preguntas de la comunidad", "difusion": "Ayuda y difusión", "perdidos": "Animales perdidos", "encontrados": "Animales encontrados", "jornadas": "Jornadas y actividades"};
+/* Filtros, opciones de publicación y publicaciones de ejemplo.
+ * Configuración fija; los datos escritos por usuarios se gestionan en services.
+ */
+import {categorias} from './global.js';
+
+// Presentación propia de los filtros y del formulario; conserva sus textos y orden.
+export const filtrosComunidad = [
+  [
+    "todas",
+    "⌂",
+    "Todas",
+    "las publicaciones"
+  ],
+  [
+    "adopcion",
+    "♥",
+    "Historias",
+    "de adopción"
+  ],
+  [
+    "consejos",
+    "💡",
+    "Consejos",
+    "y cuidados"
+  ],
+  [
+    "preguntas",
+    "●●●",
+    "Preguntas",
+    "de la comunidad"
+  ],
+  [
+    "difusion",
+    "📣",
+    "Ayuda",
+    "y difusión"
+  ],
+  [
+    "perdidos",
+    "⌕",
+    "Animales perdidos",
+    null
+  ],
+  [
+    "encontrados",
+    "🐾",
+    "Animales encontrados",
+    null
+  ],
+  [
+    "jornadas",
+    "📅",
+    "Jornadas y actividades",
+    null
+  ]
+];
+
+export const categoriasPublicacion = ["adopcion","consejos","preguntas","perdidos","encontrados","jornadas","difusion"].map(id => [id, id === "preguntas" ? "Pregunta a la comunidad" : categorias[id]]);
+
+// Seis ejemplos: dos por categoría, independientes de las cuentas registradas.
 export const publicacionesDemo = [
   {
-    "id": "peh-demo-0",
+    "id": "peh-ejemplo-001",
     "demo": true,
+    "usuarioId": "PEH-EJEMPLO-AUTOR-1",
     "autor": "Sofía Ramírez",
-    "avatar": "👩",
     "categoria": "adopcion",
-    "textoBusqueda": "luna adopcion gata historia familia",
-    "tiempo": "hace 2 horas",
-    "titulo": "",
-    "parrafos": [
-      "Hoy quiero compartirles que Luna ya lleva 2 meses con nosotros. 🧡 Cuando la adoptamos era muy tímida, pero ahora no se despega de nosotros. ¡Gracias PEH por ayudarnos a encontrarla! 🐾"
-    ],
-    "contenido": "Hoy quiero compartirles que Luna ya lleva 2 meses con nosotros. 🧡 Cuando la adoptamos era muy tímida, pero ahora no se despega de nosotros. ¡Gracias PEH por ayudarnos a encontrarla! 🐾",
-    "imagenesEjemplo": [
-      "🐱",
-      "😺"
-    ],
-    "comentarios": [
-      {
-        "id": "peh-demo-0-comentario-0",
-        "publicacionId": "peh-demo-0",
-        "autor": "Valentina:",
-        "texto": "¡Qué hermosa Luna! Me alegra mucho que haya encontrado familia. 🧡",
-        "respuestaA": null
-      }
-    ],
-    "imagen": null
+    "contenido": "Luna ya lleva dos meses con nosotros. Al principio buscaba un rincón tranquilo y ahora se acerca para acompañarnos cada tarde. Respetar su ritmo hizo toda la diferencia. ¡Gracias por ayudarnos a encontrarnos!",
+    "ubicacion": "Macul",
+    "imagen": null,
+    "fechaCreacion": "2026-11-01T15:00:00.000Z",
+    "textoBusqueda": "Luna ya lleva dos meses con nosotros. Al principio buscaba un rincón tranquilo y ahora se acerca para acompañarnos cada tarde. Respetar su ritmo hizo toda la diferencia. ¡Gracias por ayudarnos a encontrarnos! Macul adopcion",
+    "comentarios": []
   },
   {
-    "id": "peh-demo-1",
+    "id": "peh-ejemplo-002",
     "demo": true,
+    "usuarioId": "PEH-EJEMPLO-AUTOR-2",
     "autor": "Matías León",
-    "avatar": "👨",
     "categoria": "consejos",
-    "textoBusqueda": "gato nuevo hogar consejos preparar adaptacion",
-    "tiempo": "hace 5 horas",
-    "titulo": "¿Cómo preparar el hogar para un nuevo gato?",
-    "parrafos": [
-      "Hola a todos. Estoy pensando en adoptar un gatito y me gustaría saber qué cosas son esenciales para que se sienta cómodo desde el primer día.",
-      "¡Cualquier consejo es bienvenido! 🐱"
-    ],
-    "contenido": "Hola a todos. Estoy pensando en adoptar un gatito y me gustaría saber qué cosas son esenciales para que se sienta cómodo desde el primer día.\n\n¡Cualquier consejo es bienvenido! 🐱",
-    "imagenesEjemplo": [],
-    "comentarios": [
-      {
-        "id": "peh-demo-1-comentario-0",
-        "publicacionId": "peh-demo-1",
-        "autor": "Daniela:",
-        "texto": "Dale un espacio tranquilo durante los primeros días y deja que explore a su ritmo.",
-        "respuestaA": null
-      }
-    ],
-    "imagen": null
+    "contenido": "Preparamos un rincón tranquilo para la llegada de nuestro gato: agua, alimento y un lugar donde esconderse. Le dejamos explorar a su ritmo y ha ido ganando confianza. ¿Qué les ayudó durante los primeros días?",
+    "ubicacion": "Ñuñoa",
+    "imagen": null,
+    "fechaCreacion": "2026-11-02T15:00:00.000Z",
+    "textoBusqueda": "Preparamos un rincón tranquilo para la llegada de nuestro gato: agua, alimento y un lugar donde esconderse. Le dejamos explorar a su ritmo y ha ido ganando confianza. ¿Qué les ayudó durante los primeros días? Ñuñoa consejos",
+    "comentarios": []
   },
   {
-    "id": "peh-demo-2",
+    "id": "peh-ejemplo-003",
     "demo": true,
+    "usuarioId": "PEH-EJEMPLO-AUTOR-3",
     "autor": "Camila Torres",
-    "avatar": "👩",
-    "categoria": "difusion",
-    "textoBusqueda": "max perro busca hogar adopcion difusion familia",
-    "tiempo": "hace 1 día",
-    "titulo": "Max busca un hogar",
-    "parrafos": [
-      "Este perrito fue encontrado cerca de mi casa. Es muy cariñoso y está en busca de una familia responsable. Si alguien está interesado o puede compartir esta publicación, ¡se los agradecería mucho! 🧡"
-    ],
-    "contenido": "Este perrito fue encontrado cerca de mi casa. Es muy cariñoso y está en busca de una familia responsable. Si alguien está interesado o puede compartir esta publicación, ¡se los agradecería mucho! 🧡",
-    "imagenesEjemplo": [
-      "🐶",
-      "🐕"
-    ],
-    "comentarios": [
-      {
-        "id": "peh-demo-2-comentario-0",
-        "publicacionId": "peh-demo-2",
-        "autor": "Francisca:",
-        "texto": "Compartido. Ojalá Max encuentre una familia pronto. 🐾",
-        "respuestaA": null
-      }
-    ],
-    "imagen": null
+    "categoria": "preguntas",
+    "contenido": "Estamos preparando la llegada de una perrita adoptada y queremos organizar bien la primera semana. ¿Cómo hicieron ustedes para presentarle su nuevo hogar sin agobiarla? Nos gustaría conocer sus experiencias.",
+    "ubicacion": "La Florida",
+    "imagen": null,
+    "fechaCreacion": "2026-11-03T15:00:00.000Z",
+    "textoBusqueda": "Estamos preparando la llegada de una perrita adoptada y queremos organizar bien la primera semana. ¿Cómo hicieron ustedes para presentarle su nuevo hogar sin agobiarla? Nos gustaría conocer sus experiencias. La Florida preguntas",
+    "comentarios": []
   },
   {
-    "id": "peh-demo-3",
+    "id": "peh-ejemplo-004",
     "demo": true,
+    "usuarioId": "PEH-EJEMPLO-AUTOR-4",
+    "autor": "Diego Fuentes",
+    "categoria": "adopcion",
+    "contenido": "Hace un mes adoptamos a Bruno. Empezamos con paseos cortos y una rutina tranquila; hoy ya reconoce su cama y nos recibe moviendo la cola. Todavía seguimos aprendiendo juntos, pero estamos felices de darle un hogar.",
+    "ubicacion": "Puente Alto",
+    "imagen": null,
+    "fechaCreacion": "2026-11-04T15:00:00.000Z",
+    "textoBusqueda": "Hace un mes adoptamos a Bruno. Empezamos con paseos cortos y una rutina tranquila; hoy ya reconoce su cama y nos recibe moviendo la cola. Todavía seguimos aprendiendo juntos, pero estamos felices de darle un hogar. Puente Alto adopcion",
+    "comentarios": []
+  },
+  {
+    "id": "peh-ejemplo-005",
+    "demo": true,
+    "usuarioId": "PEH-EJEMPLO-AUTOR-5",
+    "autor": "Valentina Soto",
+    "categoria": "consejos",
+    "contenido": "Nos sirvió acordar en familia quién se ocupa de los paseos, la limpieza y las visitas veterinarias antes de adoptar. Tener una rutina compartida nos ayuda a cuidar mejor a nuestra mascota y a no olvidar sus necesidades.",
+    "ubicacion": "San Miguel",
+    "imagen": null,
+    "fechaCreacion": "2026-11-05T15:00:00.000Z",
+    "textoBusqueda": "Nos sirvió acordar en familia quién se ocupa de los paseos, la limpieza y las visitas veterinarias antes de adoptar. Tener una rutina compartida nos ayuda a cuidar mejor a nuestra mascota y a no olvidar sus necesidades. San Miguel consejos",
+    "comentarios": []
+  },
+  {
+    "id": "peh-ejemplo-006",
+    "demo": true,
+    "usuarioId": "PEH-EJEMPLO-AUTOR-6",
     "autor": "Javier Morales",
-    "avatar": "👨",
     "categoria": "preguntas",
-    "textoBusqueda": "perro rescatado desconfiado miedo adaptacion pregunta",
-    "tiempo": "hace 2 días",
-    "titulo": "¿Es normal que un perro rescatado sea desconfiado al inicio?",
-    "parrafos": [
-      "Adoptamos hace poco y aún le cuesta acercarse a nosotros. Queremos darle su tiempo, pero nos gustaría saber si este comportamiento es habitual y qué podemos hacer para ayudarlo. ¡Gracias! 😊"
-    ],
-    "contenido": "Adoptamos hace poco y aún le cuesta acercarse a nosotros. Queremos darle su tiempo, pero nos gustaría saber si este comportamiento es habitual y qué podemos hacer para ayudarlo. ¡Gracias! 😊",
-    "imagenesEjemplo": [],
-    "comentarios": [
-      {
-        "id": "peh-demo-3-comentario-0",
-        "publicacionId": "peh-demo-3",
-        "autor": "Paula:",
-        "texto": "Sí, algunos necesitan bastante tiempo para sentirse seguros. Mucha paciencia. 🧡",
-        "respuestaA": null
-      }
-    ],
-    "imagen": null
+    "contenido": "Nuestro gato disfruta mucho jugar con cajas y juguetes sencillos. Queremos sumar actividades dentro de casa y nos gustaría saber cuáles prefieren los suyos. ¿Tienen alguna idea que les haya funcionado?",
+    "ubicacion": "Peñalolén",
+    "imagen": null,
+    "fechaCreacion": "2026-11-06T15:00:00.000Z",
+    "textoBusqueda": "Nuestro gato disfruta mucho jugar con cajas y juguetes sencillos. Queremos sumar actividades dentro de casa y nos gustaría saber cuáles prefieren los suyos. ¿Tienen alguna idea que les haya funcionado? Peñalolén preguntas",
+    "comentarios": []
   }
 ];
-export function categoriaValida(valor) {
- return valor === "actividades" ? "jornadas" : Object.hasOwn(categorias,valor) ? valor : "todas";
-}
-export function normalizarTexto(texto) {
- return String(texto || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/\s+/g," ").trim();
-}
-export function textoBusquedaPublicacion(p) {
- return p.demo ? p.textoBusqueda : normalizarTexto(`${p.contenido} ${p.ubicacion || ""} ${categorias[p.categoria] || "Comunidad"}`);
-}
-export function coincidePublicacion(p,categoria,busqueda) {
- return (categoria === "todas" || p.categoria === categoria) && normalizarTexto(textoBusquedaPublicacion(p)).includes(normalizarTexto(busqueda));
-}

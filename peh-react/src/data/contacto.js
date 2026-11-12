@@ -1,17 +1,11 @@
-export const motivos = {
-  "adopcion": {
-    "nombre": "Adopciones",
-    "descripcion": "Dudas sobre solicitudes, requisitos o el proceso de adopción."
-  },
-  "veterinaria": {
-    "nombre": "Veterinaria",
-    "descripcion": "Consultas relacionadas con reservas o atención veterinaria."
-  },
-  "soporte": {
-    "nombre": "Soporte general",
-    "descripcion": "Problemas con tu cuenta, publicaciones o funcionamiento de PEH."
-  }
-};
+/* Preguntas frecuentes y configuración del formulario de contacto.
+ * Configuración fija; los datos escritos por usuarios se gestionan en services.
+ */
+
+
+// El selector incluye «Otro»; los accesos rápidos usan solo los tres motivos principales.
+
+
 export const preguntas = [
   [
     "¿Cómo inicio un proceso de adopción?",
@@ -31,3 +25,7 @@ export const preguntas = [
   ]
 ];
 export const asuntosSugeridos = {adopcion:"Consulta sobre adopción",veterinaria:"Consulta veterinaria",soporte:"Consulta de soporte"};
+
+export const contactoVacio = { nombre: "", correo: "", motivo: "", asunto: "", mensaje: "" };
+
+export const camposContacto = ["nombre", "correo", "motivo", "asunto", "mensaje"];

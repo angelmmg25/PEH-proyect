@@ -1,7 +1,14 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./styles/style.css";
-import "./styles/cancelarProceso.css";
+import "./styles/global.css";
+import "./styles/principal.css";
+import "./styles/login.css";
+import "./styles/veterinaria.css";
+import "./styles/contacto.css";
+import "./styles/perfil.css";
+import "./styles/comunidad.css";
+import "./styles/animal.css";
+import "./styles/administracion.css";
 import App from "./App.jsx";
 createRoot(document.getElementById("root")).render(<StrictMode><App /></StrictMode>);

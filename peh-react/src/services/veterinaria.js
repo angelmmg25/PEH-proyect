@@ -1,21 +1,22 @@
-import PEH from "./peh.js";
-import { servicios, horarios } from "../data/veterinaria.js";
+/* Validación, horarios y reservas de la vista Veterinaria.
+ * Las reglas y los datos compartidos se obtienen de global.js.
+ */
+import PEH, { fechaLocal, horarioFuturo, instanteCitaChile, claveBorrador, leerBorrador, guardarBorrador, borrarBorrador, correoValido, errorTelefono, errorComuna, normalizarTelefono, errorNombrePersona } from './global.js';
+// Se conserva la interfaz usada por las vistas y pruebas de Veterinaria.
+export { momentoChile, fechaLocal, horarioFuturo, instanteCitaChile } from './global.js';
 
-import { correoValido, errorTelefono, errorComuna, normalizarTelefono, errorNombrePersona } from "./datosCuenta.js";
 
-export const camposReserva=["responsableNombre","responsableCorreo","responsableTelefono","responsableComuna","servicio","mascota","mascotaNombre","fecha","hora","observaciones"];
-export function fechaLocal(fecha=new Date()) {
- return `${fecha.getFullYear()}-${String(fecha.getMonth()+1).padStart(2,"0")}-${String(fecha.getDate()).padStart(2,"0")}`;
-}
+import { servicios } from '../data/veterinaria.js';
+import { horarios } from '../data/global.js';
+
+
+
+import { camposReserva } from '../data/veterinaria.js';
+export { camposReserva } from '../data/veterinaria.js';
 export function fechaValida(valor,ahora=new Date()) {
- if(!/^\d{4}-\d{2}-\d{2}$/.test(valor || ""))return false;
- const [anio,mes,dia]=valor.split("-").map(Number);
- const comprobacion=new Date(anio,mes-1,dia);
- return comprobacion.getFullYear()===anio && comprobacion.getMonth()===mes-1 && comprobacion.getDate()===dia && valor>=fechaLocal(ahora);
-}
-export function horarioFuturo(fecha,hora,ahora=new Date()) {
- const cita=new Date(`${fecha}T${hora}:00`);
- return !Number.isNaN(cita.getTime()) && cita.getTime()>ahora.getTime();
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(valor || ''))return false;
+ const [anio,mes,dia]=valor.split('-').map(Number), comprobacion=new Date(Date.UTC(anio,mes-1,dia));
+ return comprobacion.getUTCFullYear()===anio && comprobacion.getUTCMonth()===mes-1 && comprobacion.getUTCDate()===dia && valor>=fechaLocal(ahora);
 }
 // Reglas y mensajes de veterinaria.js, separados de la presentación de React.
 export function validarCampoReserva(campo,datos,ahora=new Date()) {
@@ -67,7 +68,7 @@ export function registrarReserva(datos,ahora=new Date()) {
  const error=validarReserva(datos,ahora);
  if(error)return {ok:false,mensaje:error};
  const responsable={responsableNombre:String(datos.responsableNombre).trim(),responsableCorreo:String(datos.responsableCorreo).trim().toLowerCase(),responsableTelefono:normalizarTelefono(datos.responsableTelefono),responsableComuna:String(datos.responsableComuna).trim()};
- const reserva={...responsable,servicio:datos.servicio,servicioNombre:servicios.find(s=>s.id===datos.servicio)?.nombre || "",mascota:datos.mascota,mascotaTipo:datos.mascota,mascotaNombre:String(datos.mascotaNombre).trim(),fecha:datos.fecha,hora:datos.hora,observaciones:String(datos.observaciones || "").trim(),estado:"Pendiente"};
+ const reserva={...responsable,servicio:datos.servicio,servicioNombre:servicios.find(s=>s.id===datos.servicio)?.nombre || "",mascota:datos.mascota,mascotaTipo:datos.mascota,mascotaNombre:String(datos.mascotaNombre).trim(),fecha:datos.fecha,hora:datos.hora,observaciones:String(datos.observaciones || "").trim(),estado:"Confirmada"};
  try {
   const duplicada=PEH.reservas.listar(usuario.id).some(item=>!["cancelada","rechazada","anulada"].includes(String(item.estado || "").toLowerCase()) && item.usuarioId===usuario.id && item.fecha===reserva.fecha && item.hora===reserva.hora && String(item.mascotaNombre || "").trim().toLowerCase()===reserva.mascotaNombre.toLowerCase());
   if(duplicada)return {ok:false,mensaje:"Ya tienes una reserva para esta mascota en la misma fecha y hora."};
@@ -76,32 +77,39 @@ export function registrarReserva(datos,ahora=new Date()) {
  } catch { return {ok:false,mensaje:"Ocurrió un problema al guardar la reserva. Revisa la consola para más detalles."}; }
 }
 
-export const reservaVacia = Object.freeze(Object.fromEntries(camposReserva.map(c=>[c, ""])));
+import { reservaVacia } from '../data/veterinaria.js';
+export { reservaVacia } from '../data/veterinaria.js';
 export function responsableInicialReserva() {
  const usuario=PEH.sesion.obtener();
  if(!usuario?.id || usuario.invitado)return {};
- const cuenta=PEH.cuentas.obtenerPorId(usuario.id) || {}, perfil=PEH.perfil.obtener();
+ const cuenta=usuario.origen === "local" ? usuario : PEH.cuentas.obtenerPorId(usuario.id) || {}, perfil=usuario.origen === "local" ? {} : PEH.perfil.obtener();
  return {responsableNombre:perfil.nombre && perfil.nombre!==cuenta.nombre ? perfil.nombre : [cuenta.nombre,cuenta.apellido].filter(Boolean).join(" "),responsableCorreo:perfil.correo || cuenta.correo || "",responsableTelefono:perfil.telefono ?? cuenta.telefono ?? "",responsableComuna:perfil.comuna ?? cuenta.comuna ?? ""};
 }
-function claveBorradorReserva() {
- const usuario=PEH.sesion.obtener();
- return usuario?.id && !usuario.invitado ? "peh_borrador_veterinaria_v1:" + encodeURIComponent(usuario.id) : null;
-}
+// Adaptador de los campos veterinarios sobre la persistencia compartida de borradores.
 export function leerBorradorReserva() {
- const clave=claveBorradorReserva();
- if(!clave)return null;
- try {
-  const d=JSON.parse(localStorage.getItem(clave));
-  if(!d || typeof d!=="object" || Array.isArray(d))return null;
-  return Object.fromEntries(camposReserva.filter(c=>typeof d[c]==="string").map(c=>[c,d[c]]));
- } catch {return null;}
+ const datos = leerBorrador(claveBorrador("veterinaria"));
+ if (!datos || typeof datos !== "object" || Array.isArray(datos)) return null;
+ return Object.fromEntries(camposReserva.filter(campo => typeof datos[campo] === "string").map(campo => [campo, datos[campo]]));
 }
 export function guardarBorradorReserva(datos) {
- const clave=claveBorradorReserva();if(!clave)return false;
- try {localStorage.setItem(clave,JSON.stringify(Object.fromEntries(camposReserva.map(c=>[c,String(datos[c] ?? "")]))));return true;}catch{return false;}
+ const campos = Object.fromEntries(camposReserva.map(campo => [campo, String(datos[campo] ?? "")]));
+ return guardarBorrador(claveBorrador("veterinaria"), campos);
 }
 export function eliminarBorradorReserva() {
- const clave=claveBorradorReserva();if(!clave)return false;
- try {localStorage.removeItem(clave);return true;}catch{return false;}
+ return borrarBorrador(claveBorrador("veterinaria"));
 }
 export function datosInicialesReserva() {return {...reservaVacia,...responsableInicialReserva(),...(leerBorradorReserva() || {})};}
+
+export function normalizarReserva(d) {
+ const hora=String(d.hora||'').slice(0,5),instante=instanteCitaChile(d.fecha,hora);
+ return {...d,hora,servicioNombre:servicios.find(s=>s.id===d.servicio)?.nombre||d.servicioNombre,mascotaTipo:d.mascota,instanteCita:instante?.toISOString(),historialCambios:Array.isArray(d.historialCambios)?d.historialCambios:[]};
+}
+export async function listarMisReservas() { return PEH.reservas.listar().map(normalizarReserva); }
+export async function cancelarMiReserva(id) {
+ const r=PEH.reservas.obtener(id);
+ if(!r)throw new Error('La reserva no está disponible para tu cuenta.');
+ if(!['Pendiente','Confirmada'].includes(r.estado))throw new Error('Esta reserva ya finalizó.');
+ const cambios={estado:'Cancelada',fechaEstado:new Date().toISOString(),historialCambios:[...(r.historialCambios||[]),{estado:'Cancelada',fechaCreacion:new Date().toISOString()}]};
+ if(!PEH.reservas.actualizar(id,cambios))throw new Error('No pudimos cancelar la reserva.');
+ return normalizarReserva(PEH.reservas.obtener(id));
+}
